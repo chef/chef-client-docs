@@ -1,0 +1,20 @@
+###
+# https://gohugo.io/templates/output-formats/
+# Custom output formats produce custom data files when hugo builds the site.
+#
+# REDIR produces a _redirects file of redirects that Netlify uses to process redirects
+#
+# release-data produces a JSON file at release-data.json that contains data about each release.
+# The data comes from config/production/params.toml.
+###
+
+[REDIR]
+  mediatype = "text/netlify"
+  baseName = "_redirects"
+  isPlainText = true
+  notAlternative = true
+
+[release-data]
+  mediaType = 'text/release-data'
+  baseName = 'release-data'
+  isPlainText = true

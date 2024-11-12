@@ -1,0 +1,44 @@
+#######
+## Site-level Parameters
+#######
+
+#######
+# menuOrder = The order of the menus are included in the left nav menu.
+#             Menus are defined in the /config/_default/menu.toml file
+#######
+
+menuOrder = ["landing_page", "licensing", "install", "get_started", "migrate", "hab", "kitchen"]
+
+#######
+# robots = The default robots config applied to each page in the robots meta tag. See http://www.robotstxt.org/meta.html
+#######
+
+robots = ''
+breadcrumbs = true
+
+#############
+# Parameters specifically for Chef 360 Platform
+#############
+
+###
+# gh_path = The URL path to the content directory
+#           This creates the "Edit this page on GitHub" button at the bottom of each page with the correct URL.
+#           Each page must also have gh_repo = "<REPO>" in the page frontmatter.
+#           Don't use this with private repos.
+###
+
+[chef-client]
+  gh_path = "https://github.com/chef-client-docs/chef-web-docs/blob/main/content/"
+
+### Version dropdown ##########
+#
+# This section populates the version number dropdown menu.
+# Add a table for each version included in the dropdown menu.
+#
+# version = The version number for a release.
+# base_url = The base URL for a release. For example, `https://docs.chef.io/chef_360/<MAJ>.<MIN>`
+###############################
+
+[[chef-client.versions]]
+version = ""
+base_url = ""
