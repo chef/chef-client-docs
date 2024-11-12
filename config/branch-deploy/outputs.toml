@@ -1,0 +1,10 @@
+###
+# https://gohugo.io/templates/output-formats/#output-formats-for-pages
+#
+# The outputs for each page kind (home, section).
+# The custom outputs (REDIR and release-data) are defined in the outputformats.toml file.
+###
+
+
+home = [ "HTML", "RSS", "REDIR", "release-data" ]
+section = [ "HTML", "RSS" ]

@@ -1,0 +1,10 @@
+###
+# https://gohugo.io/templates/output-formats/
+#
+# Definition for each media type in the the outputformats.toml file.
+# ###
+
+["text/netlify"]
+  delimiter = ""
+["text/release-data"]
+  suffixes = ['json']
