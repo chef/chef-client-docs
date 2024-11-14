@@ -1,6 +1,7 @@
-# chef-client-docs
+<!-- markdownlint-disable-next-line MD002 -->
+# Chef Infra Client docs
 
-Documentation for Chef Infra Client
+Documentation for Chef Infra Client.
 
 ## Versions
 
