@@ -37,7 +37,7 @@ Examples:
 
 ### Images
 
-Add images to `static/images/chef-360/`.
+Add images to `static/images/`.
 
 #### Alt text
 
@@ -46,7 +46,7 @@ All images must have alt text. See the [W3C WAI guidelines for alt text](https:/
 Example:
 
 ```md
-![alt text](static/images/chef-360/image.png)
+![alt text](static/images/image.png)
 ```
 
 #### Images of text
@@ -113,14 +113,13 @@ Run `netlify dev` to preview the site using the Netlify CLI.
 
 ## Netlify deployment
 
-Netlify deploys content in the `main` branch of this repository to [<https://chef-360.netlify.app>](https://chef-360.netlify.app).
-Currently, it's protected with the password `Agentless-artifacts-enable-development-deployments`.
+Netlify deploys content in the `main` branch of this repository to [<https://chef-infra-client.netlify.app/>](https://chef-infra-client.netlify.app/).
 
 ### Versioning
 
 1. Create a branch of this repo in the following format: `release-<MAJ>.<MIN>`.
 
-1. On the [Netlify site](https://app.netlify.com) add a [branch deploy](https://docs.netlify.com/site-deploys/overview/#set-up-a-branch-deploy-for-specific-branches) for that branch in the chef-360 site configuration.
+1. On the [Netlify site](https://app.netlify.com) add a [branch deploy](https://docs.netlify.com/site-deploys/overview/#set-up-a-branch-deploy-for-specific-branches) for that branch in the site configuration.
 
-1. Push the branch up to GitHub. Netlify automatically builds a deployment of that branch at `release-<MAJ>.<MIN>--chef-360.netlify.app/360/<MAJ>.<MIN>`.
+1. Push the branch up to GitHub. Netlify automatically builds a deployment of that branch at `release-<MAJ>.<MIN>--chef-infra-client.netlify.app/client/<MAJ>.<MIN>`.
    Any changes merged into that branch are automatically deployed.
