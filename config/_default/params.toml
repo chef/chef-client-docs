@@ -2,6 +2,8 @@
 ## Site-level Parameters
 #######
 
+product_name = "Chef Infra Client"
+
 #######
 # menuOrder = The order of the menus are included in the left nav menu.
 #             Menus are defined in the /config/_default/menu.toml file
@@ -14,11 +16,15 @@ menuOrder = ["landing_page", "licensing", "install", "get_started", "migrate", "
 #######
 
 robots = ''
+
+#######
+# breadcrumbs = Whether breadcrumbs are enabled.
+#               See https://gohugo.io/content-management/sections/#ancestors-and-descendants
+#
+# breadcrumb_base = adds an additional link back to docs.chef.io (or some other link)
+#######
 breadcrumbs = true
 
-#############
-# Parameters specifically for Chef 360 Platform
-#############
 
 ###
 # gh_path = The URL path to the content directory
@@ -28,17 +34,44 @@ breadcrumbs = true
 ###
 
 [chef-client]
-  gh_path = "https://github.com/chef-client-docs/chef-web-docs/blob/main/content/"
+  gh_path = "https://github.com/chef/chef-client-docs/blob/main/content/"
+
+
+########
+# version_selector = Whether to enable a version selector allowing users to switch between doc versions.
+#                    See "versions" below to define versions used in dropdown menu.
+#######
+# version_selector = true
 
 ### Version dropdown ##########
 #
 # This section populates the version number dropdown menu.
-# Add a table for each version included in the dropdown menu.
+#
+# 1. Add a table for each version included in the dropdown menu.
+# 2. Tables must be in reverse SemVer order.
 #
 # version = The version number for a release.
 # base_url = The base URL for a release. For example, `https://docs.chef.io/chef_360/<MAJ>.<MIN>`
 ###############################
 
-[[chef-client.versions]]
-version = ""
-base_url = ""
+# [[versions]]
+# version = "RC1"
+# base_url = "https://docs.chef.io/client/rc1"
+
+#################
+#
+# Data for this version.
+# version = The version this branch documents. `<MAJ>.<MIN>`
+#           version is required if version_selector = true
+# release_date = The release date in ISO 8601 format: `YYYY-MM-DD`.
+# github_branch = The repo branch for this version. For example, `release-<MAJ>.<MIN>`.
+# deprecated = Whether this version is deprecated. `true` or `false`.
+# eol = Whether this version is EOL. `true` or `false`.
+#################
+
+# [release_data]
+# version = "1.0"
+# release_date = "2024-07-02"
+# deprecated = false
+# eol = false
+# github_branch = "release-1.0"
