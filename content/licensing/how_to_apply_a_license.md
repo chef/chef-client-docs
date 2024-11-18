@@ -187,6 +187,18 @@ The URL for the acceptance environment is https://licensing-acceptance.chef.co/L
 | trial       | tmns-6544d799-f03c-4060-9b16-8b731cab93ba-9098 | Expired         | License is entitled to both Infra and InSpec |
 | free        | free-55eef3a8-2506-4b4c-927d-dd3c1245569d-872 | Active          | License is entitled to both Infra and InSpec |
 
+## License keys for the acceptance environment
+
+| Type        | Key                                          | Validity Status | Notes                                      |
+|-------------|---------------------------------------------|-----------------|--------------------------------------------|
+| commercial  | 5fd13cca-14b7-42b9-ad47-d52a0630c1ae        | Active          | License is entitled to both InSpec & Infra |
+| commercial  | f5567204-f2d2-43b2-82a8-6359acfa3fb8        | Active          | License is entitled to Infra but not to InSpec. |
+| commercial  | d0ad2bbb-707a-4ae6-b399-6ab8222e78b4        | Active          | License is entitled to InSpec but not Infra |
+| commercial  | 9bc21f5f-e1c7-496f-8b97-c7aba9a3aaa8        | Expired         | License is entitled to both Infra & InSpec |
+| trial       | tmns-0552c71e-ad20-4779-9bf3-19175a6a773d-9181 | Active       | License is entitled to both Infra & InSpec |
+| trial       | tmns-6544d799-f03c-4060-9b16-8b731cab93ba-9098 | Expired      | License is entitled to both Infra & InSpec |
+| free        | free-55eef3a8-2506-4b4c-927d-dd3c1245569d-872 | Active        | License is entitled to both Infra & InSpec |
+
 ## License keys for the production environment
 
 | Type  | Key                                         | Validity Status | Notes                                                 |
