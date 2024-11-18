@@ -55,4 +55,4 @@ To set the license server URL for the acceptance environment, use the following 
 
 This sets the `CHEF_LICENSE_SERVER` environment variable to direct it to the acceptance environment of the licensing server.
 
-You can proceed to use Chef Infra with one of the license keys provided in the “License Keys for the Acceptance Environment” section above.
+You can proceed to use Chef Infra with one of the license keys provided in the [License Keys for the Acceptance Environment]({{< relref "how_to_apply_a_license/#license-keys-for-the-acceptance-environment" >}}) section.
