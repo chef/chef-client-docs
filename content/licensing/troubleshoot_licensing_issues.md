@@ -11,7 +11,7 @@ weight = 12
 
 Refer to the following sections for details on troubleshooting licensing issues.
 
-## License is Not Entitled to Use Infra
+## License is not entitled to use Infra
 
 This error occurs when the license key set with Chef Infra is not entitled to use Chef Infra. Each license key is associated with one or more Chef products.
 
@@ -21,7 +21,7 @@ To troubleshoot:
 
 Refer to the Chef Licensing documentation for more information on setting appropriate entitlements.
 
-## Unable to Connect to the Licensing Server
+## Unable to connect to the licensing server
 
 Chef Infra requires communication with the Chef licensing service or a user-deployed Chef Local License Service to validate the license key. If it cannot connect, check the following possible causes:
 
@@ -34,7 +34,7 @@ Chef Infra requires communication with the Chef licensing service or a user-depl
 
 If the issue persists, contact the Chef Customer Success or Support Team for assistance.
 
-## Invalid File Format Version
+## Invalid file format version
 
 Chef licensing data is stored in the `$HOME/.chef/licenses.yaml` file. This error may indicate an unsupported or invalid file format version in the `licenses.yaml` file.
 
@@ -42,7 +42,7 @@ To resolve:
 
 - Restore the `licenses.yaml` file to its original state or ensure it has the latest supported file format version.
 
-## License File Contents are Corrupted
+## License file contents are corrupted
 
 Corruption of the `$HOME/.chef/licenses.yaml` file (where Chef licensing data is stored) can result in errors.
 
@@ -50,6 +50,6 @@ To troubleshoot:
 
 - Restore the contents of the `licenses.yaml` file to the original state to correct any corruption.
 
-## Support Contact
+## Support contact
 
 For any licensing issues, contact [chef-sales@progress.com](mailto:chef-sales@progress.com) with your license details, error logs, and a description of the issue.
