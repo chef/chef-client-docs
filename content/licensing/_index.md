@@ -27,7 +27,7 @@ Infra Client offers three main types of licenses. These are described in the fol
 ### Free License
 
 - **Description:** A no-cost license with access to essential features. This is intended for smaller environments.
-- **Limitations:** Restricted by the number of allowed nodes.
+- **Limitations:** Restricted by the number of allowed nodes (10).
 - **Support:** Community support channels only. There is no access to dedicated or premium support.
 
 ### Trial License
