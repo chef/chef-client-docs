@@ -6,7 +6,7 @@ set -eoux pipefail
 # Generate Netlify build previews
 ###
 
-DART_SASS_VERSION="1.72.0"
+DART_SASS_VERSION="1.81.0"
 RELEASE_VERSION=$(echo $HEAD | sed 's/.*-//')
 DESTINATION="./public/client/$RELEASE_VERSION"
 BASE_URL="https://docs.chef.io/client/$RELEASE_VERSION"
