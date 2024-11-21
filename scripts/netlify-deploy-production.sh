@@ -6,7 +6,7 @@ set -eoux pipefail
 # Generate Netlify build previews
 ###
 
-DART_SASS_VERSION="1.72.0"
+DART_SASS_VERSION="1.81.0"
 DESTINATION="./public"
 
 echo Release version: Current
