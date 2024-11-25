@@ -1,9 +1,9 @@
 +++
-title = "Test Kitchen"
-linkTitle = "Test Kitchen"
+title = "Installing Test Kitchen Enterprise"
+linkTitle = "Installing Test Kitchen Enterprise"
 
 [menu.kitchen]
-title = "Overview"
+title = "Installing Test Kitchen Enterprise"
 identifier = "kitchen/overview"
 parent = "kitchen"
 weight = 10

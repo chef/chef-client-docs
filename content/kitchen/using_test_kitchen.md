@@ -31,7 +31,7 @@ kitchen version
 
 ## Supported drivers, provisioners, and verifier
 
-For the RC1 release, only the kitchen-dokken plugin is supported. This allows us to leverage the Dokken driver to create platform containers and use the Dokken provisioner for configuring the Chef Infra Client 19 within those containers. By default, Dokken employs the `chef/chef-hab` Docker image to establish the Chef Infra Client 19 on the container through a Habitat-based methodology.
+For the RC1 release, only the kitchen-dokken plugin is supported. This allows us to leverage the Dokken driver to create platform containers and use the Dokken provisioner for configuring the Chef Infra Client 19 within those containers. By default, Dokken employs the `chef/chef-hab` Docker image to establish the Chef Infra Client 19 on the container through a Habitat-based methodology. The default verifier is InSpec 6.
 
 ### Sample kitchen.yml for Chef Infra Client 19
 
