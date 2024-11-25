@@ -11,7 +11,7 @@ weight = 11
 
 The release of the Chef Infra 19 introduced a few licensing-related changes to the test-kitchen to ensure compatibility with Infra 19. Test-kitchen needs to comply with the licensing changes for chef-19, however, there is no benefit to the community and hence those changes are not pushed up to test-kitchen/test-kitchen. Instead, we forked chef/test-kitchen.
 
-As part of the forking process, test kitchen has been rebranded to Chef Test Kitchen Enterprise, with the version commencing at 1.0.0. Additionally, the repository has been renamed to chef/chef-test-kitchen-enterprise. There are no changes to how we invoke test-kitchen; this update primarily focuses on branding modifications.
+As part of the forking process, test kitchen has been re-branded to Chef Test Kitchen Enterprise, with the version commencing at 1.0.0. Additionally, the repository has been renamed to chef/chef-test-kitchen-enterprise. There are no changes to how we invoke test-kitchen; this update primarily focuses on branding modifications.
 
 ## Installation
 

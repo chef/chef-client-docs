@@ -1,9 +1,9 @@
 +++
-title = "Troubleshoot Licensing Issues"
-linkTitle = "Troubleshoot Licensing Issues"
+title = "Troubleshoot licensing issues"
+linkTitle = "Troubleshoot licensing issues"
 
 [menu.licensing]
-title = "Troubleshoot Licensing Issues"
+title = "Troubleshoot licensing issues"
 identifier = "licensing/troubleshoot"
 parent = "licensing"
 weight = 12
@@ -15,7 +15,8 @@ Refer to the following sections for details on troubleshooting licensing issues.
 
 This error occurs when the license key set with Chef Infra is not entitled to use Chef Infra. Each license key is associated with one or more Chef products.
 
-To troubleshoot:
+To troubleshoot:`
+
 - Run the `chef-client license list` command to view the products your key is entitled to.
 - If Chef Infra is not listed, set a license key that is entitled to Chef Infra.
 

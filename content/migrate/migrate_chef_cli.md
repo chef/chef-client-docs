@@ -29,9 +29,11 @@ chef-migrate-cli --help
 The `apply` command executes the migration process by applying the necessary changes to transition from an Omnibus-based installation to a Habitat-based installation.
 
 - **Usage:**
+
     ```sh
     chef-migrate apply [command]
     ```
+
 - **Sub-commands:**
   - **airgap:** Performs the migration using an airgapped bundle. This is suitable for environments where the target machines do not have internet access. All necessary resources must be pre-packaged and available locally.
   - **online:** Performs the migration using network-connected resources. This option requires an active internet connection to download the required assets during the migration process.

@@ -1,9 +1,9 @@
 +++
-title = "How to Apply a License"
-linkTitle = "How to Apply a License"
+title = "How to apply a license"
+linkTitle = "How to apply a license"
 
 [menu.licensing]
-title = "How to Apply a License"
+title = "How to apply a license"
 identifier = "licensing/apply"
 parent = "licensing"
 weight = 11
@@ -175,7 +175,7 @@ This capability is basic and you must synchronize the license servers, otherwise
 
 During testing, you will need sample license keys to enter into the CLI. Below are some keys you can use.
 
-The URL for the acceptance environment is https://licensing-acceptance.chef.co/License, and for the production environment, it is https://services.chef.io/licensing.
+The URL for the acceptance environment is `https://licensing-acceptance.chef.co/License`, and for the production environment, it is `https://services.chef.io/licensing`.
 
 | Type        | Key                                         | Validity Status | Notes                                    |
 |-------------|---------------------------------------------|-----------------|------------------------------------------|
