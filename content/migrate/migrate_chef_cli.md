@@ -9,18 +9,12 @@ parent = "migrate"
 weight = 12
 +++
 
-The Chef Migrate Tool is a powerful, flexible, and easy-to-use Command-Line Interface (CLI) tool designed for seamless migration from earlier versions of Chef Infra Client to the latest Chef Infra Client (version 19). This tool facilitates a smooth transition from a Chef Infra Client Omnibus-based installation to a Chef Infra Client Habitat-based installation. The Chef Migrate Tool offers a range of commands that ensure a controlled and efficient migration process, making it suitable for both simple environments and complex infrastructures:
+The Chef Migrate Tool is a powerful, flexible, and easy-to-use Command-Line Interface (CLI) tool designed for seamless migration from earlier versions of Chef Infra Client to the latest Chef Infra Client (version 19). This tool facilitates a smooth transition from a Chef Infra Client Omnibus-based installation to a Chef Infra Client Habitat-based installation.
 
 `apply`
 : Performs the migration by applying changes
 
-`assess`
-: Performs a pre-flight assessment check
-
-`remove`
-: Uninstalls Chef Infra Client
-
-The tool supports both online and air-gapped migrations, enabling flexibility depending on network connectivity and security constraints. It also includes options to assess the migration feasibility and remove existing installations, making it a comprehensive solution for Chef Infra Client upgrades.
+The tool supports both online and air-gapped migrations, enabling flexibility depending on network connectivity and security constraints.
 
 ## Command overview
 
