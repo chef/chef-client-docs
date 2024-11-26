@@ -23,16 +23,6 @@ To test that Test Kitchen Enterprise is installed, check the version with:
 kitchen --version
 ```
 
-If you see the following output, Test Kitchen Enterprise is installed:
-
-```sh
-Test Kitchen version 3.6.0
-```
-
-{{< note >}}
-There is a bug in the output above - the folder is called 3.7.1 but the version command prints out a static string.
-{{< /note >}}
-
 {{< note >}}
 Windows is currently unsupported.
 {{< /note >}}
