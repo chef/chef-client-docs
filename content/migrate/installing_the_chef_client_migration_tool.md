@@ -47,15 +47,6 @@ echo $PATH (Linux)
 Get-ChildItem Env: (Windows)
 ```
 
-## Non-internet accessible ("airgap") installation
-
-If you are installing in an airgap (non-internet accessible) environment, run the `apply online` above (to get the Infra 19 RC1 Client tar file – it will be located in the /folder). Copy the tar file over to the airgap environment, along with the migration tool – either the application or the whole tar file. Only extract the migration tool, and run the airgap install using the flags below:
-
-- Path to the Chef Infra 19 RC1 `.tar.gz` file
-- `--license.server` The URL to the private/public licensing service (optional)
-
-Run the client and apply the license. For further details, refer to the following section: [How to Apply a License]({{< relref "how_to_apply_a_license" >}}).
-
 ## Using Docker Desktop to test the download
 
 Because the migration tool is only being released initially for the Linux x86_64 architecture, we are providing steps for you to use Docker Desktop (or a similar local container host) to practice using the migration tool with different combinations so that the desired flags can be automated.
