@@ -47,12 +47,6 @@ echo $PATH (Linux)
 Get-ChildItem Env: (Windows)
 ```
 
-Lastly, verify that the chef-client is installed correctly (this should return something like Chef Infra Client: 19.0.6):
-
-```sh
-chef-client --version
-```
-
 ## Non-internet accessible ("airgap") installation
 
 If you are installing in an airgap (non-internet accessible) environment, run the `apply online` above (to get the Infra 19 RC1 Client tar file – it will be located in the /folder). Copy the tar file over to the airgap environment, along with the migration tool – either the application or the whole tar file. Only extract the migration tool, and run the airgap install using the flags below:
