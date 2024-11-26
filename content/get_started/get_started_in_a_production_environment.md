@@ -13,16 +13,6 @@ The usage instructions are identical across all operating systems, with the only
 
 To get started in a production environment, follow these steps:
 
-1. Check the version of chef-client installed on your system:
-
-    ```sh
-    chef-client --version
-    ```
-
-    The output should match something like 19.x.y:
-
-    ![Version](/images/chef-client/get_started/version.png)
-
 1. Run the chef-client in local-mode using the `--why-run` flag, which is a type of Chef Infra Client run on your local that does everything except modify the system.
 1. Accept the EULA if prompted, which typically occurs during the first run of Chef products:
 
