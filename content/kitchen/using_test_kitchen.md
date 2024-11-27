@@ -18,7 +18,7 @@ As part of the forking process, test kitchen has been re-branded to Chef Test Ki
 The RC1 build of chef-test-kitchen-enterprise is primarily available as a Habitat package. The installation can be downloaded using the following command:
 
 ```sh
-sudo hab pkg install --binlink --force chef/chef-test-kitchen-enterprise
+sudo hab pkg install --binlink --force chef/chef-test-kitchen-enterprise --channel unstable
 ```
 
 The hab package is named `chef/chef-test-kitchen-enterprise`. By using the `--binlink` option, you can add the kitchen binary to your current path. Additionally, the `--force` flag allows you to overwrite any existing binaries.
@@ -40,6 +40,7 @@ For the RC1 release, only the kitchen-dokken plugin is supported. This allows us
 driver:
   name: dokken
   privileged: true
+  chef_version: unstable
 
 provisioner:
   name: dokken

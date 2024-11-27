@@ -14,7 +14,7 @@ To install the new Chef Test Kitchen Enterprise, first ensure you have the lates
 Then use the Habitat installer to get the latest package from the Habitat Builder site:
 
 ```sh
-hab pkg install chef/test-kitchen/3.7.1
+sudo hab pkg install --binlink --force chef/chef-test-kitchen-enterprise --channel unstable
 ```
 
 To test that Test Kitchen Enterprise is installed, check the version with:
