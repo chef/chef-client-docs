@@ -34,8 +34,8 @@ Lastly, run the migration using the online flags listed below:
 - `--fresh_install` (optional) to re-install a previous installation or when no previous Chef Client install exists.
 
 ```sh
-./chef-migrate apply online --download.url <URL> --license.key <KEY>
-./chef-migrate apply online --license.key f5567204-f2d2-43b2-82a8-6359acfa3fb8 --fresh_install
+./chef-migrate apply online --download.url <URL> --license.key <LICENSE_KEY>
+./chef-migrate apply online --license.key <LICENSE_KEY> --fresh_install
 ```
 
 Optionally, you can verify that the `\opt` directory (formerly the Omnibus installation directory) has symbolic links to the new, actual RC1 Infra Client in `\hab\pkgs\chef\chef-infra-client\19.0.6`.

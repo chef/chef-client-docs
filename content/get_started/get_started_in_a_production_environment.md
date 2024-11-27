@@ -26,7 +26,7 @@ To get started in a production environment, follow these steps:
 
 1. Select `I already have a license ID` and enter one of the license keys from the **License Keys for the Production Environment** table int he following section: [How to Apply a License]({{< relref "how_to_apply_a_license" >}}). Because an environment variable has not been set to use the acceptance environment of the license server, communication defaults to the production environment.
 
-    ![License validated successfully](/images/chef-client/get_started/license-validated-successfully.png)
+    ![License validated successfully](/images/chef-client/get_started/license-validated-successfully-edited.png)
 
 1. After entering one of the license keys, the run should proceed and complete successfully.
 
