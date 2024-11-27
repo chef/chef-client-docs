@@ -8,3 +8,5 @@ identifier = "get_started/overview"
 parent = "get_started"
 weight = 10
 +++
+
+Refer to the sub-sections for details on how to get started in a production or acceptance environment, and troubleshooting information.
