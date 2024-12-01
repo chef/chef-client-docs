@@ -1,0 +1,32 @@
+# Download Chef Infra Client Release Candidate 1
+
+-   [Introduction](#DownloadChefInfraClientReleaseCandidate)
+
+-   [Migration tool Link](#DownloadChefInfraClientReleaseCandidate)
+
+-   [Chef Client 19 RC1 Link](#DownloadChefInfraClientReleaseCandidate)
+
+### Introduction
+
+This article provides instructions for downloading and installing the
+Chef Infra Client and migration tool. Both tools are available in zipped
+tar format via the pre-signed URLs for S3 buckets listed below. Users
+should download and install the migration tool **first** to perform a
+new installation or migrate from previous versions of Chef Infra Client
+to Chef Infra Client 19 RC1.
+
+The download links for both the migration tool and Chef Infra Client RC1
+are valid for 90 days from November 26, 2024. Release Candidate 1 is
+supported only on Linux x86_64 systems.
+
+### Migration tool Link
+
+<https://chef-hab-migration-tool-bucket.s3.amazonaws.com/migration-tools_Linux_x86_64.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6LUYZUYOB&Signature=FMsMGzoZe1YTYA4DbpOIEB%2FHHSw%3D&Expires=1740411440>
+
+### Chef Client 19 RC1 Link
+
+This link is also referred to in the migration tool documentation as the
+\--download.url parameter. Users can copy this link and append it to the
+migration tool command line and do not need to download the Chef Client
+RC1 directly.\
+<https://unstable-habitat-tarball.s3.amazonaws.com/chef-chef-infra-client-19.0.54-20241121145703.tar.gz?AWSAccessKeyId=AKIA2L25YRBIC3WVJTRM&Signature=XDGliip78EyaiazMnbi7N8Pao%2Bk%3D&Expires=1740407376>
