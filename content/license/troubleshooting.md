@@ -36,8 +36,6 @@ If it can't connect, check the following possible causes:
   - If it's configured using the `--chef-license-server` CLI option, reset the URL with the same option, if needed.
 - **Logs and debugging:** Use the `--log-level` debug option in Chef Infra to check the detailed logs. Check the URL that Chef Infra is attempting to connect to for troubleshooting clues.
 
-If the issue persists, contact the Chef Customer Success or Support Team for assistance.
-
 ## Invalid file format version
 
 Chef licensing data is stored in the `$HOME/.chef/licenses.yaml` file. This error may indicate an unsupported or invalid file format version in the `licenses.yaml` file.
@@ -72,4 +70,4 @@ To troubleshoot:
 
 ## Support contact
 
-For any licensing issues, contact [chef-sales@progress.com](mailto:chef-sales@progress.com) with your license details, error logs, and a description of the issue.
+For any licensing issues, contact [Aditya V](mailto:aditya.v@progress.com) or [Ankur Mundra](mailto:ankur.mundra@progress.com) with your license details, error logs, and a description of the issue.
