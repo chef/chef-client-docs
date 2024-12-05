@@ -1,40 +1,103 @@
 +++
-title = "Download and Install Chef Infra Client"
+title = "Install Chef Infra Client"
 linkTitle = "Download and install"
 
 [menu.install]
-title = "Overview"
-identifier = "install/overview"
+title = "Install"
+identifier = "install/install"
 parent = "install"
-weight = 10
+weight = 20
 +++
 
-Chef Infra Client will be primarily downloaded and installed using the migration tool. For instructions relating to the migration tool, refer to the migration tool specific download instructions.
+This page documents how to do a clean install of Chef Infra Client RC1 using the Chef Infra Client migration tool on a system that doesn't have a previous version of Chef Infra Client installed.
 
-For RC1, Chef infra Client and the migration tool will be available through pre-signed URLs for S3 buckets where a Chef Infra Client tarball and migration tool utility is available for download.
+To upgrade to Chef Infra Client 19 RC1 from an earlier major version, see the [upgrade documentation]({{< relref "/upgrade" >}}).
+
+## Supported platforms
+
+Chef Infra Client 19 RC1 is supported on Linux x86-64 systems.
 
 ## Prerequisites
 
-Before you begin using Chef Infra 19 with its integrated licensing, follow these general instructions:
+- a valid Chef license key
 
-1. You can choose to work with either the "acceptance" or "production" environment for the licensing server.
-    - If you opt for the "acceptance" environment, you must set an environment variable. Regular customers do not need to perform this step.
-1. If any other version of Chef Infra is already installed on your system,  uninstall it before continuing.
-1. Install the Chef Infra 19 package. The installation process is the same as the existing and older versions of Chef Infra.
-1. Use one of the provided test license keys (when prompted) while running Chef Infra commands.
+## Install Chef Infra Client
 
-If you encounter any difficulties, feel free to comment on this page for support.
+1. Optional: Verify that Chef Infra Client isn't already installed on your system:
 
-## Installation steps
+    ```sh
+    chef-client --version
+    ```
 
-Chef Infra Client 19 RC1 can be installed as a fresh install or as a migration from an existing version of Chef Infra Client using the migration tool. After the migration tool has been installed, use the following command to download and install Chef Infra Client RC1:
+1. Download the Chef Infra Client migration tool.
 
-```sh
-/chef-migrate --version
-```
+    To install the migration tool, first download the migration tool package from the URL provided by Chef using Wget or curl.
 
-Lastly, run the migration using the online flags, as follows:
+    Using curl:
 
-- `--download.url` with the location provided by Chef to download the Chef 19 RC1 Client. If the location is not supplied, this is the default Chef download API.
-- `--license.key` with the license key for the download URL.
-- `--fresh_install` (optional) to re-install a previous installation or when no previous Chef client install exists.
+    ```sh
+    curl -o chef-migration-tool.v1.tar.gz https://chef-hab-migration-tool-bucket.s3.amazonaws.com/migration-tools_Linux_x86_64.tar.gz\?AWSAccessKeyId\=AKIAW4FPVFT6LUYZUYOB\&Signature\=FMsMGzoZe1YTYA4DbpOIEB%2FHHSw%3D\&Expires\=1740411440
+    ```
+
+    Using Wget:
+
+    ```sh
+    wget -o "chef-migration-tool.v1.tar.gz" "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/migration-tools_Linux_x86_64.tar.gz\?AWSAccessKeyId\=AKIAW4FPVFT6LUYZUYOB\&Signature\=FMsMGzoZe1YTYA4DbpOIEB%2FHHSw%3D\&Expires\=1740411440"
+    ```
+
+    {{< note >}}
+
+    If the command line below doesn't fetch the migration tool file, add quotes around the S3 bucket URL---some shell environments don't interpret the path correctly.
+
+    {{< /note >}}
+
+1. Extract the migration tool in a temporary directory.
+
+    Use the `-C` flag select a directory to unzip and un-tar the files.
+
+    ```sh
+    tar -xvf chef-migration-tool.v1.tar.gz -C /path/to/folder
+    ```
+
+1. Optional: Verify that the migration tool is installed.
+
+    ```sh
+    cd /path/to/folder
+    ./chef-migrate --help
+    ```
+
+    The migration tool returns available commands and usage guidelines.
+
+1. Install Chef Infra Client RC1 with the migration tool using the `apply online` command:
+
+    ```sh
+    sudo ./chef-migrate apply online --fresh_install --preserve true --download.url "https://unstable-habitat-tarball.s3.amazonaws.com/chef-chef-infra-client-19.0.54-20241121145703.tar.gz?AWSAccessKeyId=AKIA2L25YRBIC3WVJTRM&Signature=XDGliip78EyaiazMnbi7N8Pao%2Bk%3D&Expires=1740407376" --license.key <VALID_LICENSE_KEY>
+    ```
+
+    Replace `<VALID_LICENSE_KEY>` with a valid license key.
+
+    This command validates your Chef license, downloads Chef Infra Client from the specified download URL, and creates a fresh install of Chef Infra Client.
+
+    For more information about the URL used to download Chef Infra Client RC1, see the [downloads page]({{< relref "downloads" >}}).
+
+    {{< note >}}
+
+    Use the `--debug` CLI option to get additional information about the install process.
+
+    Logs are available in `/var/log/chef19migrate.log`.
+
+    {{< /note >}}
+
+1. Verify that Chef Infra Client 19 RC1 is installed:
+
+    ```sh
+    chef-client --version
+    ```
+
+    It returns version number 19.0.54 or greater.
+
+    You can also verify that Chef Infra Client is installed by finding it in the `/hab/pkgs/chef/chef-infra-client/19.0.54` directory.
+
+## Next step
+
+- Add a [Chef license]({{< relref "/license" >}}) to Chef Infra Client.
