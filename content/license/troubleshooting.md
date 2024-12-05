@@ -1,9 +1,8 @@
 +++
 title = "Troubleshoot licensing issues"
-linkTitle = "Troubleshoot licensing issues"
 
 [menu.licensing]
-title = "Troubleshoot licensing issues"
+title = "Troubleshooting"
 identifier = "licensing/troubleshoot"
 parent = "licensing"
 weight = 20

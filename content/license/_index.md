@@ -1,8 +1,9 @@
 +++
-title = "How to add a license in Chef Infra Client"
+title = "Apply a license in Chef Infra Client"
+linkTitle = "Apply a license"
 
 [menu.licensing]
-title = "How to apply a license"
+title = "Apply a license"
 identifier = "licensing/apply"
 parent = "licensing"
 weight = 11
