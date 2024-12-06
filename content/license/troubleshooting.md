@@ -28,12 +28,12 @@ Chef Infra requires communication with the Chef licensing service or a user-depl
 
 If it can't connect, check the following possible causes:
 
-- **Network connectivity:** Verify that the machine running Chef Infra has proper network connectivity and can reach the Chef licensing service or the Chef Local License Service. Ensure that firewalls and network settings aren't blocking access.
-- **Service availability:** If you're using a user-deployed Chef Local License Service, confirm that it's properly configured and operational. Any misconfigurations in the local license service can lead to connection issues.
-- **URL configuration:** If using a Chef Local License Service, confirm that the server URL is correctly configured:
-  - If it's configured with the `CHEF_LICENSE_SERVER` environment variable, verify the URL set in the environment variable.
-  - If it's configured using the `--chef-license-server` CLI option, reset the URL with the same option, if needed.
-- **Logs and debugging:** Use the `--log-level` debug option in Chef Infra to check the detailed logs. Check the URL that Chef Infra is attempting to connect to for troubleshooting clues.
+- **Network connectivity**: Verify that the machine running Chef Infra has proper network connectivity and can reach the Chef licensing service or the Chef Local License Service. Ensure that firewalls and network settings aren't blocking access.
+- **Service availability**: If you're using a user-deployed Chef Local License Service, confirm that it's properly configured and operational. Any misconfigurations in the local license service can lead to connection issues.
+- **URL configuration**: If using a Chef Local License Service, confirm that the server URL is correctly configured:
+  - If it's configured with the `CHEF_LICENSE_SERVER` environment variable, verify the URL.
+  - If it's configured using the `--chef-license-server` CLI option, reset the URL with the same option.
+- **Logs and debugging**: Use the `--log-level` debug option in Chef Infra to check the detailed logs. Check the URL that Chef Infra is attempting to connect to for troubleshooting clues.
 
 ## Invalid file format version
 
