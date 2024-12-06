@@ -60,22 +60,10 @@ title = "Licensing"
 identifier = "licensing"
 
 [[install]]
-title = "Download and install"
+title = "Install"
 identifier = "install"
 
-[[get_started]]
-title = "Get started"
-identifier = "get_started"
-
-[[migrate]]
-title = "Migration tools"
-identifier = "migrate"
-
-[[hab]]
-title = "Hab-based builds"
-identifier = "hab"
-
 [[kitchen]]
-title = "Test Kitchen"
+title = "Test Kitchen Enterprise"
 identifier = "kitchen"
 
