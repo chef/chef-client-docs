@@ -38,7 +38,7 @@ Chef Infra Client 19 RC1 is supported on Linux x86_64 systems.
 
     This may be a symbolic link to the actual folder where the `chef-client` CLI and other tools from a previous install resides.
 
-    You can use `ls -al` to identify any sybmolic links:
+    You can use `ls -al` to identify any symbolic links:
 
     ```sh
     ls -al /usr/bin

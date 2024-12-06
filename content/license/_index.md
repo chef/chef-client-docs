@@ -70,4 +70,3 @@ If you run a `chef-client` command, Chef Infra Client starts an interactive lice
     ```
 
     After entering the license key, Chef Infra Client verifies your license and the run completes.
-

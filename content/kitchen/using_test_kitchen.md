@@ -16,4 +16,4 @@ The [Test Kitchen documentation](https://kitchen.ci/docs/getting-started/creatin
 
 ## Habitat-based changes
 
-The Chef Infra Client 19 will be accessible using Habitat instead of the public Omnitruck APIs. Consequently, we have updated the provisioner to facilitate the installation of the Habitat-based Chef Infra Client, including passing through the license required from `kitchen.yml` file.
+The Chef Infra Client 19 will be accessible using Habitat instead of the public Omnitruck APIs. Consequently, we've updated the provisioner to facilitate the installation of the Habitat-based Chef Infra Client, including passing through the license required from `kitchen.yml` file.

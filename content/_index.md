@@ -31,7 +31,8 @@ Chef Infra Client 19 has the following key features:
 Key capabilities in Chef Infra Client 19 include:
 
 - Chef Infra Client 19 will be the long-term support (LTS) version, moving to Habitat-based packaging instead of traditional omnibus builds.
-- Test Kitchen Enterprise will be a foundational development tool for testing cookbooks and profiles across versions of Chef Infra Client.Chef InSpec will be fully supported by Chef in a modularized Chef Workstation toolkit.
+- Test Kitchen Enterprise will be a foundational development tool for testing cookbooks and profiles across versions of Chef Infra Client.
+  Chef InSpec will be fully supported by Chef in a modularized Chef Workstation toolkit.
 - Infra Client 19 and Test Kitchen Enterprise will utilize standard licensing for commercial, community, and trial customers.
 - Chef InSpec resource packs will be modularized to yield enhanced performance
 - The Chef Client Migration Tool will facilitate installation and upgrades from previous versions to Chef Infra 19, supporting side-by-side installations.
@@ -39,10 +40,10 @@ Key capabilities in Chef Infra Client 19 include:
 Some significant changes that customers moving to Chef Infra Client 19 should be aware of include:
 
 - RC1 is only supported on Linux x86-64 infrastructure; this will be broadened to include traditional Chef platforms in future releases.
-- Omnibus builds will not be provided for Infra Client and associated tools.​
+- Omnibus builds won't be provided for Infra Client and associated tools.
 - OS-native and Habitat-based packaging are provided.
 - Chef Workstation components will be modularized to provide better support for individual tools.
-- Chef InSpec resource packs will be modularized for Inspec as a part of the InSpec 7 LTS release (separate from the Infra Infra Client LTS release)
+- Chef InSpec resource packs will be modularized for Inspec as a part of the InSpec 7 LTS release (separate from the Infra Client LTS release)
 
 ## Chef Infra Client Migration Tool
 
@@ -52,6 +53,6 @@ The `chef-migrate` command-line tool supports:
 
 - New installation of Chef Infra Client 19.
 - Installation of Chef Infra Client 19 RC1, either by removing or leaving the previous version of Infra Client and running in side-by-side mode, with the path to the most recent version taking precedence.
-- Upgrading from Chef Infra Client 17.x and 18.x (also referred to as “Omnibus distributions”).
-- Upgrading to Chef Infra Client 19 RC1 and subsequent versions (also referred to as “Habitat-packaged”)
-- During the release candidate timeframe, automatically downloading from the new distribution point and checking prerequisites for the client.
+- Upgrading from Chef Infra Client 17.x and 18.x (also referred to as "Omnibus distributions").
+- Upgrading to Chef Infra Client 19 RC1 and subsequent versions (also referred to as "Habitat-packaged")
+- During the release candidate time frame, automatically downloading from the new distribution point and checking prerequisites for the client.

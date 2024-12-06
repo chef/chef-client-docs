@@ -23,12 +23,12 @@ During the verification phase, the license is transmitted to Chef Inspec through
 
 ## Which license is needed?
 
-As Test-Kitchen is part of the Chef Workstation suite, any license with the Chef Workstation entitlement can be used with Test-Kitchen.
+As Tesk Kitchen Enterprise is part of the Chef Workstation suite, any license with the Chef Workstation entitlement can be used with Tesk Kitchen Enterprise.
 Users will need to obtain a free, trial, or commercial license which has Chef Workstation entitlement enabled to use the Test Kitchen Enterprise seamlessly. Chef Infra Client and Chef compliance comes with bundled Chef Workstation by default.
 
 ## What are the licensing changes?
 
-Unlike other products like Chef Infra Client, Chef InSpec, and Chef Workstation, Test-Kitchen doesn’t enforce licensing.
+Unlike other products like Chef Infra Client, Chef InSpec, and Chef Workstation, Tesk Kitchen Enterprise doesn't enforce licensing.
 The main use of a license in the Test Kitchen is to ensure a valid license is available to execute tests.
 
 The user can pass a license key from Test Kitchen Enterprise to the provisioned VM to install and execute Chef Infra Client 19.
@@ -55,7 +55,7 @@ You can configure the license key directly in the same shell that initiates Test
 
 ### Pass the license through the `kitchen.yml` file
 
-You can includee the license in the `kitchen.yml` file, which serves as a configuration file outlining the procedures for Test Kitchen to execute automated tests on the code.
+You can include the license in the `kitchen.yml` file, which serves as a configuration file outlining the procedures for Test Kitchen to execute automated tests on the code.
 The Chef Infra Client installation is managed by the Kitchen provisioner, so it should be appropriately configured within the provisioner settings.
 
 ```yaml
@@ -67,9 +67,6 @@ provisioner:
 ```
 
 ### Add the license using the `test-kitchen` CLI
-
-
-
 
 1. You can add a license using the `test-kitchen` CLI:
 
@@ -117,11 +114,13 @@ provisioner:
     ------------------------------------------------------------
     ```
 
-    Test-kitchen obtains the license, then validates and persists it on the disk.
+    Tesk Kitchen Enterprise obtains the license, then validates and persists it on the disk.
 
 ### Use a pre-existing license
 
-If the user already has a license activated with any other products such as chef-infra-client, chef-workstation, or InSpec, test-kitchen can automatically read it and use it during the provisioning and verifying steps. The stored license will be saved on the `~/.chef/licenses.yml` file. For example:
+If the user already has a license activated with any other products---such as Chef Infra Client, Chef Workstation, or Chef InSpec---Tesk Kitchen Enterprise can automatically read it and use it during the provisioning and verifying steps. The stored license is saved in the `~/.chef/licenses.yml` file.
+
+For example:
 
 ```yaml
 ---
@@ -132,4 +131,3 @@ If the user already has a license activated with any other products such as chef
   :update_time: '2024-10-23T15:02:53+05:30'
 :license_server_url: https://services.chef.io/licensing
 ```
-
