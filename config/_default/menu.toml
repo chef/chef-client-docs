@@ -60,7 +60,7 @@ title = "Licensing"
 identifier = "licensing"
 
 [[install]]
-title = "Download and install"
+title = "Install"
 identifier = "install"
 
 [[kitchen]]

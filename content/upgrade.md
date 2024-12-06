@@ -5,7 +5,7 @@ title = "Upgrade to Chef Infra Client RC1"
 title = "Upgrade"
 identifier = "install/upgrade"
 parent = "install"
-weight = 30
+weight = 20
 +++
 
 This page documents how to upgrade to Chef Infra Client 19 RC1 from Chef Infra Client 18 or earlier.
@@ -14,7 +14,7 @@ To create a fresh install of Chef Infra Client 19 RC1, see the [install document
 
 ## Supported platforms
 
-Chef Infra Client 19 RC1 is supported on Linux x86_64 systems.
+Chef Infra Client 19 RC1 is supported on Linux x86-64 systems.
 
 ## Prerequisites
 
@@ -55,7 +55,7 @@ Chef Infra Client 19 RC1 is supported on Linux x86_64 systems.
 
 1. Download the Chef Infra Client migration tool.
 
-    To install the migration tool, first download the package from the URL provided by Chef using wget or curl.
+    The migration tool is available in zipped tar format from a pre-signed URL from an S3 bucket and is available for 90 days from November 26, 2024.
 
     Using curl:
 
@@ -63,7 +63,7 @@ Chef Infra Client 19 RC1 is supported on Linux x86_64 systems.
     curl -o chef-migration-tool.v1.tar.gz https://chef-hab-migration-tool-bucket.s3.amazonaws.com/migration-tools_Linux_x86_64.tar.gz\?AWSAccessKeyId\=AKIAW4FPVFT6LUYZUYOB\&Signature\=FMsMGzoZe1YTYA4DbpOIEB%2FHHSw%3D\&Expires\=1740411440
     ```
 
-    Using wget:
+    Using Wget:
 
     ```sh
     wget -o "chef-migration-tool.v1.tar.gz" "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/migration-tools_Linux_x86_64.tar.gz\?AWSAccessKeyId\=AKIAW4FPVFT6LUYZUYOB\&Signature\=FMsMGzoZe1YTYA4DbpOIEB%2FHHSw%3D\&Expires\=1740411440"
@@ -71,7 +71,7 @@ Chef Infra Client 19 RC1 is supported on Linux x86_64 systems.
 
     {{< note >}}
 
-    If the command line below doesn't fetch the migration tool file, add quotes around the S3 bucket URL---some shell environments don't interpret the path correctly.
+    If the command line doesn't fetch the migration tool file, add quotes around the S3 bucket URL---some shell environments don't interpret the path correctly.
 
     {{< /note >}}
 
@@ -100,9 +100,8 @@ Chef Infra Client 19 RC1 is supported on Linux x86_64 systems.
 
     Replace `<VALID_LICENSE_KEY>` with a valid license key.
 
-    This command validates your Chef license, downloads Chef Infra Client from the specified download URL, and installs Chef Infra Client.
-
-    For more information about the URL used to download Chef Infra Client RC1, see the [downloads page]({{< relref "downloads" >}}).
+    The migration tool validates your Chef license, downloads Chef Infra Client from the specified download URL, and installs Chef Infra Client.
+    The Chef Infra Client RC1 package is available in zipped tar format from this pre-signed URL for 90 days from November 26, 2024.
 
     {{< note >}}
 
