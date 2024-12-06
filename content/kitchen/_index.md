@@ -15,7 +15,7 @@ Test Kitchen Enterprise's repository is [chef/chef-test-kitchen-enterprise](http
 This update emphasizes branding changes and supports passing licenses through to Chef Infra Client 19.
 These modifications are implemented only in Chef Test Kitchen Enterprise and aren't backported to the community version of Test Kitchen.
 
-They way that users invoke Test Kitchen Enterprise isn't altered.
+The way that you run Test Kitchen Enterprise hasn't been altered.
 The [community Test Kitchen documentation](https://kitchen.ci/docs/getting-started/introduction/) and [Chef-hosted Test Kitchen documentation](https://docs.chef.io/workstation/kitchen/) are still accurate.
 
 We anticipate adding additional drivers and features, which Chef will support, to Chef Test Kitchen Enterprise in future releases.
