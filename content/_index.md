@@ -1,5 +1,5 @@
 +++
-title = "Chef Infra Client"
+title = "Chef Infra Client 19 RC1"
 linkTitle = "Chef Infra Client"
 
 [cascade]
