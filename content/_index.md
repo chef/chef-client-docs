@@ -13,12 +13,12 @@ linkTitle = "Chef Infra Client"
 title = "Chef Infra Client"
 +++
 
-To provide enterprise stability, Progress Chef has stated its [Long Term Support (LTS) model](https://www.chef.io/blog/long-term-support-progress-chef-providing-stability) for products.
+To provide enterprise stability, Progress Chef has created a [Long Term Support (LTS) model](https://www.chef.io/blog/long-term-support-progress-chef-providing-stability) for products.
 Chef Infra Client 19 is the first LTS version for infrastructure management and compliance mode.
 This release---Release Candidate 1 (RC1)---is a preview for a very limited audience to provide candid feedback of Chef Infra Client,
 the new Infra Client migration tool, and updated Test Kitchen developer tools to ensure a seamless transition at the time of general availability (GA).
 
-The new Chef Infra Client Migration Tool eases the transition from previous methods of installing and maintaining earlier versions of Infra Client to the Infra Client 19 release candidates and the final LTS version.
+The new Chef Infra Client migration tool eases the transition from previous methods of installing and maintaining earlier versions of Infra Client to the Infra Client 19 release candidates and the final LTS version.
 
 The new Test Kitchen Enterprise bundle is a fully Chef-maintained version of Test Kitchen and will be a part of Chef Workstation at the time of release.
 
@@ -35,7 +35,7 @@ Key capabilities in Chef Infra Client 19 include:
   Chef InSpec will be fully supported by Chef in a modularized Chef Workstation toolkit.
 - Infra Client 19 and Test Kitchen Enterprise will utilize standard licensing for commercial, community, and trial customers.
 - Chef InSpec resource packs will be modularized to yield enhanced performance
-- The Chef Client Migration Tool will facilitate installation and upgrades from previous versions to Chef Infra 19, supporting side-by-side installations.
+- The Chef Infra Client migration tool will facilitate installation and upgrades from previous versions to Chef Infra 19, supporting side-by-side installations.
 
 Some significant changes that customers moving to Chef Infra Client 19 should be aware of include:
 
@@ -45,9 +45,9 @@ Some significant changes that customers moving to Chef Infra Client 19 should be
 - Chef Workstation components will be modularized to provide better support for individual tools.
 - Chef InSpec resource packs will be modularized for Inspec as a part of the InSpec 7 LTS release (separate from the Infra Client LTS release)
 
-## Chef Infra Client Migration Tool
+## Chef Infra Client migration tool
 
-The Chef Infra Client Migration Tool can create a fresh install of Chef Infra Client or upgrade to the latest version.
+The Chef Infra Client migration tool can create a fresh install of Chef Infra Client or upgrade to the latest version.
 
 The `chef-migrate` command-line tool supports:
 
