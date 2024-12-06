@@ -1,9 +1,8 @@
 +++
 title = "Install Test Kitchen Enterprise"
-linkTitle = "Test Kitchen"
 
 [menu.kitchen]
-title = "Install Test Kitchen"
+title = "Install Test Kitchen Enterprise"
 identifier = "kitchen/install"
 parent = "kitchen"
 weight = 20
@@ -46,13 +45,13 @@ For more information, see the [Chef Habitat install documentation](https://docs.
     hab cli setup
     ```
 
-    Follow the prompts in Chef Habitat CLI.
+    Follow the prompts in the Habitat CLI.
     We recommend the following settings for running Test Kitchen Enterprise:
 
-    - Connect to an on-premises Builder instance? [yes/No/quit] No
-    - Set up a default origin? [Yes/no/quit] No
-    - Set up a default Builder personal access token? [yes/No/quit] No
-    - Set up a default Habitat Supervisor control gateway secret? [yes/No/quit] No
+    - Connect to an on-premises Builder instance? [yes/No/quit] **No**
+    - Set up a default origin? [Yes/no/quit] **No**
+    - Set up a default Builder personal access token? [yes/No/quit] **No**
+    - Set up a default Habitat Supervisor control gateway secret? [yes/No/quit] **No**
 
 ## Install Chef Test Kitchen Enterprise
 
@@ -70,3 +69,5 @@ For more information, see the [Chef Habitat install documentation](https://docs.
     chef-cli --version
     kitchen --version
     ```
+
+    You can also verify that the Test Kitchen Enterprise package is installed in `/hab/pkgs/chef/chef-test-kitchen-enterprise/1.0.5`.
