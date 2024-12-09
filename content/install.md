@@ -42,7 +42,7 @@ Chef Infra Client 19 RC1 is supported on Linux x86-64 systems.
     Using Wget:
 
     ```sh
-    wget -o "chef-migration-tool.v1.tar.gz" "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/migration-tools_Linux_x86_64.tar.gz\?AWSAccessKeyId\=AKIAW4FPVFT6LUYZUYOB\&Signature\=FMsMGzoZe1YTYA4DbpOIEB%2FHHSw%3D\&Expires\=1740411440"
+    wget -O "chef-migration-tool.v1.tar.gz" https://chef-hab-migration-tool-bucket.s3.amazonaws.com/migration-tools_Linux_x86_64.tar.gz\?AWSAccessKeyId\=AKIAW4FPVFT6LUYZUYOB\&Signature\=FMsMGzoZe1YTYA4DbpOIEB%2FHHSw%3D\&Expires\=1740411440
     ```
 
     {{< note >}}
