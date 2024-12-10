@@ -69,4 +69,4 @@ To troubleshoot:
 
 ## Support contact
 
-For any licensing issues, contact [Aditya V](mailto:aditya.v@progress.com) or [Ankur Mundra](mailto:ankur.mundra@progress.com) with your license details, error logs, and a description of the issue.
+For any licensing issues, contact [Aditya V](mailto:aditya.v@progress.com) or [Ankur Mundhra](mailto:ankur.mundhra@progress.com) with your license details, error logs, and a description of the issue.
