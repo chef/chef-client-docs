@@ -45,12 +45,6 @@ Chef Infra Client 19 RC1 is supported on Linux x86-64 systems.
     wget -O "chef-migration-tool.v1.tar.gz" https://chef-hab-migration-tool-bucket.s3.amazonaws.com/migration-tools_Linux_x86_64.tar.gz\?AWSAccessKeyId\=AKIAW4FPVFT6LUYZUYOB\&Signature\=FMsMGzoZe1YTYA4DbpOIEB%2FHHSw%3D\&Expires\=1740411440
     ```
 
-    {{< note >}}
-
-    If the command line doesn't fetch the migration tool file, add quotes around the S3 bucket URL---some shell environments don't interpret the path correctly.
-
-    {{< /note >}}
-
 1. Extract the migration tool in a temporary directory.
 
     Use the `-C` flag select a directory to unzip and un-tar the files.
