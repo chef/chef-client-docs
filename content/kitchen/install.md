@@ -28,7 +28,7 @@ For more information, see the [Chef Habitat install documentation](https://docs.
 1. Download and install Chef Habitat:
 
     ```sh
-    curl https://raw.githubusercontent.com/habitat-sh/habitat/main/components/hab/install.sh | sudo bash -s -- -c stable -v 1.6.652
+    curl https://raw.githubusercontent.com/habitat-sh/habitat/main/components/hab/install.sh | sudo bash -s -- -c stable
     ```
 
 1. Verify Chef Habitat is installed.
