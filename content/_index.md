@@ -24,6 +24,12 @@ The new Test Kitchen Enterprise bundle is a fully Chef-maintained version of Tes
 
 Chef Infra Client 19 RC1 is only intended for non-production environments to verify existing deployment patterns and content against customer-specific infrastructure platforms.
 
+## Supported environments
+
+The Chef Infra Client RC1 release is for testing in non-production environments only and is supported on Linux x86-64 systems.
+
+This release allows you to determine if the migration tool can successfully upgrade your infrastructure to Chef Infra Client 19, to gain familiarity with Habitat-based builds, and prepare for new licensing requirements.
+
 ## Key features
 
 Chef Infra Client 19 has the following key features:
