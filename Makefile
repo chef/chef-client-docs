@@ -36,11 +36,11 @@ lint: bundle
 
 update_theme:
 	hugo mod get -u github.com/chef/chef-docs-theme
-	rm go.sum
+	rm -rf _vendor node_modules
 	hugo mod tidy
-	hugo mod clean
 	hugo mod vendor
 	hugo mod npm pack
+	npm install
 
 ## See:
 ## - https://cspell.org/docs/getting-started/
