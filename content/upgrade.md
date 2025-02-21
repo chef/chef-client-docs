@@ -60,13 +60,13 @@ Chef Infra Client 19 RC1 is supported on Linux x86-64 systems.
     Using curl:
 
     ```sh
-    curl -o chef-migration-tool.v1.tar.gz https://chef-hab-migration-tool-bucket.s3.amazonaws.com/migration-tools_Linux_x86_64.tar.gz\?AWSAccessKeyId\=AKIAW4FPVFT6LUYZUYOB\&Signature\=FMsMGzoZe1YTYA4DbpOIEB%2FHHSw%3D\&Expires\=1740411440
+    curl -o chef-migration-tool.v1.tar.gz https://chef-hab-migration-tool-bucket.s3.amazonaws.com/migration-tools_Linux_x86_64.tar.gz\?AWSAccessKeyId\=AKIAW4FPVFT6LUYZUYOB\&Signature\=2P3xjN53%2Bib%2BnZBqFk5%2FsEORUzI%3D\&Expires\=1747912109
     ```
 
     Using Wget:
 
     ```sh
-    wget -O "chef-migration-tool.v1.tar.gz" https://chef-hab-migration-tool-bucket.s3.amazonaws.com/migration-tools_Linux_x86_64.tar.gz\?AWSAccessKeyId\=AKIAW4FPVFT6LUYZUYOB\&Signature\=FMsMGzoZe1YTYA4DbpOIEB%2FHHSw%3D\&Expires\=1740411440
+    wget -O "chef-migration-tool.v1.tar.gz" https://chef-hab-migration-tool-bucket.s3.amazonaws.com/migration-tools_Linux_x86_64.tar.gz\?AWSAccessKeyId\=AKIAW4FPVFT6LUYZUYOB\&Signature\=2P3xjN53%2Bib%2BnZBqFk5%2FsEORUzI%3D\&Expires\=1747912109
     ```
 
 1. Extract the migration tool in a temporary directory.
@@ -89,7 +89,7 @@ Chef Infra Client 19 RC1 is supported on Linux x86-64 systems.
 1. Upgrade Chef Infra Client RC1 using the migration tool.
 
     ```sh
-    sudo ./chef-migrate apply online --preserve true --download.url "https://unstable-habitat-tarball.s3.amazonaws.com/chef-chef-infra-client-19.0.54-20241121145703.tar.gz?AWSAccessKeyId=AKIA2L25YRBIC3WVJTRM&Signature=XDGliip78EyaiazMnbi7N8Pao%2Bk%3D&Expires=1740407376" --license.key <VALID_LICENSE_KEY>
+    sudo ./chef-migrate apply online --preserve true --download.url "https://unstable-habitat-tarball.s3.amazonaws.com/chef-chef-infra-client-19.0.54-20241121145703.tar.gz?AWSAccessKeyId=AKIA2L25YRBIC3WVJTRM&Signature=Kp6oGpPRqwiNEhKh8UWlUPJZ6DU%3D&Expires=1747912507" --license.key <VALID_LICENSE_KEY>
     ```
 
     Replace `<VALID_LICENSE_KEY>` with a valid license key.
