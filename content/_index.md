@@ -22,11 +22,11 @@ The new Chef Infra Client migration tool eases the transition from previous meth
 
 The new Test Kitchen Enterprise bundle is a fully Chef-maintained version of Test Kitchen and will be a part of Chef Workstation at the time of release.
 
-Chef Infra Client 19 RC1 is only intended for non-production environments to verify existing deployment patterns and content against customer-specific infrastructure platforms.
+Chef Infra Client 19 RC2 is only intended for non-production environments to verify existing deployment patterns and content against customer-specific infrastructure platforms.
 
 ## Supported environments
 
-The Chef Infra Client RC1 release is for testing in non-production environments only and is supported on Linux x86-64 systems.
+The Chef Infra Client RC2 release is for testing in non-production environments only and is supported on Linux x86-64 systems.
 
 This release allows you to determine if the migration tool can successfully upgrade your infrastructure to Chef Infra Client 19, to gain familiarity with Habitat-based builds, and prepare for new licensing requirements.
 
@@ -45,7 +45,7 @@ Key capabilities in Chef Infra Client 19 include:
 
 Some significant changes that customers moving to Chef Infra Client 19 should be aware of include:
 
-- RC1 is only supported on Linux x86-64 infrastructure; this will be broadened to include traditional Chef platforms in future releases.
+- RC2 is only supported on Linux x86-64 infrastructure; this will be broadened to include traditional Chef platforms in future releases.
 - Omnibus builds won't be provided for Infra Client and associated tools.
 - OS-native and Habitat-based packaging are provided.
 - Chef Workstation components will be modularized to provide better support for individual tools.
@@ -60,5 +60,5 @@ The `chef-migrate` command-line tool supports:
 - New installation of Chef Infra Client 19.
 - Installation of Chef Infra Client 19 RC1, either by removing or leaving the previous version of Infra Client and running in side-by-side mode, with the path to the most recent version taking precedence.
 - Upgrading from Chef Infra Client 17.x and 18.x (also referred to as "Omnibus distributions").
-- Upgrading to Chef Infra Client 19 RC1 and subsequent versions (also referred to as "Habitat-packaged")
+- Upgrading to Chef Infra Client 19 RC2 and subsequent versions (also referred to as "Habitat-packaged")
 - During the release candidate time frame, automatically downloading from the new distribution point and checking prerequisites for the client.

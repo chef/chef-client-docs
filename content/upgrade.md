@@ -8,13 +8,13 @@ parent = "install"
 weight = 20
 +++
 
-This page documents how to upgrade to Chef Infra Client 19 RC1 from Chef Infra Client 18 or earlier.
+This page documents how to upgrade to Chef Infra Client 19 RC2 from Chef Infra Client 18 or earlier.
 
 To create a fresh install of Chef Infra Client 19 RC1, see the [install documentation]({{< relref "/install" >}}).
 
 ## Supported platforms
 
-Chef Infra Client 19 RC1 is supported on Linux x86-64 systems.
+Chef Infra Client 19 RC2 is supported on Linux x86-64 systems.
 
 ## Prerequisites
 
@@ -86,7 +86,7 @@ Chef Infra Client 19 RC1 is supported on Linux x86-64 systems.
 
     The migration tool returns available commands and usage guidelines.
 
-1. Upgrade Chef Infra Client RC1 using the migration tool.
+1. Upgrade Chef Infra Client RC2 using the migration tool.
 
     ```sh
     sudo ./chef-migrate apply online --preserve true --download.url "https://unstable-habitat-tarball.s3.amazonaws.com/chef-chef-infra-client-19.0.54-20241121145703.tar.gz?AWSAccessKeyId=AKIA2L25YRBIC3WVJTRM&Signature=Kp6oGpPRqwiNEhKh8UWlUPJZ6DU%3D&Expires=1747912507" --license.key <VALID_LICENSE_KEY>
@@ -95,7 +95,7 @@ Chef Infra Client 19 RC1 is supported on Linux x86-64 systems.
     Replace `<VALID_LICENSE_KEY>` with a valid license key.
 
     The migration tool validates your Chef license, downloads Chef Infra Client from the specified download URL, and installs Chef Infra Client.
-    The Chef Infra Client RC1 package is available for download as a zipped tar file from this pre-signed URL until May 22, 2025.
+    The Chef Infra Client RC2 package is available for download as a zipped tar file from this pre-signed URL until May 22, 2025.
 
     {{< note >}}
 
@@ -105,7 +105,7 @@ Chef Infra Client 19 RC1 is supported on Linux x86-64 systems.
 
     {{< /note >}}
 
-1. Verify that Chef Infra Client 19 RC1 is installed:
+1. Verify that Chef Infra Client 19 RC2 is installed:
 
     ```sh
     chef-client --version

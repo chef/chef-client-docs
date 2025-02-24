@@ -12,7 +12,7 @@ To install the new Chef Test Kitchen Enterprise, first ensure you have the lates
 
 ## Supported platforms
 
-Chef Test Kitchen Enterprise RC1 is supported on Linux x86-64 systems.
+Chef Test Kitchen Enterprise RC2 is supported on Linux x86-64 systems.
 
 ## Install Chef Habitat
 

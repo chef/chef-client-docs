@@ -9,7 +9,7 @@ parent = "kitchen"
 weight = 40
 +++
 
-For the Chef Infra Client RC1 release, Chef Test Kitchen Enterprise supports the kitchen-dokken driver.
+For the Chef Infra Client RC2 release, Chef Test Kitchen Enterprise supports the kitchen-dokken driver.
 This allows us to create containers, using Podman or Docker Desktop, of various realistic operating systems and configure Chef Infra Client 19 for converge and verify operations.
 By default, this driver uses the chef/chef-hab container volume from Docker Hub to attach the Chef Infra Client 19 and Chef InSpec 6 (the default verifier) to the test container.
 
