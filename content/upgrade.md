@@ -55,7 +55,7 @@ Chef Infra Client 19 RC1 is supported on Linux x86-64 systems.
 
 1. Download the Chef Infra Client migration tool.
 
-    The migration tool is available in zipped tar format from a pre-signed URL from an S3 bucket and is available for 90 days from November 26, 2024.
+    The migration tool is available for download as a zipped tar file using a pre-signed URL from an S3 bucket until May 22, 2025.
 
     Using curl:
 
@@ -95,7 +95,7 @@ Chef Infra Client 19 RC1 is supported on Linux x86-64 systems.
     Replace `<VALID_LICENSE_KEY>` with a valid license key.
 
     The migration tool validates your Chef license, downloads Chef Infra Client from the specified download URL, and installs Chef Infra Client.
-    The Chef Infra Client RC1 package is available in zipped tar format from this pre-signed URL for 90 days from November 26, 2024.
+    The Chef Infra Client RC1 package is available for download as a zipped tar file from this pre-signed URL until May 22, 2025.
 
     {{< note >}}
 
