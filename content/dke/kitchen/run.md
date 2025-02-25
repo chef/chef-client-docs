@@ -2,10 +2,10 @@
 title = "Run Test Kitchen"
 linkTitle = "Using Test Kitchen"
 
-[menu.kitchen]
+[menu.dke]
 title = "Run Test Kitchen"
-identifier = "kitchen/using_test_kitchen"
-parent = "kitchen"
+identifier = "dke/tke/using_test_kitchen"
+parent = "dke/tke"
 weight = 40
 +++
 

@@ -1,10 +1,10 @@
 +++
 title = "Install Test Kitchen Enterprise"
 
-[menu.kitchen]
+[menu.dke]
 title = "Install Test Kitchen Enterprise"
-identifier = "kitchen/install"
-parent = "kitchen"
+identifier = "dke/tke/install"
+parent = "dke/tke"
 weight = 20
 +++
 

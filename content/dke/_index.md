@@ -2,7 +2,10 @@
 title = "Chef Development Kit Enterprise"
 
 [menu.dke]
-title = "Chef DKE"
+title = "Chef DKE overview"
+identifier = "dke/overview"
+parent = "dke"
+weight = 10
 +++
 
 ## Overview
