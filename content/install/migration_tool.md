@@ -1,5 +1,5 @@
 +++
-title = "Install Chef Infra Client RC1 using the migration tool"
+title = "Install Chef Infra Client RC2 using the migration tool"
 linkTitle = "Download and install"
 
 [menu.install]

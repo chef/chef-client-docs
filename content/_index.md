@@ -1,5 +1,5 @@
 +++
-title = "Chef Infra Client 19 RC1"
+title = "Chef Infra Client 19 RC2"
 linkTitle = "Chef Infra Client"
 
 [cascade]
@@ -15,7 +15,7 @@ title = "Chef Infra Client"
 
 To provide enterprise stability, Progress Chef has created a [Long Term Support (LTS) model](https://www.chef.io/blog/long-term-support-progress-chef-providing-stability) for products.
 Chef Infra Client 19 is the first LTS version for infrastructure management and compliance mode.
-This release---Release Candidate 1 (RC1)---is a preview for a very limited audience to provide candid feedback of Chef Infra Client,
+This release---Release Candidate 2 (RC2)---is a preview for a very limited audience to provide candid feedback of Chef Infra Client,
 the new Infra Client migration tool, and updated Test Kitchen developer tools to ensure a seamless transition at the time of general availability (GA).
 
 The new Chef Infra Client migration tool eases the transition from previous methods of installing and maintaining earlier versions of Infra Client to the Infra Client 19 release candidates and the final LTS version.
@@ -58,7 +58,7 @@ The Chef Infra Client migration tool can create a fresh install of Chef Infra Cl
 The `chef-migrate` command-line tool supports:
 
 - New installation of Chef Infra Client 19.
-- Installation of Chef Infra Client 19 RC1, either by removing or leaving the previous version of Infra Client and running in side-by-side mode, with the path to the most recent version taking precedence.
+- Installation of Chef Infra Client 19 RC2, either by removing or leaving the previous version of Infra Client and running in side-by-side mode, with the path to the most recent version taking precedence.
 - Upgrading from Chef Infra Client 17.x and 18.x (also referred to as "Omnibus distributions").
 - Upgrading to Chef Infra Client 19 RC2 and subsequent versions (also referred to as "Habitat-packaged")
 - During the release candidate time frame, automatically downloading from the new distribution point and checking prerequisites for the client.

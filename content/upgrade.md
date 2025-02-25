@@ -1,5 +1,5 @@
 +++
-title = "Upgrade to Chef Infra Client RC1"
+title = "Upgrade to Chef Infra Client RC2"
 
 [menu.install]
 title = "Upgrade"
@@ -10,7 +10,7 @@ weight = 20
 
 This page documents how to upgrade to Chef Infra Client 19 RC2 from Chef Infra Client 18 or earlier.
 
-To create a fresh install of Chef Infra Client 19 RC1, see the [install documentation]({{< relref "/install" >}}).
+To create a fresh install of Chef Infra Client 19 RC2, see the [install documentation]({{< relref "/install" >}}).
 
 ## Supported platforms
 
