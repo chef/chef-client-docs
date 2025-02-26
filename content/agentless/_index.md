@@ -9,7 +9,6 @@ parent = "agentless"
 weight = 10
 +++
 
-
 {{< readfile file="content/reusable/md/agentless_summary.md" >}}
 
 The target node can be any remote system, edge device, or cloud resource that the host can reach. This includes edge devices, Wi-Fi routers, switches, relays, cloud resources, IP phones, router hubs, and network management peripherals.
@@ -26,7 +25,7 @@ Agentless Mode has the following requirements:
 
 - A network-enabled system to execute Agentless Mode.
 - The `chef-client` CLI. This is included with Chef Workstation.
-- A credentials file which provides the system with information to connect to a target node.
+- A credentials file that provides the system with information to connect to a target node.
 - A recipe that only includes Agentless Mode-enabled resources.
 
 ## Credentials file
@@ -35,8 +34,8 @@ The credentials file defines the SSH connection settings for each node in TOML f
 
 Create a credentials file on the computer running Chef Workstation in the following location:
 
-- on Linux and macOS: `~/.chef/credentials`
-- on Windows: `c:\Users\<USERNAME>\.chef\credentials`
+- On Linux and macOS: `~/.chef/credentials`
+- On Windows: `c:\Users\<USERNAME>\.chef\credentials`
 
 ### Define node connections
 
@@ -231,7 +230,7 @@ You can configure Chef Automate or Chef Infra Server to run Agentless Mode on a 
 
 Agentless Mode doesn't have a way to schedule Chef Infra Client runs on a node, but you can create a cron file that executes Agentless Mode on a regular schedule.
 
-For example, this create a cron file that executes Agentless Mode every thirty minutes:
+For example, this creates a cron file that executes Agentless Mode every thirty minutes:
 
 ```ruby
 cat > /etc/cron.d/nodename.cron <<EOF
@@ -256,7 +255,7 @@ The following are the common errors and their potential troubleshooting steps.
 
 ### `chef-client` execute error
 
-Verify that the target node's hostname or IP address is correct, that the host accessible using SSH, and that the user and password specified in the credentials file are correct.
+Verify that the target node's hostname or IP address is correct, that the host is accessible using SSH, and that the user and password specified in the credentials file are correct.
 
 ### Custom resources don't execute
 
