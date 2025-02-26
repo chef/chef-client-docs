@@ -1,5 +1,5 @@
 
-The following custom resource example checks for and creates a new directory and runs in Target Mode:
+The following custom resource example checks for and creates a new directory and runs in Agentless Mode:
 
 ```ruby
 provides :example_directory, target_mode: true

@@ -10,24 +10,24 @@ weight = 10
 +++
 
 
-{{< readfile file="content/reusable/md/target_mode_summary.md" >}}
+{{< readfile file="content/reusable/md/agentless_summary.md" >}}
 
 The target node can be any remote system, edge device, or cloud resource that the host can reach. This includes edge devices, Wi-Fi routers, switches, relays, cloud resources, IP phones, router hubs, and network management peripherals.
 
 ## Transport Interface (Train)
 
-Target Mode uses [Transport Interface (Train)](https://github.com/inspec/train) to connect to nodes and execute Chef Infra Client runs.
+Agentless Mode uses [Transport Interface (Train)](https://github.com/inspec/train) to connect to nodes and execute Chef Infra Client runs.
 
-Target Mode supports the SSH Train protocol. The other Train protocols are experimental.
+Agentless Mode supports the SSH Train protocol. The other Train protocols are experimental.
 
 ## Requirements
 
-Target Mode has the following requirements:
+Agentless Mode has the following requirements:
 
-- A network-enabled system to execute Target Mode.
+- A network-enabled system to execute Agentless Mode.
 - The `chef-client` CLI. This is included with Chef Workstation.
 - A credentials file which provides the system with information to connect to a target node.
-- A recipe that only includes Target Mode-enabled resources.
+- A recipe that only includes Agentless Mode-enabled resources.
 
 ## Credentials file
 
@@ -110,7 +110,7 @@ transport_protocol = 'ssh'
 
 <!-- markdownlint-disable MD007 MD006 -->
 
-Target Mode supports the following SSH connection parameters in a credentials file.
+Agentless Mode supports the following SSH connection parameters in a credentials file.
 
 Common parameters:
 
@@ -167,9 +167,9 @@ Additional parameters:
 
 ## Resources
 
-All resources included in a Cookbook must be enabled in Target Mode to run in Target Mode.
+All resources included in a Cookbook must be enabled in Agentless Mode to run in Agentless Mode.
 
-The following Chef Infra Client resources are supported in Target Mode starting in Chef Infra Client 15.1.36:
+The following Chef Infra Client built-in resources run in Agentless Mode:
 
 - apt_package
 - breakpoint
@@ -181,15 +181,15 @@ The following Chef Infra Client resources are supported in Target Mode starting 
 
 ### Custom resources
 
-{{< readfile file="/reusable/md/target_mode_custom_resource.md" >}}
+{{< readfile file="/reusable/md/agentless_custom_resource.md" >}}
 
 See the [Custom Resources documentation](https://docs.chef.io/custom_resources/) for more detailed documentation about creating custom resources.
 
 #### Example
 
-{{< readfile file="/reusable/md/target_mode_custom_resource_example.md" >}}
+{{< readfile file="/reusable/md/agentless_custom_resource_example.md" >}}
 
-## Run Target Mode
+## Run Agentless Mode
 
 Run the `chef-client` executable using `-t` or `--target` to target a specific node. For example:
 
@@ -200,7 +200,7 @@ chef-client -t <TARGET_NAME>
 Replace `<TARGET_NAME>` with the name of the host as defined in the credentials file.
 For example, `HOST-1` in the [credential file example](#define-node-connections).
 
-To execute a specific Cookbook in Target Mode, run:
+To execute a specific Cookbook in Agentless Mode, run:
 
 ```sh
 chef-client -t <TARGET_NAME> <PATH/TO/COOKBOOK/COOKBOOK_NAME>
@@ -211,12 +211,12 @@ Replace the following:
 - `<TARGET_NAME>` with the name of the host as defined in the credentials file.
 - `<PATH/TO/COOKBOOK/COOKBOOK_NAME>` with the path to the Cookbook on your system. For example, `/chef-repo/cookbooks/example_cookbook.rb`
 
-### Target Mode in Local Mode
+### Agentless Mode in Local Mode
 
-You can run Target Mode in Local Mode.
+You can run Agentless Mode in Local Mode.
 Local Mode runs chef-zero locally as a lightweight instance of Chef Infra Server to execute a Client run on target nodes.
 
-Use `-z` and `-t` to run Target Mode in Local Mode:
+Use `-z` and `-t` to run Agentless Mode in Local Mode:
 
 ```sh
 chef-client -z -t <TARGET_NAME>
@@ -225,13 +225,13 @@ chef-client -z -t <TARGET_NAME>
 Replace `<TARGET_NAME>` with the name of the host as defined in the credentials file.
 For example, `HOST-1` in the [credential file example](#define-node-connections).
 
-## Run Target Mode with Chef Automate or Chef Infra Server
+## Run Agentless Mode with Chef Automate or Chef Infra Server
 
-You can configure Chef Automate or Chef Infra Server to run Target Mode on a regular schedule.
+You can configure Chef Automate or Chef Infra Server to run Agentless Mode on a regular schedule.
 
-Target Mode doesn't have a way to schedule Chef Infra Client runs on a node, but you can create a cron file that executes Target Mode on a regular schedule.
+Agentless Mode doesn't have a way to schedule Chef Infra Client runs on a node, but you can create a cron file that executes Agentless Mode on a regular schedule.
 
-For example, this create a cron file that executes Target Mode every thirty minutes:
+For example, this create a cron file that executes Agentless Mode every thirty minutes:
 
 ```ruby
 cat > /etc/cron.d/nodename.cron <<EOF
