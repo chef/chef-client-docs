@@ -1,5 +1,5 @@
 +++
-title = "Chef Infra Agentless"
+title = "Chef Infra Agentless Mode"
 linkTitle = "Agentless"
 
 [menu.agentless]
