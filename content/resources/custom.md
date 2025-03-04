@@ -2,16 +2,20 @@
 title = "Custom resource guide"
 
 [menu]
-  [menu.infra]
+  [menu.agentless]
     title = "Custom resource guide"
-    identifier = "chef_infra/resources/custom_resources/custom_resources.md custom resources"
-    parent = "chef_infra/resources/custom_resources"
+    identifier = "resources/custom"
+    parent = "agentless"
     weight = 10
 +++
 
+To use custom resources in Agentless mode, you'll have to update the provider properties and IO class methods so that Chef Infra Client can run them.
+
 ## Providers
 
-The following custom resource providers determine whether Chef Infra Client can run a resource on a node locally or remotely:
+Providers determine whether Chef Infra Client can locally or remotely run a resource on a node.
+
+To enable Infra Client to run a resource locally or remotely, use the `agent_mode` and `target_mode` properties to define the environments that the resource can run in.
 
 `agent_mode`
 : Whether Chef Infra Client can execute the resource locally on a node.
@@ -23,7 +27,7 @@ The following custom resource providers determine whether Chef Infra Client can 
 
   Default value: `false`
 
-You can combine these providers to define whether Chef Infra Client runs a custom resource locally on a node, on a node from a remote connection, or both.
+You can combine these properties to define whether Chef Infra Client can run a custom resource locally on a node, on a node from a remote connection, or both.
 
 For example:
 
@@ -49,7 +53,7 @@ For example:
 
 Agentless Mode includes an input/output (IO) abstraction layer.
 
-IO operations within Chef fall into two different groups:
+IO operations in Chef Infra resources fall into two different groups:
 
 - Shell commands using `shell_out` or `shell_out!`.
 - Native IO using `TargetIO` classes.
@@ -60,27 +64,9 @@ Any implementations using `shell_out` is automatically Agentless Mode-capable, a
 
 ### TargetIO
 
-When running resources in Agentless Mode, use `TargetIO` to translate native IO calls into scripting commands.
+Update custom resources that use Ruby's built-in IO classes and methods to run in Agentless Mode by prefixing each IO call with the `TargetIO` namespace.
 
-{{< note >}}
-
-If `TargetIO` is used in Agent Mode, it automatically passes operations to Ruby's native APIs.
-
-{{< /note >}}
-
-The following classes run the most commonly used IO calls:
-
-- `TargetIO::Etc`
-- `TargetIO::Dir`
-- `TargetIO::File`
-- `TargetIO::FileUtils`
-- `TargetIO::HTTP`
-- `TargetIO::IO`
-- `TargetIO::Shadow`
-
-If your resources use the re-implemented IO methods, you just need to prefix normal IO calls with the `TargetIO` namespace.
-
-For example, change:
+For example, to update Ruby's `IO.read` class to run in Agentless Mode, modify this:
 
 ```ruby
 contents = IO.read(filename)
@@ -91,6 +77,18 @@ to:
 ```ruby
 contents = TargetIO::IO.read(filename)
 ```
+
+In Agentless Mode, `TargetIO` translates native Ruby IO calls so they can be executed on a remote node. When run locally in Agent Mode, it automatically passes operations to Ruby's native IO classes.
+
+The following classes run the most commonly used IO calls:
+
+- `TargetIO::Dir`
+- `TargetIO::Etc`
+- `TargetIO::File`
+- `TargetIO::FileUtils`
+- `TargetIO::HTTP`
+- `TargetIO::IO`
+- `TargetIO::Shadow`
 
 {{< note >}}
 
