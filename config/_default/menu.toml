@@ -55,15 +55,26 @@ weight = 60
 title = "Overview"
 identifier = "overview"
 
-[[licensing]]
-title = "Licensing"
-identifier = "licensing"
-
 [[install]]
 title = "Install"
 identifier = "install"
 
-[[kitchen]]
-title = "Test Kitchen Enterprise"
-identifier = "kitchen"
+[[licensing]]
+title = "Licensing"
+identifier = "licensing"
+
+[[agentless]]
+title = "Agentless"
+identifier = "agentless"
+
+[[dke]]
+title = "Chef DKE"
+identifier = "dke"
+
+  [[dke]]
+  title = "Test Kitchen Enterprise"
+  identifier = "dke/tke"
+  parent = "dke"
+  weight = 20
+
 
