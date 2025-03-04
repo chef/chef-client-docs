@@ -668,8 +668,6 @@ Verified platforms:
 
 ### Remarks
 
-[Remarks resource documentation](https://docs.chef.io/resources/Remarks/)
-
 Use 'crond' for Linux.
 
 ## sudo
@@ -714,8 +712,6 @@ Verified platforms:
 - Centos 9
 
 ### Remarks
-
-[Remarks resource documentation](https://docs.chef.io/resources/Remarks/)
 
 Require absolute path for source attribute.
 
@@ -1413,8 +1409,6 @@ Verified platforms:
 
 ### Remarks
 
-[Remarks resource documentation](https://docs.chef.io/resources/Remarks/)
-
 **Warning:** The subversion resource has known bugs and may not work as expected. For more information see Chef GitHub issues, particularly [#4050](https://github.com/chef/chef/issues/4050) and [#4257](https://github.com/chef/chef/issues/4257).
 
 ## chef_role
@@ -1661,8 +1655,6 @@ Verified platforms:
 
 ### Remarks
 
-[Remarks resource documentation](https://docs.chef.io/resources/Remarks/)
-
 supported on Linux platforms only
 
 ## yum_repository
@@ -1686,8 +1678,6 @@ Verified platforms:
 
 ### Remarks
 
-[Remarks resource documentation](https://docs.chef.io/resources/Remarks/)
-
 supported on Linux platforms only
 
 ## snap_package
@@ -1710,8 +1700,6 @@ Verified platforms:
 
 ### Remarks
 
-[Remarks resource documentation](https://docs.chef.io/resources/Remarks/)
-
 supported on Ubuntu platforms only
 
 ## freebsd_package
@@ -1731,8 +1719,6 @@ Verified platforms:
 - FreeBSD 14
 
 ### Remarks
-
-[Remarks resource documentation](https://docs.chef.io/resources/Remarks/)
 
 supported on FreeBSD platform only
 
