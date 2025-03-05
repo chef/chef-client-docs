@@ -9,7 +9,7 @@ product_name = "Chef Infra Client"
 #             Menus are defined in the /config/_default/menu.toml file
 #######
 
-menuOrder = ["landing_page", "install", "licensing", "agentless", "kitchen", "chef_gem_server", "cookbooks", "reference"]
+menuOrder = ["landing_page", "install", "licensing", "agentless", "dke", "kitchen", "chef_gem_server", "cookbooks", "reference"]
 
 #######
 # robots = The default robots config applied to each page in the robots meta tag. See http://www.robotstxt.org/meta.html
