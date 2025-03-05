@@ -67,3 +67,13 @@ identifier = "install"
 title = "Test Kitchen Enterprise"
 identifier = "kitchen"
 
+[[dke]]
+title = "Chef DKE"
+identifier = "dke"
+
+  [[dke]]
+  title = "Test Kitchen Enterprise"
+  identifier = "dke/tke"
+  parent = "dke"
+  weight = 20
+
