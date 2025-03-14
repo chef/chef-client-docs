@@ -17,7 +17,7 @@ This error occurs when a license key that's set with Chef Infra Client isn't ent
 
 To troubleshoot:`
 
-- Run the `chef-client license list` command to view the products your key is entitled to.
+- Run the `chef-client --license-list` command to view the products your key is entitled to.
 - If Chef Infra isn't listed, set a license key that's entitled to Chef Infra.
 
 See the [Chef licensing documentation]({{< relref "/license" >}}) for more information on setting appropriate entitlements.
