@@ -15,15 +15,17 @@ The `chef-migrate apply` command upgrades or installs Chef Infra Client to versi
 This command has the following basic syntax:
 
 ```sh
-chef-migrate apply [command] [flags]
+chef-migrate apply {airgap|online} [flags]
 ```
 
 It supports two subcommands:
 
-- `online`: Uses network-connected resources to download and install Chef Infra 19.
 - `airgap`: Uses pre-downloaded airgapped bundles to perform the migration.
+- `online`: Uses network-connected resources to download and install Chef Infra Client 19.
 
 ## Flags
+
+<!-- markdownlint-disable MD006 MD007 -->
 
 `--debug`
 : Enable debug logs. Logs are available in `/var/log/chef19migrate.log`. Valid values are: `true` or `false`.
@@ -90,6 +92,8 @@ It supports two subcommands:
 
   Default value: `false`.
 
+<!-- markdownlint-enable MD006 MD007 -->
+
 ## Examples
 
 ### Migrate Chef Infra Client
@@ -150,7 +154,7 @@ Remount Chef Infra Client from `/opt/chef` to `/hab`:
 chef-migration apply {airgap|online} --license-key "<LICENSE_KEY>" --fstab apply
 ```
 
-Remount Chef Infra Client from `/opt/chef` to `/hab`, but if `/opt/chef` is already mounted, abort the process:
+Remount Chef Infra Client from `/opt/chef` to `/hab`, but abort the process if `/opt/chef` is already mounted:
 
 ```sh
 chef-migration apply {airgap|online} --license-key "<LICENSE_KEY>" --fstab fail
