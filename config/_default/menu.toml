@@ -67,7 +67,11 @@ identifier = "install"
   title = "Migration tool"
   identifier = "install/migration_tool"
   parent = "install"
-  weight = 10
+
+  [[install]]
+  title = "Native installer"
+  identifier = "install/installer"
+  parent = "install"
 
 [[agentless]]
 title = "Agentless"
