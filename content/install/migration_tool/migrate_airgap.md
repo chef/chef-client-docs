@@ -22,6 +22,8 @@ Chef Infra Client 19 RC2 is supported on Linux x86-64 systems.
 
 1. On an internet-connected machine, download the Chef Infra Client 19 RC2 tar file.
 
+    Chef Infra Client is available in a zipped tar file using a pre-signed URL from an S3 bucket until August 26, 2025.
+
     Download using curl:
 
     ```sh
@@ -50,9 +52,7 @@ Chef Infra Client 19 RC2 is supported on Linux x86-64 systems.
     wget -O "chef-migration-tool.v1.tar.gz" https://chef-hab-migration-tool-bucket.s3.amazonaws.com/rc2_hab_pkg_chef_client/rc2_migration_tool/migration-tools_Linux_x86_64.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6BIP2EQW7&Signature=hbgCCCl9r48WHDP%2FFQtNTN9pFJw%3D&Expires=1756222424
     ```
 
-1. Extract the migration tool in a temporary directory and make it executable.
-
-    Use the `-C` flag select a directory to unzip and un-tar the files.
+1. Extract the migration tool and make it executable.
 
     ```sh
     tar -xvf chef-migration-tool.v1.tar.gz -C /path/to/temp/folder
@@ -85,3 +85,7 @@ Chef Infra Client 19 RC2 is supported on Linux x86-64 systems.
     ```sh
     chef-client --version
     ```
+
+## Next step
+
+- [Add a Chef license]({{< relref "/license" >}})

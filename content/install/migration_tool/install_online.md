@@ -69,3 +69,7 @@ Chef Infra Client 19 RC2 is supported on Linux x86-64 systems.
     ```sh
     chef-client --version
     ```
+
+## Next step
+
+- [Add a Chef license]({{< relref "/license" >}})
