@@ -44,9 +44,7 @@ Before you begin, review the [migration tool CLI reference]({{< relref "referenc
     wget -O "chef-migration-tool.v1.tar.gz" https://chef-hab-migration-tool-bucket.s3.amazonaws.com/rc2_hab_pkg_chef_client/rc2_migration_tool/migration-tools_Linux_x86_64.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6BIP2EQW7&Signature=hbgCCCl9r48WHDP%2FFQtNTN9pFJw%3D&Expires=1756222424
     ```
 
-1. Extract the migration tool in a temporary directory and make it executable.
-
-    Use the `-C` flag select a directory to unzip and un-tar the files.
+1. Extract the migration tool and make it executable.
 
     ```sh
     tar -xvf chef-migration-tool.v1.tar.gz -C /path/to/temp/folder
