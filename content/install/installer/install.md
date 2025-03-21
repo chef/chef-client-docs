@@ -93,7 +93,3 @@ To install Chef Infra Client 19 RC2, follow these steps:
     ```sh
     chef-client --version
     ```
-
-## Next step
-
-- [Add a Chef license]({{< relref "/license" >}})
