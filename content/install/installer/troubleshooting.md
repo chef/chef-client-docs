@@ -42,7 +42,7 @@ To resolve the error:
 1. [Reinstall Chef Infra Client]({{< relref "install" >}}).
 
 
-## chef-client installation failed. Error: invalid license
+## Error: invalid license
 
 The installation process requires a valid Progress Chef License key.
 
@@ -60,10 +60,22 @@ Error in POSTIN scriptlet in rpm package chef-infra-client
 
 To resolve this error:
 
-1. Add a valid Progress Chef License key:
+1. Add a valid Progress Chef License key to your machine's environment:
 
     ```sh
     export CHEF_LICENSE_KEY=<LICENSE_KEY>
     ```
 
-1. [Reinstall Chef Infra Client]({{< relref "install" >}}).
+1. Install Chef Infra Client.
+
+    On Debian-based distributions:
+
+    ```sh
+    sudo -E dpkg -i chef-infra-client-19.1.rc2_amd64.deb
+    ```
+
+    On RPM-based distributions, use the `dnf reinstall` command:
+
+    ```sh
+    sudo -E dnf reinstall chef-infra-client-19.1.rc2.amzn2.x86_64.rpm
+    ```
