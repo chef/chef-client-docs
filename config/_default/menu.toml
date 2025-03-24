@@ -63,6 +63,16 @@ identifier = "licensing"
 title = "Install"
 identifier = "install"
 
+  [[install]]
+  title = "Migration tool"
+  identifier = "install/migration_tool"
+  parent = "install"
+
+  [[install]]
+  title = "Native installer"
+  identifier = "install/installer"
+  parent = "install"
+
 [[agentless]]
 title = "Agentless"
 identifier = "agentless"
