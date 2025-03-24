@@ -31,6 +31,8 @@ To enable Infra Client to run a resource locally or remotely, use the `agent_mod
 
 You can combine these properties to define whether Chef Infra Client can run a custom resource locally on a node, on a node from a remote connection, or both.
 
+<!-- Markdownlint-disable MD036 -->
+
 **Only execute a resource locally**
 
 Chef Infra Client only executes this resource locally on a node as `target_mode` is set to `false` and `agent_mode` defaults to `true`:
@@ -54,6 +56,8 @@ Chef Infra Client executes this resource from a remote connection and also local
 ```ruby
 provides :<RESOURCE_NAME>, target_mode: true, agent_mode: true`
 ```
+
+<!-- Markdownlint-enable MD036 -->
 
 ## Input/output operations in Agentless Mode
 

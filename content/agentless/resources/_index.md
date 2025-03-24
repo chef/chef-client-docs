@@ -87,7 +87,7 @@ The following Chef Infra resources are supported in Agentless Mode.
 | [selinux_port](https://docs.chef.io/resources/selinux_port/) | Ubuntu, Linux | |
 | [selinux_state](https://docs.chef.io/resources/selinux_state/) | Ubuntu, Linux | |
 | [selinux_user](https://docs.chef.io/resources/selinux_user/) | Ubuntu, Linux | |
-| [service](https://docs.chef.io/resources/service/) | Ubuntu, Linux, Centos 9 | 'crond' for Linux |
+| [service](https://docs.chef.io/resources/service/) | Ubuntu, Linux, Centos 9 | `crond` for Linux |
 | [snap_package](https://docs.chef.io/resources/snap_package/) | Ubuntu 24.04 | Only supported on Linux. |
 | [ssh_known_hosts_entry](https://docs.chef.io/resources/ssh_known_hosts_entry/) | Ubuntu, Linux | |
 | [subversion](https://docs.chef.io/resources/subversion/) | Ubuntu 24.04, Linux Red Hat 9, centOS 9 | The subversion resource has known bugs and may not work as expected. For more information, see the Chef GitHub issues, particularly [#4050](https://github.com/chef/chef/issues/4050) and [#4257](https://github.com/chef/chef/issues/4257). |
