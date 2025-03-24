@@ -2,7 +2,7 @@
 The following custom resource example runs in Agentless Mode and updates the content of a file defined by the `path` property.
 
 ```ruby
-# Create a new resource which is available in Target Mode
+# Create a new resource that's available in Target Mode
 provides :file_update, target_mode: true
 
 property :path, String, name_property: true

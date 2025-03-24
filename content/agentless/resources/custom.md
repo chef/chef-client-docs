@@ -27,27 +27,33 @@ To enable Infra Client to run a resource locally or remotely, use the `agent_mod
 
   Default value: `false`
 
+### Examples
+
 You can combine these properties to define whether Chef Infra Client can run a custom resource locally on a node, on a node from a remote connection, or both.
 
-For example:
+**Only execute a resource locally**
 
-- Chef Infra Client only executes this resource locally on a node, as `target_mode` is set to `false` and `agent_mode` defaults to `true`:
+Chef Infra Client only executes this resource locally on a node as `target_mode` is set to `false` and `agent_mode` defaults to `true`:
 
-  ```ruby
-  provides :<RESOURCE_NAME>, target_mode: false
-  ```
+```ruby
+provides :<RESOURCE_NAME>, target_mode: false
+```
 
-- Chef Infra Client executes this resource from a remote connection, but not locally:
+**Only execute a resource remotely**
 
-  ```ruby
-  provides :<RESOURCE_NAME>, target_mode: true, agent_mode: false
-  ```
+Chef Infra Client executes this resource from a remote connection, but not locally:
 
-- Chef Infra Client executes this resource from a remote connection and also locally:
+```ruby
+provides :<RESOURCE_NAME>, target_mode: true, agent_mode: false
+```
 
-  ```ruby
-  provides :<RESOURCE_NAME>, target_mode: true, agent_mode: true`
-  ```
+**Execute a resource remotely and locally**
+
+Chef Infra Client executes this resource from a remote connection and also locally:
+
+```ruby
+provides :<RESOURCE_NAME>, target_mode: true, agent_mode: true`
+```
 
 ## Input/output operations in Agentless Mode
 
@@ -94,6 +100,6 @@ The following classes run the most commonly used IO calls:
 
 {{< note >}}
 
-The `TargetIO::HTTP` class auto detects if `curl` or `wget` are installed on the target node and channels HTTP-related requests through either one if they're installed.
+The `TargetIO::HTTP` class automatically detects if `curl` or `wget` are installed on the target node and channels HTTP-related requests through either one if they're installed.
 
 {{< /note >}}

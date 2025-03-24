@@ -40,7 +40,7 @@ The following Chef Infra resources are supported in Agentless Mode.
 | [directory](https://docs.chef.io/resources/directory/) | Ubuntu, Linux | |
 | [execute](https://docs.chef.io/resources/execute/) | Ubuntu, Linux | |
 | [file](https://docs.chef.io/resources/file/) | Ubuntu, Linux | |
-| [freebsd_package](https://docs.chef.io/resources/freebsd_package/) | FreeBSD 14 | Supported on FreeBSD platform only. |
+| [freebsd_package](https://docs.chef.io/resources/freebsd_package/) | FreeBSD 14 | Only supported on FreeBSD. |
 | [git](https://docs.chef.io/resources/git/) | Ubuntu, Linux | |
 | [group](https://docs.chef.io/resources/group/) | Ubuntu, Linux | |
 | [habitat_config](https://docs.chef.io/resources/habitat_config/) | Ubuntu 24.04, Linux Red Hat 9 | |
@@ -75,7 +75,7 @@ The following Chef Infra resources are supported in Agentless Mode.
 | [rhsm_repo](https://docs.chef.io/resources/rhsm_repo/) | Linux (redhat) | |
 | [rhsm_subscription](https://docs.chef.io/resources/rhsm_subscription/) | Linux (redhat) | |
 | [route](https://docs.chef.io/resources/route/) | Ubuntu 24.04 / Centos 9 | |
-| [rpm_package](https://docs.chef.io/resources/rpm_package/) | Centos 9 | The rpm package must be locally available on the remote system. |
+| [rpm_package](https://docs.chef.io/resources/rpm_package/) | Centos 9 | The RPM package must be locally available on the remote system. |
 | [ruby_block](https://docs.chef.io/resources/ruby_block/) | Ubuntu, Linux, Centos 9 | |
 | [script](https://docs.chef.io/resources/script/) | Ubuntu 24.04, Linux Red Hat 9,0 | |
 | [selinux_boolean](https://docs.chef.io/resources/selinux_boolean/) | Ubuntu, Linux | |
@@ -88,9 +88,9 @@ The following Chef Infra resources are supported in Agentless Mode.
 | [selinux_state](https://docs.chef.io/resources/selinux_state/) | Ubuntu, Linux | |
 | [selinux_user](https://docs.chef.io/resources/selinux_user/) | Ubuntu, Linux | |
 | [service](https://docs.chef.io/resources/service/) | Ubuntu, Linux, Centos 9 | 'crond' for Linux |
-| [snap_package](https://docs.chef.io/resources/snap_package/) | Ubuntu 24.04 | Supported on Ubuntu platform only. |
+| [snap_package](https://docs.chef.io/resources/snap_package/) | Ubuntu 24.04 | Only supported on Linux. |
 | [ssh_known_hosts_entry](https://docs.chef.io/resources/ssh_known_hosts_entry/) | Ubuntu, Linux | |
-| [subversion](https://docs.chef.io/resources/subversion/) | Ubuntu 24.04, Linux Red Hat 9, centOS 9 | Warning: The subversion resource has known bugs and may not work as expected. For more information see Chef GitHub issues, particularly [#4050](https://github.com/chef/chef/issues/4050) and [#4257](https://github.com/chef/chef/issues/4257). |
+| [subversion](https://docs.chef.io/resources/subversion/) | Ubuntu 24.04, Linux Red Hat 9, centOS 9 | The subversion resource has known bugs and may not work as expected. For more information, see the Chef GitHub issues, particularly [#4050](https://github.com/chef/chef/issues/4050) and [#4257](https://github.com/chef/chef/issues/4257). |
 | [sudo](https://docs.chef.io/resources/sudo/) | Ubuntu, Linux, Centos 9 | |
 | [swap_file](https://docs.chef.io/resources/swap_file/) | Ubuntu, Linux | |
 | [sysctl](https://docs.chef.io/resources/sysctl/) | Ubuntu, Linux | |
@@ -99,7 +99,7 @@ The following Chef Infra resources are supported in Agentless Mode.
 | [timezone](https://docs.chef.io/resources/timezone/) | Linux | |
 | [user](https://docs.chef.io/resources/user/) | Ubuntu, Linux | |
 | [user_ulimit](https://docs.chef.io/resources/user_ulimit/) | Ubuntu, Linux | |
-| [yum_package](https://docs.chef.io/resources/yum_package/) | Centos 9 | Supported on Linux platform only. |
+| [yum_package](https://docs.chef.io/resources/yum_package/) | Centos 9 | Only supported on Linux. |
 | [yum_repository](https://docs.chef.io/resources/yum_repository/) | Linux | |
-| [yum_repository](https://docs.chef.io/resources/yum_repository/) | Centos 9, RHEL 8 | Supported on Linux platform only. |
+| [yum_repository](https://docs.chef.io/resources/yum_repository/) | Centos 9, RHEL 8 | Only supported on Linux. |
 | [zypper_package](https://docs.chef.io/resources/zypper_package/) | SUSE Linux 15 | |

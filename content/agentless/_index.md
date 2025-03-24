@@ -25,17 +25,14 @@ Agentless Mode has the following requirements:
 
 - A network-enabled system to execute Agentless Mode.
 - The `chef-client` CLI. This is included with Chef Workstation.
-- A credentials file that provides the system with information to connect to a target node.
-- A recipe that only includes Agentless Mode-enabled resources.
+- A [credentials file](#credentials-file) that provides the system with information to connect to a target node.
+- A recipe that only includes [Agentless Mode-enabled resources](#resources).
 
 ## Credentials file
 
 The credentials file defines the SSH connection settings for each node in TOML format.
 
-Create a credentials file on the computer running Chef Workstation in the following location:
-
-- On Linux and macOS: `~/.chef/credentials`
-- On Windows: `c:\Users\<USERNAME>\.chef\credentials`
+Create a credentials file on the computer running Chef Workstation in `~/.chef/credentials`.
 
 ### Define node connections
 
@@ -168,21 +165,14 @@ Additional parameters:
 
 All resources included in a Cookbook must be enabled in Agentless Mode to run in Agentless Mode.
 
-The following Chef Infra Client built-in resources run in Agentless Mode:
-
-- apt_package
-- breakpoint
-- execute
-- log
-- ruby_block
-- service
-- systemd_unit
+See the list of [built-in Chef Infra resources]({{< relref "resources" >}}) that are supported in Agentless Mode.
 
 ### Custom resources
 
 {{< readfile file="/reusable/md/agentless_custom_resource.md" >}}
 
-See the [Custom Resources documentation](https://docs.chef.io/custom_resources/) for more detailed documentation about creating custom resources.
+For documentation on updating custom resources, see the [RC2 custom resources documentation]({{< relref "resources/custom" >}}).
+For general guidelines on writing a custom resource, see the [custom resources documentation](https://docs.chef.io/custom_resources/).
 
 #### Example
 
