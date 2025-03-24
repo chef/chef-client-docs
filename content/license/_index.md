@@ -76,3 +76,7 @@ To set a license key with the CLI interactive dialog, follow these steps:
     ```
 
     After entering the license key, Chef Infra Client verifies your license and the run completes.
+
+## Next step
+
+After installing Chef Infra Client and adding a license, you can test it by running an [example cookbook]({{< relref "/cookbooks" >}}).

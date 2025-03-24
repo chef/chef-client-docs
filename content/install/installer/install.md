@@ -28,7 +28,7 @@ This install process has the following prerequisites:
 
 ## Install Chef Infra Client
 
-To install Chef Infra Client 19 RC2, follow these steps:
+To install Chef Infra Client 19, follow these steps:
 
 1. Add your Progress Chef License key to your machine's environment:
 
@@ -40,9 +40,13 @@ To install Chef Infra Client 19 RC2, follow these steps:
 
 1. Download the Chef Infra Client installer.
 
+    {{< accordion-list data-allow-all-closed="true" >}}
+
+    {{< accordion-item accordion-title="Download Debian-based installer" >}}
+
     For Debian-based distributions:
 
-    - Using wget:
+    - Using Wget:
 
       ```sh
       wget https://chef-hab-migration-tool-bucket.s3.amazonaws.com/rc2_hab_pkg_chef_client/rc2_installer_folder/chef-infra-client-19.1.rc2_amd64.deb?AWSAccessKeyId=AKIAW4FPVFT6BIP2EQW7&Signature=juoMKNP%2BAnq6cV61c%2BIrj2OIhFI%3D&Expires=1756222738
@@ -54,9 +58,12 @@ To install Chef Infra Client 19 RC2, follow these steps:
       curl -LO https://chef-hab-migration-tool-bucket.s3.amazonaws.com/rc2_hab_pkg_chef_client/rc2_installer_folder/chef-infra-client-19.1.rc2_amd64.deb?AWSAccessKeyId=AKIAW4FPVFT6BIP2EQW7&Signature=juoMKNP%2BAnq6cV61c%2BIrj2OIhFI%3D&Expires=1756222738
       ```
 
+    {{< /accordion-item >}}
+    {{< accordion-item accordion-title="Download RPM-based installer" >}}
+
     For RPM-based distributions:
 
-    - Using wget:
+    - Using Wget:
 
       ```sh
       wget https://chef-hab-migration-tool-bucket.s3.amazonaws.com/rc2_hab_pkg_chef_client/rc2_installer_folder/chef-infra-client-19.1.rc2.amzn2.x86_64.rpm?AWSAccessKeyId=AKIAW4FPVFT6BIP2EQW7&Signature=YNL2rOEpPflwG4PPyvIcofHBZ%2Fc%3D&Expires=1756222794
@@ -68,6 +75,9 @@ To install Chef Infra Client 19 RC2, follow these steps:
       curl -LO https://chef-hab-migration-tool-bucket.s3.amazonaws.com/rc2_hab_pkg_chef_client/rc2_installer_folder/chef-infra-client-19.1.rc2.amzn2.x86_64.rpm?AWSAccessKeyId=AKIAW4FPVFT6BIP2EQW7&Signature=YNL2rOEpPflwG4PPyvIcofHBZ%2Fc%3D&Expires=1756222794
       ```
 
+    {{< /accordion-item >}}
+    {{< /accordion-list >}}
+
 1. Navigate to the directory with the installer
 
     ```sh
@@ -76,11 +86,18 @@ To install Chef Infra Client 19 RC2, follow these steps:
 
 1. Install the package.
 
-    For Debian-based distributions:
+   {{< accordion-list data-allow-all-closed="true" >}}
+
+   {{< accordion-item accordion-title="Install on Debian-based distributions" >}}
+
+   For Debian-based distributions:
 
    ```sh
    sudo -E dpkg -i chef-infra-client-19.1.rc2_amd64.deb
    ```
+
+   {{< /accordion-item >}}
+   {{< accordion-item accordion-title="Install on RPM-based distributions" >}}
 
    For RPM-based distributions:
 
@@ -88,8 +105,15 @@ To install Chef Infra Client 19 RC2, follow these steps:
    sudo -E dnf install chef-infra-client-19.1.rc2.amzn2.x86_64.rpm -y
    ```
 
+   {{< /accordion-item >}}
+   {{< /accordion-list >}}
+
 1. Verify the installation:
 
     ```sh
     chef-client --version
     ```
+
+## Next step
+
+After installing Chef Infra Client, you can test it by running an [example cookbook]({{< relref "/cookbooks" >}}).

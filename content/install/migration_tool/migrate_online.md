@@ -20,6 +20,8 @@ Chef Infra Client 19 RC2 is supported on Linux x86-64 systems.
 
 ## Install Chef Infra Client
 
+To install Chef Infra Client, follow these steps:
+
 1. Optional: Verify that Chef Infra Client isn't already installed on your system:
 
     ```sh

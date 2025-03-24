@@ -20,6 +20,8 @@ Chef Infra Client 19 RC2 is supported on Linux x86-64 systems.
 
 ## Install Chef Infra Client
 
+To install Chef Infra Client, follow these steps:
+
 1. On an internet-connected machine, download the Chef Infra Client 19 RC2 tar file.
 
     Chef Infra Client is available in a zipped tar file using a pre-signed URL from an S3 bucket until August 26, 2025.
@@ -30,7 +32,7 @@ Chef Infra Client 19 RC2 is supported on Linux x86-64 systems.
     curl -o chef-chef-infra-client-19.1.rc2.tar.gz https://chef-hab-migration-tool-bucket.s3.amazonaws.com/rc2_hab_pkg_chef_client/rc2_tar_folder/chef-chef-infra-client-19.1.rc2.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6BIP2EQW7&Signature=Q91HiSIzOxffl52La8EvqSXSqWk%3D&Expires=1756222682
     ```
 
-    Download using wget:
+    Download using Wget:
 
     ```sh
     wget -O "chef-chef-infra-client-19.1.rc2.tar.gz" https://chef-hab-migration-tool-bucket.s3.amazonaws.com/rc2_hab_pkg_chef_client/rc2_tar_folder/chef-chef-infra-client-19.1.rc2.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6BIP2EQW7&Signature=Q91HiSIzOxffl52La8EvqSXSqWk%3D&Expires=1756222682
