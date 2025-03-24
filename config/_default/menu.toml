@@ -63,6 +63,10 @@ identifier = "licensing"
 title = "Install"
 identifier = "install"
 
+[[agentless]]
+title = "Agentless"
+identifier = "agentless"
+
 [[kitchen]]
 title = "Test Kitchen Enterprise"
 identifier = "kitchen"
