@@ -71,9 +71,9 @@ It supports two subcommands:
 
   Valid values:
 
-  - `"ignore"`: Skips the configuration check entirely.
-  - `"warn"`: Logs a warning if `/opt/chef` is found in `client.rb` but continues execution.
-  - `"error"`: Aborts execution if `/opt/chef` is found, preventing potential conflicts.
+  - `ignore`: Skips the configuration check entirely.
+  - `warn`: Logs a warning if `/opt/chef` is found in `client.rb` but continues execution.
+  - `error`: Aborts execution if `/opt/chef` is found, preventing potential conflicts.
 
   Default value: `error`.
 
@@ -88,7 +88,7 @@ It supports two subcommands:
 `--symlink`
 : Replaces symbolic links to essential binaries---for example, `ruby`, `chef-client`, and `openssl`---from Omnibus-based to Habitat-based Chef Infra Client.
 
-  This processes binaries in `/opt/chef/bin` and `/opt/chef/embedded/bin`. Each file within these directories is evaluated, and if it's an executable associated with Chef, the tool creates a symlink to the corresponding binary within Habitat. If no equivalent is found in Habitat, the file is left unchanged.
+  This processes binaries in `/opt/chef/bin` and `/opt/chef/embedded/bin`. Each file within these directories is evaluated and if it's an executable associated with Chef, the tool creates a symlink to the corresponding binary within Chef Habitat. If no equivalent is found in Habitat, the file is left unchanged.
 
   Default value: `false`.
 
@@ -154,7 +154,7 @@ Remount Chef Infra Client from `/opt/chef` to `/hab`:
 chef-migration apply {airgap|online} --license-key "<LICENSE_KEY>" --fstab apply
 ```
 
-Remount Chef Infra Client from `/opt/chef` to `/hab`, but abort the process if `/opt/chef` is already mounted:
+Abort the migration process if `/opt/chef` is already mounted:
 
 ```sh
 chef-migration apply {airgap|online} --license-key "<LICENSE_KEY>" --fstab fail
