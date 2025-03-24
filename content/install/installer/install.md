@@ -20,7 +20,7 @@ Chef Infra Client 19 RC2 is supported on Linux x86-64 systems.
 
 This install process has the following prerequisites:
 
-- Chef Workstation _is not_ installed on the target system.
+- Chef Workstation _isn't_ installed on the target system.
 - On Debian-based systems, the dpkg package manager is installed on the target system.
 - On RPM-based systems, the RPM and DNF package managers are installed on the target system.
 - You have a valid Progress Chef License key.

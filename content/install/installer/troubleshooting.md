@@ -41,8 +41,7 @@ To resolve the error:
 1. [Uninstall Chef Workstation](https://docs.chef.io/workstation/install_workstation/#uninstalling).
 1. [Reinstall Chef Infra Client]({{< relref "install" >}}).
 
-
-## Error: invalid license
+## Error: Invalid license
 
 The installation process requires a valid Progress Chef License key.
 
