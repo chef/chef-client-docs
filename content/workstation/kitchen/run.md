@@ -2,20 +2,16 @@
 title = "Run Test Kitchen"
 linkTitle = "Using Test Kitchen"
 
-[menu.kitchen]
+[menu.workstation]
 title = "Run Test Kitchen"
-identifier = "kitchen/using_test_kitchen"
-parent = "kitchen"
+identifier = "workstation/tke/using_test_kitchen"
+parent = "workstation/tke"
 weight = 40
 +++
 
-For the Chef Infra Client RC1 release, Chef Test Kitchen Enterprise supports only the kitchen-dokken driver.
-This driver allows you to create containers with different operating systems using Podman or Docker Desktop and configure Chef Infra Client 19 for converge and verify operations.
-By default, kitchen-dokken uses the `chef/chef-hab` container volume from Docker Hub to attach Chef Infra Client 19 and Chef InSpec 6 (the default verifier) to the test container.
-
-## Prerequisites
-
-To use kitchen-dokken, you must have Docker running on the same system that's running Chef Test Kitchen Enterprise.
+For the Chef Infra Client RC2 release, Chef Test Kitchen Enterprise only supports the kitchen-dokken driver.
+This allows us to create containers, using Podman or Docker Desktop, of various realistic operating systems and configure Chef Infra Client 19 for converge and verify operations.
+By default, this driver uses the chef/chef-hab container volume from Docker Hub to attach the Chef Infra Client 19 and Chef InSpec 6 (the default verifier) to the test container.
 
 ## Example `kitchen.yaml` for Chef Infra Client 19
 

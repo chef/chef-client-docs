@@ -1,10 +1,10 @@
 +++
 title = "Install Test Kitchen Enterprise"
 
-[menu.dke]
+[menu.workstation]
 title = "Install Test Kitchen Enterprise"
-identifier = "dke/tke/install"
-parent = "dke/tke"
+identifier = "workstation/tke/install"
+parent = "workstation/tke"
 weight = 20
 +++
 
@@ -16,8 +16,8 @@ Chef Test Kitchen Enterprise RC2 is supported on Linux x86-64 systems.
 
 ## Install Chef Habitat
 
-Chef Test Kitchen Enterprise is installed as a Habitat package using Chef Habitat.
-Install and set up Chef Habitat if it's not already installed on your system.
+Install Chef Test Kitchen Enterprise as a Habitat package using Chef Habitat.
+If Chef Habitat isn't already installed, follow these steps to install and set it up.
 
 {{< note >}}
 
