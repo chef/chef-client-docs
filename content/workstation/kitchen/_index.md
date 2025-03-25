@@ -2,10 +2,10 @@
 title = "Chef Test Kitchen Enterprise overview"
 linkTitle = "Test Kitchen Enterprise"
 
-[menu.kitchen]
+[menu.workstation]
 title = "Overview"
-identifier = "kitchen/overview"
-parent = "kitchen"
+identifier = "workstation/tke/overview"
+parent = "workstation/tke"
 weight = 10
 +++
 

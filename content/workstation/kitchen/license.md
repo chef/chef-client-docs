@@ -1,10 +1,10 @@
 +++
 title = "Apply a license in Chef Test Kitchen Enterprise"
 
-[menu.dke]
+[menu.workstation]
 title = "Add a license"
-identifier = "dke/tke/license"
-parent = "dke/tke"
+identifier = "workstation/tke/license"
+parent = "workstation/tke"
 weight = 30
 +++
 
