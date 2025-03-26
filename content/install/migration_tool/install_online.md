@@ -5,7 +5,7 @@ title = "Install Chef Infra Client using the migration tool in an online environ
 title = "Online install"
 identifier = "install/migration_tool/install_online"
 parent = "install/migration_tool"
-weight = 10
+weight = 20
 +++
 
 This page documents how to install Chef Infra Client RC2 in an online environment.

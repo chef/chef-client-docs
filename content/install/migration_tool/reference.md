@@ -20,7 +20,7 @@ chef-migrate apply {airgap|online} [flags]
 
 It supports two subcommands:
 
-- `airgap`: Uses pre-downloaded airgapped bundles to perform the migration.
+- `airgap`: Uses pre-downloaded airgapped bundles to perform the install or upgrade.
 - `online`: Uses network-connected resources to download and install Chef Infra Client 19.
 
 ## Flags
@@ -96,17 +96,17 @@ It supports two subcommands:
 
 ## Examples
 
-### Migrate Chef Infra Client
+### Upgrade Chef Infra Client
 
-These examples show how to migrate Chef Infra Client to version 19 RC2 from an earlier version.
+These examples show how to upgrade Chef Infra Client to version 19 RC2 from an earlier version.
 
-Standard online migration:
+Standard online upgrade:
 
 ```sh
 chef-migrate apply online --download-url "<DOWNLOAD_URL>" --license-key "<LICENSE_KEY>"
 ```
 
-Standard airgapped migration:
+Standard airgapped upgrade:
 
 ```sh
 chef-migrate apply airgap </PATH/TO/BUNDLE> --license-key "<LICENSE_KEY>"
@@ -142,7 +142,7 @@ Log a warning if the `client.rb` config file references the Omnibus-based Chef I
 chef-migration apply {airgap|online} --license-key "<LICENSE_KEY>" --process-config warn
 ```
 
-Replace the existing Omnibus-based Chef binaries with symbolic links pointing to their Habitat-based equivalents.
+Replace the existing Omnibus-based Chef binaries (for example, `ruby`, `chef-client`, and `openssl`) with symbolic links pointing to their Habitat-based equivalents.
 
 ```sh
 chef-migration apply {airgap|online} --license-key "<LICENSE_KEY>" --preserve --symlink
