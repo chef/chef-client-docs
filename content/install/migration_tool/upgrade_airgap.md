@@ -2,10 +2,10 @@
 title = "Upgrade Chef Infra Client to version 19 RC2 using the migration tool in an airgapped environment"
 
 [menu.install]
-title = "Airgap migration"
-identifier = "install/migration_tool/migrate_airgap"
+title = "Airgap upgrade"
+identifier = "install/migration_tool/upgrade_airgap"
 parent = "install/migration_tool"
-weight = 10
+weight = 20
 +++
 
 This page documents how to upgrade Chef Infra Client to version 19 RC2 in an airgapped environment.
