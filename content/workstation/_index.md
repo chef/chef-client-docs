@@ -8,7 +8,7 @@ parent = "workstation"
 weight = 10
 +++
 
-Start automating your infrastructure with Chef Workstation. It provides everything you need to get started with Chef, including ad hoc remote execution, remote scanning, configuration tasks, cookbook creation tools, and robust dependency and testing software—all in one easy-to-install package.
+Start automating your infrastructure with Chef Workstation. It provides everything you need to get started with Chef, including ad hoc remote execution, remote scanning, configuration tasks, cookbook creation tools, and robust dependency and testing software---all in one easy-to-install package.
 
 With this release, we've changed how Chef Workstation is installed and licensed.
 
