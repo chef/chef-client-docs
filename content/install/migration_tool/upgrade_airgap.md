@@ -1,14 +1,14 @@
 +++
-title = "Migrate Chef Infra Client to version 19 RC2 using the migration tool in an online environment"
+title = "Upgrade Chef Infra Client to version 19 RC2 using the migration tool in an airgapped environment"
 
 [menu.install]
-title = "Online migration"
-identifier = "install/migration_tool/migrate_online"
+title = "Airgap migration"
+identifier = "install/migration_tool/migrate_airgap"
 parent = "install/migration_tool"
 weight = 10
 +++
 
-This page documents how to upgrade Chef Infra Client to version 19 RC2 in an online environment.
+This page documents how to upgrade Chef Infra Client to version 19 RC2 in an airgapped environment.
 
 ## Supported platforms
 
@@ -22,13 +22,23 @@ Chef Infra Client 19 RC2 is supported on Linux x86-64 systems.
 
 To install Chef Infra Client, follow these steps:
 
-1. Optional: Verify that Chef Infra Client isn't already installed on your system:
+1. On an internet-connected machine, download the Chef Infra Client 19 RC2 tar file.
+
+    Chef Infra Client is available in a zipped tar file using a pre-signed URL from an S3 bucket until August 26, 2025.
+
+    Download using curl:
 
     ```sh
-    chef-client --version
+    curl -o chef-chef-infra-client-19.1.rc2.tar.gz https://chef-hab-migration-tool-bucket.s3.amazonaws.com/rc2_hab_pkg_chef_client/rc2_tar_folder/chef-chef-infra-client-19.1.rc2.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6BIP2EQW7&Signature=Q91HiSIzOxffl52La8EvqSXSqWk%3D&Expires=1756222682
     ```
 
-1. Download the Chef Infra Client migration tool.
+    Download using Wget:
+
+    ```sh
+    wget -O "chef-chef-infra-client-19.1.rc2.tar.gz" https://chef-hab-migration-tool-bucket.s3.amazonaws.com/rc2_hab_pkg_chef_client/rc2_tar_folder/chef-chef-infra-client-19.1.rc2.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6BIP2EQW7&Signature=Q91HiSIzOxffl52La8EvqSXSqWk%3D&Expires=1756222682
+    ```
+
+1. On an internet-connected machine, download the Chef Infra Client migration tool.
 
     The migration tool is available for download as a zipped tar file using a pre-signed URL from an S3 bucket until August 26, 2025.
 
@@ -61,13 +71,16 @@ To install Chef Infra Client, follow these steps:
 
     The migration tool returns available commands and usage guidelines.
 
-1. Install Chef Infra Client using [`chef-migrate apply`]({{< relref "reference" >}}).
+1. Install Chef Infra Client by specifying the path to the tar file using [`chef-migrate apply`]({{< relref "reference" >}}).
 
     ```sh
-    chef-migrate apply online --download-url "--download-url "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/rc2_hab_pkg_chef_client/rc2_tar_folder/chef-chef-infra-client-19.1.rc2.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6BIP2EQW7&Signature=Q91HiSIzOxffl52La8EvqSXSqWk%3D&Expires=1756222682"" --license-key "<LICENSE_KEY>"
+    chef-migrate apply airgap <PATH/TO/BUNDLE> --license-key "<LICENSE_KEY>"
     ```
 
-    Replace `<LICENSE_KEY>` with your Progress Chef License key.
+    Replace:
+
+    - `<PATH/TO/BUNDLE>` with the path to the Chef Infra Client tar file.
+    - `<LICENSE_KEY>` with your Progress Chef License key.
 
 1. Verify that Chef Infra Client is installed.
 
