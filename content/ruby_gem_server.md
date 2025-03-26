@@ -5,46 +5,47 @@ title = "Chef's Ruby gem server"
 title = "Chef's Ruby gem server"
 +++
 
-This page is going to be used for the context of our Customers.
+Chef's Ruby gem server distributes Chef's commercial and licensed Ruby gems. The server is hosted at <https://rubygems.chef.io/>.
 
-# How to add a Gem Source
+## Add Chef's gem server as a source
 
-In order for customers to use the [https://rubygems.chef.io/](https://rubygems.chef.io/), they need:
+Before you begin, you will need your valid [Progress Chef license key](https://docs.chef.io/licensing/license_key/).
 
-- A valid license
-  - you can obtain your license by visiting: [Add a Chef License Key](https://docs.chef.io/licensing/license_key/)
-- Server that has ruby setup on it
+- Add Chef's Ruby gem server using `gem source --add`:
 
-To add commercial rubygems source from chef, they need to first add a valid license key into their gem source like this:
+  ```sh
+  gem sources --add https://v1:<LICENSE_KEY>@rubygems.chef.io
+  ```
 
-```sh
-gem source --add https://v1:<license-key>@rubygems.chef.io
-```
+  It returns a message that `rubygems.chef.io` has been added a gem source.
 
-Expected output:
+## Install a Ruby gem
 
-```sh
-gem source --add https://v1:11111111-2222-3333-4444-55555555555@rubygems.chef.io
-https://v1:11111111-2222-3333-4444-55555555555@rubygems.chef.io added to sources
-```
+1. Optional: Verify that you've added Chef's Ruby gem server as a source:
 
-Downloading a RubyGem
+    ```sh
+    gem sources -l
+    ```
 
-- Verify you have your gem source added
-  - `gem source -a` - expected output:
+    This returns a list of Ruby gem servers that should include `rubygems.chef.io`:
 
-```sh
-*** CURRENT SOURCES ***
+    ```sh
+    *** CURRENT SOURCES ***
 
-https://rubygems.org/
-https://v1:11111111-2222-3333-4444-55555555555@rubygems.chef.io
-```
+    https://rubygems.org/
+    https://v1:<LICENSE_KEY>@rubygems.chef.io
+    ```
 
-- to install our gems now:
+1. Install a gem:
 
-```sh
-gem install chef-testing-ssimmons-simple-gem
-Fetching chef-testing-ssimmons-simple-gem-0.1.4.gem
-Successfully installed chef-testing-ssimmons-simple-gem-0.1.4
-1 gem installed
-```
+    ```sh
+    gem install <GEM>
+    ```
+
+    This installs the gem and displays a success message.
+
+    For testing purposes, you can try installing `chef-testing-simple-gem` to verify that you can install from Chef's gem server:
+
+    ```sh
+    gem install chef-testing-simple-gem
+    ```
