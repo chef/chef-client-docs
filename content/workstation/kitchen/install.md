@@ -1,5 +1,5 @@
 +++
-title = "Install Test Kitchen Enterprise"
+title = "Install Chef Test Kitchen Enterprise"
 
 [menu.workstation]
 title = "Install Test Kitchen Enterprise"
@@ -8,16 +8,16 @@ parent = "workstation/tke"
 weight = 20
 +++
 
-To install the new Chef Test Kitchen Enterprise, first ensure you have the latest Chef Habitat installer.
+Chef Test Kitchen Enterprise is a component of Chef Workstation.
+However, you can also install it as a standalone application or install a different version than the one bundled with Workstation.
 
 ## Supported platforms
 
-Chef Test Kitchen Enterprise RC2 is supported on Linux x86-64 systems.
+Chef Test Kitchen Enterprise is supported on Linux x86-64 systems.
 
-## Install Chef Habitat
+## Install
 
-Install Chef Test Kitchen Enterprise as a Habitat package using Chef Habitat.
-If Chef Habitat isn't already installed, follow these steps to install and set it up.
+If you haven't already installed Chef Habitat, follow these steps to install and set it up.
 
 {{< note >}}
 
@@ -53,8 +53,6 @@ For more information, see the [Chef Habitat install documentation](https://docs.
     - Set up a default Builder personal access token? [yes/No/quit] **No**
     - Set up a default Habitat Supervisor control gateway secret? [yes/No/quit] **No**
 
-## Install Chef Test Kitchen Enterprise
-
 1. Use Chef Habitat to install the Chef Test Kitchen Enterprise package:
 
     ```sh
@@ -71,3 +69,7 @@ For more information, see the [Chef Habitat install documentation](https://docs.
     ```
 
     You can also verify that the Test Kitchen Enterprise package is installed in `/hab/pkgs/chef/chef-test-kitchen-enterprise/1.0.5`.
+
+## Next steps
+
+After you've installed Chef Test Kitchen Enterprise, add your [Progress Chef license]({{< relref "license" >}}).
