@@ -3,7 +3,7 @@ title = "Install Chef Infra Client using the migration tool"
 linkTitle = "Migration tool"
 +++
 
-The Chef Infra Client migration tool (`chef-migrate`) allows you to install or upgrade of the Chef Infra Client to the latest version in both online and airgappeed environments.
+The Chef Infra Client migration tool (`chef-migrate`) allows you to install or upgrade of the Chef Infra Client to the latest version in both online and airgapped environments.
 
 It has the following functions:
 
