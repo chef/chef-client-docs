@@ -13,7 +13,7 @@ Use Chef Test Kitchen Enterprise to automatically test cookbooks across any comb
 
 - Test suites are defined in a kitchen.yml file. See the configuration documentation for options and syntax information.
 - Supports cookbook testing across many cloud providers and virtualization technologies.
-- Uses a comprehensive set of operating system base images from Chef’s Bento project.
+- Uses a comprehensive set of operating system base images from Chef's Bento project.
 
 The key concepts in Test Kitchen Enterprise are:
 
