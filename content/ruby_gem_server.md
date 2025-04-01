@@ -47,5 +47,5 @@ Before you begin, you will need your valid [Progress Chef license key](https://d
     For testing purposes, you can try installing `chef-test` or 'inspec-test' gem to verify that you can install from Chef's gem server:
 
     ```sh
-    gem install chef-test
+    gem install chef-test-0.1.0.gem
     ```
