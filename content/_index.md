@@ -18,7 +18,16 @@ Chef Infra Client 19 is the first LTS version for infrastructure management and 
 This release---Release Candidate 2 (RC2)---is a preview for a very limited audience to provide candid feedback of Chef Infra Client,
 the new Infra Client migration tool, and updated Test Kitchen developer tools to ensure a seamless transition at the time of general availability (GA).
 
+## Components
+
+### Installers
+
 The new Chef Infra Client migration tool eases the transition from previous methods of installing and maintaining earlier versions of Infra Client to the Infra Client 19 release candidates and the final LTS version.
+
+### Chef Workstation
+
+
+### Chef Test Kitchen Enterprise
 
 The new Test Kitchen Enterprise bundle is a fully Chef-maintained version of Test Kitchen and will be a part of Chef Workstation at the time of release.
 
