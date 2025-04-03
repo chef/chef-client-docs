@@ -5,19 +5,23 @@ title = "Chef Infra Client 19 RC2 release notes"
 title = "Release notes"
 +++
 
-Progress Chef has introduced a [Long Term Support (LTS) model](https://www.chef.io/blog/long-term-support-progress-chef-providing-stability) to ensure enterprise stability. Chef Infra Client 19 serves as the first LTS version for infrastructure management and compliance mode. This release---Release Candidate 2 (RC2)---offers a preview for a limited audience to gather feedback on Chef Infra Client, the new Infra Client migration tool, native installers, Chef Workstation, and its component applications. This feedback will help ensure a smooth transition when Chef Infra Client 19 reaches General Availability (GA).
-
-## Supported environments
-
-Use the Chef Infra Client RC2 release exclusively for testing in non-production environments. It's supported on Linux x86-64 systems.
+Progress Chef has introduced a [Long Term Support (LTS) model](https://www.chef.io/blog/long-term-support-progress-chef-providing-stability) to ensure enterprise stability.
+Chef Infra Client 19 serves as the first LTS version for infrastructure management and compliance mode.
+This release---Release Candidate 2 (RC2)---offers a preview for a limited audience to gather feedback on Chef Infra Client, the new Infra Client migration tool, native installers, Chef Workstation, and its component applications.
+This feedback will help ensure a smooth transition when Chef Infra Client 19 reaches General Availability (GA).
 
 This release enables you to:
 
 - Test the migration tool's ability to upgrade your infrastructure to Chef Infra Client 19.
+- Test the native installers.
 - Familiarize yourself with Habitat-based builds.
 - Install and test Chef Workstation and its components.
 - Experiment with Chef Agentless.
 - Prepare for new licensing requirements.
+
+## Supported environments
+
+Use the Chef Infra Client RC2 release exclusively for testing in non-production environments. It's supported on Linux x86-64 systems.
 
 ## Installers
 
@@ -27,7 +31,7 @@ Install or upgrade Chef Infra Client using a native installer or the Chef migrat
 
 We've rebranded Target Mode as Chef Agentless.
 
-Chef Agentless, introduced in Chef Infra Client 15, allows you to execute Chef resources on remote systems without installing Chef Infra Client. This simplifies managing the desired state of remote systems, edge devices, and cloud targets.
+Chef Agentless, introduced in Chef Infra Client 15 as Target Mode, allows you to execute Chef resources on remote systems without installing Chef Infra Client. This simplifies managing the desired state of remote systems, edge devices, and cloud targets.
 
 You can manage any system, target, or device's desired state without relying on specific platform support. Use compatible native resources or custom resources to manage devices. Once you create an agentless-compatible recipe, you can remotely manage the node from any server, workstation, container, or pipeline. Chef Agentless integrates seamlessly with systems, even those lacking native Chef Infra Client builds.
 
@@ -49,7 +53,7 @@ This reduces the complexity of maintaining the entire package.
 
 You can install and manage Chef Workstation and its components together or handle each application separately.
 
-#### Excluded Applications
+#### Excluded applications
 
 This release excludes the Knife and InSpec applications from Chef Workstation.
 
