@@ -181,28 +181,3 @@ To install Ohai, follow these steps:
     ```sh
     ohai -v
     ```
-
-## Uninstall packages
-
-To uninstall a Workstation tool, use the [`hab pkg uninstall`](https://docs.chef.io/habitat/habitat_cli/#hab-pkg-uninstall) command:
-
-```sh
-sudo hab pkg uninstall <PACKAGE>
-```
-
-For example:
-
-```sh
-sudo hab pkg uninstall chef/chef-vault
-```
-
-Use the following package names:
-
-- `chef/berkshelf`
-- `chef/chef-cli`
-- `chef/chef-infra-client`
-- `chef/chef-test-kitchen-enterprise`
-- `chef/chef-vault`
-- `chef/cookstyle`
-- `chef/fauxhai`
-- `chef/ohai`

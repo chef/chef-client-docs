@@ -60,11 +60,3 @@ To install Chef Workstation, follow these steps:
     ```
 
     Chef Workstation returns a list of installed packages and their versions.
-
-## Uninstall
-
-To uninstall Chef Workstation, run the following command:
-
-- ```sh
-  sudo hab pkg uninstall chef/chef-workstation
-  ```

@@ -1,5 +1,5 @@
 +++
-title = "Chef Workstation install overview"
+title = "Install Chef Workstation overview"
 linkTitle = "Install"
 
 [menu.workstation]
