@@ -77,7 +77,18 @@ identifier = "install"
 title = "Agentless"
 identifier = "agentless"
 
-[[kitchen]]
-title = "Test Kitchen Enterprise"
-identifier = "kitchen"
+[[workstation]]
+title = "Chef Workstation"
+identifier = "workstation"
 
+  [[workstation]]
+  title = "Install"
+  identifier = "workstation/install"
+  parent = "workstation"
+  weight = 20
+
+  [[workstation]]
+  title = "Test Kitchen Enterprise"
+  identifier = "workstation/tke"
+  parent = "workstation"
+  weight = 200
