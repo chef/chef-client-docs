@@ -1,15 +1,33 @@
 +++
-title = "Chef Infra Client RC2 release notes"
+title = "Chef Infra Client 19 RC2 release notes"
 
 [menu.release_notes]
 title = "Release notes"
 +++
 
+## Installers
+
+With this release, you can install Chef Infra Client using a native installer or the Chef migration tool. For more information, see the [install documentation]({{< relref "/install" >}}).
+
+## Chef Target Mode/Agentless
+
+Target Mode is rebranded as Agentless. With Agentless Mode you can execute Chef Infra runs on nodes that don't have Chef Infra Client installed on them.
+
+See the [Agentless documentation]({{< relref "/agentless" >}}) for details.
+
 ## Chef Workstation
 
 ### Workstation tools
 
-To improve the user experience and simplify interactions with its components, we've modularized Chef Workstation. This restructuring divides Chef Workstation into independent components, allowing users to install, upgrade, and manage specific parts individually using Chef Habitat. This modular design reduces the complexity of maintaining the entire package.
+We've modularized Chef Workstation to improve user experience and simplify interactions with its components.
+This divides Chef Workstation into independent parts, enabling users to install, upgrade, and manage specific components individually using Chef Habitat.
+This approach reduces the complexity of maintaining the entire package.
+
+You can install and manage Chef Workstation and its components together or you install and manage each application separately.
+
+#### Excluded applications
+
+We aren't including the Knife and InSpec applications in Chef Workstation for this release.
 
 ### Test Kitchen Enterprise
 
