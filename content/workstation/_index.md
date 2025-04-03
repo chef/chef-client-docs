@@ -79,7 +79,15 @@ with:
 chef-cli generate cookbook COOKBOOK_PATH/COOKBOOK_NAME (options)
 ```
 
-For information on commands and their syntax, see the [`chef` CLI documentation](https://docs.chef.io/workstation/ctl_chef/).
+The following commands are unavailable in this release:
+
+- `chef-cli capture`
+- `chef-cli report`
+- `chef-cli supermarket`
+
+Additionally, the `chef {-v|--version}` command is replaced by `chef-workstation {-v|--version}`.
+
+For command syntax and usage, see the [`chef` reference documentation](https://docs.chef.io/workstation/ctl_chef/).
 
 ### Chef Infra Client
 
