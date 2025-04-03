@@ -82,6 +82,12 @@ title = "Chef Workstation"
 identifier = "workstation"
 
   [[workstation]]
+  title = "Install"
+  identifier = "workstation/install"
+  parent = "workstation"
+  weight = 20
+
+  [[workstation]]
   title = "Test Kitchen Enterprise"
   identifier = "workstation/tke"
   parent = "workstation"
