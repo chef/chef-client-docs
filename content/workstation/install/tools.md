@@ -13,7 +13,7 @@ weight = 30
 
 ## Install packages
 
-Follow these instructions for install or upgrade each tool.
+Follow these instructions to install or upgrade each tool.
 
 ### Supported platforms
 
@@ -21,7 +21,7 @@ The Chef Workstation tools are supported on Linux x86-64 systems.
 
 ### Prerequisites
 
-We use Chef Habitat to distribute and install these tools.
+We use Chef Habitat to distribute and install these applications.
 For more information, see the [Chef Habitat documentation](https://docs.chef.io/habitat/).
 
 If you don't have Chef Habitat installed on your computer, follow these steps:
@@ -47,10 +47,10 @@ If you don't have Chef Habitat installed on your computer, follow these steps:
     Follow the prompts in the Habitat CLI.
     We recommend the following settings:
 
-    - Connect to an on-premises Builder instance? [yes/No/quit] **No**
-    - Set up a default origin? [Yes/no/quit] **No**
-    - Set up a default Builder personal access token? [yes/No/quit] **No**
-    - Set up a default Habitat Supervisor control gateway secret? [yes/No/quit] **No**
+    - Connect to an on-premises Builder instance? **No**
+    - Set up a default origin? **No**
+    - Set up a default Builder personal access token? **No**
+    - Set up a default Habitat Supervisor control gateway secret? **No**
 
 ### Berkshelf
 
@@ -118,9 +118,7 @@ To install Chef Test Kitchen Enterprise, see the [Test Kitchen Enterprise instal
 
 ### Chef Vault
 
-Chef Vault is included as a component of Chef Workstation. However, you can install it as a standalone application or you can install a different version of from the one bundled with Workstation.
-
-To install this application, follow these steps:
+To install Chef Vault, follow these steps:
 
 1. Install the `chef/chef-vault` package using [`hab pkg install`](https://docs.chef.io/habitat/habitat_cli/#hab-pkg-install):
 
