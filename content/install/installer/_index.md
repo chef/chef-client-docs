@@ -22,7 +22,10 @@ This install process has the following prerequisites:
 
 - Chef Workstation _isn't_ installed on the target system.
 - On Debian-based systems, the dpkg package manager is installed on the target system.
-- On RPM-based systems, the RPM and DNF package managers are installed on the target system.
+- On RPM-based systems, the RPM and either the DNF or Yum package managers are installed on the target system.
+
+  For Amazon Linux 2, use the RPM and Yum package managers.
+
 - You have a valid Progress Chef License key.
 - The target system is connected to the internet.
 
@@ -103,6 +106,12 @@ To install Chef Infra Client 19, follow these steps:
 
    ```sh
    sudo -E dnf install chef-infra-client-19.1.rc2.amzn2.x86_64.rpm -y
+   ```
+
+   or:
+
+   ```sh
+   sudo -E yum localinstall chef-infra-client-19.1.rc2.amzn2.x86_64.rpm -y
    ```
 
    {{< /accordion-item >}}
