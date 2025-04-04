@@ -18,7 +18,7 @@ Before you begin, you will need your valid [Progress Chef license key](https://d
   gem sources --add https://v1:<LICENSE_KEY>@rubygems.chef.io
   ```
 
-  It returns a message that `rubygems.chef.io` has been added a gem source.
+  It returns a message that `rubygems.chef.io` has been added as a gem source.
 
 ## Install a Ruby gem
 
