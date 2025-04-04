@@ -1,5 +1,6 @@
 +++
 title = "Chef's Ruby gem server"
+draft = true
 
 [menu.chef_gem_server]
 title = "Chef's Ruby gem server"

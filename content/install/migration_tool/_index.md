@@ -19,8 +19,7 @@ It has the following functions:
 
 To install or upgrade Chef Infra Client, see these guides:
 
-- [Install airgapped]({{< relref "install_airgap" >}})
-- [Install online]({{< relref "install_online" >}})
-- [Upgrade airgapped]({{< relref "upgrade_airgap" >}})
-- [Upgrade online]({{< relref "upgrade_online" >}})
+- [Install]({{< relref "install" >}})
+- [Online upgrade]({{< relref "upgrade_online" >}})
+- [Airgapped upgrade]({{< relref "upgrade_airgap" >}})
 - [`chef-migrate` CLI reference]({{< relref "reference" >}})
