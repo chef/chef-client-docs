@@ -39,9 +39,13 @@ The host system connects to the target system using Train, a unified transport i
 
 For more information, see the [Agentless documentation]({{< relref "/agentless" >}}).
 
+<!--
+
 ## Chef Ruby gem server
 
-Chef's Ruby gem server now distributes Chef's commercial and licensed Ruby gems. Access the service at <https://rubygems.chef.io/>. This release includes a few test gems for you to try. For more information, see the [gem server documentation]({{< relref "/ruby_gem_server" >}}).
+Chef's Ruby gem server now distributes Chef's commercial and licensed Ruby gems. Access the service at <https://rubygems.chef.io/>. This release includes a few test gems for you to try.
+
+-->
 
 ## Chef Workstation
 
