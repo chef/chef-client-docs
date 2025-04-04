@@ -1,5 +1,6 @@
 +++
 title = "Install Chef Infra Client using the migration tool in an airgapped environment"
+draft = true
 
 [menu.install]
 title = "Airgap install"
