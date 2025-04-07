@@ -135,31 +135,31 @@ chef-migrate apply airgap </PATH/TO/BUNDLE> --license-key "<LICENSE_KEY>"
 Preserve an Omnibus-based Chef Infra Client installation:
 
 ```sh
-chef-migration apply {airgap|online} --license-key "<LICENSE_KEY>" --preserve
+chef-migrate apply {airgap|online} --license-key "<LICENSE_KEY>" --preserve
 ```
 
 Log a warning if the `client.rb` config file references the Omnibus-based Chef Infra Client installation (`/opt/chef`):
 
 ```sh
-chef-migration apply {airgap|online} --license-key "<LICENSE_KEY>" --process-config warn
+chef-migrate apply {airgap|online} --license-key "<LICENSE_KEY>" --process-config warn
 ```
 
 Replace the existing Omnibus-based Chef binaries (for example, `ruby`, `chef-client`, and `openssl`) with symbolic links pointing to their Habitat-based equivalents.
 
 ```sh
-chef-migration apply {airgap|online} --license-key "<LICENSE_KEY>" --preserve --symlink
+chef-migrate apply {airgap|online} --license-key "<LICENSE_KEY>" --preserve --symlink
 ```
 
 Remount Chef Infra Client from `/opt/chef` to `/hab`:
 
 ```sh
-chef-migration apply {airgap|online} --license-key "<LICENSE_KEY>" --fstab apply
+chef-migrate apply {airgap|online} --license-key "<LICENSE_KEY>" --fstab apply
 ```
 
 Abort the migration process if `/opt/chef` is already mounted:
 
 ```sh
-chef-migration apply {airgap|online} --license-key "<LICENSE_KEY>" --fstab fail
+chef-migrate apply {airgap|online} --license-key "<LICENSE_KEY>" --fstab fail
 ```
 
 ### Manage Chef Habitat
@@ -167,7 +167,7 @@ chef-migration apply {airgap|online} --license-key "<LICENSE_KEY>" --fstab fail
 Upgrade Chef Habitat while installing Chef Infra Client:
 
 ```sh
-chef-migration apply {airgap|online} --license-key "<LICENSE_KEY>" --habitat-upgrade
+chef-migrate apply {airgap|online} --license-key "<LICENSE_KEY>" --habitat-upgrade
 ```
 
 ### SELinux profiles
@@ -175,11 +175,11 @@ chef-migration apply {airgap|online} --license-key "<LICENSE_KEY>" --habitat-upg
 Install the default SELinux profile:
 
 ```sh
-chef-migration apply {airgap|online} --license-key "<LICENSE_KEY>" --selinux-profile default --selinux-ignore-warnings
+chef-migrate apply {airgap|online} --license-key "<LICENSE_KEY>" --selinux-profile default --selinux-ignore-warnings
 ```
 
 Install a custom SELinux profile:
 
 ```sh
-chef-migration apply {airgap|online} --license-key "<LICENSE_KEY>" --selinux-profile <PATH/TO/CUSTOM/PROFILE>
+chef-migrate apply {airgap|online} --license-key "<LICENSE_KEY>" --selinux-profile <PATH/TO/CUSTOM/PROFILE>
 ```
