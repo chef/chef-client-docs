@@ -22,12 +22,6 @@ Chef Infra Client 19 RC2 is supported on Linux x86-64 systems.
 
 To install Chef Infra Client, follow these steps:
 
-1. Optional: Verify that Chef Infra Client isn't already installed on your system:
-
-    ```sh
-    chef-client --version
-    ```
-
 1. Download the Chef Infra Client migration tool.
 
     The migration tool is available for download as a zipped tar file using a pre-signed URL from an S3 bucket until August 26, 2025.
@@ -35,13 +29,13 @@ To install Chef Infra Client, follow these steps:
     Using curl:
 
     ```sh
-    curl -o chef-migration-tool.v1.tar.gz https://chef-hab-migration-tool-bucket.s3.amazonaws.com/rc2_hab_pkg_chef_client/rc2_migration_tool/migration-tools_Linux_x86_64.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6BIP2EQW7&Signature=hbgCCCl9r48WHDP%2FFQtNTN9pFJw%3D&Expires=1756222424
+    curl -o chef-migration-tool.v1.tar.gz "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/rc2_hab_pkg_chef_client/rc2_migration_tool/migration-tools_Linux_x86_64.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6BIP2EQW7&Signature=hbgCCCl9r48WHDP%2FFQtNTN9pFJw%3D&Expires=1756222424"
     ```
 
     Using Wget:
 
     ```sh
-    wget -O "chef-migration-tool.v1.tar.gz" https://chef-hab-migration-tool-bucket.s3.amazonaws.com/rc2_hab_pkg_chef_client/rc2_migration_tool/migration-tools_Linux_x86_64.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6BIP2EQW7&Signature=hbgCCCl9r48WHDP%2FFQtNTN9pFJw%3D&Expires=1756222424
+    wget -O "chef-migration-tool.v1.tar.gz" "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/rc2_hab_pkg_chef_client/rc2_migration_tool/migration-tools_Linux_x86_64.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6BIP2EQW7&Signature=hbgCCCl9r48WHDP%2FFQtNTN9pFJw%3D&Expires=1756222424"
     ```
 
 1. Extract the migration tool and make it executable.
@@ -49,8 +43,8 @@ To install Chef Infra Client, follow these steps:
     ```sh
     tar -xvf chef-migration-tool.v1.tar.gz -C /path/to/temp/folder
     cd /path/to/temp/folder
-    chmod +x chef-migrate-cli
-    mv chef-migrate-cli /usr/local/bin/
+    chmod +x chef-migrate
+    mv chef-migrate /usr/local/bin/
     ```
 
 1. Optional: Verify that the migration tool is installed.
