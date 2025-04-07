@@ -164,12 +164,6 @@ chef-migration apply {airgap|online} --license-key "<LICENSE_KEY>" --fstab fail
 
 ### Manage Chef Habitat
 
-Install Chef Habitat while installing Chef Infra Client:
-
-```sh
-chef-migration apply {airgap|online} --license-key "<LICENSE_KEY>" --habitat
-```
-
 Upgrade Chef Habitat while installing Chef Infra Client:
 
 ```sh
