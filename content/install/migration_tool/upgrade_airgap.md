@@ -74,7 +74,7 @@ To install Chef Infra Client, follow these steps:
 1. Install Chef Infra Client by specifying the path to the tar file using [`chef-migrate apply`]({{< relref "reference" >}}).
 
     ```sh
-    chef-migrate apply airgap <PATH/TO/BUNDLE> --license-key "<LICENSE_KEY>"
+    sudo chef-migrate apply airgap <PATH/TO/BUNDLE> --license-key "<LICENSE_KEY>"
     ```
 
     Replace:
