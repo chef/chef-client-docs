@@ -58,7 +58,7 @@ To install Chef Infra Client, follow these steps:
 1. Install Chef Infra Client using [`chef-migrate apply`]({{< relref "reference" >}}).
 
     ```sh
-    chef-migrate apply online --download-url "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/rc2_hab_pkg_chef_client/rc2_tar_folder/chef-chef-infra-client-19.1.rc2.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6BIP2EQW7&Signature=Q91HiSIzOxffl52La8EvqSXSqWk%3D&Expires=1756222682" --license-key "<LICENSE_KEY>"
+    sudo chef-migrate apply online --download-url "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/rc2_hab_pkg_chef_client/rc2_tar_folder/chef-chef-infra-client-19.1.rc2.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6BIP2EQW7&Signature=Q91HiSIzOxffl52La8EvqSXSqWk%3D&Expires=1756222682" --license-key "<LICENSE_KEY>"
     ```
 
     Replace `<LICENSE_KEY>` with your Progress Chef License key.
