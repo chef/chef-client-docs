@@ -34,7 +34,9 @@ It supports two subcommands:
 : Specify the Chef Infra Client download location.
 
 `--fresh-install`
-: Perform a fresh installation. Valid values are: `true` or `false`.
+: Whether to perform a fresh installation. Valid values are: `true` or `false`.
+
+  Default value: `false`.
 
 `--fstab <option>`
 : Remount Chef Infra Client from `/opt/chef` to `/hab`.
@@ -52,7 +54,9 @@ It supports two subcommands:
 : Install Chef Habitat along with Chef Infra Client.
 
 `--habitat-upgrade`
-: Upgrade Chef Habitat to the latest version.
+: Whether to upgrade Chef Habitat to the latest version.
+
+  Default value: `false`.
 
 `--help`
 : CLI command help.
@@ -64,7 +68,9 @@ It supports two subcommands:
 : URL of the private or public Chef licensing service (optional).
 
 `--preserve`
-: Preserve the existing Omnibus installation. Valid values are: `true` or `false`.
+: Whether to preserve an existing Omnibus Chef Infra Client installation. Valid values are: `true` or `false`.
+
+  Default value: `false`.
 
 `--process-config <option>`
 : Analyzes the `client.rb` config file to determine if it references the Omnibus-based Chef Infra Client installation (`/opt/chef`). This identifies potential conflicts when migrating to a Habitat-based setup.
