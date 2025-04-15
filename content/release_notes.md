@@ -69,7 +69,8 @@ For this release, only the kitchen-dokken driver is supported.
 
 ### chef and chef-cli CLIs
 
-The `chef` CLI is deprecated and replaced by the `chef-cli` command. Use `chef-cli` to execute all commands previously run with the `chef` command.
+The `chef` CLI isn't available in the RC2 release and is replaced by the `chef-cli` command.
+Use `chef-cli` to execute all commands previously run with the `chef` command.
 
 For example, replace:
 
@@ -111,7 +112,7 @@ For command syntax and usage, see the [`chef` reference documentation](https://d
 
 ### chef-workstation CLI
 
-This release introduces the new `chef-workstation` CLI, which currently supports only the `--version` (`-v`) option.
+This release introduces the new `chef-workstation` CLI, which only supports the `--version` (`-v`) option.
 
 ```sh
 $ chef-workstation -v
