@@ -38,20 +38,6 @@ If you don't have Chef Habitat installed on your computer, follow these steps:
     hab --version
     ```
 
-1. If you haven't already configured Habitat, set up the `hab` CLI:
-
-    ```sh
-    hab cli setup
-    ```
-
-    Follow the prompts in the Habitat CLI.
-    We recommend the following settings:
-
-    - Connect to an on-premises Builder instance? **No**
-    - Set up a default origin? **No**
-    - Set up a default Builder personal access token? **No**
-    - Set up a default Habitat Supervisor control gateway secret? **No**
-
 ### Berkshelf
 
 To install Berkshelf, follow these steps:
