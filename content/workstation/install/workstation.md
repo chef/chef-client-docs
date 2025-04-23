@@ -33,20 +33,6 @@ To install Chef Workstation, follow these steps:
     hab --version
     ```
 
-1. If you haven't already configured Habitat, set up the `hab` CLI:
-
-    ```sh
-    hab cli setup
-    ```
-
-    Follow the prompts in the Habitat CLI.
-    We recommend the following settings:
-
-    - Connect to an on-premises Builder instance? [yes/No/quit] **No**
-    - Set up a default origin? [Yes/no/quit] **No**
-    - Set up a default Builder personal access token? [yes/No/quit] **No**
-    - Set up a default Habitat Supervisor control gateway secret? [yes/No/quit] **No**
-
 1. Install the Chef Workstation Habitat package:
 
     ```sh

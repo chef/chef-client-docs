@@ -34,20 +34,6 @@ For more information, see the [Chef Habitat install documentation](https://docs.
 
     Chef Habitat returns the installed version.
 
-1. Set up Chef Habitat:
-
-    ```sh
-    hab cli setup
-    ```
-
-    Follow the prompts in the Habitat CLI.
-    We recommend the following settings for running Test Kitchen Enterprise:
-
-    - Connect to an on-premises Builder instance? [yes/No/quit] **No**
-    - Set up a default origin? [Yes/no/quit] **No**
-    - Set up a default Builder personal access token? [yes/No/quit] **No**
-    - Set up a default Habitat Supervisor control gateway secret? [yes/No/quit] **No**
-
 1. Use Chef Habitat to install the Chef Test Kitchen Enterprise package:
 
     ```sh
