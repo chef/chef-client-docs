@@ -52,13 +52,13 @@ To install Chef Infra Client 19, follow these steps:
     - Using Wget:
 
       ```sh
-      wget -O "chef-infra-client-19.1.rc2_amd64.deb" "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/rc2_hab_pkg_chef_client/rc2_installer_folder/chef-infra-client-19.1.rc2_amd64.deb?AWSAccessKeyId=AKIAW4FPVFT6BIP2EQW7&Signature=juoMKNP%2BAnq6cV61c%2BIrj2OIhFI%3D&Expires=1756222738”
+      wget -O "chef-infra-client-19.1.rc2_amd64.deb" "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/rc2_hab_pkg_chef_client/rc2_installer_folder/chef-infra-client-19.1.rc2_amd64.deb?AWSAccessKeyId=AKIAW4FPVFT6BIP2EQW7&Signature=juoMKNP%2BAnq6cV61c%2BIrj2OIhFI%3D&Expires=1756222738"
       ```
 
     - Using curl:
 
       ```sh
-      curl -o "chef-infra-client-19.1.rc2_amd64.deb" "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/rc2_hab_pkg_chef_client/rc2_installer_folder/chef-infra-client-19.1.rc2_amd64.deb?AWSAccessKeyId=AKIAW4FPVFT6BIP2EQW7&Signature=juoMKNP%2BAnq6cV61c%2BIrj2OIhFI%3D&Expires=1756222738”
+      curl -o "chef-infra-client-19.1.rc2_amd64.deb" "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/rc2_hab_pkg_chef_client/rc2_installer_folder/chef-infra-client-19.1.rc2_amd64.deb?AWSAccessKeyId=AKIAW4FPVFT6BIP2EQW7&Signature=juoMKNP%2BAnq6cV61c%2BIrj2OIhFI%3D&Expires=1756222738"
       ```
 
     {{< /accordion-item >}}
