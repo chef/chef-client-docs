@@ -20,7 +20,7 @@ chef-migrate apply {airgap|online} [flags]
 
 It supports two subcommands:
 
-- `airgap`: Uses pre-downloaded airgapped bundles to install or upgrade Chef Infra Client 19.
+- `airgap`: Uses pre-downloaded air-gapped bundles to install or upgrade Chef Infra Client 19.
 - `online`: Uses network-connected resources to download and install Chef Infra Client 19.
 
 ## Flags
@@ -41,6 +41,8 @@ It supports two subcommands:
 `--fstab <option>`
 : Remount Chef Infra Client from `/opt/chef` to `/hab`.
   This maintains system integrity while transitioning from an Omnibus-based Infra Client installation to a Habitat-based setup.
+
+  Command not available on Windows.
 
   Valid values:
 
@@ -96,6 +98,8 @@ It supports two subcommands:
 
   This processes binaries in `/opt/chef/bin` and `/opt/chef/embedded/bin`. Each file within these directories is evaluated and if it's an executable associated with Chef, the tool creates a symlink to the corresponding binary within Chef Habitat. If no equivalent is found in Habitat, the file is left unchanged.
 
+  Command not available on Windows.
+
   Default value: `false`.
 
 <!-- markdownlint-enable MD006 MD007 -->
@@ -130,7 +134,7 @@ Standard online upgrade:
 chef-migrate apply online --download-url "<DOWNLOAD_URL>" --license-key "<LICENSE_KEY>"
 ```
 
-Standard airgapped upgrade:
+Standard air-gapped upgrade:
 
 ```sh
 chef-migrate apply airgap </PATH/TO/BUNDLE> --license-key "<LICENSE_KEY>"

@@ -26,7 +26,7 @@ Chef Infra Client 19 RC2 is only intended for non-production environments to ver
 
 ## Supported environments
 
-The Chef Infra Client RC2 release is for testing in non-production environments only and is supported on Linux x86-64 systems.
+The Chef Infra Client RC2 release is for testing in non-production environments only and is supported on Linux and Windows x86-64 systems.
 
 This release allows you to determine if the migration tool can successfully upgrade your infrastructure to Chef Infra Client 19, to gain familiarity with Habitat-based builds, and prepare for new licensing requirements.
 
@@ -43,7 +43,7 @@ Chef Infra Client 19 has the following key features:
 
 Some significant changes that customers moving to Chef Infra Client 19 should be aware of include:
 
-- RC2 is only supported on Linux x86-64 infrastructure; this will be broadened to include traditional Chef platforms in future releases.
+- RC2 is only supported on Linux and Windows x86-64 infrastructure; this will be broadened to include traditional Chef platforms in future releases.
 - Omnibus builds aren't provided for Infra Client and associated tools.
 - OS-native and Habitat-based packaging are provided.
 - Chef Workstation components are modularized to provide better support for individual tools.

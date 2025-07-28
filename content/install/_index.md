@@ -17,7 +17,7 @@ Users can download and install the pre-built `.deb` or `.rpm` packages using the
 
 ## Migration tool
 
-The [Chef Infra Client migration tool]({{< relref "migration_tool" >}}) (`chef-migrate`) allows you to install or upgrade of the Chef Infra Client to the latest version in both online and airgapped environments.
+The [Chef Infra Client migration tool]({{< relref "migration_tool" >}}) (`chef-migrate`) allows you to install or upgrade of the Chef Infra Client to the latest version in both online and air-gapped environments.
 
 It has the following functions:
 
