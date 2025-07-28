@@ -11,6 +11,10 @@ weight = 10
 
 Start automating your infrastructure with Chef Workstation. It provides everything you need to get started with Chef, including ad hoc remote execution, remote scanning, configuration tasks, cookbook creation tools, and robust dependency and testing software---all in one easy-to-install package.
 
+## Supported platforms
+
+Chef Workstation 26 RC2 is supported on Linux x86-64 systems.
+
 ## Chef Workstation components
 
 {{< readfile file="/content/reusable/md/workstation_modularize.md" >}}
