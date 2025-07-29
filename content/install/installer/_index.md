@@ -14,7 +14,8 @@ Users can download and install the pre-built `.deb` or `.rpm` packages using the
 
 ## Supported platforms
 
-Chef Infra Client 19 RC3 is supported on Linux x86-64 systems.
+This install method is supported on Linux x86-64 systems.
+To install on Windows, use the [migration tool](/install/migration_tool).
 
 ## Prerequisites
 
