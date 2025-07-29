@@ -13,6 +13,10 @@ weight = 10
 
 The target node can be any remote system, edge device, or cloud resource that the host can reach. This includes edge devices, Wi-Fi routers, switches, relays, cloud resources, IP phones, router hubs, and network management peripherals.
 
+## Supported platforms
+
+Agentless Mode is supported on Linux nodes.
+
 ## Transport Interface (Train)
 
 Agentless Mode uses [Transport Interface (Train)](https://github.com/inspec/train) to connect to nodes and execute Chef Infra Client runs.
