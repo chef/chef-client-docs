@@ -15,7 +15,7 @@ The target node can be any remote system, edge device, or cloud resource that th
 
 ## Supported platforms
 
-Agentless Mode is supported on Linux nodes.
+Agentless Mode only executes on Linux nodes.
 
 ## Transport Interface (Train)
 
