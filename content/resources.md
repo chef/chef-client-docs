@@ -6,9 +6,9 @@ title = "Supported resources"
 +++
 
 The following resources are supported in Chef Infra Client 19 RC2.
-Agentless Mode isn't supported on Windows nodes.
+Agentless Mode is only supported on Linux nodes.
 
-| **Resources Name** | **Windows support in regular Client runs** | **Platforms supported in Agentless Mode and regular Client runs** | **Remarks** |
+| **Resources Name** | **Supported on Windows with regular Client runs** | **Platforms supported in Agentless Mode and regular Client runs** | **Remarks** |
 |---|---|---|---|
 | [alternatives](https://docs.chef.io/resources/alternatives/) | | Ubuntu, Linux | |
 | [apt_package](https://docs.chef.io/resources/apt_package/) | | Ubuntu | |
