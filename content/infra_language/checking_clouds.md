@@ -2,8 +2,6 @@
 title = "Chef Infra Language: Checking Clouds"
 draft = false
 
-gh_repo = "chef-web-docs"
-
 [menu]
   [menu.infra]
     title = "Checking Clouds"

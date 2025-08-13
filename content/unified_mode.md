@@ -2,9 +2,6 @@
 title = "About Unified Mode"
 draft = false
 
-gh_repo = "chef-web-docs"
-product = ["client"]
-
 [menu]
   [menu.infra]
     title = "Unified Mode"
@@ -61,7 +58,7 @@ end
 
 ### Basic example
 
-A simple motivating example is to have a resource that downloads a JSON message using the [remote_file]({{< relref "/resources/remote_file" >}}) resource, parse the JSON using the [ruby_block]({{< relref "/resources/ruby_block" >}}), and then render a value into a [file]({{< relref "/resources/file" >}}) or [template]({{< relref "/resources/template" >}}) resource.
+A simple motivating example is to have a resource that downloads a JSON message using the [remote_file]({{< relref "/resources/bundled/remote_file" >}}) resource, parse the JSON using the [ruby_block]({{< relref "/resources/bundled/ruby_block" >}}), and then render a value into a [file]({{< relref "/resources/bundled/file" >}}) or [template]({{< relref "/resources/bundled/template" >}}) resource.
 
 Without Unified Mode, correctly writing this simple resource is complicated:
 
@@ -155,7 +152,7 @@ action :install do
 end
 ```
 
-This simplified example shows how to trap exceptions from resources using normal Ruby syntax and to clean up the resource. Without Unified Mode, this syntax is impossible. Normally when the [execute]({{< relref "resources/execute" >}}) resources are parsed, they only create the objects in the `resource_collection` to later be evaluated so that no exception is thrown while Ruby is parsing the `action` block. Every action is delayed to the later converge phase. In Unified Mode, the resource runs when Ruby is done parsing its block, so exceptions happen in-line with Ruby parsing and the rescue clause now works as expected.
+This simplified example shows how to trap exceptions from resources using normal Ruby syntax and to clean up the resource. Without Unified Mode, this syntax is impossible. Normally when the [execute]({{< relref "/resources/bundled/execute" >}}) resources are parsed, they only create the objects in the `resource_collection` to later be evaluated so that no exception is thrown while Ruby is parsing the `action` block. Every action is delayed to the later converge phase. In Unified Mode, the resource runs when Ruby is done parsing its block, so exceptions happen in-line with Ruby parsing and the rescue clause now works as expected.
 
 This is useful because the TAR extraction throws an exception (for example, the node could be out of disk space), which deletes the TAR file. The next time Chef Infra Client runs, the TAR file will be redownload. If the resource didn't have file cleanup after an exception, the TAR file would remain on the client node even though the resource isn't complete and the extraction didn't happen, leaving the resource in a broken, indeterminate state.
 

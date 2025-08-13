@@ -2,10 +2,6 @@
 title = "Install Chef Infra Client on Windows Nodes"
 draft = false
 
-gh_repo = "chef-web-docs"
-
-aliases = ["/install_windows.html"]
-
 [menu]
   [menu.infra]
     title = "Windows Installation Guide"

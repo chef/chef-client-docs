@@ -2,8 +2,6 @@
 title = "Chef Infra Language: Cookbook Execution"
 draft = false
 
-gh_repo = "chef-web-docs"
-
 [menu]
   [menu.infra]
     title = "Cookbook Execution"

@@ -2,8 +2,6 @@
 title = "Chef Infra Language: Checking Hypervisors"
 draft = false
 
-gh_repo = "chef-web-docs"
-
 [menu]
   [menu.infra]
     title = "Checking Hypervisors"

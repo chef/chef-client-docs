@@ -77,18 +77,15 @@ identifier = "licensing"
 title = "Agentless"
 identifier = "agentless"
 
-[[workstation]]
-title = "Chef Workstation"
-identifier = "workstation"
+[[resources]]
+title = "Resources"
+identifier = "resources"
 
-  [[workstation]]
-  title = "Knife"
-  identifier = "workstation/knife"
-  parent = "workstation"
-  weight = 100
+[[cookbooks]]
+title = "Cookbooks"
+identifier = "cookbooks"
 
-  [[workstation]]
-  title = "Test Kitchen Enterprise"
-  identifier = "workstation/tke"
-  parent = "workstation"
-  weight = 200
+[[infra_language]]
+title = "Infra language"
+identifier = "infra_language"
+

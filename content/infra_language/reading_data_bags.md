@@ -2,8 +2,6 @@
 title = "Chef Infra Language: Reading Data Bags"
 draft = false
 
-gh_repo = "chef-web-docs"
-
 [menu]
   [menu.infra]
     title = "Reading Data Bags"

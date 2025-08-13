@@ -1,7 +1,7 @@
 +++
 title = "Community Plugins"
 draft = false
-gh_repo = "chef-web-docs"
+
 aliases = "/plugin_community.html"
 
 [menu]

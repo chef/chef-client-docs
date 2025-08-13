@@ -26,6 +26,10 @@ robots = ''
 #######
 breadcrumbs = true
 
+[[breadcrumb_base]]
+breadcrumb = "Documentation"
+url = "https://docs.chef.io"
+
 #######
 #
 # Settings for the link and image render hooks.
