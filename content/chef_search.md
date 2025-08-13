@@ -62,47 +62,47 @@ following search indexes are built:
 
 ### Using Knife
 
-{{< readfile file="content/workstation/reusable/md/knife_search_summary.md" >}}
+{{< readfile file="content/reusable/md/workstation/knife_search_summary.md" >}}
 
 #### Search by platform ID
 
-{{< readfile file="content/workstation/reusable/md/knife_search_by_platform_ids.md" >}}
+{{< readfile file="content/reusable/md/workstation/knife_search_by_platform_ids.md" >}}
 
 #### Search by instance type
 
-{{< readfile file="content/workstation/reusable/md/knife_search_by_platform_instance_type.md" >}}
+{{< readfile file="content/reusable/md/workstation/knife_search_by_platform_instance_type.md" >}}
 
 #### Search by recipe
 
-{{< readfile file="content/workstation/reusable/md/knife_search_by_recipe.md" >}}
+{{< readfile file="content/reusable/md/workstation/knife_search_by_recipe.md" >}}
 
 #### Search by cookbook, then recipe
 
-{{< readfile file="content/workstation/reusable/md/knife_search_by_cookbook.md" >}}
+{{< readfile file="content/reusable/md/workstation/knife_search_by_cookbook.md" >}}
 
 #### Search by node
 
-{{< readfile file="content/workstation/reusable/md/knife_search_by_node.md" >}}
+{{< readfile file="content/reusable/md/workstation/knife_search_by_node.md" >}}
 
 #### Search by node and environment
 
-{{< readfile file="content/workstation/reusable/md/knife_search_by_node_and_environment.md" >}}
+{{< readfile file="content/reusable/md/workstation/knife_search_by_node_and_environment.md" >}}
 
 #### Search for nested attributes
 
-{{< readfile file="content/workstation/reusable/md/knife_search_by_nested_attribute.md" >}}
+{{< readfile file="content/reusable/md/workstation/knife_search_by_nested_attribute.md" >}}
 
 #### Search for multiple attributes
 
-{{< readfile file="content/workstation/reusable/md/knife_search_by_query_for_many_attributes.md" >}}
+{{< readfile file="content/reusable/md/workstation/knife_search_by_query_for_many_attributes.md" >}}
 
 #### Search for nested attributes using a search query
 
-{{< readfile file="content/workstation/reusable/md/knife_search_by_query_for_nested_attribute.md" >}}
+{{< readfile file="content/reusable/md/workstation/knife_search_by_query_for_nested_attribute.md" >}}
 
 #### Use a test query
 
-{{< readfile file="content/workstation/reusable/md/knife_search_test_query_for_ssh.md" >}}
+{{< readfile file="content/reusable/md/workstation/knife_search_test_query_for_ssh.md" >}}
 
 ## Query Syntax
 
@@ -280,7 +280,7 @@ A wildcard can be used to replace characters within the search query.
 
 Expanded lists of roles (all of the roles that apply to a node,
 including nested roles) and recipes to the role and recipe attributes on
-a node are saved on the Chef Infra Server. The expanded lists of roles
+a node are saved on Chef Infra Server. The expanded lists of roles
 allows for searching within nodes that run a given recipe, even if that
 recipe is included by a role.
 
@@ -334,7 +334,7 @@ end
 ### API Clients
 
 An API client is any machine that has permission to use the Chef Infra
-Server API to communicate with the Chef Infra Server. An API client is
+Server API to communicate with Chef Infra Server. An API client is
 typically a node (that runs Chef Infra Client) or a workstation (that
 runs knife), but can also be any other machine configured to use the
 Chef Infra Server API.

@@ -38,7 +38,7 @@ Chef Infra Client
 
 Chef Infra Server
 
-: The Chef Infra Server acts as a hub for configuration data. The Chef Infra Server stores cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that's being managed by Chef Infra Client. Nodes use Chef Infra Client to ask the Chef Infra Server for configuration details, such as recipes, templates, and file distributions.
+: Chef Infra Server acts as a hub for configuration data. Chef Infra Server stores cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that's being managed by Chef Infra Client. Nodes use Chef Infra Client to ask Chef Infra Server for configuration details, such as recipes, templates, and file distributions.
 
 Chef Workstation
 
@@ -82,7 +82,7 @@ Foodcritic
 
 knife
 
-: A command-line tool that provides an interface between a local chef-repo and the Chef Infra Server. Use it to manage nodes, cookbooks, recipes, roles, data bags, environments, bootstrapping nodes, searching the Chef Infra Server, and more.
+: A command-line tool that provides an interface between a local chef-repo and Chef Infra Server. Use it to manage nodes, cookbooks, recipes, roles, data bags, environments, bootstrapping nodes, searching Chef Infra Server, and more.
 
 library
 
@@ -102,11 +102,11 @@ ohai
 
 organization
 
-: An organization is a single instance of a Chef Infra Server, including all of the nodes that are managed by that Chef Infra Server and each of the workstations that will run knife and access the Chef Infra Server using the Chef Infra Server API.
+: An organization is a single instance of a Chef Infra Server, including all of the nodes that are managed by that Chef Infra Server and each of the workstations that will run knife and access Chef Infra Server using the Chef Infra Server API.
 
 policy
 
-: Policy settings can be used to map business and operational requirements, such as process and workflow, to settings and objects stored on the Chef Infra Server. See roles, environments, and data bags.
+: Policy settings can be used to map business and operational requirements, such as process and workflow, to settings and objects stored on Chef Infra Server. See roles, environments, and data bags.
 
 recipe
 

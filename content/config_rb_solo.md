@@ -104,7 +104,7 @@ This configuration file has the following settings:
 
 `solo`
 
-: Run Chef Infra Client in chef-solo mode. This setting determines if Chef Infra Client is to attempt to communicate with the Chef Infra Server. Default value: `false`.
+: Run Chef Infra Client in chef-solo mode. This setting determines if Chef Infra Client is to attempt to communicate with Chef Infra Server. Default value: `false`.
 
 `syntax_check_cache_path`
 

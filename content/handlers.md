@@ -448,17 +448,17 @@ This recipe will generate report output similar to the following:
 
 ### Reporting
 
-Start handler functionality was added when Chef started building add-ons for the Chef Infra Server. The Reporting add-on is designed to create reporting data based on a Chef Infra Client run. And since Reporting needs to be able to collect data for the entire Chef Infra Client run, Reporting needs to be enabled before anything else happens at the start of a Chef Infra Client run.
+Start handler functionality was added when Chef started building add-ons for Chef Infra Server. The Reporting add-on is designed to create reporting data based on a Chef Infra Client run. And since Reporting needs to be able to collect data for the entire Chef Infra Client run, Reporting needs to be enabled before anything else happens at the start of a Chef Infra Client run.
 
 {{< note >}}
 
-The start handler used by the Reporting add-on for the Chef Infra Server is always installed using the **chef-client** cookbook.
+The start handler used by the Reporting add-on for Chef Infra Server is always installed using the **chef-client** cookbook.
 
 {{< /note >}}
 
 #### start_handler.rb
 
-The following code shows the start handler used by the Reporting add-in for the Chef Infra Server:
+The following code shows the start handler used by the Reporting add-in for Chef Infra Server:
 
 ```ruby
 require 'chef/handler'

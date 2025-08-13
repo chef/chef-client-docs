@@ -19,17 +19,17 @@ aliases = ["/config_rb_metadata.html"]
 {{< readfile file="content/reusable/md/cookbooks_metadata.md" >}}
 
 * Located at the top level of a cookbook's directory structure.
-* Compiled whenever a cookbook is uploaded to the Chef Infra Server or when the `knife cookbook metadata` subcommand is run, and then stored as JSON data.
+* Compiled whenever a cookbook is uploaded to Chef Infra Server or when the `knife cookbook metadata` subcommand is run, and then stored as JSON data.
 * Created automatically by knife whenever the `knife cookbook create` subcommand is run.
-* Edited using a text editor, and then re-uploaded to the Chef Infra Server as part of a cookbook upload.
+* Edited using a text editor, and then re-uploaded to Chef Infra Server as part of a cookbook upload.
 
 ## Error Messages
 
-The Chef Infra Server will only try to distribute the cookbooks that are needed to configure an individual node. This is determined by identifying the roles and recipes that are assigned directly to that system, and then to expand the list of dependencies, and then to deliver that entire set to the node. In some cases, if the dependency isn't specified in the cookbook's metadata, the Chef Infra Server may not treat that dependency as a requirement, which will result in an error message. If an error message is received from the Chef Infra Server about cookbook distribution, verify the `depends` entries in the `metadata.rb` file, and then try again.
+Chef Infra Server will only try to distribute the cookbooks that are needed to configure an individual node. This is determined by identifying the roles and recipes that are assigned directly to that system, and then to expand the list of dependencies, and then to deliver that entire set to the node. In some cases, if the dependency isn't specified in the cookbook's metadata, Chef Infra Server may not treat that dependency as a requirement, which will result in an error message. If an error message is received from Chef Infra Server about cookbook distribution, verify the `depends` entries in the `metadata.rb` file, and then try again.
 
 {{< note >}}
 
-A metadata.json file can be edited directly, should temporary changes be required. Any subsequent upload or action that generates metadata will cause the existing metadata.json file to be overwritten with the newly generated metadata. Therefore, any permanent changes to cookbook metadata should be done in the `metadata.rb` file, and then re-uploaded to the Chef Infra Server.
+A metadata.json file can be edited directly, should temporary changes be required. Any subsequent upload or action that generates metadata will cause the existing metadata.json file to be overwritten with the newly generated metadata. Therefore, any permanent changes to cookbook metadata should be done in the `metadata.rb` file, and then re-uploaded to Chef Infra Server.
 
 {{< /note >}}
 
@@ -106,7 +106,7 @@ This configuration file has the following settings:
 
 `depends`
 
-: This field requires that a cookbook with a matching name and version exists on the Chef Infra Server. When the match exists, the Chef Infra Server includes the dependency as part of the set of cookbooks that are sent to the node during a Chef Infra Client run. It's important that the `depends` field contain accurate data. If a dependency statement is inaccurate, Chef Infra Client may not be able to complete the configuration of the system. All [version constraint operators](#version-constraints) are applicable to this field.
+: This field requires that a cookbook with a matching name and version exists on Chef Infra Server. When the match exists, Chef Infra Server includes the dependency as part of the set of cookbooks that are sent to the node during a Chef Infra Client run. It's important that the `depends` field contain accurate data. If a dependency statement is inaccurate, Chef Infra Client may not be able to complete the configuration of the system. All [version constraint operators](#version-constraints) are applicable to this field.
 
   For example, to set a dependency a cookbook named `cats`:
 

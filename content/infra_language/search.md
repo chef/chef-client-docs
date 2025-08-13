@@ -15,7 +15,7 @@ gh_repo = "chef-web-docs"
 
 {{< readfile file="content/reusable/md/search.md" >}}
 
-Use the `search` method to perform a search query against the Chef Infra Server from within a recipe.
+Use the `search` method to perform a search query against Chef Infra Server from within a recipe.
 
 The syntax for the `search` method is as follows:
 
@@ -25,8 +25,8 @@ search(:index, 'query')
 
 where:
 
-- `:index` is of name of the index on the Chef Infra Server against which the search query will run: `:client`, `:data_bag_name`, `:environment`, `:node`, and `:role`
-- `'query'` is a valid search query against an object on the Chef Infra Server (see below for more information about how to build the query)
+- `:index` is of name of the index on Chef Infra Server against which the search query will run: `:client`, `:data_bag_name`, `:environment`, `:node`, and `:role`
+- `'query'` is a valid search query against an object on Chef Infra Server (see below for more information about how to build the query)
 
 For example, using the results of a search query within a variable:
 

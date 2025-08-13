@@ -626,11 +626,11 @@ logs of the Chef Infra Client run.
 
 ## target_mode
 
-{{< readfile file="content/reusable/md/target_mode_summary.md" >}}
+{{< readfile file="content/reusable/md/agentless_summary.md" >}}
 
-{{< readfile file="/reusable/md/target_mode_custom_resource.md" >}}
+{{< readfile file="/content/reusable/md/agentless_custom_resource.md" >}}
 
-For more information on Target Mode, see the [Target Mode documentation]({{< relref "/target_mode.md" >}}).
+For more information on Target Mode, see the [Target Mode documentation]({{< relref "/agentless.md" >}}).
 
 ## unified_mode
 

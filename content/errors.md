@@ -12,7 +12,7 @@ product = ["client", "server", "workstation"]
     parent = "chef_infra/reference"
 +++
 
-The following sections describe how to troubleshoot the Chef Infra Server, Chef Infra Client, and Chef Workstation.
+The following sections describe how to troubleshoot Chef Infra Server, Chef Infra Client, and Chef Workstation.
 
 ## 401 Unauthorized
 
@@ -49,7 +49,7 @@ FATAL: Net::HTTPClientException: 401 "Unauthorized"
 
 ## Failed to authenticate to
 
-When the values for certain settings in the client.rb file---`node_name` and `client_key`---are incorrect, it won't be possible to authenticate to the Chef Infra Server. An error similar to the following is shown:
+When the values for certain settings in the client.rb file---`node_name` and `client_key`---are incorrect, it won't be possible to authenticate to Chef Infra Server. An error similar to the following is shown:
 
 ```bash
 ERROR: Failed to authenticate to https://api.opscode.com/organizations/ORGANIZATION as USERNAME with key /path/to/USERNAME.pem
@@ -156,7 +156,7 @@ FATAL: Stacktrace dumped to /var/chef/cache/chef-stacktrace.out
 FATAL: Net::HTTPClientException: 403 "Forbidden"
 ```
 
-this is an indication that there is an issue with permissions on the Chef Infra Server.
+this is an indication that there is an issue with permissions on Chef Infra Server.
 
 ### Troubleshooting steps
 
@@ -307,11 +307,11 @@ Run the following to restart all of the services:
 chef-server-ctl reconfigure
 ```
 
-Because the Chef Infra Server is composed of many different services that work together to create a functioning system, this step may take a few minutes to complete.
+Because Chef Infra Server is composed of many different services that work together to create a functioning system, this step may take a few minutes to complete.
 
 ## External PostgreSQL
 
-The following error messages may be present when configuring the Chef Infra Server to use a remote PostgreSQL server.
+The following error messages may be present when configuring Chef Infra Server to use a remote PostgreSQL server.
 
 ### CSPG001 (changed setting)
 
@@ -346,7 +346,7 @@ Can't connect to PostgreSQL on the remote server.
 - PostgreSQL isn't running on the remote server
 - The port used by PostgreSQL is blocked by a firewall on the remote server
 - Network routing configuration is preventing access to the host
-- When using Amazon Web Services (AWS), rules for security groups are preventing the Chef Infra Server from communicating with PostgreSQL
+- When using Amazon Web Services (AWS), rules for security groups are preventing Chef Infra Server from communicating with PostgreSQL
 
 ### CSPG011 (can't authenticate)
 
@@ -404,7 +404,7 @@ where `CHEF-SUPERUSER-NAME` is replaced with the same user name specified by `po
 host     postgres     @chef_users     192.168.93.0/24     md5
 ```
 
-or, using the same `$PGDATA/chef_users` file (from the previous example), the following example shows a way to limit connections to specific nodes that are running components of the Chef Infra Server.This approach requires more maintenance because the `pg_hba.conf`file must be updated when machines are added to or removed from theChef Infra Server configuration. For example, a high availability configuration with four nodes: `backend-1` (192.0.2.100),`backend-2` (192.0.2.101), `frontend-1` (192.0.2.110), and`frontend-2` (192.0.2.111).
+or, using the same `$PGDATA/chef_users` file (from the previous example), the following example shows a way to limit connections to specific nodes that are running components of Chef Infra Server.This approach requires more maintenance because the `pg_hba.conf`file must be updated when machines are added to or removed from theChef Infra Server configuration. For example, a high availability configuration with four nodes: `backend-1` (192.0.2.100),`backend-2` (192.0.2.101), `frontend-1` (192.0.2.110), and`frontend-2` (192.0.2.111).
 
 The corresponding `pg_hba.conf` entry is similar to:
 

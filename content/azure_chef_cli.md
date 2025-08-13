@@ -200,7 +200,7 @@ The extension has the following options that can be provided in the
 
 `chef_server_url`
 
-: The URL for the Chef Infra Server.
+: The URL for Chef Infra Server.
 
 `environment`
 
@@ -212,7 +212,7 @@ The extension has the following options that can be provided in the
 
 `validation_client_name`
 
-: The name of the chef-validator key that Chef Infra Client uses to access the Chef Infra Server during the initial Chef Infra Client run.
+: The name of the chef-validator key that Chef Infra Client uses to access Chef Infra Server during the initial Chef Infra Client run.
 
 `node_ssl_verify_mode`
 
@@ -220,7 +220,7 @@ The extension has the following options that can be provided in the
 
 `node_verify_api_cert`
 
-: Verify the SSL certificate on the Chef Infra Server. When `true`, Chef Infra Client always verifies the SSL certificate. When `false`, Chef Infra Client uses the value of `ssl_verify_mode` to determine if the SSL certificate requires verification.
+: Verify the SSL certificate on Chef Infra Server. When `true`, Chef Infra Client always verifies the SSL certificate. When `false`, Chef Infra Client uses the value of `ssl_verify_mode` to determine if the SSL certificate requires verification.
 
 #### Protected settings
 
@@ -236,7 +236,7 @@ The following options can be provided to the extension through the `protectedSet
 
 `client_pem`
 
-: A client key that will be used to communication with the Chef Infra Server.
+: A client key that will be used to communication with Chef Infra Server.
 
 ### Examples
 

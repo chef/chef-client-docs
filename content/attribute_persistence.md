@@ -16,13 +16,13 @@ Attributes set using `chef-client -j` with a JSON file have normal precedence an
 Chef Infra Client rebuilds these attributes using automatic attributes collected by Ohai at the beginning of each Chef Infra Client
 run, and then uses default and override attributes that are specified in cookbooks, roles, environments, and Policyfiles.
 All attributes are then merged and applied to the node according to attribute precedence.
-The attributes that were applied to the node are saved to the Chef Infra Server as part of the node object at the conclusion of each Chef Infra Client run.
+The attributes that were applied to the node are saved to Chef Infra Server as part of the node object at the conclusion of each Chef Infra Client run.
 
 ## Limiting Attribute Persistence
 
-Some organizations find it helpful to control attribute data stored by the Chef Infra Server, whether to limit the disk and CPU resources used when processing unused attributes, or to keep secrets like API keys from being submitted to the server.
+Some organizations find it helpful to control attribute data stored by Chef Infra Server, whether to limit the disk and CPU resources used when processing unused attributes, or to keep secrets like API keys from being submitted to the server.
 For example, your organization may find the data from the Ohai `Package` plugin useful when writing cookbooks, but don't see the need in saving ~100kB of package information for each Chef Infra Client run.
-Attribute data will still be available on the node within cookbooks, but any information you limit won't be saved to the Chef Infra Server for use in searches.
+Attribute data will still be available on the node within cookbooks, but any information you limit won't be saved to Chef Infra Server for use in searches.
 
 You can block or allow the saving of specific key using the [`client.rb`](/config_rb_client/) file.
 Each setting is an array of keys specifying each attribute to be filtered out or allowed. Use a "/" to separate subkeys, for example `network/interfaces`.

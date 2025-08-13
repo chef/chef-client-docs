@@ -86,7 +86,7 @@ This cmdlet has the following options:
 
 `-ChefServerUrl <string>`
 
-: The URL for the Chef Infra Server.
+: The URL for Chef Infra Server.
 
 `-ClientRb <string>`
 
@@ -102,7 +102,7 @@ This cmdlet has the following options:
 
 `-OrganizationName <string>`
 
-: The name of the organization on the Chef Infra Server.
+: The name of the organization on Chef Infra Server.
 
 `-RunList <string>`
 
@@ -110,7 +110,7 @@ This cmdlet has the following options:
 
 `-ValidationClientName <string>`
 
-: The name of the chef-validator key Chef Infra Client uses to access the Chef Infra Server during the initial Chef Infra Client run.
+: The name of the chef-validator key Chef Infra Client uses to access Chef Infra Server during the initial Chef Infra Client run.
 
 `-ValidationPem  <string>`
 

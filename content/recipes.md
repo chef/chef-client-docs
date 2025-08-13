@@ -479,7 +479,7 @@ rescue Net::HTTPClientException
 end
 ```
 
-where `data_bag_item` makes an HTTP request to the Chef Infra Server to
+where `data_bag_item` makes an HTTP request to Chef Infra Server to
 get a data bag item named `flowers`. If there is a problem, the request
 will return a `Net::HTTPClientException`. The `rescue` block can be used
 to try to retry or otherwise handle the situation. If the `rescue` block

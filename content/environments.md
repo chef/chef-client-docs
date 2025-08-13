@@ -269,13 +269,13 @@ The JSON format has two additional settings:
 An environment can be created in four different ways:
 
 - Create a Ruby file in the environments sub-directory of the
-    chef-repo and then push it to the Chef Infra Server
+    chef-repo and then push it to Chef Infra Server
 - Create a JSON file directly in the chef-repo and then push it
-    to the Chef Infra Server
+    to Chef Infra Server
 - Using knife
 - Using the Chef Infra Server REST API
 
-Once an environment exists on the Chef Infra Server, a node can be
+Once an environment exists on Chef Infra Server, a node can be
 associated with that environment using the `chef_environment` method.
 
 ## Manage environments
@@ -285,7 +285,7 @@ Once created, an environment can be managed in several ways:
 - By using knife and passing the `-E ENVIRONMENT_NAME` option with
     `knife cookbook upload`
 - By using Ruby or JSON files that are stored in a version source
-    control system. These files are pushed to the Chef Infra Server
+    control system. These files are pushed to Chef Infra Server
     using the `knife environment` subcommand and the `from file`
     argument. This approach allows environment data to be dynamically
     generated. This approach won't work unless these files are
@@ -293,7 +293,7 @@ Once created, an environment can be managed in several ways:
     end with `.json`.
 
 These workflows are mutually exclusive: only the most recent environment
-changes will be kept on the Chef Infra Server, regardless of the source
+changes will be kept on Chef Infra Server, regardless of the source
 of those changes. All previous changes are overwritten when environment
 data is updated.
 

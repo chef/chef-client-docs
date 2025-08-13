@@ -178,7 +178,7 @@ debug recipes. Breakpoints are ignored by Chef Infra Client during an
 actual Chef Infra Client run. That said, breakpoints are typically used
 to debug recipes only when running them in a non-production environment,
 after which they're removed from those recipes before the parent
-cookbook is uploaded to the Chef Infra Server.
+cookbook is uploaded to Chef Infra Server.
 
 #### Syntax
 
