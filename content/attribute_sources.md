@@ -32,7 +32,7 @@ Notes:
 - Many attributes are collected by Ohai on each individual node at the
     start of every Chef Infra Client run
 - The attributes that are maintained in the chef-repo are uploaded to
-    the Chef Infra Server from the workstation, periodically
+    Chef Infra Server from the workstation, periodically
 - Chef Infra Client will pull down the node object from the Chef Infra
     Server and then reset all the attributes except `normal`. The node
     object will contain the attribute data from the previous Chef Infra
@@ -44,7 +44,7 @@ Notes:
     required)
 - Chef Infra Client will rebuild the attribute list and apply
     attribute precedence while configuring the node
-- Chef Infra Client pushes the node object to the Chef Infra Server at
+- Chef Infra Client pushes the node object to Chef Infra Server at
     the end of a Chef Infra Client run; the updated node object on the
     Chef Infra Server is then indexed for search and is stored until the
     next Chef Infra Client run

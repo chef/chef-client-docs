@@ -154,13 +154,13 @@ site 'foo'
 
 ## Target Mode
 
-{{< readfile file="content/reusable/md/target_mode_summary.md" >}} For more information on Target Mode, see the [Target Mode documentation]({{< relref "/target_mode.md" >}}).
+{{< readfile file="content/reusable/md/agentless_summary.md" >}} For more information on Target Mode, see the [Target Mode documentation]({{< relref "/agentless.md" >}}).
 
-{{< readfile file="/reusable/md/target_mode_custom_resource.md" >}}
+{{< readfile file="/content/reusable/md/agentless_custom_resource.md" >}}
 
 ### Example
 
-{{< readfile file="/reusable/md/target_mode_custom_resource_example.md" >}}
+{{< readfile file="/content/reusable/md/agentless_custom_resource_example.md" >}}
 
 ## Unified Mode
 
@@ -178,5 +178,5 @@ See these resources to learn more about custom resources:
 
 - See the LearnChef interactive tutorial: [Extending Chef Infra: Custom Resources](https://www.chef.io/training/tutorials).
 - For a description of available methods, see the [custom resources glossary]({{< relref "custom_resource_glossary" >}}).
-- For running resources in Target Mode, see the [Target Mode documentation]({{< relref "target_mode" >}}).
+- For running resources in Target Mode, see the [Target Mode documentation]({{< relref "agentless" >}}).
 - For running resources in Unified Mode, see the [Unified Mode documentation]({{< relref "unified_mode" >}}).

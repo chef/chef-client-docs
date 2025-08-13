@@ -102,7 +102,7 @@ This configuration file has the following settings:
 : The path to the chef-repo containing cookbooks and other files, such as environments or data bags, when running Chef Infra Client in local mode.
 
 `chef_server_url`
-: The URL of the Chef Infra Server. For example:
+: The URL of Chef Infra Server. For example:
 
     ```ruby
     https://localhost/organizations/ORG_NAME
@@ -151,7 +151,7 @@ This configuration file has the following settings:
 : The sub-directory for Chef Infra Client cookbooks. This value can be a string or an array of file system locations, processed in the specified order. The last cookbook is considered to override local modifications.
 
 `cookbook_sync_threads`
-: The number of helper threads available for parallel cookbook synchronization. Increasing this value **may** increase the frequency of gateway errors from the Chef Infra Server (503 and 504 errors). Decreasing this number reduces the frequency of gateway errors, if present.
+: The number of helper threads available for parallel cookbook synchronization. Increasing this value **may** increase the frequency of gateway errors from Chef Infra Server (503 and 504 errors). Decreasing this number reduces the frequency of gateway errors, if present.
 
   Default value: `10`.
 
@@ -371,12 +371,12 @@ This configuration file has the following settings:
 : Run chef-zero in socketless mode. Set to `false` to disable port binding and HTTP requests on localhost.
 
 `local_key_generation`
-: Whether the Chef Infra Server or Chef Infra Client generates the private/public key pair. When `true`, Chef Infra Client generates the key pair, and then sends the public key to the Chef Infra Server.
+: Whether Chef Infra Server or Chef Infra Client generates the private/public key pair. When `true`, Chef Infra Client generates the key pair, and then sends the public key to Chef Infra Server.
 
   Default value: `true`.
 
 `local_mode`
-: Run Chef Infra Client in local mode. This allows all commands that work against the Chef Infra Server to also work against the local chef-repo.
+: Run Chef Infra Client in local mode. This allows all commands that work against Chef Infra Server to also work against the local chef-repo.
 
 `lockfile`
 : The location of the Chef Infra Client lock file. This value is typically platform dependent, so it should be a location defined by `file_cache_path`. The default location of a lock file shouldn't be on an NFS mount.
@@ -440,7 +440,7 @@ This configuration file has the following settings:
   Default value: `/tmp/name-of-executable.pid`.
 
 `policy_group`
-: The name of a policy group that exists on the Chef Infra Server. `policy_name` must also be specified.
+: The name of a policy group that exists on Chef Infra Server. `policy_name` must also be specified.
 
 `policy_group_path`
 : The location of policy_groups on disk.
@@ -485,7 +485,7 @@ This configuration file has the following settings:
   Default value: `false`
 
 `splay`
-: A random number between zero and `splay` that's added to `interval`. Use splay to help balance the load on the Chef Infra Server by ensuring that many Chef Infra Client runs aren't occurring at the same interval.
+: A random number between zero and `splay` that's added to `interval`. Use splay to help balance the load on Chef Infra Server by ensuring that many Chef Infra Client runs aren't occurring at the same interval.
 
   Default value: `nil`.
 
@@ -511,12 +511,12 @@ This configuration file has the following settings:
 : The path to where the OpenSSL key is located. Chef Infra Client generates this setting automatically and most users don't need to modify it.
 
 `ssl_client_cert`
-: The OpenSSL X.509 certificate used for mutual certificate validation. This setting is only necessary when mutual certificate validation is configured on the Chef Infra Server.
+: The OpenSSL X.509 certificate used for mutual certificate validation. This setting is only necessary when mutual certificate validation is configured on Chef Infra Server.
 
   Default value:`nil`.
 
 `ssl_client_key`
-: The OpenSSL X.509 key used for mutual certificate validation. This setting is only necessary when mutual certificate validation is configured on the Chef Infra Server.
+: The OpenSSL X.509 key used for mutual certificate validation. This setting is only necessary when mutual certificate validation is configured on Chef Infra Server.
 
   Default value: `nil`.
 
@@ -524,7 +524,7 @@ This configuration file has the following settings:
 : Set the verify mode for HTTPS requests.
 
     - Use `:verify_none` for no validation of SSL certificates.
-    - Use `:verify_peer` for validation of all SSL certificates, including the Chef Infra Server connections, S3 connections, and any HTTPS **remote_file** resource URLs used in Chef Infra Client runs. This is the recommended setting.
+    - Use `:verify_peer` for validation of all SSL certificates, including Chef Infra Server connections, S3 connections, and any HTTPS **remote_file** resource URLs used in Chef Infra Client runs. This is the recommended setting.
 
     Depending on how OpenSSL is configured, the `ssl_ca_path` may nee to be specified.
 
@@ -542,7 +542,7 @@ This configuration file has the following settings:
   Default value: `0022`.
 
 `use_policyfile`
-: Chef Infra Client automatically checks the configuration, node JSON, and the stored node on the Chef Infra Server to determine if Policyfile files are in use, and then automatically updates this flag.
+: Chef Infra Client automatically checks the configuration, node JSON, and the stored node on Chef Infra Server to determine if Policyfile files are in use, and then automatically updates this flag.
 
   Default value: `false`.
 
@@ -552,7 +552,7 @@ This configuration file has the following settings:
   Default value: `nil`.
 
 `validation_client_name`
-: The name of the chef-validator key that Chef Infra Client uses to access the Chef Infra Server during the initial Chef Infra Client run. This is only used by the legacy validator based bootstrapping.
+: The name of the chef-validator key that Chef Infra Client uses to access Chef Infra Server during the initial Chef Infra Client run. This is only used by the legacy validator based bootstrapping.
 
 `validation_key`
 : The location of the file that contains the key used when a Chef Infra Client is registered with a Chef Infra Server. A validation key is signed using the `validation_client_name` for authentication.
@@ -565,7 +565,7 @@ This configuration file has the following settings:
   Default value: `nil`.
 
 `verify_api_cert`
-: Verify the SSL certificate on the Chef Infra Server. When `true`, Chef Infra Client always verifies the SSL certificate. When `false`, Chef Infra Client uses the value of `ssl_verify_mode` to determine if the SSL certificate requires verification.
+: Verify the SSL certificate on Chef Infra Server. When `true`, Chef Infra Client always verifies the SSL certificate. When `false`, Chef Infra Client uses the value of `ssl_verify_mode` to determine if the SSL certificate requires verification.
 
   Default value: `false`.
 

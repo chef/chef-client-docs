@@ -296,9 +296,9 @@ management console.
 
 ### Edit a data bag with knife
 
-{{< readfile file="content/workstation/reusable/md/knife_data_bag_edit.md" >}}
+{{< readfile file="content/reusable/md/workstation/knife_data_bag_edit.md" >}}
 
-{{< readfile file="content/workstation/reusable/md/knife_data_bag_edit_item.md" >}}
+{{< readfile file="content/reusable/md/workstation/knife_data_bag_edit_item.md" >}}
 
 ## Use data bags
 

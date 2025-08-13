@@ -71,16 +71,16 @@ The install script should be accessible from your artifact store.
 
 ## Chef Infra Server
 
-In this section you'll install the Chef Infra Server, and create your
+In this section you'll install Chef Infra Server, and create your
 organization and user. Note that to configure Supermarket later
 in this guide, you will need a user that's a member of the `admins`
 group.
 
 1. Download the package from [Chef Downloads](https://www.chef.io/downloads).
 
-1. Upload the package to the machine that will run the Chef Infra Server, and then record its location on the file system. The rest of these steps assume this location is in the `/tmp` directory.
+1. Upload the package to the machine that will run Chef Infra Server, and then record its location on the file system. The rest of these steps assume this location is in the `/tmp` directory.
 
-1. {{< readfile file="content/server/reusable/md/install_chef_server_install_package.md" >}}
+1. {{< readfile file="content/reusable/md/server/install_chef_server_install_package.md" >}}
 
 1. Run the following to start all of the services:
 
@@ -88,13 +88,13 @@ group.
     sudo chef-server-ctl reconfigure
     ```
 
-    Because the Chef Infra Server is composed of many different services
+    Because Chef Infra Server is composed of many different services
     that work together to create a functioning system, this step may
     take a few minutes to complete.
 
-1. {{< readfile file="content/server/reusable/md/ctl_chef_server_user_create_admin.md">}}
+1. {{< readfile file="content/reusable/md/server/ctl_chef_server_user_create_admin.md">}}
 
-1. {{< readfile file="content/server/reusable/md/ctl_chef_server_org_create_summary.md">}}
+1. {{< readfile file="content/reusable/md/server/ctl_chef_server_org_create_summary.md">}}
 
 ## Chef Workstation
 
@@ -248,28 +248,28 @@ wrapper. In addition the necessary cookbooks, a private Chef Supermarket
 has the following requirements:
 
 - An operational Chef Infra Server to act as the OAuth 2.0 provider
-- A user account on the Chef Infra Server with `admins` privileges
+- A user account on Chef Infra Server with `admins` privileges
 - A key for the user account on the Chef server
 - An x86_64 Ubuntu, RHEL, or Amazon Linux host with at least 1 GB memory
-- System clocks synchronized on the Chef Infra Server and Supermarket hosts
+- System clocks synchronized on Chef Infra Server and Supermarket hosts
 - Sufficient disk space to meet project cookbook storage capacity or credentials to store cookbooks in an Amazon Simple Storage Service (S3) bucket
 
 ### Configure credentials
 
 First, you'll configure Chef Identity credentials for Supermarket. Chef
-Identity is an OAuth 2.0 service packaged with the Chef Infra Server,
+Identity is an OAuth 2.0 service packaged with Chef Infra Server,
 that allows you to use the same credentials to access both server and
 Supermarket.
 
-1. Log on to the Chef Infra Server using SSH and elevate to an
+1. Log on to Chef Infra Server using SSH and elevate to an
     admin-level user. If running a multi-node Chef Infra Server cluster,
     log on to the node acting as the primary node in the cluster.
 
 1. Update the `/etc/opscode/chef-server.rb` configuration file.
 
-    {{< readfile file="content/server/reusable/md/config_ocid_application_hash_supermarket.md" >}}
+    {{< readfile file="content/reusable/md/server/config_ocid_application_hash_supermarket.md" >}}
 
-1. Reconfigure the Chef Infra Server.
+1. Reconfigure Chef Infra Server.
 
     ```bash
     sudo chef-server-ctl reconfigure
@@ -329,7 +329,7 @@ Supermarket.
 ### Define Attributes
 
 Define the attributes for the Chef Supermarket installation and how it
-connects to the Chef Infra Server. One approach would be to hard-code
+connects to Chef Infra Server. One approach would be to hard-code
 attributes in the wrapper cookbook's `default.rb` recipe. A better
 approach is to place these attributes in a [data bag](/data_bags/),
 and then reference them from the recipe. For example, the data bag could
@@ -392,7 +392,7 @@ To define these attributes, do the following:
 
 1. Save and close the `recipes/default.rb` file.
 
-1. Upload all of your cookbooks to the Chef Infra Server:
+1. Upload all of your cookbooks to Chef Infra Server:
 
     ```ruby
     knife cookbook upload -a
@@ -457,7 +457,7 @@ user's workstation.
     certificate. A trusted SSL certificate should be used for private
     Chef Supermarket that's used in production.
 1. After opening Chef Supermarket in a web browser, click the **Create
-    Account** link. A prompt to log in to the Chef Infra Server is
+    Account** link. A prompt to log in to Chef Infra Server is
     shown. Authorize the Chef Supermarket to use the Chef Infra Server
     account for authentication.
 

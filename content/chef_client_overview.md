@@ -56,6 +56,12 @@ You can customize run lists for different node types or environments.
 Ohai is a system profiling tool that collects detailed information about your nodes, including hardware details, network configuration, and operating system data.
 Chef Infra Client uses this information to make intelligent configuration decisions.
 
+### Agentless
+
+Agentless allows you to execute Infra Client runs on a target node over SSH without having Chef Infra Client installed on the node.
+
+For more details and setup instructions, see the [Agentless documentation](/target_mode/).
+
 ## How Chef Infra Client works
 
 Chef Infra Client operates on a pull-based model where nodes periodically contact Chef Infra Server to retrieve their configuration policies.

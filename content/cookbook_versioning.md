@@ -123,7 +123,7 @@ not provided, `>= 0.0.0` is used as the default.
 <tbody>
 <tr>
 <td><p><code>depends</code></p></td>
-<td><p>Show that a cookbook has a dependency on another cookbook. Use a version constraint to define dependencies for cookbook versions: <code>&lt;</code> (less than), <code>&lt;=</code> (less than or equal to), <code>=</code> (equal to), <code>&gt;=</code> (greater than or equal to; also known as "optimistically greater than", or "optimistic"), <code>~&gt;</code> (approximately greater than; also known as "pessimistically greater than", or "pessimistic"), or <code>&gt;</code> (greater than). This field requires that a cookbook with a matching name and version exists on the Chef Infra Server. When the match exists, the Chef Infra Server includes the dependency as part of the set of cookbooks that are sent to the node when Chef Infra Client runs. It's important that the <code>depends</code> field contain accurate data. If a dependency statement is inaccurate, Chef Infra Client may not be able to complete the configuration of the system. For example:</p>
+<td><p>Show that a cookbook has a dependency on another cookbook. Use a version constraint to define dependencies for cookbook versions: <code>&lt;</code> (less than), <code>&lt;=</code> (less than or equal to), <code>=</code> (equal to), <code>&gt;=</code> (greater than or equal to; also known as "optimistically greater than", or "optimistic"), <code>~&gt;</code> (approximately greater than; also known as "pessimistically greater than", or "pessimistic"), or <code>&gt;</code> (greater than). This field requires that a cookbook with a matching name and version exists on Chef Infra Server. When the match exists, Chef Infra Server includes the dependency as part of the set of cookbooks that are sent to the node when Chef Infra Client runs. It's important that the <code>depends</code> field contain accurate data. If a dependency statement is inaccurate, Chef Infra Client may not be able to complete the configuration of the system. For example:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>depends <span class="st">&#39;opscode-base&#39;</span></span></code></pre></div>
 <p>or:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a>depends <span class="st">&#39;opscode-github&#39;</span>, <span class="st">&#39;&gt; 1.0.0&#39;</span></span></code></pre></div>
@@ -201,7 +201,7 @@ Version 0.0.0 of cookbook redis is frozen. Use --force to override
 
 {{< warning >}}
 
-If you continually upload all versions of many cookbooks to your Chef Infra Server, you may overload the Chef Infra Server's dependency solver, causing it to time out and leading to a failed Chef Infra Client run.
+If you continually upload all versions of many cookbooks to your Chef Infra Server, you may overload Chef Infra Server's dependency solver, causing it to time out and leading to a failed Chef Infra Client run.
 
 There are three solutions to this problem:
 
@@ -211,7 +211,7 @@ There are three solutions to this problem:
 
 {{< /warning >}}
 
-In a CI/CD workflow where new cookbook versions are continually uploaded to a Chef Infra Server, the Chef Infra Server dependency solver must look at more and more cookbook versions while trying to solve the constraints given to it from the run list of each Chef Infra Client that starts up. Eventually, it runs out of time to produce a solution, times out, and the Chef Infra Client run fails as a result. The Chef Infra Server may also pick older cookbook versions than the versions that you intended.
+In a CI/CD workflow where new cookbook versions are continually uploaded to a Chef Infra Server, the Chef Infra Server dependency solver must look at more and more cookbook versions while trying to solve the constraints given to it from the run list of each Chef Infra Client that starts up. Eventually, it runs out of time to produce a solution, times out, and the Chef Infra Client run fails as a result. Chef Infra Server may also pick older cookbook versions than the versions that you intended.
 
 The dependency solver workers in a Chef Infra Server have a default timeout of five seconds. The solution isn't to increase their timeout, but to control the problem so that the dependency solvers can solve it in a reasonable amount of time.
 
@@ -227,7 +227,7 @@ The way to control the problem traditionally is by pinning the versions of cookb
 
 ### Minimum Number of Cookbook Versions
 
-The dependency solver will also work properly if you upload the minimum number of cookbook versions needed to the Chef Infra Server.
+The dependency solver will also work properly if you upload the minimum number of cookbook versions needed to Chef Infra Server.
 
 You can make a start at this by only uploading tested and blessed cookbook versions to your Chef Infra Server. These cookbooks would be ones where each scenario or role for the nodes is considered and that small set of cookbook versions are made available for those sets of nodes. Before Policyfiles, this policy could be implemented by constraining dependency solver access to candidate versions using an [environment]({{< relref "environments" >}}) file.
 

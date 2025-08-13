@@ -65,15 +65,15 @@ The `cookbooks` directory contains cookbooks that configure systems in the infra
 
 ### data_bags
 
-The `data_bags` directory is used to store all the data bags that exist for an organization. Each sub-directory corresponds to a single data bag on the Chef Infra Server and contains a JSON file corresponding to each data bag item.
+The `data_bags` directory is used to store all the data bags that exist for an organization. Each sub-directory corresponds to a single data bag on Chef Infra Server and contains a JSON file corresponding to each data bag item.
 
 ### policyfiles
 
-The `policyfiles` directory is used to store Policyfiles in the `.rb` format that define the set of cookbooks and attributes to apply to specific systems managed by the Chef Infra Server.
+The `policyfiles` directory is used to store Policyfiles in the `.rb` format that define the set of cookbooks and attributes to apply to specific systems managed by Chef Infra Server.
 
 ### chefignore
 
-A `chefignore` file tells knife which cookbook files in the chef-repo it should ignore when uploading data to the Chef Infra Server.
+A `chefignore` file tells knife which cookbook files in the chef-repo it should ignore when uploading data to Chef Infra Server.
 Include swap files, version control data, and build output data in a `chefignore` file.
 
 The `chefignore` file has the following rules:
@@ -99,7 +99,7 @@ See Ruby's [`File.fnmatch` documentation](https://ruby-doc.org/core-2.5.1/File.h
 
 #### Examples
 
-Many text editors leave files behind. To prevent knife from uploading these files to the Chef Infra Server, add an entry to the `chefignore` file.
+Many text editors leave files behind. To prevent knife from uploading these files to Chef Infra Server, add an entry to the `chefignore` file.
 
 For Emacs backup files:
 
