@@ -2,10 +2,6 @@
 title = "About Handlers"
 draft = false
 
-gh_repo = "chef-web-docs"
-
-aliases = ["/handlers.html", "essentials_handlers.html"]
-
 [menu]
   [menu.infra]
     title = "Handlers"
@@ -151,7 +147,7 @@ The following cookbooks can be used to load handlers during a Chef InfraClient r
 
 Exception and report handlers can be distributed using the **chef_handler** resource. This resource is included with Chef 14 and above. It can be used to enable custom handlers from within recipes and to include product-specific handlers from cookbooks.
 
-See the [chef_handler Resource]({{< relref "/resources/chef_handler">}}) documentation for more information.
+See the [chef_handler Resource]({{< relref "/resources/bundled/chef_handler">}}) documentation for more information.
 
 ### Chef Infra Client
 

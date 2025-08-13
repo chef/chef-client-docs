@@ -1,9 +1,6 @@
 +++
 title = "About Nodes"
 draft = false
-gh_repo = "chef-web-docs"
-aliases = ["/nodes.html"]
-product = ["client", "server"]
 
 [menu]
   [menu.infra]

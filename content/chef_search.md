@@ -1,9 +1,6 @@
 +++
 title = "About Search"
 draft = false
-gh_repo = "chef-web-docs"
-aliases = ["/chef_search.html", "essentials_search.html"]
-product = ["client", "server", "workstation"]
 
 [menu]
   [menu.infra]

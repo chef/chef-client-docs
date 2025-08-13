@@ -2,10 +2,6 @@
 title = "Chef for Windows"
 draft = false
 
-gh_repo = "chef-web-docs"
-
-aliases = ["/windows.html"]
-
 [menu]
   [menu.infra]
     title = "Chef for Windows"

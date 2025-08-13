@@ -2,10 +2,6 @@
 title = "Microsoft Azure CLI"
 draft = false
 
-gh_repo = "chef-web-docs"
-
-aliases = ["/azure_chef_cli.html"]
-
 [menu]
   [menu.infra]
     title = "Microsoft Azure Chef Extension"

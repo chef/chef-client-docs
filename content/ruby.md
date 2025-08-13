@@ -2,10 +2,6 @@
 title = "Ruby Guide"
 draft = false
 
-gh_repo = "chef-web-docs"
-
-aliases = ["/ruby.html", "/just_enough_ruby_for_chef.html"]
-
 [menu]
   [menu.infra]
     title = "Ruby Guide"

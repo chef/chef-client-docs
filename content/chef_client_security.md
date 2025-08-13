@@ -2,10 +2,6 @@
 title = "Chef Infra Client security"
 draft = false
 
-gh_repo = "chef-web-docs"
-
-aliases = ["/chef_client_security.html", "/auth.html"]
-
 [menu]
   [menu.infra]
     title = "Chef Infra Client security"
@@ -39,7 +35,7 @@ The `trusted_certs` directory on Chef Workstation and in Chef Infra Client works
 
 Place private and self-signed certificates in the `trusted_certs` directory to use them within Chef Infra Client and Workstation tools.
 
-Use the [`chef_client_trusted_certificate`]({{< relref "/resources/chef_client_trusted_certificate" >}}) Chef Infra Client resource to manage these certificates continuously.
+Use the [`chef_client_trusted_certificate`]({{< relref "/resources/bundled/chef_client_trusted_certificate" >}}) Chef Infra Client resource to manage these certificates continuously.
 
 #### trusted_certs directory locations
 

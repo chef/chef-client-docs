@@ -2,10 +2,6 @@
 title = "About Ohai"
 draft = false
 
-gh_repo = "chef-web-docs"
-
-aliases = ["/ohai.html"]
-
 [menu]
   [menu.infra]
     title = "About Ohai"

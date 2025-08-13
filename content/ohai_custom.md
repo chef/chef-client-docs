@@ -2,10 +2,6 @@
 title = "Writing Ohai Custom Plugins"
 draft = false
 
-gh_repo = "chef-web-docs"
-
-aliases = ["/ohai_custom.html"]
-
 [menu]
   [menu.infra]
     title = "Custom Plugins"

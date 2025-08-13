@@ -2,8 +2,6 @@
 title = "Chef Infra Language: Reading Registry Keys"
 draft = false
 
-gh_repo = "chef-web-docs"
-
 [menu]
   [menu.infra]
     title = "Reading Registry Keys"

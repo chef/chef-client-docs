@@ -1,9 +1,6 @@
 +++
 title = "Chef and VMware"
 draft = false
-gh_repo = "chef-web-docs"
-aliases = ["/vmware.html"]
-product = ["workstation"]
 
 [menu]
   [menu.infra]

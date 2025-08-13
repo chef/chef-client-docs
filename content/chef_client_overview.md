@@ -2,10 +2,6 @@
 title = "Chef Infra Client Overview"
 draft = false
 
-gh_repo = "chef-web-docs"
-
-aliases = ["/chef_client_overview.html", "/chef_client.html", "/essentials_nodes_chef_run.html"]
-
 [menu]
   [menu.infra]
     title = "Chef Infra Client Overview"

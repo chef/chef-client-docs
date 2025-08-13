@@ -2,8 +2,6 @@
 title = "Chef Infra Language: Editing Resources"
 draft = false
 
-gh_repo = "chef-web-docs"
-
 [menu]
   [menu.infra]
     title = "Editing Resources"

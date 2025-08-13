@@ -1,9 +1,6 @@
 +++
 title = "Quick Start"
 draft = false
-gh_repo = "chef-web-docs"
-aliases = ["/quick_start.html"]
-product = ["client", "server"]
 
 [menu]
   [menu.infra]

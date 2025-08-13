@@ -2,8 +2,6 @@
 title = "Chef Infra Language: Secrets"
 draft = false
 
-gh_repo = "chef-web-docs"
-
 [menu]
   [menu.infra]
     title = "Secrets Management Integrations"

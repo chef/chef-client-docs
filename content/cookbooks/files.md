@@ -1,0 +1,15 @@
++++
+title = "Cookbook Files"
+draft = false
+
+[menu]
+  [menu.infra]
+    title = "Files"
+    identifier = "chef_infra/cookbook_reference/files.md Files"
+    parent = "chef_infra/cookbook_reference"
+    weight = 40
++++
+
+The `files` directory in Chef Infra cookbooks stores files that are used
+in your cookbook with the [cookbook_file](/resources/cookbook_file/)
+resource.
