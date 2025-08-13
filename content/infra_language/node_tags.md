@@ -2,8 +2,6 @@
 title = "Chef Infra Language: Node Tags"
 draft = false
 
-gh_repo = "chef-web-docs"
-
 [menu]
   [menu.infra]
     title = "Node Tags"

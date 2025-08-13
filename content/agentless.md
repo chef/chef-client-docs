@@ -1,9 +1,6 @@
 +++
 title = "Agentless"
 draft = false
-gh_repo = "chef-web-docs"
-
-product = ["client"]
 
 [menu]
   [menu.infra]
@@ -173,19 +170,19 @@ All resources included in a Cookbook must be enabled in Agentless to run in Agen
 
 The following Chef Infra Client resources are supported in Agentless starting in Chef Infra Client 15.1.36:
 
-- [apt_package]({{< relref "/resources/apt_package" >}})
-- [breakpoint]({{< relref "/resources/breakpoint" >}})
-- [execute]({{< relref "/resources/execute" >}})
-- [log]({{< relref "/resources/log" >}})
-- [ruby_block]({{< relref "/resources/ruby_block" >}})
-- [service]({{< relref "/resources/service" >}})
-- [systemd_unit]({{< relref "/resources/systemd_unit" >}})
+- [apt_package]({{< relref "/resources/bundled/apt_package" >}})
+- [breakpoint]({{< relref "/resources/bundled/breakpoint" >}})
+- [execute]({{< relref "/resources/bundled/execute" >}})
+- [log]({{< relref "/resources/bundled/log" >}})
+- [ruby_block]({{< relref "/resources/bundled/ruby_block" >}})
+- [service]({{< relref "/resources/bundled/service" >}})
+- [systemd_unit]({{< relref "/resources/bundled/systemd_unit" >}})
 
 ### Custom resources
 
 {{< readfile file="/reusable/md/agentless_custom_resource.md" >}}
 
-See the [Custom Resources documentation]({{< relref "custom_resources" >}}) for more detailed documentation about creating custom resources.
+See the [Custom Resources documentation]({{< relref "/resources/custom" >}}) for more detailed documentation about creating custom resources.
 
 #### Example
 
@@ -215,7 +212,7 @@ Replace the following:
 
 ### Agentless in Local Mode
 
-You can run Agentless in [Local Mode]({{< relref "/ctl_chef_client#run-in-local-mode" >}}).
+You can run Agentless in [Local Mode]({{< relref "/reference/ctl_chef_client#run-in-local-mode" >}}).
 Local Mode runs chef-zero locally as a lightweight instance of Chef Infra Server to execute a Client run on target nodes.
 
 Use `-z` and `-t` to run Agentless in Local Mode:

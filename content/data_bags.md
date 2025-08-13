@@ -1,9 +1,6 @@
 +++
 title = "About Data Bags"
 draft = false
-gh_repo = "chef-web-docs"
-aliases = ["/data_bags.html", "/secrets.html", "/secrets/", "/essentials_data_bags.html"]
-product = ["client", "server"]
 
 [menu]
   [menu.infra]
