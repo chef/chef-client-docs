@@ -46,7 +46,7 @@ The key components of nodes that are under management by Chef include:
 ## Node Names
 
 The name of a node is required as part of the authentication process to
-the Chef Infra Server. The name of each node must be unique within an
+Chef Infra Server. The name of each node must be unique within an
 organization, but otherwise can be any string that matches the following
 regular expression:
 
@@ -76,7 +76,7 @@ exact order. The node object consists of the run-list and node
 attributes, which is a JSON file that's stored on the Chef Infra
 Server. Chef Infra Client gets a copy of the node object from the Chef
 Infra Server during each Chef Infra Client run and places an updated
-copy on the Chef Infra Server at the end of each Chef Infra Client run.
+copy on Chef Infra Server at the end of each Chef Infra Client run.
 
 {{< readfile file="content/reusable/md/node_attribute.md" >}}
 

@@ -44,7 +44,7 @@ This command has the following options:
 
 `-F FORMAT`, `--format FORMAT`
 
-: {{< readfile file="content/workstation/reusable/md/ctl_chef_client_options_format.md" >}}
+: {{< readfile file="content/reusable/md/workstation/ctl_chef_client_options_format.md" >}}
 
 `--force-formatter`
 
@@ -118,7 +118,7 @@ This command has the following options:
 
 `-s SECONDS`, `--splay SECONDS`
 
-: A random number between zero and `splay` that's added to `interval`. Use splay to help balance the load on the Chef Infra Server by ensuring that many Chef Infra Client runs aren't occurring at the same interval. When running Chef Infra Client at intervals, apply `--splay` and `--interval` values before a Chef Infra Client run.
+: A random number between zero and `splay` that's added to `interval`. Use splay to help balance the load on Chef Infra Server by ensuring that many Chef Infra Client runs aren't occurring at the same interval. When running Chef Infra Client at intervals, apply `--splay` and `--interval` values before a Chef Infra Client run.
 
 `-u USER`, `--user USER`
 

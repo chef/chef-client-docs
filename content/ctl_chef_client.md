@@ -84,7 +84,7 @@ This command has the following options:
 
 `-F FORMAT`, `--format FORMAT`
 
-: {{< readfile file="content/workstation/reusable/md/ctl_chef_client_options_format.md" >}}
+: {{< readfile file="content/reusable/md/workstation/ctl_chef_client_options_format.md" >}}
 
 `--force-formatter`
 
@@ -108,7 +108,7 @@ This command has the following options:
 
 `-j PATH`, `--json-attributes PATH`
 
-: The path to a file that contains JSON data. Used to setup the first client run. The attributes will persist on the Chef Infra Server for all future runs with option `-j`.
+: The path to a file that contains JSON data. Used to setup the first client run. The attributes will persist on Chef Infra Server for all future runs with option `-j`.
 
     **Run-lists**
 
@@ -170,7 +170,7 @@ This command has the following options:
     <tbody>
     <tr>
     <td><code>policy_group</code></td>
-    <td>The name of a policy group that exists on the Chef Infra Server.</td>
+    <td>The name of a policy group that exists on Chef Infra Server.</td>
     </tr>
     <tr>
     <td><code>policy_name</code></td>
@@ -323,7 +323,7 @@ This command has the following options:
 
 `-S CHEF_SERVER_URL`, `--server CHEF_SERVER_URL`
 
-: The URL for the Chef Infra Server.
+: The URL for Chef Infra Server.
 
 `-u USER`, `--user USER`
 
@@ -345,7 +345,7 @@ This command has the following options:
 `-z`, `--local-mode`
 
 : Run the Chef Infra Client in local mode. This allows all commands
-    that work against the Chef Infra Server to also work against the
+    that work against Chef Infra Server to also work against the
     local chef-repo.
 
 ### Chef Infra Client Lock File
@@ -367,11 +367,11 @@ The location of the lock file can vary by platform.
 ## Run in Local Mode
 
 Local mode is a way to run the Chef Infra Client against the chef-repo
-on a local machine as if it were running against the Chef Infra Server.
+on a local machine as if it were running against Chef Infra Server.
 Local mode relies on chef-zero, which acts as a lightweight
-instance of the Chef Infra Server. chef-zero reads and writes to the
+instance of Chef Infra Server. chef-zero reads and writes to the
 `chef_repo_path`, which allows all commands that normally work against
-the Chef Infra Server to be used against the local chef-repo.
+Chef Infra Server to be used against the local chef-repo.
 
 Local mode doesn't require a configuration file, instead it will look
 for a directory named `/cookbooks` and will set `chef_repo_path` to be
@@ -399,7 +399,7 @@ manner.
 When why-run mode is enabled, a Chef Infra Client run will occur that
 does everything up to the point at which configuration would normally
 occur. This includes getting the configuration data, authenticating to
-the Chef Infra Server, rebuilding the node object, expanding the
+Chef Infra Server, rebuilding the node object, expanding the
 run-list, getting the necessary cookbook files, resetting node
 attributes, identifying the resources, and building the resource
 collection, but doesn't include mapping each resource to a provider or
@@ -448,7 +448,7 @@ important to know that these notifications are triggered correctly.
 
 chef-zero is a lightweight Chef Infra Server that runs in-memory on
 the local machine. This allows the Chef Infra Client to be run against
-the chef-repo as if it were running against the Chef Infra Server.
+the chef-repo as if it were running against Chef Infra Server.
 chef-zero was [originally a standalone
 tool](https://github.com/chef/chef-zero); it's enabled from within the
 Chef Infra Client by using the `--local-mode` option. chef-zero is
@@ -476,7 +476,7 @@ version 12 endpoints, except `/universe`.
 **Create an encrypted data bag for use with Chef Infra Client local
 mode**
 
-{{< readfile file="content/workstation/reusable/md/knife_data_bag_from_file_create_encrypted_local_mode.md" >}}
+{{< readfile file="content/reusable/md/workstation/knife_data_bag_from_file_create_encrypted_local_mode.md" >}}
 
 ## Run in FIPS Mode
 
@@ -484,7 +484,7 @@ mode**
 
 **Bootstrap a node using FIPS**
 
-{{< readfile file="content/workstation/reusable/md/knife_bootstrap_node_fips.md" >}}
+{{< readfile file="content/reusable/md/workstation/knife_bootstrap_node_fips.md" >}}
 
 ## Run as a Service
 
@@ -527,7 +527,7 @@ supported.
 
 ## Run with Elevated Privileges
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_client_elevated_privileges.md" >}}
+{{< readfile file="content/reusable/md/workstation/ctl_chef_client_elevated_privileges.md" >}}
 
 ### Linux
 
@@ -570,7 +570,7 @@ ways this can be done:
 
 ### Windows
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_client_elevated_privileges_windows.md" >}}
+{{< readfile file="content/reusable/md/workstation/ctl_chef_client_elevated_privileges_windows.md" >}}
 
 ## Run as Non-root User
 
@@ -895,4 +895,4 @@ sudo killall -USR1 chef-client
 
 **Setting the initial run-list using a JSON file**
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_client_bootstrap_initial_run_list.md" >}}
+{{< readfile file="content/reusable/md/workstation/ctl_chef_client_bootstrap_initial_run_list.md" >}}

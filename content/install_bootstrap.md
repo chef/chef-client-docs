@@ -27,7 +27,7 @@ The `knife bootstrap` command runs a bootstrap operation that installs Chef Infr
 
 1. Identify the FQDN or IP address of the target node. The `knife bootstrap` command requires the FQDN or the IP address for the node to complete the bootstrap operation.
 
-2. Once the workstation machine is configured, it can be used to install Chef Infra Client on one (or more) nodes across the organization using a knife bootstrap operation. The `knife bootstrap` command is used to SSH into the target machine, and then do what's needed to allow Chef Infra Client to run on the node. It will install the Chef Infra Client executable (if necessary), generate keys, and register the node with the Chef Infra Server. The bootstrap operation requires the IP address or FQDN of the target system, the SSH credentials (username, password or identity file) for an account that has root access to the node, and (if the operating system isn't Ubuntu, which is the default distribution used by `knife bootstrap`) the operating system running on the target system.
+2. Once the workstation machine is configured, it can be used to install Chef Infra Client on one (or more) nodes across the organization using a knife bootstrap operation. The `knife bootstrap` command is used to SSH into the target machine, and then do what's needed to allow Chef Infra Client to run on the node. It will install the Chef Infra Client executable (if necessary), generate keys, and register the node with Chef Infra Server. The bootstrap operation requires the IP address or FQDN of the target system, the SSH credentials (username, password or identity file) for an account that has root access to the node, and (if the operating system isn't Ubuntu, which is the default distribution used by `knife bootstrap`) the operating system running on the target system.
 
     In a command window, enter the following:
 
@@ -97,13 +97,13 @@ The `knife bootstrap` command runs a bootstrap operation that installs Chef Infr
     [172.16.1.233] Chef Infra Client finished, 0/0 resources updated in 11 seconds
     ```
 
-3. After the bootstrap operation has finished, verify that the node is recognized by the Chef Infra Server. To show only the node that was just bootstrapped, run the following command:
+3. After the bootstrap operation has finished, verify that the node is recognized by Chef Infra Server. To show only the node that was just bootstrapped, run the following command:
 
     ```bash
     knife client show NAME_OF_NODE
     ```
 
-    where `NODE_NAME` is the name of the node that was just bootstrapped. The Chef Infra Server will return something similar to:
+    where `NODE_NAME` is the name of the node that was just bootstrapped. Chef Infra Server will return something similar to:
 
     ```bash
     admin: false
@@ -112,13 +112,13 @@ The `knife bootstrap` command runs a bootstrap operation that installs Chef Infr
     validator: false
     ```
 
-    and to show the full list of nodes (and workstations) that are registered with the Chef Infra Server, run the following command:
+    and to show the full list of nodes (and workstations) that are registered with Chef Infra Server, run the following command:
 
     ```bash
     knife client list
     ```
 
-    The Chef Infra Server will return something similar to:
+    Chef Infra Server will return something similar to:
 
     ```bash
     workstation1
@@ -130,16 +130,16 @@ The `knife bootstrap` command runs a bootstrap operation that installs Chef Infr
 
 ## Validatorless and legacy validator bootstraps
 
-We recommended using "validatorless bootstrapping" to authenticate new nodes with the Chef Infra Server.
+We recommended using "validatorless bootstrapping" to authenticate new nodes with Chef Infra Server.
 
-The legacy Chef Infra validator-based node bootstrapping process depended on using a shared "validatory" key throughout an organization for authenticating new nodes with the Chef Infra Server.
+The legacy Chef Infra validator-based node bootstrapping process depended on using a shared "validatory" key throughout an organization for authenticating new nodes with Chef Infra Server.
 
 Shortcomings of the legacy validator process are:
 
 - All users share the same key for bootstrapping new systems
 - Key sharing makes key rotation difficult, if it's compromised or if an employee leaves the organization.
 
-The "validatorless bootstrap" generates a key for each node, which is then transferred to the new node and used to authenticate with the Chef Infra Server instead of relying on a shared "validator" key.
+The "validatorless bootstrap" generates a key for each node, which is then transferred to the new node and used to authenticate with Chef Infra Server instead of relying on a shared "validator" key.
 
 The Chef Infra bootstrap process is validatorless by default. If you receive a warning during a bootstrap that a validator key is in use, remove the configuration for this legacy bootstrap mode. Edit your [config.rb (knife.rb)](/workstation/config_rb/) file and remove any `validation_key` or `validation_client_name` entries.
 
@@ -355,10 +355,10 @@ Chef Infra Client can be installed using an unattended bootstrap. This allows Ch
 
 When Chef Infra Client is installed using an unattended bootstrap, remember that Chef Infra Client:
 
-- Must be able to authenticate to the Chef Infra Server.
+- Must be able to authenticate to Chef Infra Server.
 - Must be able to configure a run-list.
 - May require custom attributes, depending on the cookbooks that are being used.
-- Must be able to access the `chef-validator.pem` file so that it may create a new identity on the Chef Infra Server.
+- Must be able to access the `chef-validator.pem` file so that it may create a new identity on Chef Infra Server.
 - Must have a unique node name; Chef Infra Client will use the FQDN for the host system by default.
 
 When Chef Infra Client is installed using an unattended bootstrap, it may be built into an image that starts Chef Infra Client on boot, or installed using User Data or some other kind of post-deployment script. The type of image or User Data used depends on the platform on which the unattended bootstrap will take place.
@@ -457,4 +457,4 @@ It's important that settings in the [client.rb file](/config_rb_client/)---for e
 
 ##### Setting the initial run-list
 
-{{< readfile file="content/workstation/reusable/md/ctl_chef_client_bootstrap_initial_run_list.md" >}}
+{{< readfile file="content/reusable/md/workstation/ctl_chef_client_bootstrap_initial_run_list.md" >}}
