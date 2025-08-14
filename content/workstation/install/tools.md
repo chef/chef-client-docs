@@ -17,7 +17,7 @@ Follow these instructions to install or upgrade each tool.
 
 ### Supported platforms
 
-The Chef Workstation tools are supported on Linux x86-64 systems.
+The Chef Workstation 26 RC2 tools are supported on Linux x86-64 systems.
 
 ### Prerequisites
 

@@ -13,7 +13,7 @@ This document describes how to install Chef Workstation and all its components.
 
 ## Supported platforms
 
-Chef Workstation is supported on Linux x86-64 systems.
+Chef Workstation 26 RC2 is supported on Linux x86-64 systems.
 
 ## Install
 

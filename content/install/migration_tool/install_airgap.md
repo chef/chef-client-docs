@@ -1,5 +1,5 @@
 +++
-title = "Install Chef Infra Client using the migration tool in an airgapped environment"
+title = "Install Chef Infra Client using the migration tool in an air-gapped environment"
 draft = true
 
 [menu.install]
@@ -9,7 +9,7 @@ parent = "install/migration_tool"
 weight = 20
 +++
 
-This page documents how to do a fresh install of Chef Infra Client RC2 in an airgapped environment.
+This page documents how to do a fresh install of Chef Infra Client RC2 in an air-gapped environment.
 
 ## Supported platforms
 
