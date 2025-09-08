@@ -108,6 +108,22 @@ To install Chef Infra Client 19, follow these steps:
    ```
 
    {{< /accordion-item >}}
+   {{< accordion-item accordion-title="Install on MSI-based distributions" >}}
+
+   For MSI-based distributions:
+
+   - Using windows package manager:
+
+     Double-click on the .msi package
+
+   or:
+
+   - Using powershell:
+     ```sh
+     msiexec /i "chef-ice-19.1.2-1_x64.msi"
+     ```
+
+   {{< /accordion-item >}}
    {{< /accordion-list >}}
 
 1. Verify the installation:

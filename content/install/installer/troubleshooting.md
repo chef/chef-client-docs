@@ -36,6 +36,10 @@ Error:
 (try to add '--allowerasing' to command line to replace conflicting packages or '--skip-broken' to skip uninstallable packages)
 ```
 
+The installer returns the following error on MSI-based systems:
+
+![alt text](/images/msi_workstation_conflict.png)
+
 To resolve the error:
 
 1. [Uninstall Chef Workstation](https://docs.chef.io/workstation/install_workstation/#uninstalling).
@@ -61,11 +65,19 @@ To resolve this error:
 
 1. Add a valid Progress Chef License key to your machine's environment:
 
+  On Linux-based distributions:
+
     ```sh
     export CHEF_LICENSE_KEY=<LICENSE_KEY>
     ```
 
-1. Install Chef Infra Client.
+  On Windows-based distributions:
+
+  ```sh
+  [System.Environment]::SetEnvironmentVariable("CHEF_LICENSE_KEY", "<LICENSE_KEY>", "Machine")
+  ```
+
+2. Install Chef Infra Client.
 
     On Debian-based distributions:
 
@@ -78,3 +90,17 @@ To resolve this error:
     ```sh
     sudo -E dnf reinstall chef-infra-client-19.1.rc2.amzn2.x86_64.rpm
     ```
+
+    On Windows-based distributions:
+
+    - Using windows package manager:
+
+     Double-click on the .msi package
+
+   or:
+
+   - Using powershell:
+     ```sh
+     msiexec /i "chef-ice-19.1.2-1_x64.msi"
+     ```
+
