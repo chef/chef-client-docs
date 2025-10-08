@@ -34,14 +34,6 @@ This install process has the following prerequisites:
 
 To install Chef Infra Client 19, follow these steps:
 
-1. Add your Progress Chef License key to your machine's environment:
-
-    ```sh
-    export CHEF_LICENSE_KEY=<LICENSE_KEY>
-    ```
-
-    Replace `<LICENSE_KEY>` with your Progress Chef License key.
-
 1. Download the Chef Infra Client installer.
 
     {{< accordion-list data-allow-all-closed="true" >}}
