@@ -10,7 +10,7 @@ weight = 20
 
 This page documents how to upgrade to Chef Infra Client 19 RC1 from Chef Infra Client 18 or earlier.
 
-To create a fresh install of Chef Infra Client 19 RC1, see the [install documentation]({{< relref "/install" >}}).
+To create a fresh install of Chef Infra Client 19 RC1, see the [install documentation](/install).
 
 ## Supported platforms
 
@@ -132,4 +132,4 @@ Chef Infra Client 19 RC1 is supported on Linux x86-64 systems.
 
 ## Next step
 
-- Add a [Chef license]({{< relref "/license" >}}) to Chef Infra Client.
+- Add a [Chef license](/license) to Chef Infra Client.
