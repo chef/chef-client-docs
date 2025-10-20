@@ -25,7 +25,7 @@ Use the Chef Infra Client RC2 release exclusively for testing in non-production 
 
 ## Installers
 
-Install or upgrade Chef Infra Client using a native installer or the Chef migration tool. For instructions, see the [install documentation]({{< relref "/install" >}}).
+Install or upgrade Chef Infra Client using a native installer or the Chef migration tool. For instructions, see the [install documentation](/install).
 
 ## Chef Target Mode/Agentless
 
@@ -37,7 +37,7 @@ You can manage any system, target, or device's desired state without relying on 
 
 The host system connects to the target system using Train, a unified transport interface. Train protocols ensure the target system remains manageable and in the desired state from the host system.
 
-For more information, see the [Agentless documentation]({{< relref "/agentless" >}}).
+For more information, see the [Agentless documentation](/agentless).
 
 <!--
 

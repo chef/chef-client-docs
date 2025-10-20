@@ -20,7 +20,7 @@ To troubleshoot:`
 - Run the `chef-client --license-list` command to view the products your key is entitled to.
 - If Chef Infra isn't listed, set a license key that's entitled to Chef Infra.
 
-See the [Chef licensing documentation]({{< relref "/license" >}}) for more information on setting appropriate entitlements.
+See the [Chef licensing documentation](/license) for more information on setting appropriate entitlements.
 
 ## Unable to connect to the licensing server
 

@@ -15,5 +15,5 @@ You can install and manage Chef Workstation and it's components as a single appl
 
 To install or upgrade Chef Workstation, see these guides:
 
-- [Install Chef Workstation]({{< relref "workstation" >}})
-- [Install Chef Workstation components]({{< relref "tools" >}})
+- [Install Chef Workstation](workstation)
+- [Install Chef Workstation components](tools)

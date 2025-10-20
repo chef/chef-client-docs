@@ -53,4 +53,4 @@ For more information, see the [Chef Habitat install documentation](https://docs.
 
 ## Next steps
 
-After you've installed Chef Test Kitchen Enterprise, add your [Progress Chef license]({{< relref "license" >}}).
+After you've installed Chef Test Kitchen Enterprise, add your [Progress Chef license](license).
