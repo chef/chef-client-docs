@@ -48,6 +48,7 @@ jobs:
             !_vendor/
             !content/drafts/**/*
             !CONTRIBUTING.md
+            !CODE_OF_CONDUCT.md
 
   vale:
     name: runner / vale
