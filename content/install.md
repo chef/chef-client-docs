@@ -11,7 +11,7 @@ weight = 10
 
 This page documents how to do a clean install of Chef Infra Client RC1 using the Chef Infra Client migration tool on a system that doesn't have a previous version of Chef Infra Client installed.
 
-To upgrade to Chef Infra Client 19 RC1 from an earlier major version, see the [upgrade documentation]({{< relref "/upgrade" >}}).
+To upgrade to Chef Infra Client 19 RC1 from an earlier major version, see the [upgrade documentation](/upgrade).
 
 ## Supported platforms
 
@@ -93,4 +93,4 @@ Chef Infra Client 19 RC1 is supported on Linux x86-64 systems.
 
 ## Next step
 
-- Add a [Chef license]({{< relref "/license" >}}) to Chef Infra Client.
+- Add a [Chef license](/license) to Chef Infra Client.
