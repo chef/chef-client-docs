@@ -25,7 +25,6 @@ If you don't find style guidance in the Chef Documentation Style Guide, use [Goo
 
 We have a variety of [shortcodes](https://docs.chef.io/style/shortcodes/) for including content and formatting pages and text.
 
-
 ### Images
 
 Add images to `static/images/`.
