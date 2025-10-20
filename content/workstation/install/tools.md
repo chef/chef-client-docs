@@ -72,7 +72,7 @@ To install the chef-cli CLI, follow these steps:
 
 ### Chef Infra Client
 
-To install Chef Infra Client, see the [Chef Infra Client install documentation]({{< relref "/install" >}}) or follow these steps:
+To install Chef Infra Client, see the [Chef Infra Client install documentation](/install) or follow these steps:
 
 1. Install the `chef/chef-infra-client` package using [`hab pkg install`](https://docs.chef.io/habitat/habitat_cli/#hab-pkg-install):
 
@@ -88,7 +88,7 @@ To install Chef Infra Client, see the [Chef Infra Client install documentation](
 
 ### Chef Test Kitchen Enterprise
 
-To install Chef Test Kitchen Enterprise, see the [Test Kitchen Enterprise install documentation]({{< relref "workstation/kitchen/install" >}}) or follow these steps:
+To install Chef Test Kitchen Enterprise, see the [Test Kitchen Enterprise install documentation](workstation/kitchen/install) or follow these steps:
 
 1. Install the `chef/chef-test-kitchen-enterprise` package using [`hab pkg install`](https://docs.chef.io/habitat/habitat_cli/#hab-pkg-install):
 
