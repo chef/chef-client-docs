@@ -6,6 +6,7 @@
 #main-content{
   ul[role=tablist]{
     margin-left: 0;
+    margin-bottom: rem-calc(32);
   }
 
   ul.tabs{

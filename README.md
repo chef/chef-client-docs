@@ -25,16 +25,6 @@ If you don't find style guidance in the Chef Documentation Style Guide, use [Goo
 
 We have a variety of [shortcodes](https://docs.chef.io/style/shortcodes/) for including content and formatting pages and text.
 
-### Links
-
-Use the `relref` shortcode to add relative links to pages or sections within this documentation set.
-
-Examples:
-
-- `[link text]({{< relref "some_page" >}})`
-- `[link text]({{< relref "section/some_page" >}})`
-- `[link text]({{< relref "section/some_page#heading-id" >}})`
-
 ### Images
 
 Add images to `static/images/`.
