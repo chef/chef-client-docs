@@ -7,9 +7,10 @@
 
 These are changes for Chef Infra Client version(s):
 
-- [ ] RC1
+- [ ] 19 GA
+- [ ] RC3
 - [ ] RC2
-- [ ] version 19
+- [ ] RC1
 
 <!-- Include the version that this updates. -->
 

@@ -20,7 +20,7 @@ chef-migrate apply {airgap|online} [flags]
 
 It supports two subcommands:
 
-- `airgap`: Uses pre-downloaded airgapped bundles to install or upgrade Chef Infra Client 19.
+- `airgap`: Uses pre-downloaded air-gapped bundles to install or upgrade Chef Infra Client 19.
 - `online`: Uses network-connected resources to download and install Chef Infra Client 19.
 
 ## Flags
@@ -104,7 +104,7 @@ It supports two subcommands:
 
 ### Install Chef Infra Client
 
-These examples show how to perform a fresh install of Chef Infra Client 19 RC2.
+These examples show how to perform a fresh install of Chef Infra Client 19 RC3.
 
 Standard online installation:
 
@@ -113,7 +113,7 @@ chef-migrate apply online --fresh-install --download-url "<DOWNLOAD_URL>" --lice
 ```
 
 <!---
-Standard airgapped installation:
+Standard air-gapped installation:
 
 ```sh
 chef-migrate apply airgap </PATH/TO/BUNDLE> --fresh-install --license-key "<LICENSE_KEY>"
@@ -122,7 +122,7 @@ chef-migrate apply airgap </PATH/TO/BUNDLE> --fresh-install --license-key "<LICE
 
 ### Upgrade Chef Infra Client
 
-These examples show how to upgrade Chef Infra Client to version 19 RC2 from an earlier version.
+These examples show how to upgrade Chef Infra Client to version 19 RC3 from an earlier version.
 
 Standard online upgrade:
 
@@ -130,7 +130,7 @@ Standard online upgrade:
 chef-migrate apply online --download-url "<DOWNLOAD_URL>" --license-key "<LICENSE_KEY>"
 ```
 
-Standard airgapped upgrade:
+Standard air-gapped upgrade:
 
 ```sh
 chef-migrate apply airgap </PATH/TO/BUNDLE> --license-key "<LICENSE_KEY>"

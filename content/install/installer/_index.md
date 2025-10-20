@@ -1,5 +1,5 @@
 +++
-title = "Install Chef Infra Client RC2 using a native installer"
+title = "Install Chef Infra Client RC3 using a native installer"
 linkTitle = "Native installer"
 
 [menu.install]
@@ -14,7 +14,7 @@ Users can download and install the pre-built `.deb` or `.rpm` packages using the
 
 ## Supported platforms
 
-Chef Infra Client 19 RC2 is supported on Linux x86-64 systems.
+Chef Infra Client 19 RC3 is supported on Linux x86-64 systems.
 
 ## Prerequisites
 
