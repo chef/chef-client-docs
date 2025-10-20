@@ -47,11 +47,11 @@ breadcrumbs = true
 #######
 
 [render_hooks.link]
-errorLevel = 'warning'
+errorLevel = 'error'
 highlightBroken = true
 
 [render_hooks.image]
-errorLevel = 'warning'
+errorLevel = 'error'
 
 ###
 # gh_path = The URL path to the content directory

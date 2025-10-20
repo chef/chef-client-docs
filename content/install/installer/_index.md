@@ -125,4 +125,4 @@ To install Chef Infra Client 19, follow these steps:
 
 ## Next step
 
-After installing Chef Infra Client, you can test it by running an [example cookbook]({{< relref "/cookbooks" >}}).
+After installing Chef Infra Client, you can test it by running an [example cookbook](/cookbooks).

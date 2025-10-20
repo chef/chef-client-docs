@@ -165,13 +165,13 @@ Additional parameters:
 
 All resources included in a Cookbook must be enabled in Agentless Mode to run in Agentless Mode.
 
-See the list of [built-in Chef Infra resources]({{< relref "resources" >}}) that are supported in Agentless Mode.
+See the list of [built-in Chef Infra resources](resources) that are supported in Agentless Mode.
 
 ### Custom resources
 
 {{< readfile file="/reusable/md/agentless_custom_resource.md" >}}
 
-For documentation on updating custom resources, see the [RC2 custom resources documentation]({{< relref "resources/custom" >}}).
+For documentation on updating custom resources, see the [RC2 custom resources documentation](resources/custom).
 For general guidelines on writing a custom resource, see the [custom resources documentation](https://docs.chef.io/custom_resources/).
 
 #### Example

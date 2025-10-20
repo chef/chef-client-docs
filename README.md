@@ -31,9 +31,9 @@ Use the `relref` shortcode to add relative links to pages or sections within thi
 
 Examples:
 
-- `[link text]({{< relref "some_page" >}})`
-- `[link text]({{< relref "section/some_page" >}})`
-- `[link text]({{< relref "section/some_page#heading-id" >}})`
+- `[link text](some_page)`
+- `[link text](section/some_page)`
+- `[link text](section/some_page#heading-id)`
 
 ### Images
 
