@@ -1,5 +1,5 @@
 +++
-title = "Chef Workstation 26 RC2"
+title = "Chef Workstation 26 RC3"
 linkTitle = "Chef Workstation"
 
 [menu.workstation]
@@ -31,7 +31,7 @@ To install and manage Chef Workstation and it's components, see the [Workstation
 
 {{< note >}}
 
-We aren't including the Knife and InSpec applications in Chef Workstation for the RC2 release.
+We aren't including the Knife and InSpec applications in Chef Workstation for the RC3 release.
 
 {{< /note >}}
 

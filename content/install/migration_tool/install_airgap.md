@@ -1,19 +1,19 @@
 +++
-title = "Install Chef Infra Client using the migration tool in an airgapped environment"
+title = "Install Chef Infra Client using the migration tool in an air-gapped environment"
 draft = true
 
 [menu.install]
-title = "Airgap install"
+title = "Air-gapped install"
 identifier = "install/migration_tool/install_airgap"
 parent = "install/migration_tool"
 weight = 20
 +++
 
-This page documents how to do a fresh install of Chef Infra Client RC2 in an airgapped environment.
+This page documents how to do a fresh install of Chef Infra Client RC3 in an air-gapped environment.
 
 ## Supported platforms
 
-Chef Infra Client 19 RC2 is supported on Linux x86-64 systems.
+Chef Infra Client 19 RC3 is supported on Linux x86-64 systems.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ Chef Infra Client 19 RC2 is supported on Linux x86-64 systems.
 
 To install Chef Infra Client, follow these steps:
 
-1. On an internet-connected machine, download the Chef Infra Client 19 RC2 tar file.
+1. On an internet-connected machine, download the Chef Infra Client 19 RC3 tar file.
 
     Chef Infra Client is available in a zipped tar file using a pre-signed URL from an S3 bucket until August 26, 2025.
 

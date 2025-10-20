@@ -17,11 +17,11 @@ Users can download and install the pre-built `.deb` or `.rpm` packages using the
 
 ## Migration tool
 
-The [Chef Infra Client migration tool](migration_tool) (`chef-migrate`) allows you to install or upgrade of the Chef Infra Client to the latest version in both online and airgapped environments.
+The [Chef Infra Client migration tool](migration_tool) (`chef-migrate`) allows you to install or upgrade of the Chef Infra Client to the latest version in both online and air-gapped environments.
 
 It has the following functions:
 
-- Install Chef Infra Client 19 RC2.
-- Install Chef Infra Client 19 RC2 and remove or keep the previous Infra Client version installed. If the previous version is kept in side-by-side mode, the path to the most recent version takes precedence.
+- Install Chef Infra Client 19 RC3.
+- Install Chef Infra Client 19 RC3 and remove or keep the previous Infra Client version installed. If the previous version is kept in side-by-side mode, the path to the most recent version takes precedence.
 - Upgrade from Omnibus-based Chef Infra Client 17.x or 18.x versions.
 - Upgrade from Habitat-packaged Chef Infra Client 19 RC1.

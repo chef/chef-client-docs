@@ -36,6 +36,6 @@ We plan to add more drivers and features, which Chef will support, to Chef Test 
 
 {{< note >}}
 
-The only supported driver in Chef Infra Client 19 RC2 is the kitchen-dokken driver.
+The only supported driver in Chef Infra Client 19 RC3 is the kitchen-dokken driver.
 
 {{< /note >}}

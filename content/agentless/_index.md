@@ -171,7 +171,7 @@ See the list of [built-in Chef Infra resources](resources) that are supported in
 
 {{< readfile file="/reusable/md/agentless_custom_resource.md" >}}
 
-For documentation on updating custom resources, see the [RC2 custom resources documentation](resources/custom).
+For documentation on updating custom resources, see the [RC3 custom resources documentation](resources/custom).
 For general guidelines on writing a custom resource, see the [custom resources documentation](https://docs.chef.io/custom_resources/).
 
 #### Example
