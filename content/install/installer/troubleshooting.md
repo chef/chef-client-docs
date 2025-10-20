@@ -39,7 +39,7 @@ Error:
 To resolve the error:
 
 1. [Uninstall Chef Workstation](https://docs.chef.io/workstation/install_workstation/#uninstalling).
-1. [Reinstall Chef Infra Client]({{< relref "install" >}}).
+1. [Reinstall Chef Infra Client](install).
 
 ## Error: Invalid license
 

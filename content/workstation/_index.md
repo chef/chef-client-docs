@@ -27,7 +27,7 @@ Chef Workstation includes the following tools:
 - Ohai
 
 These tools come bundled with Chef Workstation, however you can install and manage them separately.
-To install and manage Chef Workstation and it's components, see the [Workstation install documentation]({{< relref "/workstation/install/workstation" >}}) and the [Workstation component install documentation]({{< relref "/workstation/install/tools" >}}).
+To install and manage Chef Workstation and it's components, see the [Workstation install documentation](/workstation/install/workstation) and the [Workstation component install documentation](/workstation/install/tools).
 
 {{< note >}}
 
@@ -91,13 +91,13 @@ For command syntax and usage, see the [`chef` reference documentation](https://d
 
 ### Chef Infra Client
 
-See the [Chef Infra Client documentation]({{< relref "/" >}}).
+See the [Chef Infra Client documentation](/).
 
 ### Chef Test Kitchen Enterprise
 
 Use Chef Test Kitchen Enterprise to automatically test cookbooks across any combination of platforms and test suites.
 
-For more information, see the [Test Kitchen Enterprise documentation]({{< relref "kitchen" >}}).
+For more information, see the [Test Kitchen Enterprise documentation](kitchen).
 
 ### Chef Vault
 
