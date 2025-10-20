@@ -47,6 +47,7 @@ jobs:
             content/**/*.md
             !_vendor/
             !content/drafts/**/*
+            !CONTRIBUTING.md
 
   vale:
     name: runner / vale
