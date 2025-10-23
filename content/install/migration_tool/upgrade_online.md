@@ -21,7 +21,7 @@ Chef Infra Client 19 RC3 is supported on:
 
 - a valid Chef License key
 
-## Upgrade Chef Infra Client 19 RC2 on Linux
+## Upgrade Chef Infra Client 19 RC3 on Linux
 
 To upgrade Chef Infra Client, follow these steps:
 
@@ -72,7 +72,7 @@ To upgrade Chef Infra Client, follow these steps:
     chef-client --version
     ```
 
-## Upgrade Chef Infra Client 19 RC2 on Windows
+## Upgrade Chef Infra Client 19 RC3 on Windows
 
 To upgrade Chef Infra Client, follow these steps:
 

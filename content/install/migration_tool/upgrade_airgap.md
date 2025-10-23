@@ -21,7 +21,7 @@ Chef Infra Client 19 RC3 is supported on:
 
 - a valid Chef License key
 
-## Upgrade to Chef Infra Client 19 RC2 on Linux
+## Upgrade to Chef Infra Client 19 RC3 on Linux
 
 To upgrade Chef Infra Client, follow these steps:
 
@@ -91,11 +91,11 @@ To upgrade Chef Infra Client, follow these steps:
     chef-client --version
     ```
 
-## Upgrade to Chef Infra Client 19 RC2 on Windows
+## Upgrade to Chef Infra Client 19 RC3 on Windows
 
 To upgrade Chef Infra Client, follow these steps:
 
-1. On an internet-connected machine, download the Chef Infra Client 19 RC2 tar file.
+1. On an internet-connected machine, download the Chef Infra Client 19 RC3 tar file.
 
     Chef Infra Client is available in a tar file using a pre-signed address from an S3 bucket until August 26, 2025.
 

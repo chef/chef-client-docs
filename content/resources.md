@@ -5,7 +5,7 @@ title = "Supported Chef Infra resources"
 title = "Supported resources"
 +++
 
-The following resources are supported in Chef Infra Client 19 RC2.
+The following resources are supported in Chef Infra Client 19 RC3.
 Agentless Mode is only supported on Linux nodes.
 
 | **Resources Name** | **Supported on Windows with regular Client runs** | **Platforms supported in Agentless Mode and regular Client runs** | **Remarks** |

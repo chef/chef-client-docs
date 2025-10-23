@@ -13,7 +13,7 @@ Start automating your infrastructure with Chef Workstation. It provides everythi
 
 ## Supported platforms
 
-Chef Workstation 26 RC2 is supported on Linux x86-64 systems.
+Chef Workstation 26 RC3 is supported on Linux x86-64 systems.
 
 ## Chef Workstation components
 
