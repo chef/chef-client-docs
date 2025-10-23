@@ -67,35 +67,55 @@ To resolve this error:
 
 1. Add a valid Progress Chef License key to your machine's environment:
 
-   - On Linux:
+    {{< accordion-list data-multi-expand="true" data-allow-all-closed="true" >}}
+    {{< accordion-item accordion-title="Add license key on Linux" accordion-title-link="add-license-key-linux" >}}
 
-      ```sh
-      export CHEF_LICENSE_KEY=<LICENSE_KEY>
-      ```
+    Add a Progress Chef license key on Linux:
 
-   - On Windows:
+    ```sh
+    export CHEF_LICENSE_KEY=<LICENSE_KEY>
+    ```
 
-     ```ps1
-     [System.Environment]::SetEnvironmentVariable("CHEF_LICENSE_KEY", "<LICENSE_KEY>", "Machine")
-     ```
+    Replace `<LICENSE_KEY>` with your Progress Chef license key.
 
-   Replace `<LICENSE_KEY>` with your Progress Chef license key.
+    {{< /accordion-item >}}
+    {{< accordion-item accordion-title="Add license key on Windows" accordion-title-link="add-license-key-windows" >}}
 
-2. Install Chef Infra Client.
+    Add a Progress Chef license key on Windows:
 
-    On Debian-based distributions:
+    ```ps1
+    [System.Environment]::SetEnvironmentVariable("CHEF_LICENSE_KEY", "<LICENSE_KEY>", "Machine")
+    ```
+
+    Replace `<LICENSE_KEY>` with your Progress Chef license key.
+
+    {{< /accordion-item >}}
+    {{< /accordion-list >}}
+
+2. Install Chef Infra Client:
+
+    {{< accordion-list data-multi-expand="false" data-allow-all-closed="true" id="install-infra-client" >}}
+    {{< accordion-item accordion-title="Install on Debian distributions" accordion-title-link="install-infra-client-deb" >}}
+
+    Install on Debian-based distributions:
 
     ```sh
     sudo -E dpkg -i chef-infra-client-19.1.rc2_amd64.deb
     ```
 
-    On RPM-based distributions, use the `dnf reinstall` command:
+    {{< /accordion-item >}}
+    {{< accordion-item accordion-title="Install on RPM distributions" accordion-title-link="install-infra-client-rpm">}}
+
+    Install on RPM-based distributions using the `dnf reinstall` command:
 
     ```sh
     sudo -E dnf reinstall chef-infra-client-19.1.rc2.amzn2.x86_64.rpm
     ```
 
-    On Windows-based distributions:
+    {{< /accordion-item >}}
+    {{< accordion-item accordion-title="Install on Windows" accordion-title-link="install-infra-client-windows">}}
+
+    Install on Windows:
 
     - Double-click on the MSI package and install using the Windows Package Manager.
 
@@ -103,6 +123,9 @@ To resolve this error:
 
     - Install the MSI package with Powershell:
 
-    ```sh
-    msiexec /i "chef-ice-19.1.2-1_x64.msi"
-    ```
+      ```sh
+      msiexec /i "chef-ice-19.1.2-1_x64.msi"
+      ```
+
+    {{< /accordion-item >}}
+    {{< /accordion-list >}}

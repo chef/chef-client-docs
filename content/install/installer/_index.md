@@ -108,9 +108,9 @@ To install Chef Infra Client 19, follow these steps:
    ```
 
    {{< /accordion-item >}}
-   {{< accordion-item accordion-title="Install on MSI-based distributions" >}}
+   {{< accordion-item accordion-title="Install on Windows" >}}
 
-   For MSI-based distributions:
+   Install on Widows:
 
    - Double-click on the MSI package and instll using Windows Package Manager:
 
