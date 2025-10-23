@@ -17,3 +17,7 @@ To install or upgrade Chef Workstation, see these guides:
 
 - [Install Chef Workstation](workstation)
 - [Install Chef Workstation components](tools)
+
+## Supported platforms
+
+Chef Workstation 26 RC3 is supported on Linux x86-64 systems.

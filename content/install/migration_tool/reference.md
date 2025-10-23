@@ -42,6 +42,8 @@ It supports two subcommands:
 : Remount Chef Infra Client from `/opt/chef` to `/hab`.
   This maintains system integrity while transitioning from an Omnibus-based Infra Client installation to a Habitat-based setup.
 
+  Flag not available on Windows.
+
   Valid values:
 
   - `apply`: Performs the mount migration from `/opt/chef` to `/hab`. Default behavior.
@@ -95,6 +97,8 @@ It supports two subcommands:
 : Replaces symbolic links to essential binaries---for example, `ruby`, `chef-client`, and `openssl`---from Omnibus-based to Habitat-based Chef Infra Client.
 
   This processes binaries in `/opt/chef/bin` and `/opt/chef/embedded/bin`. Each file within these directories is evaluated and if it's an executable associated with Chef, the tool creates a symlink to the corresponding binary within Chef Habitat. If no equivalent is found in Habitat, the file is left unchanged.
+
+  Flag not available on Windows.
 
   Default value: `false`.
 

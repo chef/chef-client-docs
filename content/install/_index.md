@@ -10,18 +10,29 @@ weight = 10
 
 Use either a native installer or the Chef Infra Client migration tool to install or upgrade Chef Infra Client.
 
+## Supported platforms
+
+The native installers can install Chef Infra Client on:
+
+- Linux x86-64
+
+The migration tool can install and upgrade Chef Infra Client on:
+
+- Linux x86-64
+- Windows x86-64
+
 ## Native installers
 
-The [Chef Infra Client native installers](installer) provide an efficient way to install the Chef Infra Client on both Debian and RPM-based distributions.
-Users can download and install the pre-built `.deb` or `.rpm` packages using their existing package management tools, simplifying the deployment process for managing system configurations.
+The [Chef Infra Client native installers](installer) provide an efficient way to install Chef Infra Client on Debian and RPM-based distributions.
+You can download and install the pre-built `.deb` or `.rpm` packages using your existing package management tools, simplifying the deployment process for managing system configurations.
 
 ## Migration tool
 
-The [Chef Infra Client migration tool](migration_tool) (`chef-migrate`) allows you to install or upgrade of the Chef Infra Client to the latest version in both online and air-gapped environments.
+The [Chef Infra Client migration tool](migration_tool) (`chef-migrate`) allows you to install or upgrade Chef Infra Client to the latest version in both online and air-gapped environments.
 
-It has the following functions:
+**Key functions:**
 
-- Install Chef Infra Client 19 RC3.
-- Install Chef Infra Client 19 RC3 and remove or keep the previous Infra Client version installed. If the previous version is kept in side-by-side mode, the path to the most recent version takes precedence.
-- Upgrade from Omnibus-based Chef Infra Client 17.x or 18.x versions.
-- Upgrade from Habitat-packaged Chef Infra Client 19 RC1.
+- **Fresh installation:** Install Chef Infra Client 19 RC3
+- **Side-by-side installation:** Install Chef Infra Client 19 RC3 and remove or keep the previous Infra Client version. If you keep the previous version in side-by-side mode, the path to the most recent version takes precedence
+- **Omnibus upgrade:** Upgrade from Omnibus-based Chef Infra Client 17.x or 18.x versions
+- **Habitat upgrade:** Upgrade from Habitat-packaged Chef Infra Client 19 RC releases

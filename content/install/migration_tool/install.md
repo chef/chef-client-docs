@@ -12,15 +12,18 @@ This page documents how to install Chef Infra Client RC3 in an online environmen
 
 ## Supported platforms
 
-Chef Infra Client 19 RC3 is supported on Linux x86-64 systems.
+Chef Infra Client 19 RC3 is supported on:
+
+- Linux x86-64
+- Windows x86-64
 
 ## Prerequisites
 
 - a valid Chef License key
 
-## Install Chef Infra Client
+## Install Chef Infra Client on Linux
 
-To install Chef Infra Client, follow these steps:
+To install Chef Infra Client on Linux, follow these steps:
 
 1. Optional: Verify that Chef Infra Client isn't already installed on your system:
 
@@ -65,10 +68,70 @@ To install Chef Infra Client, follow these steps:
 
     ```sh
     sudo chef-migrate apply online --fresh-install --download-url "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/rc2_hab_pkg_chef_client/rc2_tar_folder/chef-chef-infra-client-19.1.rc2.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6BIP2EQW7&Signature=Q91HiSIzOxffl52La8EvqSXSqWk%3D&Expires=1756222682" --license-key "<LICENSE_KEY>"
+    ```
 
-1. Verify that Chef Infra Client is installed.
+    Replace `<LICENSE_KEY>` with your Progress Chef License key.
+
+1. Verify the Chef Infra Client installation.
 
     ```sh
+    chef-client --version
+    ```
+
+## Install Chef Infra Client on Windows
+
+To install Chef Infra Client on Windows, follow these steps:
+
+1. Optional: Verify that Chef Infra Client isn't already installed on your system:
+
+    ```powershell
+    chef-client --version
+    ```
+
+1. Download the Chef Infra Client migration tool.
+
+    The migration tool is available for download as a ZIP file using a pre-signed address from an S3 bucket until August 26, 2025.
+
+    Using curl:
+
+    ```powershell
+    curl -o chef-migration-tool.v1.zip "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/rc2_hab_pkg_chef_client/rc2_migration_tool/Windows/migration-tools_Windows_x86_64.zip?AWSAccessKeyId=AKIAW4FPVFT6BIP2EQW7&Signature=i5K3bQIqD35chzrTtS2uerU7ZDE%3D&Expires=1768953772"
+    ```
+
+    Using PowerShell:
+
+    ```powershell
+    Invoke-WebRequest -Uri "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/rc2_hab_pkg_chef_client/rc2_migration_tool/Windows/migration-tools_Windows_x86_64.zip?AWSAccessKeyId=AKIAW4FPVFT6BIP2EQW7&Signature=i5K3bQIqD35chzrTtS2uerU7ZDE%3D&Expires=1768953772" -OutFile "chef-migration-tool.v1.zip"
+    ```
+
+1. Extract the migration tool.
+
+    ```powershell
+    mkdir C:\migrate-tool
+    move "chef-migration-tool.v1.zip" "C:\migrate-tool\"
+    cd C:\migrate-tool
+    Expand-Archive -Path "chef-migration-tool.v1.zip" -DestinationPath "."
+    ```
+
+1. Optional: Verify that the migration tool works.
+
+    ```powershell
+    .\chef-migrate --help
+    ```
+
+    The migration tool returns available commands and usage guidelines.
+
+1. Install Chef Infra Client using [`chef-migrate apply`](reference):
+
+    ```powershell
+    .\chef-migrate apply online --fresh-install --download-url "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/rc2_hab_pkg_chef_client/rc2_tar_folder/Windows/chef-chef-infra-client-19.1.rc2.windows.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6BIP2EQW7&Signature=VCLjoJMbgSC%2Fkos4P%2BR2Ikm0Jww%3D&Expires=1767840014" --license-key "<LICENSE_KEY>"
+    ```
+
+    Replace `<LICENSE_KEY>` with your Progress Chef License key.
+
+1. Verify the Chef Infra Client installation.
+
+    ```powershell
     chef-client --version
     ```
 
