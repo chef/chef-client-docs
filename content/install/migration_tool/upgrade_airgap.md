@@ -145,7 +145,7 @@ To upgrade Chef Infra Client, follow these steps:
 
     The migration tool returns available commands and usage guidelines.
 
-1. Upgrade Chef Infra Client by specifying the path to the tar file using [`chef-migrate apply`]({{< relref "reference" >}}).
+1. Upgrade Chef Infra Client by specifying the path to the tar file using [`chef-migrate apply`](reference).
 
     ```powershell
     .\chef-migrate apply airgap "C:\migrate-tool\chef-chef-infra-client-19.1.rc2.tar.gz" --license-key "<LICENSE_KEY>"

@@ -23,12 +23,12 @@ The migration tool can install and upgrade Chef Infra Client on:
 
 ## Native installers
 
-The [Chef Infra Client native installers]({{< relref "installer" >}}) provide an efficient way to install Chef Infra Client on Debian and RPM-based distributions.
+The [Chef Infra Client native installers](installer) provide an efficient way to install Chef Infra Client on Debian and RPM-based distributions.
 You can download and install the pre-built `.deb` or `.rpm` packages using your existing package management tools, simplifying the deployment process for managing system configurations.
 
 ## Migration tool
 
-The [Chef Infra Client migration tool]({{< relref "migration_tool" >}}) (`chef-migrate`) allows you to install or upgrade Chef Infra Client to the latest version in both online and air-gapped environments.
+The [Chef Infra Client migration tool](migration_tool) (`chef-migrate`) allows you to install or upgrade Chef Infra Client to the latest version in both online and air-gapped environments.
 
 **Key functions:**
 

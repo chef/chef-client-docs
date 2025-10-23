@@ -121,7 +121,7 @@ To install Chef Infra Client on Windows, follow these steps:
 
     The migration tool returns available commands and usage guidelines.
 
-1. Install Chef Infra Client using [`chef-migrate apply`]({{< relref "reference" >}}):
+1. Install Chef Infra Client using [`chef-migrate apply`](reference):
 
     ```powershell
     .\chef-migrate apply online --fresh-install --download-url "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/rc2_hab_pkg_chef_client/rc2_tar_folder/Windows/chef-chef-infra-client-19.1.rc2.windows.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6BIP2EQW7&Signature=VCLjoJMbgSC%2Fkos4P%2BR2Ikm0Jww%3D&Expires=1767840014" --license-key "<LICENSE_KEY>"
