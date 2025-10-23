@@ -12,33 +12,35 @@ weight = 200
 
 If the Chef Workstation is already on your system, the installation process fails with a conflict.
 
-The installer returns the following error on Debian-based systems:
+- On Debian-based systems, the installer returns the following error:
 
-```sh
-Selecting previously unselected package chef-infra-client.
-dpkg: regarding chef-infra-client-19.1.rc2_amd64.deb containing chef-infra-client:
- chef-infra-client conflicts with chef-workstation
-  chef-workstation (version 0.4.2-1) is present and installed.
+  ```sh
+  Selecting previously unselected package chef-infra-client.
+  dpkg: regarding chef-infra-client-19.1.rc2_amd64.deb containing chef-infra-client:
+  chef-infra-client conflicts with chef-workstation
+    chef-workstation (version 0.4.2-1) is present and installed.
 
-dpkg: error processing archive chef-infra-client-19.1.rc2_amd64.deb (--install):
- conflicting packages - not installing chef-infra-client
-Errors were encountered while processing:
- chef-infra-client-19.1.rc2_amd64.deb
-```
+  dpkg: error processing archive chef-infra-client-19.1.rc2_amd64.deb (--install):
+  conflicting packages - not installing chef-infra-client
+  Errors were encountered while processing:
+  chef-infra-client-19.1.rc2_amd64.deb
+  ```
 
-The installer returns the following error on RPM-based systems:
+- On RPM-based systems, the installer returns the following error:
 
-```sh
-Error:
- Problem: package chef-infra-client-19.0.54-1.amzn2023.x86_64 from @System conflicts with chef-workstation provided by chef-workstation-25.1.1074-1.amazon2023.x86_64 from @commandline
-  - conflicting requests
-  - problem with installed package chef-infra-client-19.0.54-1.amzn2023.x86_64
-(try to add '--allowerasing' to command line to replace conflicting packages or '--skip-broken' to skip uninstallable packages)
-```
+  ```sh
+  Error:
+  Problem: package chef-infra-client-19.0.54-1.amzn2023.x86_64 from @System conflicts with chef-workstation provided by chef-workstation-25.1.1074-1.amazon2023.x86_64 from @commandline
+    - conflicting requests
+    - problem with installed package chef-infra-client-19.0.54-1.amzn2023.x86_64
+  (try to add '--allowerasing' to command line to replace conflicting packages or '--skip-broken' to skip uninstallable packages)
+  ```
 
-The installer returns the following error on MSI-based systems:
+- On Windows, the Windows Package Manager displays the following error:
 
-![alt text](/images/msi_workstation_conflict.png)
+  ```plain
+  Chef Workstation is installed. Please uninstall it before installing Chef Infra (air-gapped).
+  ```
 
 To resolve the error:
 
@@ -65,17 +67,19 @@ To resolve this error:
 
 1. Add a valid Progress Chef License key to your machine's environment:
 
-  On Linux-based distributions:
+   - On Linux:
 
-    ```sh
-    export CHEF_LICENSE_KEY=<LICENSE_KEY>
-    ```
+      ```sh
+      export CHEF_LICENSE_KEY=<LICENSE_KEY>
+      ```
 
-  On Windows-based distributions:
+   - On Windows:
 
-  ```sh
-  [System.Environment]::SetEnvironmentVariable("CHEF_LICENSE_KEY", "<LICENSE_KEY>", "Machine")
-  ```
+     ```ps1
+     [System.Environment]::SetEnvironmentVariable("CHEF_LICENSE_KEY", "<LICENSE_KEY>", "Machine")
+     ```
+
+   Replace `<LICENSE_KEY>` with your Progress Chef license key.
 
 2. Install Chef Infra Client.
 
@@ -93,14 +97,12 @@ To resolve this error:
 
     On Windows-based distributions:
 
-    - Using windows package manager:
+    - Double-click on the MSI package and install using the Windows Package Manager.
 
-     Double-click on the .msi package
+    or:
 
-   or:
+    - Install the MSI package with Powershell:
 
-   - Using powershell:
-     ```sh
-     msiexec /i "chef-ice-19.1.2-1_x64.msi"
-     ```
-
+    ```sh
+    msiexec /i "chef-ice-19.1.2-1_x64.msi"
+    ```
