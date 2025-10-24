@@ -12,11 +12,7 @@ Use either a native installer or the Chef Infra Client migration tool to install
 
 ## Supported platforms
 
-The native installers can install Chef Infra Client on:
-
-- Linux x86-64
-
-The migration tool can install and upgrade Chef Infra Client on:
+The migration tool and native installers can install and upgrade Chef Infra Client on:
 
 - Linux x86-64
 - Windows x86-64
@@ -24,7 +20,7 @@ The migration tool can install and upgrade Chef Infra Client on:
 ## Native installers
 
 The [Chef Infra Client native installers](installer) provide an efficient way to install Chef Infra Client on Debian and RPM-based distributions.
-You can download and install the pre-built `.deb` or `.rpm` packages using your existing package management tools, simplifying the deployment process for managing system configurations.
+You can download and install the pre-built `.msi`, `.deb`, or `.rpm` packages using your existing package management tools, simplifying the deployment process for managing system configurations.
 
 ## Migration tool
 

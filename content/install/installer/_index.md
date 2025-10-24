@@ -1,5 +1,5 @@
 +++
-title = "Install Chef Infra Client RC3 using a native installer"
+title = "Install Chef Infra Client RC3 with a native installer"
 linkTitle = "Native installer"
 
 [menu.install]
@@ -9,25 +9,24 @@ parent = "install/installer"
 weight = 10
 +++
 
-The Chef Infra Client native installers provide an efficient way to install the Chef Infra Client on both Debian and RPM-based distributions.
-Users can download and install the pre-built `.deb` or `.rpm` packages using their existing package management tools, simplifying the deployment process for managing system configurations.
+The Chef Infra Client native installers provide an efficient way to install Chef Infra Client on Windows, Debian, or RPM-based Linux distributions.
+You can download and install the pre-built `.msi`, `.deb`, or `.rpm` packages using your existing package management tools, simplifying the deployment process for managing system configurations.
 
 ## Supported platforms
 
-This install method is supported on Linux x86-64 systems.
-To install on Windows, use the [migration tool](/install/migration_tool).
+This installation method is supported on Linux and Windows x86-64 systems.
 
 ## Prerequisites
 
-This install process has the following prerequisites:
+This installation process has the following prerequisites:
 
-- Chef Workstation _isn't_ installed on the target system.
+- Chef Workstation isn't installed on the target system.
 - On Debian-based systems, the dpkg package manager is installed on the target system.
-- On RPM-based systems, the RPM and either the DNF or Yum package managers are installed on the target system.
+- On RPM-based systems, RPM and either DNF or Yum package managers are installed on the target system.
 
-  For Amazon Linux 2, use the RPM and Yum package managers.
+  For Amazon Linux 2, use RPM and Yum package managers.
 
-- You have a valid Progress Chef License key.
+- You have a valid Progress Chef license key.
 - The target system is connected to the internet.
 
 ## Install Chef Infra Client
@@ -74,7 +73,7 @@ To install Chef Infra Client 19, follow these steps:
     {{< /accordion-item >}}
     {{< /accordion-list >}}
 
-1. Navigate to the directory with the installer
+1. Go to the directory with the installer.
 
     ```sh
     cd /path/to/downloaded/installer
@@ -110,9 +109,9 @@ To install Chef Infra Client 19, follow these steps:
    {{< /accordion-item >}}
    {{< accordion-item accordion-title="Install on Windows" >}}
 
-   Install on Widows:
+   Install on Windows:
 
-   - Double-click on the MSI package and install using Windows Package Manager:
+   - Double-click on the MSI package and install using Windows Package Manager.
 
    or:
 
@@ -131,6 +130,6 @@ To install Chef Infra Client 19, follow these steps:
     chef-client --version
     ```
 
-## Next step
+## Next steps
 
 After installing Chef Infra Client, you can test it by running an [example cookbook](/cookbooks).
