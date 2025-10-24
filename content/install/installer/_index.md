@@ -24,7 +24,7 @@ This installation process has the following prerequisites:
 - On Debian-based systems, the dpkg package manager is installed on the target system.
 - On RPM-based systems, the RPM and either the DNF or Yum package managers are installed on the target system.
 
-  For Amazon Linux 2, use RPM and Yum package managers.
+  For Amazon Linux 2, use the RPM and Yum package managers.
 
 - You have a valid Progress Chef license key.
 - The target system is connected to the internet.
