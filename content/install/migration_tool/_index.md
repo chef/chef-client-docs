@@ -10,17 +10,19 @@ weight = 10
 
 The Chef Infra Client migration tool (`chef-migrate`) allows you to install or upgrade Chef Infra Client to the latest version in both online and air-gapped environments.
 
-**Key functions:**
+## Key functions
 
 - **Fresh installation:** Install Chef Infra Client 19 RC3
 - **Side-by-side installation:** Install Chef Infra Client 19 RC3 and remove or keep the previous Infra Client version. If you keep the previous version in side-by-side mode, the path to the most recent version takes precedence
 - **Omnibus upgrade:** Upgrade from Omnibus-based Chef Infra Client 17.x or 18.x versions
-- **Habitat upgrade:** Upgrade from Habitat-packaged Chef Infra Client 19 RC releases
+- **Habitat upgrade:** Upgrade Habitat-packaged Chef Infra Client 19 RC releases
 
-**Supported platforms:**
+## Supported platforms
 
 - Linux x86-64
 - Windows x86-64
+
+## Install guides
 
 To install or upgrade Chef Infra Client, see these guides:
 
