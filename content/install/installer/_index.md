@@ -75,7 +75,7 @@ To install Chef Infra Client 19, follow these steps:
 
     For Windows:
 
-    - using curl:
+    - Using curl:
 
       ```sh
       curl -o chef-ice-19.2.rc3-windows.msi "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/chef-ice/19.2.RC3/windows/x86_64/chef-ice-19.2.rc3-windows.msi?AWSAccessKeyId=AKIAW4FPVFT6C42N3U6R&Signature=rmb4GgaxE6oPEfVHiAugsg7xMBI%3D&Expires=1776916373"
