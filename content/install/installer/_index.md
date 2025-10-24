@@ -73,13 +73,7 @@ To install Chef Infra Client 19, follow these steps:
     {{< /accordion-item >}}
     {{< /accordion-list >}}
 
-1. Go to the directory with the installer.
-
-    ```sh
-    cd /path/to/downloaded/installer
-    ```
-
-1. Install the package.
+1. Go to the directory with the installer and install the package.
 
    {{< accordion-list data-allow-all-closed="true" >}}
 
