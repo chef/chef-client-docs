@@ -77,7 +77,7 @@ The following Chef Infra resources are supported in Agentless Mode.
 | [route](https://docs.chef.io/resources/route/) | Ubuntu 24.04 / CentOS 9 | |
 | [rpm_package](https://docs.chef.io/resources/rpm_package/) | CentOS 9 | The RPM package must be locally available on the remote system. |
 | [ruby_block](https://docs.chef.io/resources/ruby_block/) | Ubuntu, Linux, CentOS 9 | |
-| [script](https://docs.chef.io/resources/script/) | Ubuntu 24.04, Linux Red Hat 9,0 | |
+| [script](https://docs.chef.io/resources/script/) | Ubuntu 24.04, Linux Red Hat 9, , Solaris, Alipine | |
 | [selinux_boolean](https://docs.chef.io/resources/selinux_boolean/) | Ubuntu, Linux | |
 | [selinux_fcontext](https://docs.chef.io/resources/selinux_fcontext/) | Ubuntu, Linux | |
 | [selinux_install](https://docs.chef.io/resources/selinux_install/) | Ubuntu, Linux | |
@@ -103,4 +103,4 @@ The following Chef Infra resources are supported in Agentless Mode.
 | [yum_repository](https://docs.chef.io/resources/yum_repository/) | Linux | |
 | [yum_repository](https://docs.chef.io/resources/yum_repository/) | CentOS 9, RHEL 8 | Only supported on Linux. |
 | [zypper_package](https://docs.chef.io/resources/zypper_package/) | SUSE Linux 15 | |
-| [zypper_package](https://docs.chef.io/resources/zypper_package/) | SUSE Linux 15 | |
+| [solaris_package](https://docs.chef.io/resources/solaris_package/) | Solaris | |
