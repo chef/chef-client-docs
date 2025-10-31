@@ -1,8 +1,8 @@
-# Chef Agentless (Target Mode) with Habitat — Complete End-to-End Guide
+# Chef Agentless (Target Mode) with Habitat Complete End-to-End Guide
 
 This document provides a simplified, end-to-end guide to configure and `run Chef Infra Client 19 RC2 in Agentless` (Target Mode) using` Habitat (hab)` for managing` remote systems`.
 
-# 1. Step 1 — Install Chef Infra Client (on Host)
+# 1. Step 1 Install Chef Infra Client (on Host)
 Before starting, ensure **` Chef Infra Client 19 RC2`** is installed on your host system.
 Follow the official installation guide provided by Chef:
 
@@ -11,7 +11,7 @@ Follow the official installation guide provided by Chef:
 
 Once installation is complete, continue with the following steps
 
-# 2. Step 2 — Create target_credentials (on host)
+# 2. Step 2 Create target_credentials (on host)
 Create `~/.chef/target_credentials` (this is the inventory of agentless targets). Example:
 ```
 ['Ubuntu']
@@ -27,13 +27,13 @@ password = 'rootpass'
 
 Notes:
 
-* Use exact target names in square-bracket sections (e.g., `['Ubuntu']`) — **the name used with** `-t` **must match**.
+* Use exact target names in square bracket sections (e.g., `['Ubuntu']`) **the name used with** `-t` **must match**.
 
 * `sudo = true` is necessary if the user is non-root and you need privilege escalation (your test touches `/etc/crontab` so root required).
 
 * `key_files` can be a path or quoted path. Ensure key file permissions (600) on host.
 
-# 3. Step 3 — Prepare apply.rb test recipe (on host)
+# 3. Step 3 Prepare apply.rb test recipe (on host)
 Create `~/.chef/apply.rb` with the test resources below. This recipe will:
 
 * create `/tmp/chef-repo`
@@ -66,7 +66,7 @@ end
 ```
  **WARNING:** Changing `/etc/crontab` permissions can affect cron system behavior. For cautious testing, see the safe-test alternative in section 13.
 
-# 4. Step 4 — Run Chef Agentless (Target Mode) via Habitat (on host)
+# 4. Step 4 Run Chef Agentless (Target Mode) via Habitat (on host)
 From your .chef directory, with `HAB_AUTH_TOKEN` exported and the license key available:
 
 ```
@@ -82,7 +82,7 @@ Replace `Ubuntu` with the target name you defined in `target_credentials`.
 * `-t Ubuntu` tells Chef to use the `['Ubuntu']` entry in` ~/.chef/target_credentials`.
 * `apply.rb` is the recipe executed on the remote target over SSH.
 
-# 5. Step — 5 Verification & expected output
+# 5. Step 5 Verification & expected output
 A successful run should show something like:
 ```
 Starting Chef Infra Client, version 19.x.x
@@ -105,10 +105,10 @@ ssh -i ~/.ssh/key-pair.pem ubuntu@192.168.0.251 'ls -ld /tmp/chef-repo && echo "
 ```
 
 # 6. Troubleshooting & common fixes
-* `SSH authentication failed` → Verify `host`, `user`, `key_files`, key permissions, and network reachability.
-* `Target not found` → The name in `-t <Target>` must exactly match the `['Name']` section in `target_credentials`.
-* `Permission denied (sudo)` → Ensure `sudo = true `in credentials for non-root user or use `user = 'root'`.
-* `Recipe file not found` → Use absolute path to `apply.rb` or run command from the directory containing `apply.rb`.
+* `SSH authentication failed`  Verify `host`, `user`, `key_files`, key permissions, and network reachability.
+* `Target not found`  The name in `-t <Target>` must exactly match the `['Name']` section in `target_credentials`.
+* `Permission denied (sudo)` Ensure `sudo = true `in credentials for non-root user or use `user = 'root'`.
+* `Recipe file not found`  Use absolute path to `apply.rb` or run command from the directory containing `apply.rb`.
 
 # 7. Safety & alternative safe-test recipe
 **Safety:** The included `apply.rb` modifies `/etc/crontab` permissions. If you prefer a non-invasive test (safe for CI and production-like systems), use this alternate `apply_safe.rb` that avoids touching system files:
@@ -136,7 +136,7 @@ Run it the same way:
 
 ```hab pkg exec chef/chef-infra-client chef-client -z -t Ubuntu apply_safe.rb```
 
-# 8. Appendix — full `apply.rb` content (copy/paste)
+# 8. Appendix full `apply.rb` content (copy/paste)
 
 ```
 # ~/.chef/apply.rb
@@ -161,7 +161,7 @@ file '/etc/crontab' do
 end
 ```
 
-# 9. Final quick reference — essential commands**
+# 9. Final quick reference essential commands**
 ```
 # 1. Create target_credentials (host) ~/.chef/target_credentials
 # Example:
