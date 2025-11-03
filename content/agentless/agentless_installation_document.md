@@ -70,9 +70,10 @@ file '/etc/crontab' do
   # Note: This resource only enforces ownership/permissions, not content.
 end
 ```
+
  **WARNING:** Changing `/etc/crontab` permissions can affect cron system behavior. For cautious testing, see the safe-test alternative in section 13.
 
-## 4. Step 4 Run Chef Agentless (Target Mode) via Habitat (on host)
+## 4. Step 4 Run Chef Agentless (Target Mode) through Habitat (on host)
 
 From your .chef directory, with `HAB_AUTH_TOKEN` exported and the license key available:
 
@@ -85,7 +86,7 @@ Replace `Ubuntu` with the target name you defined in `target_credentials`.
 
 * `hab pkg exec chef/chef-infra-client` runs Chef inside the Habitat package environment.
 * `chef-client -z` runs in Chef-Zero/local mode.
-* `-t Ubuntu` tells Chef to use the `['Ubuntu']` entry in` ~/.chef/target_credentials`.
+* `-t Ubuntu` tells Chef to use the `['Ubuntu']` entry in `~/.chef/target_credentials`.
 * `apply.rb` is the recipe executed on the remote target over SSH.
 
 ## 5. Step 5 Verification & expected output
@@ -109,7 +110,7 @@ Infra Phase complete, 0/3 resources updated in 12 seconds
 Check remote target for artifacts:
 
 ```comment
-# on host, to confirm via ssh example:
+# on host, to confirm through ssh example:
 ssh -i ~/.ssh/key-pair.pem ubuntu@192.168.0.251 'ls -ld /tmp/chef-repo && echo "crontab perms:" && stat -c "%a %U %G" /etc/crontab'
 ```
 
@@ -117,7 +118,7 @@ ssh -i ~/.ssh/key-pair.pem ubuntu@192.168.0.251 'ls -ld /tmp/chef-repo && echo "
 
 * `SSH authentication failed` Verify `host`, `user`, `key_files`, key permissions, and network reachability.
 * `Target not found`  The name in `-t <Target>` must exactly match the `['Name']` section in `target_credentials`.
-* `Permission denied (sudo)` Ensure `sudo = true `in credentials for non-root user or use `user = 'root'`.
+* `Permission denied (sudo)` Ensure `sudo = true`in credentials for non-root user or use `user = 'root'`.
 * `Recipe file not found`  Use absolute path to `apply.rb` or run command from the directory containing `apply.rb`.
 
 ## 7. Safety & alternative safe-test recipe
@@ -174,6 +175,7 @@ end
 ```
 
 ## 9. Final quick reference essential commands**
+
 ```comment
 # 1. Create target_credentials (host) ~/.chef/target_credentials
 # Example:
@@ -182,7 +184,7 @@ end
 # user = 'ubuntu'
 # sudo = true
 # key_files = '~/.ssh/key-pair.pem'
-# 2. Run recipe via Habitat (host)
+# 2. Run recipe through Habitat (host)
 cd ~/.chef
 hab pkg exec chef/chef-infra-client chef-client -z -t Ubuntu apply.rb
 ```
