@@ -1,9 +1,10 @@
 # Chef Agentless (Target Mode) with Habitat Complete End-to-End Guide
 
-This document provides a simplified, end-to-end guide to configure and `run Chef Infra Client 19 RC2 in Agentless` (Target Mode) using` Habitat (hab)` for managing` remote systems`.
+# This document provides a simplified, end-to-end guide to configure and `run Chef Infra Client 19 RC2 in Agentless` (Target Mode) using`Habitat (hab)` for managing`remote systems`.
 
-# 1. Step 1 Install Chef Infra Client (on Host)
-Before starting, ensure **` Chef Infra Client 19 RC2`** is installed on your host system.
+## 1. Step 1 Install Chef Infra Client (on Host)
+
+Before starting, ensure **`Chef Infra Client 19 RC2`** is installed on your host system.
 Follow the official installation guide provided by Chef:
 
 **Official Installation Guide:**
@@ -11,7 +12,8 @@ Follow the official installation guide provided by Chef:
 
 Once installation is complete, continue with the following steps
 
-# 2. Step 2 Create target_credentials (on host)
+## 2. Step 2 Create target_credentials (on host)
+
 Create `~/.chef/target_credentials` (this is the inventory of agentless targets). Example:
 ```
 ['Ubuntu']
