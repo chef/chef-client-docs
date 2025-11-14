@@ -55,10 +55,6 @@ weight = 60
 title = "Overview"
 identifier = "overview"
 
-[[licensing]]
-title = "Licensing"
-identifier = "licensing"
-
 [[install]]
 title = "Install"
 identifier = "install"
@@ -72,6 +68,10 @@ identifier = "install"
   title = "Native installer"
   identifier = "install/installer"
   parent = "install"
+
+[[licensing]]
+title = "Licensing"
+identifier = "licensing"
 
 [[agentless]]
 title = "Agentless"

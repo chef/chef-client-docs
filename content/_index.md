@@ -13,7 +13,7 @@ title = "Chef Infra Client"
 
 To provide enterprise stability, Progress Chef has created a [Long Term Support (LTS) model](https://www.chef.io/blog/long-term-support-progress-chef-providing-stability) for products.
 Chef Infra Client 19 is the first LTS version for infrastructure management and compliance mode.
-This release---Release Candidate 2 (RC3)---is a preview for a limited audience to provide candid feedback on Chef Infra Client,
+This release---Release Candidate 3 (RC3)---is a preview for a limited audience to provide candid feedback on Chef Infra Client,
 the new Infra Client migration tool, and updated Test Kitchen developer tools to ensure a seamless transition at the time of general availability (GA).
 
 The new Chef Infra Client migration tool simplifies the transition from previous methods of installing and maintaining earlier versions of Infra Client to Chef Infra Client 19 release candidates and the final LTS version.
