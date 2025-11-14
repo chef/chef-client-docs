@@ -69,7 +69,7 @@ It supports two subcommands:
 `--license-server <URL>`
 : URL of the private or public Chef licensing service (optional).
 
-`--preserve`
+`--preserve-omnibus`
 : Whether to preserve an existing Omnibus Chef Infra Client installation. Valid values are: `true` or `false`.
 
   Default value: `false`.
@@ -145,7 +145,7 @@ chef-migrate apply airgap </PATH/TO/BUNDLE> --license-key "<LICENSE_KEY>"
 Preserve an Omnibus-based Chef Infra Client installation:
 
 ```sh
-chef-migrate apply {airgap|online} --license-key "<LICENSE_KEY>" --preserve
+chef-migrate apply {airgap|online} --license-key "<LICENSE_KEY>" --preserve-omnibus
 ```
 
 Log a warning if the `client.rb` config file references the Omnibus-based Chef Infra Client installation (`/opt/chef`):
@@ -157,7 +157,7 @@ chef-migrate apply {airgap|online} --license-key "<LICENSE_KEY>" --process-confi
 Replace the existing Omnibus-based Chef binaries (for example, `ruby`, `chef-client`, and `openssl`) with symbolic links pointing to their Habitat-based equivalents.
 
 ```sh
-chef-migrate apply {airgap|online} --license-key "<LICENSE_KEY>" --preserve --symlink
+chef-migrate apply {airgap|online} --license-key "<LICENSE_KEY>" --preserve-omnibus --symlink
 ```
 
 Remount Chef Infra Client from `/opt/chef` to `/hab`:
