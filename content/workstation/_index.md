@@ -31,7 +31,7 @@ Chef Workstation includes the following tools:
 - Ohai
 
 These tools come bundled with Chef Workstation, however you can install and manage them separately.
-To install and manage Chef Workstation and it's components, see the [Workstation install documentation](/workstation/install/workstation) and the [Workstation component install documentation](/workstation/install/tools).
+To install and manage Chef Workstation and it's components, see the [Workstation install documentation](/workstation/install/).
 
 {{< note >}}
 
