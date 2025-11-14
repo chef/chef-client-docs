@@ -1,54 +1,64 @@
-## Chef Agentless (Target Mode) with Habitat Complete End-to-End Guide
++++
+title = "Chef Infra Agentless Mode example"
+
+[menu.agentless]
+title = "Agentless Mode example"
+identifier = "agentless/example"
+parent = "agentless"
+weight = 20
++++
 
 This document provides a simplified, end-to-end guide to configure and run
-Chef Infra Client 19 RC2 in Agentless (Target Mode) using Habitat (`hab`)
+Chef Infra Client 19 RC3 in Agentless (Target Mode) using Habitat (`hab`)
 for managing remote systems.
 
-## 1. Step 1–Install Chef Infra Client (on Host)
+## Prerequisites
 
-Before starting, ensure **Chef Infra Client 19 RC2** is installed on your host system.  
-Follow the official installation guide provided by Chef:
+- [Chef Infra Client is installed](/install/)
+- Your `HAB_AUTH_TOKEN` is exported
+- a valid Progress Chef license key
 
-**Official Installation Guide:**
-[Install Chef Infra Client RC2 using a native installer](https://docs.chef.io/client/rc2/install/installer)
+## Create a target credentials file
 
-Once installation is complete, continue with the following steps
+Create a target credentials file (`~/.chef/target_credentials`) that defines connection settings for each node.
 
-## 2. Step 2 Create target_credentials (on host)
+For example:
 
-Create `~/.chef/target_credentials` (this is the inventory of agentless targets). Example:
-
-```yml
-['Ubuntu']
-host = '192.168.0.251'
-user = 'ubuntu'
+```toml
+['TARGET_NODE_1']
+host = '<IP_ADDRESS_OR_FQDN>'
+user = '<USERNAME>'
 sudo = true
 key_files = '~/.ssh/key-pair.pem'
-['RHEL']
-host = '192.168.0.252'
+
+['TARGET_NODE_2']
+host = '<IP_ADDRESS_OR_FQDN>'
 user = 'root'
-password = 'rootpass'
+password = '<PASSWORD>'
 ```
 
-Notes:
+For more information, see the [target credentials file documentation](/agentless/).
 
-* Use exact target names in square bracket sections (for example, `['Ubuntu']`) **the name used with** `-t` **must match**.
+## Create the test recipe
 
-* `sudo = true` is necessary if the user is non-root and you need privilege escalation (your test touches `/etc/crontab` so root required).
+On the host, create a test recipe file (`~/.chef/apply.rb`) with the test resources below.
 
-* `key_files` can be a path or quoted path. Ensure key file permissions (600) on host.
+{{< foundation_tabs tabs-id="test-agentless-mode-recipe" >}}
+  {{< foundation_tab active="true" panel-link="apply-recipe" tab-text="Test recipe">}}
+  {{< foundation_tab panel-link="apply-safe-recipe" tab-text="Safe test recipe" >}}
+{{< /foundation_tabs >}}
 
-## 3. Step 3 Prepare apply.rb test recipe (on host)
+{{< foundation_tabs_panels tabs-id="test-agentless-mode-recipe" >}}
+{{< foundation_tabs_panel active="true" panel-id="apply-recipe" >}}
 
-Create `~/.chef/apply.rb` with the test resources below. This recipe will:
+This recipe:
 
-* create `/tmp/chef-repo`
+- creates the `/tmp/chef-repo` directory
+- executes `echo` to confirm connectivity
+- sets `/etc/crontab` ownership and permissions. This requires root privileges.
 
-* run a simple echo to confirm connectivity
-
-* ensure `/etc/crontab` ownership/permissions (requires root)
-
-**File:** `~/.chef/apply.rb`
+**WARNING:** Changing `/etc/crontab` permissions can affect cron system behavior.
+For a safer alternative, run the [safe test recipe](#apply-safe-recipe).
 
 ```ruby
 # ~/.chef/apply.rb
@@ -71,62 +81,20 @@ file '/etc/crontab' do
 end
 ```
 
- **WARNING:** Changing `/etc/crontab` permissions can affect cron system behavior. For cautious testing, see the safe-test alternative in section 13.
+{{< /foundation_tabs_panel >}}
 
-## 4. Step 4 Run Chef Agentless (Target Mode) through Habitat (on host)
+{{< foundation_tabs_panel panel-id="apply-safe-recipe" >}}
 
-From your .chef directory, with `HAB_AUTH_TOKEN` exported and the license key available:
+This alternate `apply.rb` that avoids touching system files.
 
-`cd ~/.chef
-hab pkg exec chef/chef-infra-client chef-client -z -t Ubuntu apply.rb`
+This recipe:
 
-Replace `Ubuntu` with the target name you defined in `target_credentials`.
-
-**What this does:**
-
-* `hab pkg exec chef/chef-infra-client` runs Chef inside the Habitat package environment.
-* `chef-client -z` runs in Chef-Zero/local mode.
-* `-t Ubuntu` tells Chef to use the `['Ubuntu']` entry in `~/.chef/target_credentials`.
-* `apply.rb` is the recipe executed on the remote target over SSH.
-
-## 5. Step 5 Verification & expected output
-
-A successful run should show something like:
-
-```comment
-Starting Chef Infra Client, version 19.x.x
-[Target Mode] Connecting to target: Ubuntu (192.168.0.251)
-Converging 3 resources
-Recipe: /root/.chef/apply.rb
-  * directory[/tmp/chef-repo] action create (up to date)
-  * execute[test_echo] action run
-    - execute echo 'Target Mode Connected Successfully..!!'
-  * file[/etc/crontab] action create (up to date)
-Running handlers:
-Running handlers complete
-Infra Phase complete, 0/3 resources updated in 12 seconds
-```
-
-Check remote target for artifacts:
-
-```comment
-# on host, to confirm through ssh example:
-ssh -i ~/.ssh/key-pair.pem ubuntu@192.168.0.251 'ls -ld /tmp/chef-repo && echo "crontab perms:" && stat -c "%a %U %G" /etc/crontab'
-```
-
-## 6. Troubleshooting & common fixes
-
-* `SSH authentication failed` Verify `host`, `user`, `key_files`, key permissions, and network reachability.
-* `Target not found`  The name in `-t <Target>` must exactly match the `['Name']` section in `target_credentials`.
-* `Permission denied (sudo)` Ensure `sudo = true`in credentials for non-root user or use `user = 'root'`.
-* `Recipe file not found`  Use absolute path to `apply.rb` or run command from the directory containing `apply.rb`.
-
-## 7. Safety & alternative safe-test recipe
-
-**Safety:** The included `apply.rb` modifies `/etc/crontab` permissions. If you prefer a non-invasive test (safe for CI and production-like systems), use this alternate `apply_safe.rb` that avoids touching system files:
+- creates the `/tmp/chef-repo` directory
+- executes `echo` and saves the output to a text file
+- sets ownership and permissions in a temp file.
 
 ```ruby
-# ~/.chef/apply_safe.rb
+# ~/.chef/apply.rb
 
 directory '/tmp/chef-repo' do
   action :create
@@ -145,46 +113,61 @@ file '/tmp/target_mode_marker' do
 end
 ```
 
-Run it the same way:
+{{< /foundation_tabs_panel >}}
+{{< /foundation_tabs_panels >}}
 
-`hab pkg exec chef/chef-infra-client chef-client -z -t Ubuntu apply_safe.rb`
+## Run Chef Agentless using Habitat
 
-## 8. Appendix full `apply.rb` content (copy/paste)
+From your `.chef` directory, with `HAB_AUTH_TOKEN` exported and the license key available:
 
-```ruby
-# ~/.chef/apply.rb
-# Simple test recipe for Chef Target Mode (Agentless).
-# Resources:
-#  - create a test directory under /tmp
-#  - run a simple echo command to confirm Target Mode connectivity
-#  - tighten permissions on /etc/crontab (requires sudo/root)
-directory '/tmp/chef-repo' do
-  action :create
-end
-execute 'test_echo' do
-  # Use single quotes inside echo to avoid shell quoting issues
-  command "echo 'Target Mode Connected Successfully..!!'"
-end
-file '/etc/crontab' do
-  mode '0600'
-  owner 'root'
-  group 'root'
-  # Do not change content; this resource only ensures permissions/ownership.
-  # Warning: Changing crontab permissions may affect cron behavior on the target.
-end
-```
-
-## 9. Final quick reference essential commands**
-
-```comment
-# 1. Create target_credentials (host) ~/.chef/target_credentials
-# Example:
-# ['Ubuntu']
-# host = '192.168.0.251'
-# user = 'ubuntu'
-# sudo = true
-# key_files = '~/.ssh/key-pair.pem'
-# 2. Run recipe through Habitat (host)
+```sh
 cd ~/.chef
-hab pkg exec chef/chef-infra-client chef-client -z -t Ubuntu apply.rb
+hab pkg exec chef/chef-infra-client chef-client -z -t <TARGET_NODE> apply.rb
 ```
+
+Replace `<TARGET_NODE>` with the target name defined in the `target_credentials` file. For example, `TARGET_NODE_1`.
+
+Chef Infra Client executes the `apply.rb` recipe in local mode (`chef-client -z`) against the remote target (`-t <TARGET_NODE>`) over SSH using the credentials defined in `~/.chef/target_credentials`.
+
+## Verify the output
+
+A successful Infra Client run returns something like this:
+
+```sh
+Starting Chef Infra Client, version 19.x.x
+[Target Mode] Connecting to target: Ubuntu (192.168.0.251)
+Converging 3 resources
+Recipe: /root/.chef/apply.rb
+  * directory[/tmp/chef-repo] action create (up to date)
+  * execute[test_echo] action run
+    - execute echo 'Target Mode Connected Successfully..!!'
+  * file[/etc/crontab] action create (up to date)
+Running handlers:
+Running handlers complete
+Infra Phase complete, 0/3 resources updated in 12 seconds
+```
+
+You can SSH into the remote target from the host and get details about the directory and file permissions. For example:
+
+```sh
+# on host, to confirm through ssh example:
+ssh -i ~/.ssh/key-pair.pem ubuntu@192.168.0.251 'ls -ld /tmp/chef-repo && echo "crontab perms:" && stat -c "%a %U %G" /etc/crontab'
+```
+
+## Troubleshooting
+
+- `SSH authentication failed`
+
+  Verify `host`, `user`, and `key_files` properties in the target credentials file, and verify key permissions and network availability.
+
+- `Target not found`
+
+  The name in `-t <TARGET>` must exactly match a target defined in the `target_credentials` file.
+
+- `Permission denied (sudo)`
+
+  For a non-root user, set `sudo = true` in the target credentials file, or use `user = 'root'`.
+
+- `Recipe file not found`
+
+  Use absolute path to `apply.rb` or run command from the directory containing `apply.rb`.
