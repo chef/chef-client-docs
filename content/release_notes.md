@@ -5,6 +5,8 @@ title = "Chef Infra Client 19 RC3 release notes"
 title = "Release notes"
 +++
 
+<!-- cspell:words Trixie leklund fretb tmccombs -->
+
 ## Improvements
 
 - We changed the credentials file used to define target SSH connection settings in Chef Agentless from `~/.chef/credentials` to `~/.chef/target_credentials`.
@@ -20,7 +22,7 @@ to a target with a user that isn't root and you need to escalate privileges.
 
   - The apt_repository resource now correctly creates a GPG file when importing a key from keyserver. Thanks [leklund](https://github.com/leklund)! [#15008](https://github.com/chef/chef/pull/15008)
 
-  - The apt_repository resource now handles a key that is defined as an array of multiple URLs and `signed_by` is `true`. Previously, each key would overwrite the previous one, leaving a keyring with only one key. Thanks [tmccombs](https://github.com/tmccombs)! [#15209](https://github.com/chef/chef/pull/15209)
+  - The apt_repository resource now handles a key that's defined as an array of multiple URLs and `signed_by` is `true`. Previously, each key would overwrite the previous one, leaving a keyring with only one key. Thanks [tmccombs](https://github.com/tmccombs)! [#15209](https://github.com/chef/chef/pull/15209)
 
   - The apt_repository resource now correctly doesn't set a value for `signed_by` if you don't specify a key and `signed_by` is `true`. Thanks [tmccombs](https://github.com/tmccombs)! [#15207](https://github.com/chef/chef/pull/15207)
 
