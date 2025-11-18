@@ -122,7 +122,7 @@ From your `.chef` directory, with `HAB_AUTH_TOKEN` exported and the license key 
 
 ```sh
 cd ~/.chef
-hab pkg exec chef/chef-infra-client chef-client -z -t <TARGET_NODE> apply.rb
+chef-client -z -t <TARGET_NODE> apply.rb
 ```
 
 Replace `<TARGET_NODE>` with the target name defined in the `target_credentials` file. For example, `TARGET_NODE_1`.
