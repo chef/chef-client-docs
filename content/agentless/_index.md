@@ -29,14 +29,14 @@ Agentless Mode has the following requirements:
 
 - A network-enabled system to execute Agentless Mode.
 - The `chef-client` CLI. This is included with Chef Workstation.
-- A [credentials file](#credentials-file) that provides the system with information to connect to a target node.
+- A [credentials file](#target-credentials-file) that provides the system with information to connect to a target node.
 - A recipe that only includes [Agentless Mode-enabled resources](#resources).
 
-## Credentials file
+## Target credentials file
 
-The credentials file defines the SSH connection settings for each node in TOML format.
+The target credentials file defines the SSH connection settings for each node in TOML format.
 
-Create a credentials file on the computer running Chef Workstation in `~/.chef/credentials`.
+Create a credentials file on the computer running Chef Workstation in `~/.chef/target_credentials`.
 
 ### Define node connections
 
@@ -46,7 +46,8 @@ For example, this adds credentials for three nodes:
 ```toml
 ['HOST-1']
 host = 'target.system.host.1.com'
-user = 'root'
+user = 'username'
+sudo = true
 key_files = '~/.keys/key-pair.pem'
 
 ['HOST-2']
@@ -78,11 +79,13 @@ host = '<IP_ADDRESS OR FQDN>'
 
 # ==== User authentication settings ====
 # user: The user used to connect to and execute Cookbooks on a node. Default is "root".
+# sudo: If the user isn't root and you need to escalate privileges, set to true.
 # key_files: If connecting with a secret key, the path to a secret key used to connect to a node.
 # password: If connecting with a password, the password string to connect to a node.
 # ====
 
 # user = 'root'
+# sudo = true
 # key_files = '<PATH_TO_SECRET_FILE>'
 # password = '<PASSWORD_STRING>'
 
@@ -102,7 +105,7 @@ host = '<IP_ADDRESS OR FQDN>'
 # forward_agent: Whether the connection to the authentication agent (if any) will be forwarded to the remote machine. Default is false.
 # forward_agent = false
 
-# transport_protocol: The protocol to use to connect to a node. Define this once for all nodes in the credentials file. Set to 'ssh'. (Required)
+# transport_protocol: The protocol to use to connect to a node. Define this once for all nodes in the credentials file. Default value is 'ssh'.
 transport_protocol = 'ssh'
 ```
 
@@ -127,6 +130,9 @@ Common parameters:
 
   Default value: `root`
 
+`sudo`
+: If the user isn't root and you need to escalate privileges, set to `true`.
+
 `key_files`
 : If connecting with a secret key, the path to a secret key used to connect to a node.
 
@@ -134,7 +140,7 @@ Common parameters:
 : If connecting with a password, the password string to connect to a node.
 
 `transport_protocol`
-: (Required) The protocol to use to connect to a node. Define this once for all nodes in the credentials file. Set to `ssh`.
+: The protocol to use to connect to a node. Define this once for all nodes in the credentials file. Default value is `ssh`.
 
 Additional parameters:
 
