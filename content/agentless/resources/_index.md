@@ -18,57 +18,57 @@ The following Chef Infra resources are supported in Agentless Mode.
 | [apt_preference](https://docs.chef.io/resources/apt_preference/) | Ubuntu, Linux | |
 | [apt_repository](https://docs.chef.io/resources/apt_repository/) | Ubuntu, Linux | |
 | [apt_update](https://docs.chef.io/resources/apt_update/) | Ubuntu, Linux | |
-| [bash](https://docs.chef.io/resources/bash/) | Ubuntu, Linux, Solaris, Alpine, Suse Linux | |
+| [bash](https://docs.chef.io/resources/bash/) | Ubuntu, Linux, Solaris, Alpine, SUSE | |
 | [breakpoint](https://docs.chef.io/resources/breakpoint/) | Ubuntu, Linux | |
 | [chef_acl](https://docs.chef.io/resources/chef_acl/) | Ubuntu, Linux, CentOS 9 | |
-| [chef_client](https://docs.chef.io/resources/chef_client/) | Ubuntu 24.04, Linux Red Hat 9, Solaris, Alpine, Suse Linux | |
-| [chef_client_config](https://docs.chef.io/resources/chef_client_config/) | Ubuntu, Linux, Solaris, Alpine, Suse Linux | |
+| [chef_client](https://docs.chef.io/resources/chef_client/) | Ubuntu 24.04, Linux Red Hat 9, Solaris, Alpine, SUSE | |
+| [chef_client_config](https://docs.chef.io/resources/chef_client_config/) | Ubuntu, Linux, Solaris, Alpine, SUSE | |
 | [chef_container](https://docs.chef.io/resources/chef_container/) | Ubuntu, Linux | |
 | [chef_data_bag](https://docs.chef.io/resources/chef_data_bag/) | Ubuntu, Linux | |
 | [chef_environment](https://docs.chef.io/resources/chef_environment/) | Ubuntu, Linux | |
 | [chef_group](https://docs.chef.io/resources/chef_group/) | Ubuntu 24.04 and 18.04, RHEL | |
 | [chef_node](https://docs.chef.io/resources/chef_node/) | Ubuntu 24.04, Linux Red Hat 9 | |
 | [chef_organization](https://docs.chef.io/resources/chef_organization/) | Ubuntu 24.04 and 18.04, RHEL | |
-| [chef_role](https://docs.chef.io/resources/chef_role/) | Ubuntu 24.04, Linux Red Hat 9, Solaris, Alpine, Suse Linux | |
+| [chef_role](https://docs.chef.io/resources/chef_role/) | Ubuntu 24.04, Linux Red Hat 9, Solaris, Alpine, SUSE | |
 | [chef_sleep](https://docs.chef.io/resources/chef_sleep/) | Ubuntu, Linux | |
-| [chef_user](https://docs.chef.io/resources/chef_user/) | Ubuntu 24.04 and 18.04, RHEL, Solaris, Alpine, Suse Linux | |
-| [cookbook_file](https://docs.chef.io/resources/cookbook_file/) | Ubuntu, Linux, Solaris, Alpine, Suse Linux | |
+| [chef_user](https://docs.chef.io/resources/chef_user/) | Ubuntu 24.04 and 18.04, RHEL, Solaris, Alpine, SUSE | |
+| [cookbook_file](https://docs.chef.io/resources/cookbook_file/) | Ubuntu, Linux, Solaris, Alpine, SUSE | |
 | [cron](https://docs.chef.io/resources/cron/) | Ubuntu, Linux, Solaris SunOS, Alpine | |
 | [cron_access](https://docs.chef.io/resources/cron_access/) | Ubuntu, Linux, Solaris SunOS, Alpine | |
 | [cron_d](https://docs.chef.io/resources/cron_d/) | Ubuntu, Linux | |
 | [csh](https://docs.chef.io/resources/csh/) | Ubuntu 24.04, Linux Red Hat 9, Alpine | |
-| [directory](https://docs.chef.io/resources/directory/) | Ubuntu, Linux, Solaris, Alpine, Suse Linux | |
-| [execute](https://docs.chef.io/resources/execute/) | Ubuntu, Linux, Solaris, Alpine, Suse Linux | |
-| [file](https://docs.chef.io/resources/file/) | Ubuntu, Linux, Solaris, Alpine, Suse Linux | |
+| [directory](https://docs.chef.io/resources/directory/) | Ubuntu, Linux, Solaris, Alpine, SUSE | |
+| [execute](https://docs.chef.io/resources/execute/) | Ubuntu, Linux, Solaris, Alpine, SUSE | |
+| [file](https://docs.chef.io/resources/file/) | Ubuntu, Linux, Solaris, Alpine, SUSE | |
 | [freebsd_package](https://docs.chef.io/resources/freebsd_package/) | FreeBSD 14 | Only supported on FreeBSD. |
-| [git](https://docs.chef.io/resources/git/) | Ubuntu, Linux, Solaris, Alpine, Suse Linux | |
-| [group](https://docs.chef.io/resources/group/) | Ubuntu, Linux, Solaris, Alpine, Suse Linux | |
-| [habitat_config](https://docs.chef.io/resources/habitat_config/) | Ubuntu 24.04, Linux Red Hat 9, Solaris, Alpine, Suse Linux | |
-| [habitat_install](https://docs.chef.io/resources/habitat_install/) | Ubuntu, Linux, Solaris, Alpine, Suse Linux | |
-| [habitat_package](https://docs.chef.io/resources/habitat_package/) | Ubuntu, Linux, Solaris, Alpine, Suse Linux | |
+| [git](https://docs.chef.io/resources/git/) | Ubuntu, Linux, Solaris, Alpine, SUSE | |
+| [group](https://docs.chef.io/resources/group/) | Ubuntu, Linux, Solaris, Alpine, SUSE | |
+| [habitat_config](https://docs.chef.io/resources/habitat_config/) | Ubuntu 24.04, Linux Red Hat 9, Solaris, Alpine, SUSE | |
+| [habitat_install](https://docs.chef.io/resources/habitat_install/) | Ubuntu, Linux, Solaris, Alpine, SUSE | |
+| [habitat_package](https://docs.chef.io/resources/habitat_package/) | Ubuntu, Linux, Solaris, Alpine, SUSE | |
 | [habitat_service](https://docs.chef.io/resources/habitat_service/) | Ubuntu, Linux | |
 | [habitat_sup](https://docs.chef.io/resources/habitat_sup/) | Ubuntu, Linux | |
 | [hostname](https://docs.chef.io/resources/hostname/) | Ubuntu, Linux | |
-| [http_request](https://docs.chef.io/resources/http_request/) | Ubuntu, Linux, , Solaris, Alpine, Suse Linux | |
+| [http_request](https://docs.chef.io/resources/http_request/) | Ubuntu, Linux, , Solaris, Alpine, SUSE | |
 | [ifconfig](https://docs.chef.io/resources/ifconfig/) | Ubuntu, Linux | |
 | [inspec_input](https://docs.chef.io/resources/inspec_input/) | Ubuntu 24.04, Linux Red Hat 9 | |
 | [inspec_waiver](https://docs.chef.io/resources/inspec_waiver/) | Ubuntu, Linux | |
 | [inspec_waiver_file_entry](https://docs.chef.io/resources/inspec_waiver_file_entry/) | Ubuntu, Linux | |
 | [kernel_module](https://docs.chef.io/resources/kernel_module/) | Ubuntu, Linux | |
-| [ksh](https://docs.chef.io/resources/ksh/) | Ubuntu 24.04, Linux Red Hat 9, Solaris, Alpine, Suse Linux | |
-| [link](https://docs.chef.io/resources/link/) | Ubuntu, Linux, Solaris, Alpine, Suse Linux | |
+| [ksh](https://docs.chef.io/resources/ksh/) | Ubuntu 24.04, Linux Red Hat 9, Solaris, Alpine, SUSE | |
+| [link](https://docs.chef.io/resources/link/) | Ubuntu, Linux, Solaris, Alpine, SUSE | |
 | [locale](https://docs.chef.io/resources/locale/) | Ubuntu | |
-| [log](https://docs.chef.io/resources/log/) | Ubuntu, Linux, Solaris, Alpine, Suse Linux | |
+| [log](https://docs.chef.io/resources/log/) | Ubuntu, Linux, Solaris, Alpine, SUSE | |
 | [mount](https://docs.chef.io/resources/mount/) | Ubuntu 24.04, CentOS 9 | |
 | [notify_group](https://docs.chef.io/resources/notify_group/) | Ubuntu, Linux | |
 | [ohai](https://docs.chef.io/resources/ohai/) | Ubuntu, Linux | |
 | [ohai_hint](https://docs.chef.io/resources/ohai_hint/) | Ubuntu, Linux | |
-| [owner](https://docs.chef.io/resources/owner/) | Ubuntu, Linux, Solaris, Alpine, Suse Linux | |
-| [package](https://docs.chef.io/resources/package/) | Ubuntu, Linux, CentOS 9, Solaris, Alpine, Suse Linux | |
+| [owner](https://docs.chef.io/resources/owner/) | Ubuntu, Linux, Solaris, Alpine, SUSE | |
+| [package](https://docs.chef.io/resources/package/) | Ubuntu, Linux, CentOS 9, Solaris, Alpine, SUSE | |
 | [perl](https://docs.chef.io/resources/perl/) | Ubuntu | |
-| [python](https://docs.chef.io/resources/python/) | Ubuntu 24.04, Linux Red Hat 9, Solaris, Alpine, Suse Linux | |
+| [python](https://docs.chef.io/resources/python/) | Ubuntu 24.04, Linux Red Hat 9, Solaris, Alpine, SUSE | |
 | [reboot](https://docs.chef.io/resources/reboot/) | Ubuntu, Linux | |
-| [remote_file](https://docs.chef.io/resources/remote_file/) | Ubuntu, Linux, CentOS 9, Solaris, Alpine, Suse Linux | |
+| [remote_file](https://docs.chef.io/resources/remote_file/) | Ubuntu, Linux, CentOS 9, Solaris, Alpine, SUSE | |
 | [rhsm_errata](https://docs.chef.io/resources/rhsm_errata/) | Linux (redhat) | |
 | [rhsm_errata_level](https://docs.chef.io/resources/rhsm_errata_level/) | Linux (redhat) | |
 | [rhsm_register](https://docs.chef.io/resources/rhsm_register/) | Linux (redhat) | |
@@ -87,16 +87,16 @@ The following Chef Infra resources are supported in Agentless Mode.
 | [selinux_port](https://docs.chef.io/resources/selinux_port/) | Ubuntu, Linux | |
 | [selinux_state](https://docs.chef.io/resources/selinux_state/) | Ubuntu, Linux | |
 | [selinux_user](https://docs.chef.io/resources/selinux_user/) | Ubuntu, Linux | |
-| [service](https://docs.chef.io/resources/service/) | Ubuntu, Linux, CentOS 9, Solaris, Alpine, Suse Linux | `crond` for Linux |
+| [service](https://docs.chef.io/resources/service/) | Ubuntu, Linux, CentOS 9, Solaris, Alpine, SUSE | `crond` for Linux |
 | [snap_package](https://docs.chef.io/resources/snap_package/) | Ubuntu 24.04 | Only supported on Linux. |
 | [ssh_known_hosts_entry](https://docs.chef.io/resources/ssh_known_hosts_entry/) | Ubuntu, Linux | |
 | [subversion](https://docs.chef.io/resources/subversion/) | Ubuntu 24.04, Linux Red Hat 9, CentOS 9 | The subversion resource has known bugs and may not work as expected. For more information, see the Chef GitHub issues, particularly [#4050](https://github.com/chef/chef/issues/4050) and [#4257](https://github.com/chef/chef/issues/4257). |
-| [sudo](https://docs.chef.io/resources/sudo/) | Ubuntu, Linux, CentOS 9, Solaris, Alpine, Suse Linux | |
+| [sudo](https://docs.chef.io/resources/sudo/) | Ubuntu, Linux, CentOS 9, Solaris, Alpine, SUSE | |
 | [swap_file](https://docs.chef.io/resources/swap_file/) | Ubuntu, Linux | |
 | [sysctl](https://docs.chef.io/resources/sysctl/) | Ubuntu, Linux | |
 | [systemd_unit](https://docs.chef.io/resources/systemd_unit/) | Ubuntu, Linux | |
-| [template](https://docs.chef.io/resources/template/) | Ubuntu, Linux, CentOS 9, Solaris, Alpine, Suse Linux | Require absolute path for source attribute. |
-| [timezone](https://docs.chef.io/resources/timezone/) | Linux, Solaris, Alpine, Suse Linux | |
+| [template](https://docs.chef.io/resources/template/) | Ubuntu, Linux, CentOS 9, Solaris, Alpine, SUSE | Require absolute path for source attribute. |
+| [timezone](https://docs.chef.io/resources/timezone/) | Linux, Solaris, Alpine, SUSE | |
 | [user](https://docs.chef.io/resources/user/) | Ubuntu, Linux | |
 | [user_ulimit](https://docs.chef.io/resources/user_ulimit/) | Ubuntu, Linux | |
 | [yum_package](https://docs.chef.io/resources/yum_package/) | CentOS 9 | Only supported on Linux. |
