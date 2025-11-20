@@ -9,7 +9,28 @@ parent = "licensing"
 weight = 11
 +++
 
-Chef Infra Client 19 requires a license to run. This document describes how to set a license and verify that it's accepted.
+# Chef Infra Client 19 Licensing Overview
+
+This document outlines the licensing requirements and enforcement policies for Chef Infra Client 19.
+
+## Key Licensing Requirements
+
+- **API Downloads**: A license key is required to download Chef Infra 19 software via API
+- **Runtime Execution**: Chef Infra Client 19 requires a valid license to run if it is a unoffical distribution (Chef Infra 19 installed as gem)
+
+## License Enforcement Policy
+
+### No Enforcement
+- Official distribution channels (customer portal, HAB) do not enforce licensing for agent downloads
+
+### License Required
+- Unofficial downloads (public ruby gem) require a license key to run
+- Runtime installations and workflows require a license key
+
+# License Configuration
+
+- License keys can be added after the agent software has been installed
+- This document provides instructions on how to set a license and verify acceptance
 
 ## Add a license
 
