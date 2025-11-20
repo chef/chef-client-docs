@@ -9,54 +9,53 @@ parent = "licensing"
 weight = 11
 +++
 
-# Chef Infra Client 19 Licensing Overview
-
 This document outlines the licensing requirements and enforcement policies for Chef Infra Client 19.
 
-## Key Licensing Requirements
+## Licensing requirements
 
-- **API Downloads**: A license key is required to download Chef Infra 19 software via API
-- **Runtime Execution**: Chef Infra Client 19 requires a valid license to run if it is a unoffical distribution (Chef Infra 19 installed as gem)
+Chef Infra Client 19 has different licensing requirements depending on how you install it:
 
-## License Enforcement Policy
+- **API Downloads**: You need a license key to download Chef Infra Client 19 software through the API.
+- **Runtime Execution**: Chef Infra Client 19 requires a valid license to run if you install it as an unofficial distribution (for example, Chef Infra Client 19 installed as a Ruby gem).
 
-### No Enforcement
-- No license enforcement for agents downloaded from official distributions (customer portal, HAB)
+## License enforcement policy
 
-### License Required
-- Unofficial downloads (public ruby gem) require a license key to run
-- Runtime installations and workflows require a license key
+### No enforcement
 
-## License Configuration
+Chef Infra Client doesn't require a license if you download official distributions (customer portal, HAB).
 
-- License keys can be added after the agent software has been installed
-- This document provides instructions on how to set a license and verify acceptance
+### License required
+
+You need a license key to run Chef Infra Client when you:
+
+- Download it from unofficial sources (public Ruby gem)
+- Use runtime installations and workflows
 
 ## Add a license
 
-Chef Infra Client 19 has three ways to set a license:
+You can set a license in Chef Infra Client 19 using one of three methods:
 
-- with an environment variable
-- with a command line option
-- with the command line interactive dialog
+- An environment variable
+- A command line option
+- The command line interactive dialog
 
-After setting a license key, Chef Infra Client validates it with Progress Chef's licensing service.
+After you set a license key, Chef Infra Client validates it with Progress Chef's licensing service.
 
 ### Environment variable
 
-- You can set the license key adding the `CHEF_LICENSE_KEY` environment variable:
+Set the license key by adding the `CHEF_LICENSE_KEY` environment variable:
 
-  ```sh
-  export CHEF_LICENSE_KEY=<LICENSE_KEY>
-  ```
+```sh
+export CHEF_LICENSE_KEY=<LICENSE_KEY>
+```
 
 ### Command line option
 
-- You can set the license key using the `--chef-license-key` CLI option:
+Set the license key using the `--chef-license-key` CLI option:
 
-  ```sh
-  chef-client --chef-license-key=<LICENSE_KEY>
-  ```
+```sh
+chef-client --chef-license-key=<LICENSE_KEY>
+```
 
 ### Interactive license dialog
 
@@ -70,7 +69,7 @@ To set a license key with the CLI interactive dialog, follow these steps:
     chef-client --version
     ```
 
-    It should return version 19.0.54 or greater for Infra Client RC 1.
+    This should return version 19.0.54 or greater for Infra Client RC 1.
 
 1. Run `chef-client` in local mode and why-run mode:
 
@@ -78,9 +77,10 @@ To set a license key with the CLI interactive dialog, follow these steps:
     chef-client --local-mode --why-run
     ```
 
-    Local mode runs Chef Infra Client on your local machine as if it were running against Chef Infra Server. why-run mode shows you what Chef Infra Client would configure if a Chef Infra Client run occurs.
+    Local mode runs Chef Infra Client on your local machine as if it were running against Chef Infra Server.
+    Why-run mode shows you what Chef Infra Client would configure during a Chef Infra Client run.
 
-1. At the first prompt, select **I already have a license ID**.
+1. At the first prompt, select **I already have a license ID**:
 
     ```text
     Please choose one of the options below (Press ↑/↓ arrow to move and Enter to select)
