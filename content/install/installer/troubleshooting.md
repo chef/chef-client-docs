@@ -16,23 +16,23 @@ If the Chef Workstation is already on your system, the installation process fail
 
   ```sh
   Selecting previously unselected package chef-infra-client.
-  dpkg: regarding chef-infra-client-19.1.rc2_amd64.deb containing chef-infra-client:
+  dpkg: regarding chef-ice-19.2.rc3-linux.deb containing chef-infra-client:
   chef-infra-client conflicts with chef-workstation
     chef-workstation (version 0.4.2-1) is present and installed.
 
-  dpkg: error processing archive chef-infra-client-19.1.rc2_amd64.deb (--install):
+  dpkg: error processing archive chef-ice-19.2.rc3-linux.deb (--install):
   conflicting packages - not installing chef-infra-client
   Errors were encountered while processing:
-  chef-infra-client-19.1.rc2_amd64.deb
+  chef-ice-19.2.rc3-linux.deb
   ```
 
 - On RPM-based systems, the installer returns the following error:
 
   ```sh
   Error:
-  Problem: package chef-infra-client-19.0.54-1.amzn2023.x86_64 from @System conflicts with chef-workstation provided by chef-workstation-25.1.1074-1.amazon2023.x86_64 from @commandline
+  Problem: package chef-ice-19.2.rc3-linux from @System conflicts with chef-workstation provided by chef-workstation-25.1.1074-1.amazon2023.x86_64 from @commandline
     - conflicting requests
-    - problem with installed package chef-infra-client-19.0.54-1.amzn2023.x86_64
+    - problem with installed package chef-ice-19.2.rc3-linux
   (try to add '--allowerasing' to command line to replace conflicting packages or '--skip-broken' to skip uninstallable packages)
   ```
 
@@ -100,7 +100,7 @@ To resolve this error:
     Install on Debian-based distributions:
 
     ```sh
-    sudo -E dpkg -i chef-infra-client-19.1.rc2_amd64.deb
+    sudo -E dpkg -i chef-ice-19.2.rc3-linux.deb
     ```
 
     {{< /accordion-item >}}
@@ -109,7 +109,7 @@ To resolve this error:
     Install on RPM-based distributions using the `dnf reinstall` command:
 
     ```sh
-    sudo -E dnf reinstall chef-infra-client-19.1.rc2.amzn2.x86_64.rpm
+    sudo -E dnf reinstall chef-ice-19.2.rc3-linux.rpm
     ```
 
     {{< /accordion-item >}}
@@ -124,7 +124,7 @@ To resolve this error:
     - Install the MSI package with Powershell:
 
       ```sh
-      msiexec /i "chef-ice-19.1.2-1_x64.msi"
+      msiexec /i "chef-ice-19.2.rc3-windows.msi"
       ```
 
     {{< /accordion-item >}}

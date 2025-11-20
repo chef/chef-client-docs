@@ -105,7 +105,7 @@ host = '<IP_ADDRESS OR FQDN>'
 # forward_agent: Whether the connection to the authentication agent (if any) will be forwarded to the remote machine. Default is false.
 # forward_agent = false
 
-# transport_protocol: The protocol to use to connect to a node. Define this once for all nodes in the credentials file. Set to 'ssh'. (Required)
+# transport_protocol: The protocol to use to connect to a node. Define this once for all nodes in the credentials file. Default value is 'ssh'.
 transport_protocol = 'ssh'
 ```
 
@@ -140,7 +140,7 @@ Common parameters:
 : If connecting with a password, the password string to connect to a node.
 
 `transport_protocol`
-: (Required) The protocol to use to connect to a node. Define this once for all nodes in the credentials file. Set to `ssh`.
+: The protocol to use to connect to a node. Define this once for all nodes in the credentials file. Default value is `ssh`.
 
 Additional parameters:
 

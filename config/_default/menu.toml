@@ -55,10 +55,6 @@ weight = 60
 title = "Overview"
 identifier = "overview"
 
-[[licensing]]
-title = "Licensing"
-identifier = "licensing"
-
 [[install]]
 title = "Install"
 identifier = "install"
@@ -73,6 +69,10 @@ identifier = "install"
   identifier = "install/installer"
   parent = "install"
 
+[[licensing]]
+title = "Licensing"
+identifier = "licensing"
+
 [[agentless]]
 title = "Agentless"
 identifier = "agentless"
@@ -80,12 +80,6 @@ identifier = "agentless"
 [[workstation]]
 title = "Chef Workstation"
 identifier = "workstation"
-
-  [[workstation]]
-  title = "Install"
-  identifier = "workstation/install"
-  parent = "workstation"
-  weight = 20
 
   [[workstation]]
   title = "Test Kitchen Enterprise"
