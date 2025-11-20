@@ -9,7 +9,7 @@ parent = "licensing"
 weight = 11
 +++
 
-Chef Infra Client 19 requires a license to run. This document describes how to set a license and verify that it's accepted.
+Chef Infra Client 19 supports optional licensing. This document describes how to set a license if you choose to use one.
 
 ## Add a license
 
@@ -19,7 +19,7 @@ Chef Infra Client 19 has three ways to set a license:
 - with a command line option
 - with the command line interactive dialog
 
-After setting a license key, Chef Infra Client validates it with Progress Chef's licensing service.
+If you set a license key, Chef Infra Client validates it with Progress Chef's licensing service.
 
 ### Environment variable
 
@@ -39,7 +39,7 @@ After setting a license key, Chef Infra Client validates it with Progress Chef's
 
 ### Interactive license dialog
 
-If you run a `chef-client` command and a license key isn't already set, Chef Infra Client starts an interactive licensing dialog.
+If you run a `chef-client` command and choose to set a license, Chef Infra Client can start an interactive licensing dialog.
 
 To set a license key with the CLI interactive dialog, follow these steps:
 
