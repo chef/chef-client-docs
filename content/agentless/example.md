@@ -212,9 +212,9 @@ ssh -i ~/.ssh/key-pair.pem ubuntu@192.168.0.251 'ls -ld /tmp/chef-repo && echo "
 In a number of instances, you'll want to use your existing investments in cookbooks already loaded on your Chef Server.
 Here we take a different approach and update your credentials file, NOT the target_credentials file.
 
-You'll note that we are mixing chef-client and knife here. We do this for a couple of reasons. First,
+You'll note that we're mixing chef-client and knife here. We do this for a couple of reasons. First,
 it makes it much easier to have only one settings file that both clients can use. Secondly, when we
-call a knife.rb file, the client automatically discovers and uses the credentials file which can happily
+call a `knife.rb` file, the client automatically discovers and uses the credentials file which can happily
 now contain our target node details.
 
 ```sh
@@ -223,7 +223,7 @@ now contain our target node details.
 [default]
 client_name       = 'foo'
 client_key        = '/root/.chef/foo.pem'
-chef_server_url   = 'https://nodes.megacorp.com/organizations/mycheforg'
+chef_server_url   = 'https://nodes.example.com/organizations/chef-org'
 
 ['Ubuntu_2404']
 host = '<IP_ADDRESS_OR_FQDN>'
@@ -234,7 +234,7 @@ key_files = '~/.ssh/key-pair.pem'
 transport_protocol = 'ssh'
 ```
 
-Now you need to update your knife.rb file so both knife and chef-client can use it.
+Now you need to update your `knife.rb` file so both knife and Chef Infra Client can use it.
 
 ```sh
 # Path to your Chef repository
