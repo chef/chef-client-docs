@@ -21,13 +21,13 @@ This document outlines the licensing requirements and enforcement policies for C
 ## License Enforcement Policy
 
 ### No Enforcement
-- Official distribution channels (customer portal, HAB) do not enforce licensing for agent downloads
+- No license enforcement for agents downloaded from official distributions (customer portal, HAB)
 
 ### License Required
 - Unofficial downloads (public ruby gem) require a license key to run
 - Runtime installations and workflows require a license key
 
-# License Configuration
+## License Configuration
 
 - License keys can be added after the agent software has been installed
 - This document provides instructions on how to set a license and verify acceptance
