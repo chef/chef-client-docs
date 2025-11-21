@@ -171,7 +171,7 @@ Additional parameters:
 
 <!-- markdownlint-enable MD007 MD006 -->
 
-### Retrieve secrets from a HashiCorp Vault
+### Retrieve secrets from HashiCorp Vault
 
 You can configure Agentless Mode to fetch secrets from HashiCorp Vault.
 
