@@ -8,6 +8,10 @@ parent = "licensing"
 weight = 20
 +++
 
+<!---
+
+//// Temporarily removed until a later release ////
+
 Refer to the following sections for details on troubleshooting licensing issues.
 
 ## License isn't entitled to use Infra
@@ -66,6 +70,8 @@ To troubleshoot:
   :licenses: []
   :license_server_url: https://services.chef.io/licensing
   ```
+
+-->
 
 ## Support contact
 
