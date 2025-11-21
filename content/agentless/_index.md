@@ -171,6 +171,37 @@ Additional parameters:
 
 <!-- markdownlint-enable MD007 MD006 -->
 
+### Retrieve secrets from a HashiCorp Vault
+
+You can configure Agentless Mode to fetch secrets from HashiCorp Vault.
+
+In the `~/.chef/target_credentials` file, define the following:
+
+- your Vault authentication settings with the `default_secrets_provider` hash
+- your secret name saved in Vault
+
+For example:
+
+```toml
+default_secrets_provider = {
+  name = 'hashicorp-vault',
+  endpoint = '<ENDPOINT>',
+  token = '<VAULT_TOKEN>'
+}
+
+['<NODE_NAME>']
+host = '<IP_ADDRESS_OR_FQDN>'
+user = '<USERNAME>'
+sudo = true
+password = { secret = '<SECRET_NAME>', field = 'password' }
+```
+
+Replace:
+
+- `<ENDPOINT>` with your Vault endpoint, for example: `http://127.0.0.1:8200`.
+- `<VAULT_TOKEN>` with your Vault token, for example: `hvs.zPuyktykA...example...ewUEnIRVaKoBzs2`.
+- `<SECRET_NAME>` with the name of the secret stored in Vault.
+
 ## Resources
 
 All resources included in a Cookbook must be enabled in Agentless Mode to run in Agentless Mode.
@@ -199,7 +230,7 @@ chef-client -t <TARGET_NAME>
 Replace `<TARGET_NAME>` with the name of the host as defined in the credentials file.
 For example, `HOST-1` in the [credential file example](#define-node-connections).
 
-To execute a specific Cookbook in Agentless Mode, run:
+To execute a specific cookbook in Agentless Mode, run:
 
 ```sh
 chef-client -t <TARGET_NAME> <PATH/TO/COOKBOOK/COOKBOOK_NAME>
@@ -210,7 +241,7 @@ Replace the following:
 - `<TARGET_NAME>` with the name of the host as defined in the credentials file.
 - `<PATH/TO/COOKBOOK/COOKBOOK_NAME>` with the path to the Cookbook on your system. For example, `/chef-repo/cookbooks/example_cookbook.rb`
 
-### Agentless Mode in Local Mode
+### Run Agentless Mode in Local Mode
 
 You can run Agentless Mode in Local Mode.
 Local Mode runs chef-zero locally as a lightweight instance of Chef Infra Server to execute a Client run on target nodes.
@@ -221,10 +252,119 @@ Use `-z` and `-t` to run Agentless Mode in Local Mode:
 chef-client -z -t <TARGET_NAME>
 ```
 
-Replace `<TARGET_NAME>` with the name of the host as defined in the credentials file.
-For example, `HOST-1` in the [credential file example](#define-node-connections).
+You can also run a specific cookbook in Local Mode:
 
-## Run Agentless Mode with Chef Automate or Chef Infra Server
+```sh
+chef-client -z -t <TARGET_NAME> <COOKBOOK_FILE_PATH>
+```
+
+Replace:
+
+- `<TARGET_NAME>` with the name of the host as defined in the credentials file.
+  For example, `HOST-1` in the [credential file example](#define-node-connections).
+
+- `<COOKBOOK_FILE_PATH>` with the cookbook file path. For example, `/chef-repo/cookbooks-dir/cookbook1.rb`.
+
+You should see output similar to this:
+
+```sh
+Converging 1 resources
+Recipe: @recipe_files::/root/.chef/chef-repo/cookbooks/cis_rhel_7_benchmark_v3.1.1/recipes/test2.rb
+  * subversion[checkout_project_code] action sync (up to date)
+Running handlers:
+Running handlers complete
+Infra Phase complete, 0/1 resources updated in 20 seconds
+```
+
+### Run Chef Agentless using Habitat
+
+With `HAB_AUTH_TOKEN` exported and the license key available, run Chef Infra Client using Habitat:
+
+```sh
+hab pkg exec chef/chef-infra-client chef-client -z -t <TARGET_NODE> <PATH/TO/COOKBOOK/COOKBOOK_NAME>
+```
+
+Replace `<TARGET_NODE>` with the target name defined in the `target_credentials` file.
+
+### Run Agentless Mode from Chef Infra Server
+
+If you want to use cookbooks that are uploaded on Chef Infra Server define the node connection settings with your credentials file (`~/.chef/credentials`).
+
+This uses Chef Infra Client and Knife:
+
+- It makes it much easier to have a single settings file that Knife and Infra Client can both can use.
+- When we call a `config.rb` file, the client automatically discovers and uses the `credentials` file, which contains our target node details.
+
+The configure Agentless Mode to run on Chef Infra Server, follow these steps:
+
+1. Define your node connection settings in the `credentials` file.
+
+    **Note**: This configuration uses the [`credentials` file](https://docs.chef.io/workstation/knife_setup/), not the `target_credentials` file.
+
+    ```sh
+    # ~/.chef/credentials
+
+    [default]
+    client_name       = 'foo'
+    client_key        = '/root/.chef/foo.pem'
+    chef_server_url   = 'https://nodes.example.com/organizations/chef-org'
+
+    ['<NODE_NAME>']
+    host = '<IP_ADDRESS_OR_FQDN>'
+    user = '<USERNAME>'
+    sudo = true
+    key_files = '~/.ssh/key-pair.pem'
+
+    transport_protocol = 'ssh'
+    ```
+
+1. Update your [Knife `config.rb` file](https://docs.chef.io/workstation/config_rb/) so both Knife and Chef Infra Client can use it:
+
+    ```ruby
+    # Path to your Chef repository
+    current_dir = File.dirname(__FILE__)
+
+    # Logging
+    log_level                :info
+    log_location             STDOUT
+
+    # User credentials
+    node_name                "<CHEF_NODE_NAME>"   # Your Chef node
+    client_key               "#{current_dir}/<PRIVATE_KEY_FILE>.pem"  # Path to your private key
+
+    # Chef Server URL
+    chef_server_url          "https://chef.example.com/organizations/org_name"
+
+    # Cookbook path
+    cookbook_path            ["#{current_dir}/../cookbooks"]
+
+    # SSL verification (optional, often disabled in test setups)
+    ssl_verify_mode          :verify_none
+    ```
+
+1. Verify your node is listed and update cookbooks as necessary:
+
+    ```sh
+    knife node list
+    knife cookbook upload <COOKBOOK_NAME>
+    knife node run_list add <NODE_NAME> 'recipe[<COOKBOOK>]'
+    ```
+
+1. Execute the cookbook you uploaded with Infra Client in Target Mode.
+
+    Execute Infra Client using Chef Habitat:
+
+    ```sh
+    hab pkg exec chef/chef-infra-client chef-client -c ~/.chef/knife.rb -t Ubuntu_2404
+    ```
+
+    Execute Infra Client directly:
+
+    ```sh
+    chef-client -c ~/.chef/knife.rb -t Ubuntu_2404
+    ```
+
+### Schedule Agentless Mode on Chef Automate or Chef Infra Server
 
 You can configure Chef Automate or Chef Infra Server to run Agentless Mode on a regular schedule.
 
