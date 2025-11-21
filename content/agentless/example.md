@@ -116,9 +116,9 @@ end
 {{< /foundation_tabs_panel >}}
 {{< /foundation_tabs_panels >}}
 
-## Run Chef Agentless using Habitat
+## Run the recipe in Agentless Mode
 
-From your `.chef` directory, with `HAB_AUTH_TOKEN` exported and the license key available:
+From your `.chef` directory, execute the recipe withe Chef Infra Client:
 
 ```sh
 cd ~/.chef
