@@ -199,7 +199,7 @@ password = { secret = '<SECRET_NAME>', field = 'password' }
 Replace:
 
 - `<ENDPOINT>` with your Vault endpoint, for example: `http://127.0.0.1:8200`.
-- `<VAULT_TOKEN>` with your Vault token, for example: `hvs.zPuyktykA...example...ewUEnIRVaKoBzs2`.
+- `<VAULT_TOKEN>` with your Vault token, for example: `hvs.ewUEnIRVaKoBzs2...example...ewUEnIRVaKoBzs2`.
 - `<SECRET_NAME>` with the name of the secret stored in Vault.
 
 ## Resources
