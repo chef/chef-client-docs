@@ -8,26 +8,26 @@ parent = "workstation/tke"
 weight = 30
 +++
 
-Chef Infra Client 19 and Chef InSpec 6 both require a valid license for operation.
-Given their direct dependency on the Test Kitchen Enterprise, we've enhanced Test Kitchen Enterprise to prompt users for a license, activate it, and securely store it on disk.
-Additionally, the license is transmitted to the provisioned VM, allowing the Chef Infra Client to function effectively during the verification phase alongside Chef InSpec 6.
+Chef Infra Client 19 and Chef InSpec 7 support optional licensing.
+Test Kitchen Enterprise can prompt users for a license, activate it, and securely store it on disk.
+Additionally, the license can be transmitted to the provisioned VM if you choose to use one during the verification phase.
 
 The following sections provide further details on this process.
 
 ## Which license do I need?
 
 As Test Kitchen Enterprise is part of the Chef Workstation suite, you can use any license that's entitled to run Chef Workstation with Test Kitchen Enterprise.
-Obtain a free, trial, or commercial license which has Chef Workstation entitlement enabled to use the Test Kitchen Enterprise seamlessly.
+You can obtain a free, trial, or commercial license which has Chef Workstation entitlement enabled to use with Test Kitchen Enterprise.
 Chef Workstation is bundled with Chef Infra Client and Chef compliance by default.
 
 ## How Test Kitchen Enterprise uses the license
 
-Unlike other products like Chef Infra Client, Chef InSpec, and Chef Workstation, Test Kitchen Enterprise doesn't enforce licensing.
-Test Kitchen Enterprise uses the license to execute tests.
+Test Kitchen Enterprise doesn't enforce licensing.
+If you provide a license, Test Kitchen Enterprise uses it to execute tests.
 
-During the converge phase, Test Kitchen Enterprise transfers the license to the virtual machine (VM) and adds it as an argument to Chef Infra Client, allowing the Infra Client run to proceed. Chef Infra Client validates the license received from Test Kitchen Enterprise and saves it on the provisioned VM for future use.
+During the converge phase, Test Kitchen Enterprise can transfer the license to the virtual machine (VM) and add it as an argument to Chef Infra Client. Chef Infra Client validates the license received from Test Kitchen Enterprise and saves it on the provisioned VM for future use.
 
-During the verification phase, the kitchen-inspec plugin transmits the license to Chef Inspec which validates it with Chef's licensing service.
+During the verification phase, the kitchen-inspec plugin can transmit the license to Chef Inspec which validates it with Chef's licensing service.
 
 ## Set a license in Test Kitchen Enterprise
 
