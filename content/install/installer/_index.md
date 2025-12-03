@@ -44,13 +44,13 @@ To install Chef Infra Client 19, follow these steps:
     - Using Wget:
 
       ```sh
-      wget -O "chef-ice-19.2.rc3-linux.deb" "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/chef-ice/19.2.RC3/linux/x86_64/chef-ice-19.2.rc3-linux.deb?AWSAccessKeyId=AKIAW4FPVFT6C42N3U6R&Signature=cmJmplCvrkVXK5MtqCmidrz3rds%3D&Expires=1776916085"
+      wget -O "chef-ice-19.2.rc3-linux.deb" "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/chef-ice/19.2.RC3/linux/x86_64/chef-ice-19.2.rc3-linux.deb?AWSAccessKeyId=AKIAW4FPVFT6PA6EXTHQ&Signature=9tqCmX%2F576Nrf6bdiZgK%2FRQP7%2BE%3D&Expires=1780533327"
       ```
 
     - Using curl:
 
       ```sh
-      curl -o "chef-ice-19.2.rc3-linux.deb" "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/chef-ice/19.2.RC3/linux/x86_64/chef-ice-19.2.rc3-linux.deb?AWSAccessKeyId=AKIAW4FPVFT6C42N3U6R&Signature=cmJmplCvrkVXK5MtqCmidrz3rds%3D&Expires=1776916085"
+      curl -o "chef-ice-19.2.rc3-linux.deb" "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/chef-ice/19.2.RC3/linux/x86_64/chef-ice-19.2.rc3-linux.deb?AWSAccessKeyId=AKIAW4FPVFT6PA6EXTHQ&Signature=9tqCmX%2F576Nrf6bdiZgK%2FRQP7%2BE%3D&Expires=1780533327"
       ```
 
     {{< /accordion-item >}}
@@ -61,13 +61,13 @@ To install Chef Infra Client 19, follow these steps:
     - Using Wget:
 
       ```sh
-      wget -O chef-ice-19.2.rc3-linux.rpm "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/chef-ice/19.2.RC3/linux/x86_64/chef-ice-19.2.rc3-linux.rpm?AWSAccessKeyId=AKIAW4FPVFT6C42N3U6R&Signature=FUbFKD2qMux2TBK7ltNPLuExQGk%3D&Expires=1776916329"
+      wget -O chef-ice-19.2.rc3-linux.rpm "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/chef-ice/19.2.RC3/linux/x86_64/chef-ice-19.2.rc3-linux.rpm?AWSAccessKeyId=AKIAW4FPVFT6PA6EXTHQ&Signature=gODj1%2BnbpBZ2VYbb3CYjZvU1JXQ%3D&Expires=1780533345"
       ```
 
     - Using curl:
 
       ```sh
-      curl -o chef-ice-19.2.rc3-linux.rpm "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/chef-ice/19.2.RC3/linux/x86_64/chef-ice-19.2.rc3-linux.rpm?AWSAccessKeyId=AKIAW4FPVFT6C42N3U6R&Signature=FUbFKD2qMux2TBK7ltNPLuExQGk%3D&Expires=1776916329"
+      curl -o chef-ice-19.2.rc3-linux.rpm "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/chef-ice/19.2.RC3/linux/x86_64/chef-ice-19.2.rc3-linux.rpm?AWSAccessKeyId=AKIAW4FPVFT6PA6EXTHQ&Signature=gODj1%2BnbpBZ2VYbb3CYjZvU1JXQ%3D&Expires=1780533345"
       ```
 
     {{< /accordion-item >}}
@@ -78,13 +78,13 @@ To install Chef Infra Client 19, follow these steps:
     - Using curl:
 
       ```sh
-      curl -o chef-ice-19.2.rc3-windows.msi "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/chef-ice/19.2.RC3/windows/x86_64/chef-ice-19.2.rc3-windows.msi?AWSAccessKeyId=AKIAW4FPVFT6C42N3U6R&Signature=rmb4GgaxE6oPEfVHiAugsg7xMBI%3D&Expires=1776916373"
+      curl -o chef-ice-19.2.rc3-windows.msi "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/chef-ice/19.2.RC3/windows/x86_64/chef-ice-19.2.rc3-windows.msi?AWSAccessKeyId=AKIAW4FPVFT6PA6EXTHQ&Signature=ugQFgpkB1TWtaN1mo4iRGGFtgeQ%3D&Expires=1780533357"
       ```
 
     - Using PowerShell:
 
       ```ps1
-      Invoke-WebRequest -Uri "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/chef-ice/19.2.RC3/windows/x86_64/chef-ice-19.2.rc3-windows.msi?AWSAccessKeyId=AKIAW4FPVFT6C42N3U6R&Signature=rmb4GgaxE6oPEfVHiAugsg7xMBI%3D&Expires=1776916373" -OutFile "chef-ice-19.2.rc3-windows.msi"
+      Invoke-WebRequest -Uri "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/chef-ice/19.2.RC3/windows/x86_64/chef-ice-19.2.rc3-windows.msi?AWSAccessKeyId=AKIAW4FPVFT6PA6EXTHQ&Signature=ugQFgpkB1TWtaN1mo4iRGGFtgeQ%3D&Expires=1780533357" -OutFile "chef-ice-19.2.rc3-windows.msi"
       ```
 
     {{< /accordion-item >}}
