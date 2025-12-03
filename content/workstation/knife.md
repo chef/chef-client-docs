@@ -102,13 +102,13 @@ The RC3 release utilizes a secure distribution model through pre-signed URLs, en
 
 **URL**: `install.sh`
 
-`https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/workstation/install.sh?AWSAccessKeyId=AKIAW4FPVFT6C42N3U6R&Signature=CgpGrMMwt13BZhtnqL2WXaEuclo%3D&Expires=1778909018`
+`https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/workstation/install.sh?AWSAccessKeyId=AKIAW4FPVFT6PA6EXTHQ&Signature=IDDVNrOTeKZnc%2Bxa9611MkK%2BZ2o%3D&Expires=1780533412`
 
 #### Windows Installation Script
 
 **URL**: `install.ps1`
 
-`https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/workstation/install.ps1?AWSAccessKeyId=AKIAW4FPVFT6C42N3U6R&Signature=pcqpblewgc5x%2FLxSHqlcQBhqpU0%3D&Expires=1778909040`
+`https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/workstation/install.ps1?AWSAccessKeyId=AKIAW4FPVFT6PA6EXTHQ&Signature=4hQ0Ve5Rcd63oHZyTI7r%2FX9KltA%3D&Expires=1780533421?AWSAccessKeyId=AKIAW4FPVFT6C42N3U6R&Signature=pcqpblewgc5x%2FLxSHqlcQBhqpU0%3D&Expires=1778909040`
 
 **Important**: These pre-signed URLs are specific to the RC3 release cycle and will be replaced by standard download portal URLs upon general availability release.
 
@@ -256,7 +256,7 @@ To bootstrap Chef Infra Client 19 in an air-gapped environment, follow these ste
 1. On an internet-connected computer, download the Chef Infra Client 19 packages from the pre-signed URLs and save it to an internal repository that's  accessible to target nodes in the secure environment. For example:
 
     ```sh
-    wget https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/workstation/install.sh?AWSAccessKeyId=AKIAW4FPVFT6C42N3U6R&Signature=CgpGrMMwt13BZhtnqL2WXaEuclo%3D&Expires=1778909018 \
+    wget https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/workstation/install.sh?AWSAccessKeyId=AKIAW4FPVFT6PA6EXTHQ&Signature=IDDVNrOTeKZnc%2Bxa9611MkK%2BZ2o%3D&Expires=1780533412 \
       -O /var/www/internal-repo/chef/rc3/install.sh
     ```
 
