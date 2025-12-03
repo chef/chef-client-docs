@@ -30,13 +30,13 @@ To install Chef Infra Client, follow these steps:
     Download using curl:
 
     ```sh
-    curl -o chef-ice-19.2.rc3-windows.tar.gz "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/rc2_hab_pkg_chef_client/rc2_tar_folder/chef-ice-19.2.rc3-windows.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6BIP2EQW7&Signature=Q91HiSIzOxffl52La8EvqSXSqWk%3D&Expires=1756222682"
+    curl -o chef-ice-19.2.rc3-linux.tar.gz "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/chef-ice/19.2.RC3/linux/x86_64/chef-ice-19.2.rc3-linux.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6PA6EXTHQ&Signature=htVtnPFhoan9wyXixccqDFp0jmU%3D&Expires=1780533226"
     ```
 
     Download using Wget:
 
     ```sh
-    wget -O "chef-ice-19.2.rc3-windows.tar.gz" "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/rc2_hab_pkg_chef_client/rc2_tar_folder/chef-ice-19.2.rc3-windows.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6BIP2EQW7&Signature=Q91HiSIzOxffl52La8EvqSXSqWk%3D&Expires=1756222682"
+    wget -O "chef-ice-19.2.rc3-linux.tar.gz" "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/chef-ice/19.2.RC3/linux/x86_64/chef-ice-19.2.rc3-linux.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6PA6EXTHQ&Signature=htVtnPFhoan9wyXixccqDFp0jmU%3D&Expires=1780533226"
     ```
 
 1. On an internet-connected machine, download the Chef Infra Client migration tool.
@@ -46,13 +46,13 @@ To install Chef Infra Client, follow these steps:
     Using curl:
 
     ```sh
-    curl -o migration-tools-1.1.rc3-linux.tar.gz "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/migrate-ice/1.1.RC3/linux/migration-tools-1.1.rc3-linux.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6C42N3U6R&Signature=a5W9L7B1mn07h%2BFYQFBp0fhqbzo%3D&Expires=1776916415"
+    curl -o migration-tools-1.1.rc3-linux.tar.gz "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/migrate-ice/1.1.RC3/linux/migration-tools-1.1.rc3-linux.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6PA6EXTHQ&Signature=O8rQUc0jy%2BeP7U1WspJasr7qMTY%3D&Expires=1780533385"
     ```
 
     Using Wget:
 
     ```sh
-    wget -O "migration-tools-1.1.rc3-linux.tar.gz" "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/migrate-ice/1.1.RC3/linux/migration-tools-1.1.rc3-linux.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6C42N3U6R&Signature=a5W9L7B1mn07h%2BFYQFBp0fhqbzo%3D&Expires=1776916415"
+    wget -O "migration-tools-1.1.rc3-linux.tar.gz" "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/migrate-ice/1.1.RC3/linux/migration-tools-1.1.rc3-linux.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6PA6EXTHQ&Signature=O8rQUc0jy%2BeP7U1WspJasr7qMTY%3D&Expires=1780533385"
     ```
 
 1. Extract the migration tool and make it executable.
