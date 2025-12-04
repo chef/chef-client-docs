@@ -8,4 +8,255 @@ parent = "workstation/knife"
 weight = 40
 +++
 
+Bootstrapping installs Chef Infra Client on a target system and configures it to communicate with a Chef Infra Server.
 
+## Prerequisites
+
+- Configure Knife 19
+- Depending on the version of Chef Infra Client you are bootstrapping, apply a Progress Chef license:
+  - Chef Infra Client 18 or earlier, [configure your Progress Chef license with Knife][license].
+  - Chef Infra Client 19 RC3 doesn't require a license.
+
+## Bootstrap Chef Infra Client 19
+
+To bootstrap Chef Infra Client 19, use a pre-signed URL:
+
+```sh
+knife bootstrap <IP_ADDRESS> \
+  -U <USERNAME> \
+  -p <PASSWORD> \
+  -N <NODE_NAME> \
+  --sudo \
+  --bootstrap-url "<BOOTSTRAP_URL>"
+```
+
+Replace:
+
+- `<IP_ADDRESS>` with the node's IP address
+- `<USERNAME>` with the username
+- `<PASSWORD>` with the password
+- `<NODE_NAME>` with a unique node name
+- `<BOOTSTRAP_URL>` with the presigned install script URL:
+
+  - For Windows nodes:
+
+    ```plain
+    https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/workstation/install.ps1?AWSAccessKeyId=AKIAW4FPVFT6PA6EXTHQ&Signature=4hQ0Ve5Rcd63oHZyTI7r%2FX9KltA%3D&Expires=1780533421
+    ```
+
+  - For Linux nodes:
+
+    ```plain
+    https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/workstation/install.sh?AWSAccessKeyId=AKIAW4FPVFT6PA6EXTHQ&Signature=IDDVNrOTeKZnc%2Bxa9611MkK%2BZ2o%3D&Expires=1780533412
+    ```
+
+The `--bootstrap-url` parameter installs a prerelease version of Chef Infra Client that's distributed through pre-signed URLs.
+
+## Bootstrap Chef Infra Client 18
+
+To bootstrap Chef Infra Client 18.x, run the following command:
+
+```sh
+knife bootstrap <IP_ADDRESS> \
+  -U <USERNAME> \
+  -p <PASSWORD> \
+  -N <NODE_NAME> \
+  --sudo \
+  --bootstrap-product chef
+```
+
+Replace:
+
+- `<IP_ADDRESS>` with the node's IP address
+- `<USERNAME>` with the username
+- `<PASSWORD>` with the password
+- `<NODE_NAME>` with a unique node name
+
+The `--bootstrap-product chef` option directs Knife to use Chef Infra Client 18.x from standard download channels.
+
+## Bootstrap an AWS EC2 instance
+
+The Knife EC2 plugin integrates with AWS EC2 to create and provision EC2 instances.
+
+To create an EC2 instance and bootstrap Chef Infra Client, run the following command:
+
+```sh
+knife ec2 server create \
+  --sudo \
+  -I <AMI_ID> \
+  --ssh-key <SSH_KEY_NAME> \
+  -f <INSTANCE_TYPE> \
+  -N <NODE_NAME> \
+  -U <SSH_USERNAME> \
+  --ssh-identity-file ~/.ssh/<SSH_KEY_FILE> \
+  -g <SECURITY_GROUP_ID> \
+  --region <AWS_REGION> \
+  --subnet <SUBNET_ID> \
+  --aws-tag owner=<OWNER_EMAIL> \
+  --aws-tag application=<APPLICATION_NAME> \
+  --aws-tag environment=<ENVIRONMENT> \
+  --aws-tag cost-center=<COST_CENTER> \
+  --aws-tag expiration=<EXPIRATION_DATE> \
+  --bootstrap-url "<BOOTSTRAP_URL>"
+```
+
+Replace the following:
+
+- `<AMI_ID>`: Amazon Machine Image ID for the EC2 instance, for example, `ami-0c02fb55956c7d316`
+- `<INSTANCE_TYPE>`: Instance type specification, for example, `t3.medium`, `m5.xlarge`, or `c5.4xlarge`
+- `<NODE_NAME>`: Chef Infra node name for identification within Chef Infra Server
+- `<SSH_USERNAME>`: SSH username for the selected AMI, for example, `ec2-user`, `ubuntu`, or `centos`
+- `<SSH_KEY_FILE>`: Path to SSH private key for authentication
+- `<SECURITY_GROUP_ID>`: Security group ID for network access control, for example, `sg-0a1b2c3d4e5f67890`
+- `<AWS_REGION>`: AWS region for instance deployment, for example, `us-east-1` or `eu-west-1`
+- `<SUBNET_ID>`: VPC subnet ID for network placement, for example, `subnet-0123456789abcdef0`
+- `<KEY>=<VALUE>`: Resource tags for AWS compliance and management (repeatable)
+- `<BOOTSTRAP_URL>`: Installation script URL for RC3:
+
+  - For Windows nodes:
+
+    ```plain
+    https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/workstation/install.ps1?AWSAccessKeyId=AKIAW4FPVFT6PA6EXTHQ&Signature=4hQ0Ve5Rcd63oHZyTI7r%2FX9KltA%3D&Expires=1780533421
+    ```
+
+  - For Linux nodes:
+
+    ```plain
+    https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/workstation/install.sh?AWSAccessKeyId=AKIAW4FPVFT6PA6EXTHQ&Signature=IDDVNrOTeKZnc%2Bxa9611MkK%2BZ2o%3D&Expires=1780533412
+    ```
+
+## Bootstrap a GCP Compute Engine instance
+
+The knife-google plugin integrates with GCP Compute Engine to create and provision GCP instances.
+
+To create a GCP instance and bootstrap Chef Infra Client:
+
+```sh
+knife google server create <INSTANCE_NAME> \
+  --gce-project <GCP_PROJECT_ID> \
+  --gce-zone <GCP_ZONE> \
+  --gce-machine-type <MACHINE_TYPE> \
+  --gce-image <IMAGE_NAME> \
+  --gce-image-project <IMAGE_PROJECT> \
+  --image-os-type <OPERATING_SYSTEM> \
+  --connection-user <SSH_USERNAME> \
+  --ssh-identity-file ~/.ssh/<SSH_KEY_FILE> \
+  --connection-port 22 \
+  --connection-protocol <PROTOCOL> \
+  --gce-network <VPC_NETWORK> \
+  --gce-subnet <SUBNET_NAME> \
+  --gce-tags <TAG1>,<TAG2>,<TAG3> \
+  --bootstrap-url "<BOOTSTRAP_URL>"
+```
+
+Replace the following:
+
+- `<GCP_PROJECT_ID>`: Google Cloud project ID
+- `<GCP_ZONE>`: GCP availability zone, for example, `us-central1-a` or `europe-west1-b`
+- `<MACHINE_TYPE>`: Instance machine type, for example, `e2-standard-4` or `n1-highmem-8`
+- `<IMAGE_NAME>`: Operating system image name from GCP image repositories, for example, `ubuntu-2204-jammy-v20251102`
+- `<IMAGE_PROJECT>`: Source project containing the OS image, for example, `ubuntu-os-cloud` or `centos-cloud`
+- `<OPERATING_SYSTEM>`: Operating system type: `linux` or `windows`
+- `<SSH_USERNAME>`: SSH username for connection
+- `<SSH_KEY_FILE>`: Path to SSH private key for authentication
+- `<PROTOCOL>`: Communication protocol: `ssh` or `winrm`
+- `<VPC_NETWORK>`: VPC network name for instance connectivity
+- `<SUBNET_NAME>`: Subnet within the VPC
+- `<TAG1>,<TAG2>`: Optional comma-separated instance tags for organization and firewall rules
+- `<BOOTSTRAP_URL>`: Installation script URL for RC3:
+
+  - For Windows nodes:
+
+    ```plain
+    https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/workstation/install.ps1?AWSAccessKeyId=AKIAW4FPVFT6PA6EXTHQ&Signature=4hQ0Ve5Rcd63oHZyTI7r%2FX9KltA%3D&Expires=1780533421
+    ```
+
+  - For Linux nodes:
+
+    ```plain
+    https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/workstation/install.sh?AWSAccessKeyId=AKIAW4FPVFT6PA6EXTHQ&Signature=IDDVNrOTeKZnc%2Bxa9611MkK%2BZ2o%3D&Expires=1780533412
+    ```
+
+## Bootstrap Windows nodes with the knife-windows plugin
+
+The knife-windows plugin allows you to manage Windows infrastructure with the WinRM protocol.
+
+### knife-windows plugin prerequisites
+
+Windows nodes have the following prerequisites:
+
+- Enable and configure Windows Remote Management (WinRM):
+
+  ```powershell
+  winrm quickconfig -q
+  ```
+
+- Set the execution policy to allow remote script execution:
+
+  ```ps1
+  Enable-PSRemoting -Force
+  ```
+
+### Bootstrap Windows nodes
+
+To bootstrap a Windows node with the knife windows plugin, run the following command:
+
+```powershell
+knife bootstrap windows winrm <IP_ADDRESS> \
+  -U Administrator \
+  -P <PASSWORD> \
+  -N <NODE_NAME> \
+  --winrm-port <PORT_NUMBER> \
+  --bootstrap-url "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/workstation/install.ps1?AWSAccessKeyId=AKIAW4FPVFT6PA6EXTHQ&Signature=4hQ0Ve5Rcd63oHZyTI7r%2FX9KltA%3D&Expires=1780533421"
+```
+
+Replace the following:
+
+- `<IP_ADDRESS>`: IP address of the Windows node
+- `<PASSWORD>`: Administrator password
+- `<NODE_NAME>`: Chef node name
+- `<PORT_NUMBER>`: WinRM communication port (default: `5985`)
+
+To use HTTPS for WinRM on port 5986, add the `--winrm-ssl` option.
+
+## Bootstrap Chef Infra Client 19 in an air-gapped environment
+
+To bootstrap Chef Infra Client 19 in an air-gapped environment, follow these steps:
+
+1. On an internet-connected computer, download the Chef Infra Client 19 installation scripts and save them to an internal repository that's accessible to your target nodes. For example:
+
+   ```sh
+    wget https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/workstation/install.sh \
+      -O /var/www/internal-repo/chef/rc3/install.sh
+
+    wget https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/workstation/install.ps1 \
+      -O /var/www/internal-repo/chef/rc3/install.ps1
+   ```
+
+1. Modify the installation scripts to reference your internal package locations. For example:
+
+   ```sh
+   sed -i 's|https://chef-hab-migration-tool-bucket.s3.amazonaws.com|<INTERNAL_REPOSITORY>|g' \
+     /var/www/internal-repo/chef/rc3/install.sh
+
+   sed -i 's|https://chef-hab-migration-tool-bucket.s3.amazonaws.com|<INTERNAL_REPOSITORY>|g' \
+     /var/www/internal-repo/chef/rc3/install.ps1
+   ```
+
+   Replace `<INTERNAL_REPOSITORY>` with your air-gapped repository URL, for example, `https://internal-repo.example.com`.
+
+1. Bootstrap Chef Infra Client 19 using the `--bootstrap-url` parameter to point to your internal resources:
+
+   ```sh
+   knife bootstrap <IP_ADDRESS> \
+     -U <USERNAME> \
+     -p <PASSWORD> \
+     -N <NODE_NAME> \
+     --sudo \
+     --bootstrap-url "https://internal-repo.example.com/chef/rc3/install.sh"
+   ```
+
+## More information
+
+- [Chef Infra Client 18.x bootstrap documentation](https://docs.chef.io/install_bootstrap/)
+- [Knife CLI documentation](https://docs.chef.io/workstation/knife/)

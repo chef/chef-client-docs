@@ -80,13 +80,38 @@ To install Chef Workstation, follow these steps:
 
 Configure Chef Workstation for your environment:
 
-```sh
-# Generate initial configuration
-chef-cli config
+1. Generate the initial Workstation configuration:
 
-# Configure Knife for Chef Infra Server connectivity
-knife configure
-```
+    ```sh
+    chef-cli config
+    ```
+
+1. Connect Knife to Chef Infra Server:
+
+    ```sh
+    knife configure
+    ```
+
+### Configure self-signed certificates
+
+To use self-signed certificates, fetch and verify the Chef Infra Server certificates:
+
+1. Fetch the Chef Infra Server SSL certificates:
+
+    ```sh
+    knife ssl fetch
+    ```
+
+1. Verify the certificates:
+
+    ```sh
+    knife ssl check
+    ```
+
+For more information on these commands, see the following:
+
+- [`knife ssl fetch` documentation](https://docs.chef.io/workstation/knife_ssl_fetch/)
+- [`knife ssl check` documentation](https://docs.chef.io/workstation/knife_ssl_check/)
 
 ## Install Chef Workstation tools
 
@@ -107,6 +132,7 @@ Follow these instructions to install a Workstation tool.
     - `chef/chef-vault`
     - `chef/cookstyle`
     - `chef/fauxhai`
+    - `chef/knife`
     - `chef/ohai`
 
     The `--binlink --force` options overwrite any existing package symbolic links in the system's PATH directory with the new version so you can run it directly in the command line.
@@ -121,6 +147,7 @@ Follow these instructions to install a Workstation tool.
     chef-vault <args>
     cookstyle -v
     fauxhai -v
+    knife -v
     ohai -v
     ```
 
@@ -157,3 +184,6 @@ hab pkg search chef/chef-workstation --channel unstable
 - [Chef Workstation documentation](https://docs.chef.io/workstation/)
 - [Chef Habitat documentation](https://docs.chef.io/habitat/)
 - [Upgrade Chef Workstation 26 RC3 and its components](upgrade)
+- [knife CLI documentation](https://docs.chef.io/workstation/knife/)
+- [`knife ssl fetch` documentation](https://docs.chef.io/workstation/knife_ssl_fetch/)
+- [`knife ssl check` documentation](https://docs.chef.io/workstation/knife_ssl_check/)

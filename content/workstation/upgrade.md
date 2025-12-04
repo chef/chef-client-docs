@@ -26,6 +26,7 @@ To update to the latest version, specify the origin and package:
 - `chef/chef-vault`
 - `chef/cookstyle`
 - `chef/fauxhai`
+- `chef/knife`
 - `chef/ohai`
 
 To update to a specific package version, include the version. For example:
