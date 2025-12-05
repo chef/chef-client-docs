@@ -41,5 +41,5 @@ To install the Knife 19 standalone package, follow these steps:
 
 ## Next steps
 
-- [Configure Knife](/workstation/config/#configure-knife)
+- [Configure Knife](/workstation/configure/#configure-knife)
 - [Add a license](license)

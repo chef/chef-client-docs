@@ -14,7 +14,7 @@ Bootstrapping installs Chef Infra Client on a target system and configures it to
 
 Before bootstrapping nodes:
 
-- [Configure Knife 19](/workstation/config/#configure-knife)
+- [Configure Knife 19](/workstation/configure/#configure-knife)
 - For Chef Infra Client 18 or earlier, [configure your Progress Chef license with Knife](license)
 
 Chef Infra Client 19 RC3 doesn't require a license.

@@ -133,7 +133,7 @@ sudo hab pkg binlink --force chef/chef-workstation
 
 Ensure you're running installation commands with `sudo` for system-wide access.
 
-#### Habitat channel issues
+### Habitat channel issues
 
 If the package cannot be found, verify channel availability:
 
@@ -146,6 +146,3 @@ hab pkg search chef/chef-workstation --channel unstable
 - [Chef Workstation documentation](https://docs.chef.io/workstation/)
 - [Chef Habitat documentation](https://docs.chef.io/habitat/)
 - [Upgrade Chef Workstation 26 RC3 and its components](upgrade)
-- [knife CLI documentation](https://docs.chef.io/workstation/knife/)
-- [`knife ssl fetch` documentation](https://docs.chef.io/workstation/knife_ssl_fetch/)
-- [`knife ssl check` documentation](https://docs.chef.io/workstation/knife_ssl_check/)

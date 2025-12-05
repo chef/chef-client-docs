@@ -1,6 +1,6 @@
 +++
 title = "Chef Workstation 26 RC3"
-linkTitle = "Chef Workstation"
+linkTitle = "Workstation"
 
 [menu.workstation]
 title = "Overview"
