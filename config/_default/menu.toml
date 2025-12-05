@@ -82,6 +82,12 @@ title = "Chef Workstation"
 identifier = "workstation"
 
   [[workstation]]
+  title = "Knife"
+  identifier = "workstation/knife"
+  parent = "workstation"
+  weight = 100
+
+  [[workstation]]
   title = "Test Kitchen Enterprise"
   identifier = "workstation/tke"
   parent = "workstation"
