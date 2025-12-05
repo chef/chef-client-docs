@@ -1,6 +1,5 @@
 +++
 title = "Install Chef Workstation and its components"
-linkTitle = "Install"
 
 [menu.workstation]
 title = "Install"
@@ -75,43 +74,6 @@ To install Chef Workstation, follow these steps:
     chef-vault --version
     inspec --version
     ```
-
-## Configure Chef Workstation
-
-Configure Chef Workstation for your environment:
-
-1. Generate the initial Workstation configuration:
-
-    ```sh
-    chef-cli config
-    ```
-
-1. Connect Knife to Chef Infra Server:
-
-    ```sh
-    knife configure
-    ```
-
-### Configure self-signed certificates
-
-To use self-signed certificates, fetch and verify the Chef Infra Server certificates:
-
-1. Fetch the Chef Infra Server SSL certificates:
-
-    ```sh
-    knife ssl fetch
-    ```
-
-1. Verify the certificates:
-
-    ```sh
-    knife ssl check
-    ```
-
-For more information on these commands, see the following:
-
-- [`knife ssl fetch` documentation](https://docs.chef.io/workstation/knife_ssl_fetch/)
-- [`knife ssl check` documentation](https://docs.chef.io/workstation/knife_ssl_check/)
 
 ## Install Chef Workstation tools
 
