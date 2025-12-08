@@ -23,7 +23,7 @@ Knife 19 has the following requirements:
 - Internet connectivity for package download and bootstrapping remote nodes
 - SSH or WinRM to manage remote nodes
 
-## Install Knife standalone package
+## Install the Knife standalone package
 
 To install the Knife 19 standalone package, follow these steps:
 
@@ -42,4 +42,4 @@ To install the Knife 19 standalone package, follow these steps:
 ## Next steps
 
 - [Configure Knife](/workstation/configure/#configure-knife)
-- [Add a license](license)
+- [Add a license](/workstation/license)

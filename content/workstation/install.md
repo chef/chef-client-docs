@@ -77,6 +77,9 @@ To install Chef Workstation, follow these steps:
 
 ## Install Chef Workstation tools
 
+The following applications are included with Chef Workstation,
+but they can be installed as standalone applications.
+
 Follow these instructions to install a Workstation tool.
 
 1. Install a package using [`hab pkg install`](https://docs.chef.io/habitat/habitat_cli/#hab-pkg-install):
@@ -117,7 +120,7 @@ Follow these instructions to install a Workstation tool.
 
 ### Binlinks not found
 
-If commands are not found after installation, verify that Habitat binlinks were created:
+If commands aren't found after installation, verify that Chef Habitat created the binlinks:
 
 ```sh
 ls -la /bin | grep chef
@@ -135,11 +138,16 @@ Ensure you're running installation commands with `sudo` for system-wide access.
 
 ### Habitat channel issues
 
-If the package cannot be found, verify channel availability:
+If the package can't be found, verify channel availability:
 
 ```sh
 hab pkg search chef/chef-workstation --channel unstable
 ```
+
+## Next step
+
+- [Configure Workstation](configure)
+- [Add a license](license)
 
 ## More information
 

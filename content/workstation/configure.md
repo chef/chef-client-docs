@@ -75,6 +75,10 @@ If you've configured Chef Infra Server with self-signed certificates, fetch and 
    knife ssl check
    ```
 
+## Next step
+
+- [Add a Chef license](license)
+
 ## More information
 
 - [Knife setup documentation](https://docs.chef.io/workstation/knife_setup/)

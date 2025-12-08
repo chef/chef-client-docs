@@ -5,7 +5,7 @@ title = "Upgrade Chef Workstation and its components"
 title = "Upgrade"
 identifier = "workstation/upgrade"
 parent = "workstation"
-weight = 30
+weight = 40
 +++
 
 Use the following command to upgrade Chef Workstation or one of its components:

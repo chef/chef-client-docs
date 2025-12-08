@@ -15,11 +15,9 @@ Bootstrapping installs Chef Infra Client on a target system and configures it to
 Before bootstrapping nodes:
 
 - [Configure Knife 19](/workstation/configure/#configure-knife)
-- For Chef Infra Client 18 or earlier, [configure your Progress Chef license with Knife](license)
+- For Chef Infra Client 18 or earlier, [configure your Progress Chef license with Knife](/workstation/license)
 
-Chef Infra Client 19 RC3 doesn't require a license.
-
-Before bootstrapping Windows nodes:
+Before bootstrapping Windows nodes with WinRM:
 
 - Enable and configure Windows Remote Management (WinRM):
 
@@ -37,7 +35,7 @@ Before bootstrapping Windows nodes:
 
 ## Bootstrap Chef Infra Client 19 RC3 on Linux
 
-To bootstrap Chef Infra Client 19, run the following command:
+To bootstrap Chef Infra Client 19 RC3 on a Linux node, run the following command:
 
 ```sh
 knife bootstrap <IP_ADDRESS> \
@@ -59,7 +57,7 @@ The `--bootstrap-url` parameter installs a prerelease version of Chef Infra Clie
 
 ## Bootstrap Chef Infra Client 19 RC3 on Windows
 
-To bootstrap a Windows node, run the following command:
+To bootstrap Chef Infra Client 19 RC3 on a Windows node, run the following command:
 
 ```powershell
 knife bootstrap <IP_ADDRESS> \
@@ -207,7 +205,7 @@ Replace the following:
 ## Bootstrap Chef Infra Client 19 in an air-gapped environment
 
 You can bootstrap Chef Infra Client 19 in an air-gapped environment.
-The following are example steps for configuring the install scripts in an air-gapped environemnt.
+The following are example steps for modifying the install scripts in an air-gapped environment.
 
 1. On an internet-connected computer, download the Chef Infra Client 19 installation scripts and save them to an internal repository that's accessible to your target nodes. For example:
 
@@ -222,14 +220,12 @@ The following are example steps for configuring the install scripts in an air-ga
 1. Modify the installation scripts to reference your internal package locations. For example:
 
    ```sh
-   sed -i 's|https://chef-hab-migration-tool-bucket.s3.amazonaws.com|<INTERNAL_REPOSITORY>|g' \
+   sed -i 's|https://chef-hab-migration-tool-bucket.s3.amazonaws.com|https://internal-repo.example.com|g' \
      /var/www/internal-repo/chef/rc3/install.sh
 
-   sed -i 's|https://chef-hab-migration-tool-bucket.s3.amazonaws.com|<INTERNAL_REPOSITORY>|g' \
+   sed -i 's|https://chef-hab-migration-tool-bucket.s3.amazonaws.com|https://internal-repo.example.com|g' \
      /var/www/internal-repo/chef/rc3/install.ps1
    ```
-
-   Replace `<INTERNAL_REPOSITORY>` with your internal repository URL, for example, `https://internal-repo.example.com`.
 
 1. Bootstrap Chef Infra Client 19 using the `--bootstrap-url` parameter to point to your internal resources:
 
