@@ -70,7 +70,7 @@ chef-cli generate cookbook my_cookbook
 As this is a release candidate, we actively encourage feedback from the community:
 
 - **Issues and Bugs**: Report issues through the official Chef GitHub repository
-- **Feature Requests**: Submit enhancement requests via the Chef community forums
+- **Feature Requests**: Submit enhancement requests through Chef's community forums
 - **Documentation**: See the [Chef documentation](https://docs.chef.io) for comprehensive guides and tutorials
 - **Community Support**: Join the [Chef Community Slack](https://community-slack.chef.io/) for real-time assistance
 

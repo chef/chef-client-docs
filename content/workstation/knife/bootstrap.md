@@ -8,6 +8,8 @@ parent = "workstation/knife"
 weight = 40
 +++
 
+<!-- cspell:words highmem -->
+
 Bootstrapping installs Chef Infra Client on a target system and configures it to communicate with a Chef Infra Server.
 
 ## Prerequisites
@@ -135,7 +137,7 @@ Replace the following:
 - `<AWS_REGION>` with the AWS region for instance deployment, for example, `us-east-1` or `eu-west-1`
 - `<SUBNET_ID>` with the VPC subnet ID for network placement, for example, `subnet-0123456789abcdef0`
 - `<TAG_KEY>=<TAG_VALUE>` with the Resource tags for AWS compliance and management (repeatable). For example, `environment=production`
-- `<BOOTSTRAP_URL>` with the Installation script URL for RC3:
+- `<BOOTSTRAP_URL>` with the RC3 installation script URL:
 
   For Windows nodes:
 
