@@ -97,6 +97,7 @@ Follow these instructions to install a Workstation tool.
     - `chef/chef-vault`
     - `chef/cookstyle`
     - `chef/fauxhai`
+    - `chef/inspec`
     - `chef/knife`
     - `chef/ohai`
 

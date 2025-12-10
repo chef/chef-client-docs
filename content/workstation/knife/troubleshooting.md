@@ -56,10 +56,10 @@ knife ssl fetch && knife ssl check
 
 ## Bootstrap operation times out
 
-If a bootstrap operation times out, increase the timeout value using the `--bootstrap-timeout` option:
+If a bootstrap operation times out, increase the timeout value using the `--session-timeout` option:
 
 ```sh
-knife bootstrap <IP_ADDRESS> --bootstrap-timeout 300
+knife bootstrap <IP_ADDRESS> --session-timeout 300
 ```
 
 Replace the following:
