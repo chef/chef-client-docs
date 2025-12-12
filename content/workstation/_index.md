@@ -1,6 +1,6 @@
 +++
 title = "Chef Workstation 26 RC3"
-linkTitle = "Chef Workstation"
+linkTitle = "Workstation"
 
 [menu.workstation]
 title = "Overview"
@@ -9,120 +9,75 @@ parent = "workstation"
 weight = 10
 +++
 
-Start automating your infrastructure with Chef Workstation. It provides everything you need to get started with Chef, including ad hoc remote execution, remote scanning, configuration tasks, cookbook creation tools, and robust dependency and testing software---all in one easy-to-install package.
+Chef Workstation 26 RC3 delivers a comprehensive, unified toolkit that empowers developers, operations teams, and system administrators to automate infrastructure management and compliance workflows. This release provides all essential tools required to efficiently build, test, and deploy infrastructure code, ensuring seamless configuration management across diverse environments.
 
-## Supported platforms
+Chef Workstation represents a complete development environment for Chef, consolidating critical tools into a single, cohesive package that streamlines the infrastructure-as-code workflow from development through production deployment.
 
-Chef Workstation 26 RC3 is supported on Linux x86-64 systems.
+## What's new in RC3
 
-## Chef Workstation components
+The RC3 release of Chef Workstation 26 represents a significant architectural evolution, featuring:
 
-{{< readfile file="/content/reusable/md/workstation_modularize.md" >}}
+- **Habitat-Based Architecture**: All core components have been migrated to Habitat packages, providing improved dependency management, isolation, and cross-platform consistency
+- **Enhanced Knife Integration**: Full Habitat packaging of Knife and associated drivers, enabling more reliable plugin management and execution
+- **InSpec Integration**: InSpec compliance and security testing framework is now included, providing comprehensive infrastructure and application auditing capabilities
+- **Unified Package Distribution**: Consolidated delivery mechanism through Habitat, simplifying installation and updates across enterprise environments
+- **Improved Tool Accessibility**: All included tools are accessible through standardized wrapper scripts for a consistent user experience
 
-Chef Workstation includes the following tools:
+This release builds upon the foundation established in Chef Workstation 26 RC2, with continued refinement of the Habitat-based packaging system and expanded tool support.
 
-- Berkshelf
-- `chef-cli` CLI
-- Chef Infra Client 19
-- Chef Test Kitchen Enterprise
-- Chef Vault
-- Cookstyle
-- Fauxhai
-- Ohai
+This release builds upon the foundation established in RC2, with continued refinement of the Habitat-based packaging system and expanded tool support.
 
-These tools come bundled with Chef Workstation, however you can install and manage them separately.
-To install and manage Chef Workstation and it's components, see the [Workstation install documentation](/workstation/install/).
+## Included tools and components
 
-{{< note >}}
+Chef Workstation RC3 includes the following fully integrated tools:
 
-We aren't including the Knife and InSpec applications in Chef Workstation for the RC3 release.
+### Core development tools
 
-{{< /note >}}
+- **Chef CLI (**`chef-cli`): Primary command-line interface for Chef development workflows, providing unified access to common Chef operations
+- **Chef Infra Client RC3**: Latest release candidate of the Chef Infra Client, enabling infrastructure automation and configuration management
+- **Knife**: Essential tool for interacting with Chef Infra Server, managing nodes, cookbooks, roles, and other Chef objects
+- **InSpec**: Latest release candidate of InSpec 7, enabling compliance and security testing.
 
-### chef-workstation CLI
+### Testing and quality assurance
 
-This release introduces the new `chef-workstation` CLI, which has the `--version` (`-v`) option.
+- **Chef Test Kitchen Enterprise**: Comprehensive testing framework for validating infrastructure code across multiple platforms and environments
+- **InSpec**: Compliance and security testing framework for auditing infrastructure and applications against security standards and regulations
+- **Cookstyle**: Ruby and Chef cookbook linting tool that enforces style guidelines and best practices
+- **Fauxhai**: Mock Ohai data generator for testing purposes, enabling rapid cookbook testing without requiring actual systems
 
-```sh
-chef-workstation -v
-Product Name: Chef Workstation
-Product Version: 0.1.4
+### Dependency and secret management
 
-Default Installed Components:
+- **Berkshelf**: Cookbook dependency manager that streamlines the process of managing and retrieving cookbook dependencies
+- **Chef Vault**: Secure data management tool for encrypting and managing secrets within Chef workflows
+- **Ohai**: System profiling tool that detects and reports system attributes for use in Chef recipes
 
-Chef Infra Client Version: 19.0.85
-Chef CLI Version: 5.6.17
-Chef Test Kitchen Enterprise Version: 1.0.14
-Berkshelf Version: 8.0.17
-Ohai Version: 19.0.7
-Fauxhai Version: 9.3.22
-Chef Vault Version: 4.1.15
-Cookstyle Version: 7.32.13
-```
+## Known limitations
 
-### Berkshelf
+### `chef` command deprecation
 
-Berkshelf is a dependency manager for Chef cookbooks. With it, you can depend on community cookbooks and include them in your workflow. You can also ensure that your CI systems reproducibly select the same cookbook versions, and can upload and bundle cookbook dependencies without needing a locally maintained copy. Berkshelf is included in Chef Workstation.
-
-For more information, see the [Berkshelf documentation](https://docs.chef.io/workstation/berkshelf/).
-
-### chef-cli CLI
-
-The `chef-cli` CLI replaces the `chef` CLI, which is deprecated with this release.
-You can use the `chef-cli` command to execute all commands that were executed with the `chef` command.
-
-For example, replace:
+The legacy `chef` command is deprecated and isn't functional in this release. All users must transition to using `chef-cli` commands instead. This change aligns with Chef's strategic direction toward a more modular and maintainable command structure.
 
 ```sh
-chef generate cookbook COOKBOOK_PATH/COOKBOOK_NAME (options)
+# Deprecated (will not work)
+chef generate cookbook my_cookbook
+
+# Correct usage
+chef-cli generate cookbook my_cookbook
 ```
 
-with:
+## Support and feedback
 
-```sh
-chef-cli generate cookbook COOKBOOK_PATH/COOKBOOK_NAME (options)
-```
+As this is a release candidate, we actively encourage feedback from the community:
 
-The following commands are unavailable in this release:
+- **Issues and Bugs**: Report issues through the official Chef GitHub repository
+- **Feature Requests**: Submit enhancement requests through Chef's community forums
+- **Documentation**: See the [Chef documentation](https://docs.chef.io) for comprehensive guides and tutorials
+- **Community Support**: Join the [Chef Community Slack](https://community-slack.chef.io/) for real-time assistance
 
-- `chef-cli capture`
-- `chef-cli report`
-- `chef-cli supermarket`
+## Additional resources
 
-Additionally, the `chef {-v|--version}` command is replaced by `chef-workstation {-v|--version}`.
-
-For command syntax and usage, see the [`chef` reference documentation](https://docs.chef.io/workstation/ctl_chef/).
-
-### Chef Infra Client
-
-See the [Chef Infra Client documentation](/).
-
-### Chef Test Kitchen Enterprise
-
-Use Chef Test Kitchen Enterprise to automatically test cookbooks across any combination of platforms and test suites.
-
-For more information, see the [Test Kitchen Enterprise documentation](kitchen).
-
-### Chef Vault
-
-Chef Vault lets you encrypt a data bag item using asymmetric keys. When you provide Chef Vault with a list of public keys from your nodes, only the nodes with public keys entered on this list can decrypt the data bag item contents. Chef Vault is included in Chef Workstation and Chef Infra Client by way of the chef-vault Ruby Gem. chef-vault uses the knife vault subcommand.
-
-For more information, see the [Chef Vault documentation](https://docs.chef.io/workstation/chef_vault/).
-
-### Cookstyle
-
-Cookstyle is a code linting tool that helps you write better Chef Infra cookbooks by detecting and automatically correcting style, syntax, and logic mistakes in your code.
-
-For more information, see the [Cookstyle documentation](https://docs.chef.io/workstation/cookstyle/).
-
-### Fauxhai
-
-Fauxhai allows you to mock out Ohai data in your Chef testing.
-
-For more information, see the [Fauxhai repository](https://github.com/chef/fauxhai).
-
-### Ohai
-
-Ohai is a tool for collecting system configuration data, which it then provides to Chef Infra Client to use in cookbooks.
-
-For more information, see the [Ohai documentation](https://docs.chef.io/ohai/).
+- [Chef Workstation documentation](https://docs.chef.io/workstation/)
+- [Chef Habitat documentation](https://docs.chef.io/habitat/)
+- [Chef Infra Client documentation](https://docs.chef.io/chef_client_overview/)
+- [Test Kitchen documentation](https://kitchen.ci/)
+- [Cookstyle documentation](https://docs.chef.io/workstation/cookstyle/)

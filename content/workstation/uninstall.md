@@ -5,7 +5,7 @@ title = "Uninstall Chef Workstation and its tools"
 title = "Uninstall"
 identifier = "workstation/uninstall"
 parent = "workstation"
-weight = 40
+weight = 50
 +++
 
 The page documents how to uninstall Chef Workstation and its component tools.
@@ -18,7 +18,7 @@ To uninstall Chef Workstation, use the [`hab pkg uninstall`](https://docs.chef.i
 sudo hab pkg uninstall chef/chef-workstation
 ```
 
-## Uninstall Chef Workstation packages
+## Uninstall Chef Workstation component packages
 
 To uninstall a Workstation tool, use the [`hab pkg uninstall`](https://docs.chef.io/habitat/habitat_cli/#hab-pkg-uninstall) command:
 
@@ -35,6 +35,7 @@ Replace `<PACKAGE_IDENT>` with one of the following packages:
 - `chef/chef-vault`
 - `chef/cookstyle`
 - `chef/fauxhai`
+- `chef/knife`
 - `chef/ohai`
 
 ## Uninstall a specific package version
