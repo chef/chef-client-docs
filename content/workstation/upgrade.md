@@ -5,7 +5,7 @@ title = "Upgrade Chef Workstation and its components"
 title = "Upgrade"
 identifier = "workstation/upgrade"
 parent = "workstation"
-weight = 30
+weight = 40
 +++
 
 Use the following command to upgrade Chef Workstation or one of its components:
@@ -16,7 +16,7 @@ sudo hab pkg install --binlink --force <PACKAGE_IDENT> --channel unstable
 
 Replace `<PACKAGE_IDENT>` with the package identifier.
 
-To update to the latest version, just specify the package:
+To update to the latest version, specify the origin and package:
 
 - `chef/chef-workstation`
 - `chef/berkshelf`
@@ -26,9 +26,10 @@ To update to the latest version, just specify the package:
 - `chef/chef-vault`
 - `chef/cookstyle`
 - `chef/fauxhai`
+- `chef/knife`
 - `chef/ohai`
 
-To update to a specific package version, include version. For example:
+To update to a specific package version, include the version. For example:
 
 - `chef/<PACKAGE>/<VERSION>`
 
