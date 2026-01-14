@@ -22,20 +22,10 @@ Chef Workstation 26 RC3 has the following requirements:
 ## Prerequisites
 
 We use Chef Habitat to distribute and install Chef Workstation and its components.
-If you haven't already, you must download and install Chef Habitat.
-For more information, see the [Chef Habitat documentation](https://docs.chef.io/habitat/).
+See the following guides to install and configure Chef Habitat:
 
-1. Download and install Chef Habitat:
-
-    ```sh
-    curl https://raw.githubusercontent.com/habitat-sh/habitat/main/components/hab/install.sh | sudo bash -s -- -c stable
-    ```
-
-1. Verify Chef Habitat is installed.
-
-    ```sh
-    hab --version
-    ```
+- [Install Chef Habitat](https://docs.chef.io/habitat/install_habitat/)
+- [Create a Chef Habitat Builder profile](https://docs.chef.io/habitat/builder_profile/)
 
 ## Install Chef Workstation
 
