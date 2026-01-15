@@ -6,10 +6,10 @@ title = "Custom resources glossary"
 
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "Glossary"
-    identifier = "chef_infra/resources/custom_resources/glossary"
-    parent = "chef_infra/resources/custom_resources"
+    identifier = "resources/custom/glossary"
+    parent = "resources/custom"
     weight = 200
 +++
 
@@ -630,7 +630,7 @@ logs of the Chef Infra Client run.
 
 {{< readfile file="/content/reusable/md/agentless_custom_resource.md" >}}
 
-For more information on Target Mode, see the [Target Mode documentation]({{< relref "/agentless.md" >}}).
+For more information on Agentless Mode, see the [Agentless Mode documentation]({{< relref "/run/agentless.md" >}}).
 
 ## unified_mode
 

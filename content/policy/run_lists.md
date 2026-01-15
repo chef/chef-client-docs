@@ -3,10 +3,10 @@ title = "About Run-lists"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.policy]
     title = "Run-lists"
-    identifier = "chef_infra/policyfiles/run_lists.md Run-lists"
-    parent = "chef_infra/policyfiles"
+    identifier = "policyfiles/run_lists.md Run-lists"
+    parent = "policyfiles"
     weight = 50
 +++
 <!-- markdownlint-disable-file MD024 -->

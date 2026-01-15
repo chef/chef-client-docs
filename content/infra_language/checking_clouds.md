@@ -5,8 +5,8 @@ draft = false
 [menu]
   [menu.infra]
     title = "Checking Clouds"
-    identifier = "chef_infra/infra_language/checking_clouds.md Checking Clouds"
-    parent = "chef_infra/infra_language"
+    identifier = "infra_language/checking_clouds.md Checking Clouds"
+    parent = "infra_language"
 +++
 
 Chef Infra Client 15.8 and later include a number of helper methods for checking if a node is running in a public or private cloud.

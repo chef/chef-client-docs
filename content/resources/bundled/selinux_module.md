@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "selinux_module"
-    identifier = "chef_infra/resources/selinux_module"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/selinux_module"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the selinux_module.yaml file in the data/infra/resources directory. -->

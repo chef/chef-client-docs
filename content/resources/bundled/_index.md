@@ -2,6 +2,7 @@
 title = "All Infra Resources"
 draft = false
 description = "This reference describes each of the resources available to Chef Infra Client, including a list of actions, properties, and usage examples."
+linkTitle = "Bundled resources"
 
 
 data_path = ["infra","resources"]
@@ -9,10 +10,10 @@ layout = "infra_resources_all"
 toc_layout = "infra_resources_all_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "All Resources (Single Page)"
-    identifier = "chef_infra/resources/All Resources"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/All Resources"
+    parent = "resources/bundled"
     weight = 60
 +++
 

@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "notify_group"
-    identifier = "chef_infra/resources/notify_group"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/notify_group"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the notify_group.yaml file in the data/infra/resources directory. -->

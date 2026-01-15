@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "chef_handler"
-    identifier = "chef_infra/resources/chef_handler"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/chef_handler"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the chef_handler.yaml file in the data/infra/resources directory. -->

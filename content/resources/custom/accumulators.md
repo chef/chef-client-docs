@@ -3,10 +3,10 @@ title = "Accumulators"
 
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "Accumulators"
-    identifier = "chef_infra/resources/custom_resources/accumulators"
-    parent = "chef_infra/resources/custom_resources"
+    identifier = "resources/custom/accumulators"
+    parent = "resources/custom"
     weight = 20
 +++
 

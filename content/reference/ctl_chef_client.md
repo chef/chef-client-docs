@@ -3,10 +3,10 @@ title = "Chef Infra Client (executable)"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.reference]
     title = "chef-client (executable)"
-    identifier = "chef_infra/reference/ctl_chef_client.md chef-client Commands"
-    parent = "chef_infra/reference"
+    identifier = "reference/ctl_chef_client.md chef-client Commands"
+    parent = "reference"
     weight = 10
 +++
 <!-- markdownlint-disable-file MD036 MD046 -->
@@ -462,7 +462,7 @@ against using chef-zero as a persistent Chef Infra Server.
 
 {{< /note >}}
 
-Changed in Chef Infra Client 12.8, now chef-zero supports all Chef Server API
+Changed in Chef Infra Client 12.8, now chef-zero supports all Chef Infra Server API
 version 12 endpoints, except `/universe`.
 
 ### Use Encrypted Data Bags
@@ -484,7 +484,7 @@ mode**
 
 ## Run as a Service
 
-The Chef Infra Client can be run as a daemon. Use the **Chef Infra
+Chef Infra Client can be run as a daemon. Use the **Chef Infra
 Client** cookbook to configure the Chef Infra Client as a daemon. Add
 the `default` recipe to a node's run-list, and then use attributes in
 that cookbook to configure the behavior of the Chef Infra Client. For

@@ -3,10 +3,10 @@ title = "About Cookbook Versioning"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.cookbooks]
     title = "Versioning Cookbooks"
-    identifier = "chef_infra/cookbook_reference/cookbook_versioning.md Versioning Cookbooks"
-    parent = "chef_infra/cookbook_reference"
+    identifier = "cookbooks/cookbook_versioning.md Versioning Cookbooks"
+    parent = "cookbooks"
     weight = 150
 +++
 <!-- markdownlint-disable-file MD033 -->

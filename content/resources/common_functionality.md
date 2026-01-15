@@ -3,10 +3,10 @@ title = "Common Resource Functionality"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "Common Resource Functionality"
-    identifier = "chef_infra/resources/resource_common.md Common Resource Functionality"
-    parent = "chef_infra/resources"
+    identifier = "resources/resource_common.md Common Resource Functionality"
+    parent = "resources"
     weight = 40
 +++
 <!-- markdownlint-disable-file MD036 -->

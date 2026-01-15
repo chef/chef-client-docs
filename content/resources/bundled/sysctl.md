@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "sysctl"
-    identifier = "chef_infra/resources/sysctl"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/sysctl"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the sysctl.yaml file in the data/infra/resources directory. -->

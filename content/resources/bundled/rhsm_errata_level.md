@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "rhsm_errata_level"
-    identifier = "chef_infra/resources/rhsm_errata_level"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/rhsm_errata_level"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the rhsm_errata_level.yaml file in the data/infra/resources directory. -->

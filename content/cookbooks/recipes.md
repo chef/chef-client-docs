@@ -3,10 +3,10 @@ title = "About Recipes"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.cookbooks]
     title = "About Recipes"
-    identifier = "chef_infra/cookbook_reference/recipes/recipes.md About Recipes"
-    parent = "chef_infra/cookbook_reference/recipes"
+    identifier = "cookbooks/recipes/recipes.md About Recipes"
+    parent = "cookbooks/recipes"
     weight = 10
 +++
 

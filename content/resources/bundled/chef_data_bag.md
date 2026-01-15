@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "chef_data_bag"
-    identifier = "chef_infra/resources/chef_data_bag"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/chef_data_bag"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the chef_data_bag.yaml file in the data/infra/resources directory. -->

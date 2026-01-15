@@ -5,8 +5,8 @@ draft = false
 [menu]
   [menu.infra]
     title = "Editing Resources"
-    identifier = "chef_infra/infra_language/editing_resources.md Editing Resources"
-    parent = "chef_infra/infra_language"
+    identifier = "infra_language/editing_resources.md Editing Resources"
+    parent = "infra_language"
 +++
 <!-- markdownlint-disable-file MD026 -->
 ## declare_resource

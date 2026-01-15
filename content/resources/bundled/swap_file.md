@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "swap_file"
-    identifier = "chef_infra/resources/swap_file"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/swap_file"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the swap_file.yaml file in the data/infra/resources directory. -->

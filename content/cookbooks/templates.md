@@ -3,10 +3,10 @@ title = "About Templates"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.cookbooks]
     title = "Templates"
-    identifier = "chef_infra/cookbook_reference/templates.md Templates"
-    parent = "chef_infra/cookbook_reference"
+    identifier = "cookbooks/templates.md Templates"
+    parent = "cookbooks"
     weight = 100
 +++
 

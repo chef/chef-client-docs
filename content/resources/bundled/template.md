@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "template"
-    identifier = "chef_infra/resources/template"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/template"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the template.yaml file in the data/infra/resources directory. -->

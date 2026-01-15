@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "chef_sleep"
-    identifier = "chef_infra/resources/chef_sleep"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/chef_sleep"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the chef_sleep.yaml file in the data/infra/resources directory. -->

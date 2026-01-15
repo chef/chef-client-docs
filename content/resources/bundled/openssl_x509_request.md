@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "openssl_x509_request"
-    identifier = "chef_infra/resources/openssl_x509_request"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/openssl_x509_request"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the openssl_x509_request.yaml file in the data/infra/resources directory. -->

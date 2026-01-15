@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "zypper_repository"
-    identifier = "chef_infra/resources/zypper_repository"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/zypper_repository"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the zypper_repository.yaml file in the data/infra/resources directory. -->

@@ -3,10 +3,10 @@ title = "About Environments"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.policy]
     title = "Environments"
-    identifier = "chef_infra/policyfiles/environments.md Environments"
-    parent = "chef_infra/policyfiles"
+    identifier = "policyfiles/environments.md Environments"
+    parent = "policyfiles"
     weight = 60
 +++
 <!-- markdownlint-disable-file MD033 -->

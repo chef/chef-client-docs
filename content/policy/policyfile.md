@@ -3,10 +3,10 @@ title = "About Policyfiles"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.policy]
     title = "About Policyfiles"
-    identifier = "chef_infra/policyfiles/policyfile.md About Policyfiles"
-    parent = "chef_infra/policyfiles"
+    identifier = "policyfiles/policyfile.md About Policyfiles"
+    parent = "policyfiles"
     weight = 20
 +++
 

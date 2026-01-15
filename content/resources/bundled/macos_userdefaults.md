@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "macos_userdefaults"
-    identifier = "chef_infra/resources/macos_userdefaults"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/macos_userdefaults"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the macos_userdefaults.yaml file in the data/infra/resources directory. -->

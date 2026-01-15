@@ -5,8 +5,8 @@ draft = false
 [menu]
   [menu.infra]
     title = "Cookbook Execution"
-    identifier = "chef_infra/infra_language/cookbook_execution.md Cookbook Execution"
-    parent = "chef_infra/infra_language"
+    identifier = "infra_language/cookbook_execution.md Cookbook Execution"
+    parent = "infra_language"
 +++
 
 The Chef Infra Language includes helper methods for gathering information on the execution of the Chef Infra Client recipe and resource code. This information can be used in recipes and resources to take specific actions.

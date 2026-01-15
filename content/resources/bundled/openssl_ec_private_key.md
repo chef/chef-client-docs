@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "openssl_ec_private_key"
-    identifier = "chef_infra/resources/openssl_ec_private_key"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/openssl_ec_private_key"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the openssl_ec_private_key.yaml file in the data/infra/resources directory. -->

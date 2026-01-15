@@ -3,10 +3,10 @@ title = "Get Started"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.cookbooks]
     title = "Cookbook Directory"
-    identifier = "chef_infra/cookbook_reference/cookbook_repo.md Cookbook Repo"
-    parent = "chef_infra/cookbook_reference"
+    identifier = "cookbooks/cookbook_repo.md Cookbook Repo"
+    parent = "cookbooks"
     weight = 20
 +++
 

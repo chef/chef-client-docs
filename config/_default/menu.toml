@@ -59,33 +59,47 @@ identifier = "overview"
 title = "Install"
 identifier = "install"
 
-  [[install]]
-  title = "Migration tool"
-  identifier = "install/migration_tool"
-  parent = "install"
+[[run]]
+title = "Run"
+identifier = "run"
 
-  [[install]]
-  title = "Native installer"
-  identifier = "install/installer"
-  parent = "install"
-
-[[licensing]]
-title = "Licensing"
-identifier = "licensing"
-
-[[agentless]]
-title = "Agentless"
-identifier = "agentless"
-
-[[resources]]
-title = "Resources"
-identifier = "resources"
+    [[run]]
+    title = "Chef Solo"
+    identifier = "run/chef_solo"
+    parent = "run"
 
 [[cookbooks]]
 title = "Cookbooks"
 identifier = "cookbooks"
 
+  [[cookbooks]]
+  title = "Recipes"
+  identifier = "cookbooks/recipes"
+  parent = "cookbooks"
+
+  [[cookbooks]]
+  title = "Attributes"
+  identifier = "cookbooks/attributes"
+  parent = "cookbooks"
+
+[[resources]]
+title = "Resources"
+identifier = "resources"
+
+  [[resources]]
+  title = "Bundled resources"
+  parent = "resources"
+  identifier = "resources/bundled"
+
+  [[resources]]
+  title = "Custom resources"
+  parent = "resources"
+  identifier = "resources/custom"
+
 [[infra_language]]
 title = "Infra language"
 identifier = "infra_language"
 
+[[reference]]
+title = "Reference"
+identifier = "reference"

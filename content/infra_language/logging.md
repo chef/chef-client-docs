@@ -5,8 +5,8 @@ draft = false
 [menu]
   [menu.infra]
     title = "Logging"
-    identifier = "chef_infra/infra_language/logging.md Logging"
-    parent = "chef_infra/infra_language"
+    identifier = "infra_language/logging.md Logging"
+    parent = "infra_language"
 +++
 
 ## Log Entries

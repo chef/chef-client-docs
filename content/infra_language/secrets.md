@@ -5,8 +5,8 @@ draft = false
 [menu]
   [menu.infra]
     title = "Secrets Management Integrations"
-    identifier = "chef_infra/infra_language/secrets.md Secrets Management Integrations"
-    parent = "chef_infra/infra_language"
+    identifier = "infra_language/secrets.md Secrets Management Integrations"
+    parent = "infra_language"
 +++
 
 The Secrets Management Integration helper is a beta feature starting in Chef Infra Client 17.5 and became a fully supported feature in Chef Infra Client 18.

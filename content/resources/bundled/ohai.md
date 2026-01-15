@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "ohai"
-    identifier = "chef_infra/resources/ohai"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/ohai"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the ohai.yaml file in the data/infra/resources directory. -->

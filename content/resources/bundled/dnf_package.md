@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "dnf_package"
-    identifier = "chef_infra/resources/dnf_package"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/dnf_package"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the dnf_package.yaml file in the data/infra/resources directory. -->

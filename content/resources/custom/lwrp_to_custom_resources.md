@@ -5,10 +5,10 @@ title = "Migrating from LWRPs to Custom Resources"
 
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "Migrating from LWRPs"
-    identifier = "chef_infra/resources/custom_resources/lwrp"
-    parent = "chef_infra/resources/custom_resources"
+    identifier = "resources/custom/lwrp"
+    parent = "resources/custom"
     weight = 70
 +++
 

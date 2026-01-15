@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "windows_user_privilege"
-    identifier = "chef_infra/resources/windows_user_privilege"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/windows_user_privilege"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the windows_user_privilege.yaml file in the data/infra/resources directory. -->

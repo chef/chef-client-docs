@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "python"
-    identifier = "chef_infra/resources/python"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/python"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the python.yaml file in the data/infra/resources directory. -->

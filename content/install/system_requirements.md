@@ -3,10 +3,10 @@ title = "System requirements"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.install]
     title = "System requirements"
-    identifier = "chef_infra/install/chef_system_requirements.md System Requirements"
-    parent = "chef_infra/install"
+    identifier = "install/chef_system_requirements.md System Requirements"
+    parent = "install"
     weight = 5
 +++
 

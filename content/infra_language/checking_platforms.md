@@ -5,8 +5,8 @@ draft = false
 [menu]
   [menu.infra]
     title = "Checking Platforms"
-    identifier = "chef_infra/infra_language/checking_platforms.md Checking Platforms"
-    parent = "chef_infra/infra_language"
+    identifier = "infra_language/checking_platforms.md Checking Platforms"
+    parent = "infra_language"
 +++
 
 ## platform?

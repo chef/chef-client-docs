@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "paludis_package"
-    identifier = "chef_infra/resources/paludis_package"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/paludis_package"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the paludis_package.yaml file in the data/infra/resources directory. -->

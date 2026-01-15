@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "chocolatey_feature"
-    identifier = "chef_infra/resources/chocolatey_feature"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/chocolatey_feature"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the chocolatey_feature.yaml file in the data/infra/resources directory. -->

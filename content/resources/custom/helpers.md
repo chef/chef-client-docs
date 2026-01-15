@@ -3,10 +3,10 @@ title = "Helpers"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "Helpers"
-    identifier = "chef_infra/resources/custom_resources/helpers Library Helpers"
-    parent = "chef_infra/resources/custom_resources"
+    identifier = "resources/custom/helpers Library Helpers"
+    parent = "resources/custom"
     weight = 30
 +++
 

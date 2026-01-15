@@ -3,10 +3,10 @@ title = "Uninstall"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.install]
     title = "Uninstall"
-    identifier = "chef_infra/install/uninstall.md Uninstall"
-    parent = "chef_infra/install"
+    identifier = "install/uninstall.md Uninstall"
+    parent = "install"
     weight = 80
 +++
 

@@ -5,10 +5,10 @@ title = "Converting Definitions to Custom Resources"
 
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "Migrating from Definitions"
-    identifier = "chef_infra/resources/custom_resources/definitions.md Migrating from Definitions"
-    parent = "chef_infra/resources/custom_resources"
+    identifier = "resources/custom/definitions.md Migrating from Definitions"
+    parent = "resources/custom"
     weight = 50
 +++
 

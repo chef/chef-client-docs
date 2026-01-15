@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "cookbook_file"
-    identifier = "chef_infra/resources/cookbook_file"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/cookbook_file"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the cookbook_file.yaml file in the data/infra/resources directory. -->

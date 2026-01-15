@@ -3,10 +3,10 @@ title = "Chef Deprecation Warnings"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.reference]
     title = "Deprecations"
-    identifier = "chef_infra/reference/chef_deprecations_client.md Deprecations"
-    parent = "chef_infra/reference"
+    identifier = "reference/chef_deprecations_client.md Deprecations"
+    parent = "reference"
     weight = 90
 +++
 

@@ -3,10 +3,10 @@ title = "Cookbook Files"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.cookbooks]
     title = "Files"
-    identifier = "chef_infra/cookbook_reference/files.md Files"
-    parent = "chef_infra/cookbook_reference"
+    identifier = "cookbooks/files.md Files"
+    parent = "cookbooks"
     weight = 40
 +++
 

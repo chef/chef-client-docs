@@ -3,10 +3,10 @@ title = "Custom Resources Notes"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "Migration Notes"
-    identifier = "chef_infra/resources/custom_resources/custom_resources_notes.md Custom Resource Guide"
-    parent = "chef_infra/resources/custom_resources"
+    identifier = "resources/custom/custom_resources_notes.md Custom Resource Guide"
+    parent = "resources/custom"
     weight = 70
 +++
 

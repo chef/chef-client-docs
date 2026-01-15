@@ -5,8 +5,8 @@ draft = false
 [menu]
   [menu.infra]
     title = "Windows"
-    identifier = "chef_infra/infra_language/windows.md Windows"
-    parent = "chef_infra/infra_language"
+    identifier = "infra_language/windows.md Windows"
+    parent = "infra_language"
 +++
 
 Chef Infra Client 15.8 and later include Windows-specific helpers for checking platform and package information.

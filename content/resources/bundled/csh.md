@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "csh"
-    identifier = "chef_infra/resources/csh"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/csh"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the csh.yaml file in the data/infra/resources directory. -->

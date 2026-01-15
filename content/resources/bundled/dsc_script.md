@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "dsc_script"
-    identifier = "chef_infra/resources/dsc_script"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/dsc_script"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the dsc_script.yaml file in the data/infra/resources directory. -->

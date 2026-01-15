@@ -5,8 +5,8 @@ draft = false
 [menu]
   [menu.infra]
     title = "Shelling Out"
-    identifier = "chef_infra/infra_language/shelling_out.md Shelling Out"
-    parent = "chef_infra/infra_language"
+    identifier = "infra_language/shelling_out.md Shelling Out"
+    parent = "infra_language"
 +++
 <!-- markdownlint-disable-file MD026 -->
 In most cases when you need to run a particular command in a cookbook, you'll want to use the [execute resource](/resources/execute/). Helper methods for shelling out can be useful when writing custom resources or other more advanced Ruby code.

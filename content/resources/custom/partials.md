@@ -5,10 +5,10 @@ title = "Partials"
 
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "Partials"
-    identifier = "chef_infra/resources/custom_resources/partials"
-    parent = "chef_infra/resources/custom_resources"
+    identifier = "resources/custom/partials"
+    parent = "resources/custom"
     weight = 40
 +++
 
