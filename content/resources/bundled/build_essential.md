@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "build_essential"
-    identifier = "chef_infra/resources/build_essential"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/build_essential"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the build_essential.yaml file in the data/infra/resources directory. -->

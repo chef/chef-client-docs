@@ -5,8 +5,8 @@ draft = false
 [menu]
   [menu.infra]
     title = "Search"
-    identifier = "chef_infra/infra_language/search.md Search"
-    parent = "chef_infra/infra_language"
+    identifier = "infra_language/search.md Search"
+    parent = "infra_language"
 +++
 
 ## search

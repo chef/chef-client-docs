@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "kernel_module"
-    identifier = "chef_infra/resources/kernel_module"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/kernel_module"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the kernel_module.yaml file in the data/infra/resources directory. -->

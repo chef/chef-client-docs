@@ -5,8 +5,8 @@ draft = false
 [menu]
   [menu.infra]
     title = "Node Tags"
-    identifier = "chef_infra/infra_language/node_tags.md Node Tags"
-    parent = "chef_infra/infra_language"
+    identifier = "infra_language/node_tags.md Node Tags"
+    parent = "infra_language"
 +++
 
 {{< readfile file="content/reusable/md/chef_tags.md" >}}

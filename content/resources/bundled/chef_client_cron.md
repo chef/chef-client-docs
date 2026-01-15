@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "chef_client_cron"
-    identifier = "chef_infra/resources/chef_client_cron"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/chef_client_cron"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the chef_client_cron.yaml file in the data/infra/resources directory. -->

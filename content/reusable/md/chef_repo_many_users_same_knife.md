@@ -5,7 +5,7 @@ write a single config.rb file that can be used by all users within your
 organization. This single file can also be checked into your chef-repo,
 allowing users to load different config.rb files based on which
 chef-repo they execute the commands from. This can be especially useful
-when each chef-repo points to a different chef server or organization.
+when each chef-repo points to a different Chef Infra Server or organization.
 
 Example config.rb:
 

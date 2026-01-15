@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "powershell_package_source"
-    identifier = "chef_infra/resources/powershell_package_source"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/powershell_package_source"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the powershell_package_source.yaml file in the data/infra/resources directory. -->

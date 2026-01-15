@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "cron_access"
-    identifier = "chef_infra/resources/cron_access"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/cron_access"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the cron_access.yaml file in the data/infra/resources directory. -->

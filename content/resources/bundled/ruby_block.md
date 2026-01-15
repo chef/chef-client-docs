@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "ruby_block"
-    identifier = "chef_infra/resources/ruby_block"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/ruby_block"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the ruby_block.yaml file in the data/infra/resources directory. -->

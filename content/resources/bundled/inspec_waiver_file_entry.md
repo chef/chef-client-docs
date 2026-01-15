@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "inspec_waiver_file_entry"
-    identifier = "chef_infra/resources/inspec_waiver_file_entry"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/inspec_waiver_file_entry"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the inspec_waiver_file_entry.yaml file in the data/infra/resources directory. -->

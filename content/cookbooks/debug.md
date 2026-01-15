@@ -3,10 +3,10 @@ title = "Debug Recipes, Chef Infra Client Runs"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.cookbooks]
     title = "Debug Recipes, Client Runs"
-    identifier = "chef_infra/cookbook_reference/recipes/debug.md Debug Recipes, Client Runs"
-    parent = "chef_infra/cookbook_reference/recipes"
+    identifier = "cookbooks/recipes/debug.md Debug Recipes, Client Runs"
+    parent = "cookbooks/recipes"
     weight = 20
 +++
 

@@ -3,10 +3,10 @@ title = "metadata.rb"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.cookbooks]
     title = "metadata.rb"
-    identifier = "chef_infra/cookbook_reference/config_rb_metadata.md metadata.rb Configuration"
-    parent = "chef_infra/cookbook_reference"
+    identifier = "cookbooks/config_rb_metadata.md metadata.rb Configuration"
+    parent = "cookbooks"
     weight = 60
 +++
 

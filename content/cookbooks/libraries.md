@@ -3,10 +3,10 @@ title = "About Libraries"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.cookbooks]
     title = "Libraries"
-    identifier = "chef_infra/cookbook_reference/libraries.md Libraries"
-    parent = "chef_infra/cookbook_reference"
+    identifier = "cookbooks/libraries.md Libraries"
+    parent = "cookbooks"
     weight = 50
 +++
 

@@ -1,12 +1,13 @@
 +++
 title = "About Resources"
 draft = false
+linkTitle = "Resources"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "About Resources"
-    identifier = "chef_infra/resources/resource.md About Resources"
-    parent = "chef_infra/resources"
+    identifier = "resources/resource.md About Resources"
+    parent = "resources"
     weight = 10
 +++
 <!-- markdownlint-disable-file MD033 -->

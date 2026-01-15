@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "hostname"
-    identifier = "chef_infra/resources/hostname"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/hostname"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the hostname.yaml file in the data/infra/resources directory. -->

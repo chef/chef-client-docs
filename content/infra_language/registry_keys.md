@@ -5,8 +5,8 @@ draft = false
 [menu]
   [menu.infra]
     title = "Reading Registry Keys"
-    identifier = "chef_infra/infra_language/registry_key.md Reading Registry Keys"
-    parent = "chef_infra/infra_language"
+    identifier = "infra_language/registry_key.md Reading Registry Keys"
+    parent = "infra_language"
 +++
 
 {{< readfile file="content/reusable/md/infra_lang_method_windows_methods.md" >}}

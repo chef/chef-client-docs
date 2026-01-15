@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "windows_dns_zone"
-    identifier = "chef_infra/resources/windows_dns_zone"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/windows_dns_zone"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the windows_dns_zone.yaml file in the data/infra/resources directory. -->

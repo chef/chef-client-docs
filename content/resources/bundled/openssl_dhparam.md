@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "openssl_dhparam"
-    identifier = "chef_infra/resources/openssl_dhparam"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/openssl_dhparam"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the openssl_dhparam.yaml file in the data/infra/resources directory. -->

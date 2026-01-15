@@ -3,10 +3,10 @@ title = "Upgrade Chef Infra Client"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.install]
     title = "Upgrade"
-    identifier = "chef_infra/install/upgrade_client.md"
-    parent = "chef_infra/install"
+    identifier = "install/upgrade_client.md"
+    parent = "install"
     weight = 50
 +++
 

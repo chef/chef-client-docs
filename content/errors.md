@@ -5,8 +5,8 @@ draft = false
 [menu]
   [menu.infra]
     title = "Troubleshooting"
-    identifier = "chef_infra/reference/errors.md Troubleshooting"
-    parent = "chef_infra/reference"
+    identifier = "Troubleshooting"
+    parent = "chef_infra"
 +++
 
 The following sections describe how to troubleshoot Chef Infra Server, Chef Infra Client, and Chef Workstation.
@@ -507,7 +507,7 @@ One (or more) of the PostgreSQL databases already exists.
 #### Resolution
 
 - Verify that the `opscode_chef`, `oc_id`, and/or `bifrost` databases exist, and then verify that they're not being used by another internal application
-- Back up the PostgreSQL data, remove the existing databases, and reconfigure the Chef server
+- Back up the PostgreSQL data, remove the existing databases, and reconfigure the Chef Infra Server
 
 ### CSPG017 (user exists)
 
@@ -519,7 +519,7 @@ One (or more) of the PostgreSQL predefined users already exists.
 
 - The `opscode_chef`, `ospcode_chef_ro`, `bifrost`, `bifrost_ro`, `oc_id`, or `oc_id_ro` users already exist on the remote machine
 - The `postgresql['vip']` setting is configured to a remote host, but `postgresql['external']` isn't set to `true`, which causes the `opscode_chef` and `ospcode_chef_ro` users to be created before the machine is reconfigured, which will return a permissions error
-- Existing, valid naming conflicts are present, where the users were created independently of the Chef server
+- Existing, valid naming conflicts are present, where the users were created independently of the Chef Infra Server
 
 #### Resolution
 

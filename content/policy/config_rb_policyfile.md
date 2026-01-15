@@ -3,10 +3,10 @@ title = "Policyfile.rb"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.policy]
     title = "Policyfile.rb"
-    identifier = "chef_infra/policyfiles/config_rb_policyfile.md Policyfile.rb Configuration"
-    parent = "chef_infra/policyfiles"
+    identifier = "policyfiles/config_rb_policyfile.md Policyfile.rb Configuration"
+    parent = "policyfiles"
     weight = 30
 +++
 

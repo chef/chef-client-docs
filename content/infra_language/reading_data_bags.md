@@ -5,8 +5,8 @@ draft = false
 [menu]
   [menu.infra]
     title = "Reading Data Bags"
-    identifier = "chef_infra/infra_language/reading_data_bags.md Reading Data Bags"
-    parent = "chef_infra/infra_language"
+    identifier = "infra_language/reading_data_bags.md Reading Data Bags"
+    parent = "infra_language"
 +++
 
 ## data_bag

@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "windows_shortcut"
-    identifier = "chef_infra/resources/windows_shortcut"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/windows_shortcut"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the windows_shortcut.yaml file in the data/infra/resources directory. -->

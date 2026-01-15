@@ -5,8 +5,8 @@ draft = false
 [menu]
   [menu.infra]
     title = "Language Overview"
-    identifier = "chef_infra/infra_language/ Language Overview"
-    parent = "chef_infra/infra_language"
+    identifier = "infra_language/ Language Overview"
+    parent = "infra_language"
     weight = 10
 +++
 

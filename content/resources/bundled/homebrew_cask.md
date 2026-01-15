@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "homebrew_cask"
-    identifier = "chef_infra/resources/homebrew_cask"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/homebrew_cask"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the homebrew_cask.yaml file in the data/infra/resources directory. -->

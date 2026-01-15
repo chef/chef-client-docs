@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "habitat_sup"
-    identifier = "chef_infra/resources/habitat_sup"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/habitat_sup"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the habitat_sup.yaml file in the data/infra/resources directory. -->

@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "breakpoint"
-    identifier = "chef_infra/resources/breakpoint"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/breakpoint"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the breakpoint.yaml file in the data/infra/resources directory. -->

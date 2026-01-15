@@ -3,10 +3,10 @@ title = "About Roles"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.policy]
     title = "Roles"
-    identifier = "chef_infra/policyfiles/roles.md Roles"
-    parent = "chef_infra/policyfiles"
+    identifier = "policyfiles/roles.md Roles"
+    parent = "policyfiles"
     weight = 70
 +++
 <!-- markdownlint-disable-file MD033 -->

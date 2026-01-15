@@ -5,8 +5,8 @@ draft = false
 [menu]
   [menu.infra]
  title = "Glossary"
- identifier = "chef_infra/reference/glossary.md Glossary"
- parent = "chef_infra/reference"
+ identifier = "glossary.md Glossary"
+ parent = "chef_infra"
 +++
 
 Berkshelf

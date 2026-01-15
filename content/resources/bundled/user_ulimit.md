@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "user_ulimit"
-    identifier = "chef_infra/resources/user_ulimit"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/user_ulimit"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the user_ulimit.yaml file in the data/infra/resources directory. -->

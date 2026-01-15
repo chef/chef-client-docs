@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "windows_dfs_server"
-    identifier = "chef_infra/resources/windows_dfs_server"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/windows_dfs_server"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the windows_dfs_server.yaml file in the data/infra/resources directory. -->

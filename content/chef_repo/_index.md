@@ -5,8 +5,8 @@ draft = false
 [menu]
   [menu.infra]
     title = "About chef-repo"
-    identifier = "chef_infra/cookbooks_reference/chef_repo.md"
-    parent = "chef_infra/cookbook_reference"
+    identifier = "cookbooks_reference/chef_repo.md"
+    parent = "cookbook_reference"
     weight = 15
 +++
 

@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "selinux_permissive"
-    identifier = "chef_infra/resources/selinux_permissive"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/selinux_permissive"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the selinux_permissive.yaml file in the data/infra/resources directory. -->

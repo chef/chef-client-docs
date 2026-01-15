@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "archive_file"
-    identifier = "chef_infra/resources/archive_file"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/archive_file"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the archive_file.yaml file in the data/infra/resources directory. -->

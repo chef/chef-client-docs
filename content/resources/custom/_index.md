@@ -1,15 +1,13 @@
 +++
 title = "Custom resource guide"
 
-
-
-
+linkTitle = "Custom resources"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "Custom resource guide"
-    identifier = "chef_infra/resources/custom_resources/custom_resources.md custom resources"
-    parent = "chef_infra/resources/custom_resources"
+    identifier = "resources/custom/custom_resources.md custom resources"
+    parent = "resources/custom"
     weight = 10
 +++
 
@@ -152,9 +150,9 @@ To add a custom resource to a recipe, call it by its resource name. For example,
 site 'foo'
 ```
 
-## Target Mode
+## Agentless Mode
 
-{{< readfile file="content/reusable/md/agentless_summary.md" >}} For more information on Target Mode, see the [Target Mode documentation]({{< relref "/agentless.md" >}}).
+{{< readfile file="content/reusable/md/agentless_summary.md" >}} For more information on Agentless Mode, see the [Agentless Mode documentation]({{< relref "/run/agentless.md" >}}).
 
 {{< readfile file="/content/reusable/md/agentless_custom_resource.md" >}}
 
@@ -166,7 +164,7 @@ site 'foo'
 
 {{< readfile file="content/reusable/md/unified_mode_overview.md" >}}
 
-For more information on Unified Mode, see the [Unified Mode documentation]({{< relref "/unified_mode.md" >}}).
+For more information on Unified Mode, see the [Unified Mode documentation]({{< relref "unified_mode.md" >}}).
 
 ### Enable Unified Mode
 
@@ -178,5 +176,5 @@ See these resources to learn more about custom resources:
 
 - See the LearnChef interactive tutorial: [Extending Chef Infra: Custom Resources](https://www.chef.io/training/tutorials).
 - For a description of available methods, see the [custom resources glossary]({{< relref "custom_resource_glossary" >}}).
-- For running resources in Target Mode, see the [Target Mode documentation]({{< relref "agentless" >}}).
+- For running resources in Agentless Mode, see the [Agentless Mode documentation]({{< relref "agentless" >}}).
 - For running resources in Unified Mode, see the [Unified Mode documentation]({{< relref "unified_mode" >}}).

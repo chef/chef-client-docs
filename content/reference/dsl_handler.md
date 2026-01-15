@@ -3,10 +3,10 @@ title = "About the Handler DSL"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.reference]
     title = "Handler DSL"
-    identifier = "chef_infra/extension_apis/handlers/dsl_handler.md Handler DSL"
-    parent = "chef_infra/extension_apis/handlers"
+    identifier = "extension_apis/handlers/dsl_handler.md Handler DSL"
+    parent = "extension_apis/handlers"
     weight = 20
 +++
 

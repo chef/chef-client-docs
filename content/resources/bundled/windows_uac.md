@@ -8,10 +8,10 @@ layout = "infra_resource"
 toc_layout = "infra_resource_toc"
 
 [menu]
-  [menu.infra]
+  [menu.resources]
     title = "windows_uac"
-    identifier = "chef_infra/resources/windows_uac"
-    parent = "chef_infra/resources"
+    identifier = "resources/bundled/windows_uac"
+    parent = "resources/bundled"
 +++
 
 <!-- The contents of this page are automatically generated from the windows_uac.yaml file in the data/infra/resources directory. -->

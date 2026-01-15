@@ -3,10 +3,10 @@ title = "Bootstrap a node"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.install]
     title = "Install using Bootstrap"
-    identifier = "chef_infra/install/install_bootstrap.md Install using Bootstrap"
-    parent = "chef_infra/install"
+    identifier = "install/install_bootstrap.md Install using Bootstrap"
+    parent = "install"
     weight = 10
 +++
 
