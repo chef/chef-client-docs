@@ -7,8 +7,11 @@ linkTitle = "Chef Infra Client"
     breadcrumbs = true
     st_robots = ''
 
-[menu.landing_page]
-title = "Chef Infra Client"
+[menu.overview]
+    title = "Chef Infra Client"
+    identifier = "overview/Client Overview"
+    parent = "overview"
+    weight = 10
 +++
 
 Chef Infra Client is an agent that runs locally on every node that's under management by Chef Infra Server.
@@ -80,13 +83,13 @@ You can use Chef Infra Client to automate infrastructure management tasks:
 
 ## Related content
 
-- [Chef Infra Client (executable)](/ctl_chef_client/)
-- [Chef Infra Server](/server/)
+- [Chef Infra Client (executable)](/reference/ctl_chef_client/)
+- [Chef Infra Server](https://docs.chef.io/server/)
 - [Cookbooks](/cookbooks/)
-- [Nodes](/nodes/)
-- [Run Lists](/run_lists/)
+- [Nodes](/overview/nodes/)
+- [Run Lists](/policy/run_lists/)
 
 ## Next steps
 
-- [Install Chef Workstation](/workstation/install_workstation/)
-- [Bootstrap Nodes](/install_bootstrap/)
+- [Install Chef Workstation](https://docs.chef.io/workstation/install_workstation/)
+- [Bootstrap Nodes](/install/install_bootstrap/)

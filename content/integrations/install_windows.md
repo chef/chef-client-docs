@@ -3,7 +3,7 @@ title = "Install Chef Infra Client on Windows Nodes"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.integrations]
     title = "Windows Installation Guide"
     identifier = "integrations/windows/install_windows.md Chef Infra Client on Windows"
     parent = "integrations/windows"

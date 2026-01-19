@@ -3,7 +3,7 @@ title = "Chef Infra Language: Node Tags"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.infra_language]
     title = "Node Tags"
     identifier = "infra_language/node_tags.md Node Tags"
     parent = "infra_language"

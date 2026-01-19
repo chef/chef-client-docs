@@ -127,7 +127,7 @@ group.
 ### Create a bootstrap template
 
 By default, `knife bootstrap` uses the `chef-full` template to bootstrap
-a node. This template contains a number of useful features, but it also
+a node. This template contains useful features, but it also
 attempts to pull an installation script from `https://omnitruck.chef.io`. In
 this section, you'll copy the contents of the `chef-full` template to a
 custom template, and then modify the package and Ruby gem sources.

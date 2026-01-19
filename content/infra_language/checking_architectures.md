@@ -1,15 +1,16 @@
 +++
 title = "Chef Infra Language: Checking Architectures"
+linkTitle = "Checking Architectures"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.infra_language]
     title = "Checking Architectures"
     identifier = "infra_language/checking_architectures.md Checking Architectures"
     parent = "infra_language"
 +++
 
-Chef Infra Client 15.5 and later include a number of helper methods for checking the processor architecture of systems. These methods can be used in attribute files, recipes, and resources.
+Chef Infra Client 15.5 and later includes helper methods for checking the processor architecture of systems. These methods can be used in attribute files, recipes, and resources.
 
 ## _32_bit?
 

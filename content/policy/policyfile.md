@@ -5,8 +5,8 @@ draft = false
 [menu]
   [menu.policy]
     title = "About Policyfiles"
-    identifier = "policyfiles/policyfile.md About Policyfiles"
-    parent = "policyfiles"
+    identifier = "policy/policyfile.md About Policyfiles"
+    parent = "policy"
     weight = 20
 +++
 

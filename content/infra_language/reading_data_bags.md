@@ -3,7 +3,7 @@ title = "Chef Infra Language: Reading Data Bags"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.infra_language]
     title = "Reading Data Bags"
     identifier = "infra_language/reading_data_bags.md Reading Data Bags"
     parent = "infra_language"

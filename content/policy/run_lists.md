@@ -5,8 +5,8 @@ draft = false
 [menu]
   [menu.policy]
     title = "Run-lists"
-    identifier = "policyfiles/run_lists.md Run-lists"
-    parent = "policyfiles"
+    identifier = "policy/run_lists.md Run-lists"
+    parent = "policy"
     weight = 50
 +++
 <!-- markdownlint-disable-file MD024 -->

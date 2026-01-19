@@ -3,7 +3,7 @@ title = "FIPS (Federal Information Processing Standards)"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.security]
     title = "FIPS"
     identifier = "security/fips.md FIPS"
     parent = "security"

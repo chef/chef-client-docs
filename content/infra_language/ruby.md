@@ -3,7 +3,7 @@ title = "Ruby Guide"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.infra_language]
     title = "Ruby Guide"
     identifier = "infra_language/ruby.md Ruby Guide"
     parent = "infra_language"

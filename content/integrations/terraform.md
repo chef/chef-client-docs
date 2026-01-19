@@ -3,7 +3,7 @@ title = "Chef and Terraform"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.integrations]
     title = "Chef and Terraform"
     identifier = "integrations/terraform.md Chef and Terraform"
     parent = "integrations"

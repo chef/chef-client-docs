@@ -8,13 +8,18 @@
 #######
 
 menuOrder = [
-  "landing_page",
+  "overview",
   "install",
   "quickstart",
-  "run",
   "features",
+  "policy",
+  "integrations",
+  "security",
   "cookbooks",
+  "infra_language",
   "resources",
+  "extension_apis",
+  "troubleshooting",
   "reference"
 ]
 
@@ -60,7 +65,7 @@ url = "https://docs.chef.io"
 #######
 
 [render_hooks.link]
-errorLevel = 'warning'
+errorLevel = 'ignore'
 highlightBroken = true
 
 [render_hooks.image]

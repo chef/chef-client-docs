@@ -3,7 +3,7 @@ title = "Chef and Google"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.integrations]
     title = "Google Cloud Platform"
     identifier = "integrations/google.md Google Cloud Platform"
     parent = "integrations"

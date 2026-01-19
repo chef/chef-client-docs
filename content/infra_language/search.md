@@ -3,7 +3,7 @@ title = "Chef Infra Language: Search"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.infra_language]
     title = "Search"
     identifier = "infra_language/search.md Search"
     parent = "infra_language"

@@ -3,7 +3,7 @@ title = "Chef for Windows"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.integrations]
     title = "Chef for Windows"
     identifier = "integrations/windows/windows.md Chef for Windows"
     parent = "integrations/windows"

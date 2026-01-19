@@ -5,8 +5,8 @@ draft = false
 [menu]
   [menu.policy]
     title = "Environments"
-    identifier = "policyfiles/environments.md Environments"
-    parent = "policyfiles"
+    identifier = "policy/environments.md Environments"
+    parent = "policy"
     weight = 60
 +++
 <!-- markdownlint-disable-file MD033 -->

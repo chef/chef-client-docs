@@ -3,7 +3,7 @@ title = "Chef Infra Language: Logging"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.infra_language]
     title = "Logging"
     identifier = "infra_language/logging.md Logging"
     parent = "infra_language"

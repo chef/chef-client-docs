@@ -3,7 +3,7 @@ title = "Microsoft Azure PowerShell"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.integrations]
 title = "Microsoft Azure PowerShell"
 identifier = "integrations/azure/azure_powershell.md Microsoft Azure PowerShell"
 parent = "integrations/azure"

@@ -3,7 +3,7 @@ title = "Chef Infra Language: Reading Registry Keys"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.infra_language]
     title = "Reading Registry Keys"
     identifier = "infra_language/registry_key.md Reading Registry Keys"
     parent = "infra_language"
