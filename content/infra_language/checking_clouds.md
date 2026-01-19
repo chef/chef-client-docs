@@ -1,15 +1,16 @@
 +++
 title = "Chef Infra Language: Checking Clouds"
+linkTitle = "Checking Clouds"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.infra_language]
     title = "Checking Clouds"
     identifier = "infra_language/checking_clouds.md Checking Clouds"
     parent = "infra_language"
 +++
 
-Chef Infra Client 15.8 and later include a number of helper methods for checking if a node is running in a public or private cloud.
+Chef Infra Client 15.8 and later includes helper methods for checking if a node is running in a public or private cloud.
 
 ## cloud?
 

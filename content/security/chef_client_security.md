@@ -3,7 +3,7 @@ title = "Chef Infra Client security"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.security]
     title = "Chef Infra Client security"
     identifier = "security/chef_client_security.md Security"
     parent = "security"

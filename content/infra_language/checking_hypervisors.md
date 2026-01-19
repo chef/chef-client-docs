@@ -3,13 +3,13 @@ title = "Chef Infra Language: Checking Hypervisors"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.infra_language]
     title = "Checking Hypervisors"
     identifier = "infra_language/checking_hypervisors.md Checking Hypervisors"
     parent = "infra_language"
 +++
 
-Chef Infra Client 15.8 and later include a number of helper methods for checking if a hypervisor host or guest.
+Chef Infra Client 15.8 and later includes helper methods for checking if a hypervisor host or guest.
 
 ## guest?
 

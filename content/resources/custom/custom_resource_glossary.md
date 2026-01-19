@@ -630,7 +630,7 @@ logs of the Chef Infra Client run.
 
 {{< readfile file="/content/reusable/md/agentless_custom_resource.md" >}}
 
-For more information on Agentless Mode, see the [Agentless Mode documentation]({{< relref "/run/agentless.md" >}}).
+For more information on Agentless Mode, see the [Agentless Mode documentation]({{< relref "/features/agentless.md" >}}).
 
 ## unified_mode
 

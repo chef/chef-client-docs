@@ -1,9 +1,6 @@
 +++
 title = "Converting Definitions to Custom Resources"
 
-
-
-
 [menu]
   [menu.resources]
     title = "Migrating from Definitions"

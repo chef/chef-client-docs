@@ -3,7 +3,7 @@ title = "Chef Infra Language: Checking Platforms"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.infra_language]
     title = "Checking Platforms"
     identifier = "infra_language/checking_platforms.md Checking Platforms"
     parent = "infra_language"

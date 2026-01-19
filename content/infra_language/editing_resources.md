@@ -3,7 +3,7 @@ title = "Chef Infra Language: Editing Resources"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.infra_language]
     title = "Editing Resources"
     identifier = "infra_language/editing_resources.md Editing Resources"
     parent = "infra_language"

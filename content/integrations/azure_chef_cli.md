@@ -3,7 +3,7 @@ title = "Microsoft Azure CLI"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.integrations]
     title = "Microsoft Azure Chef Extension"
     identifier = "integrations/azure/azure_chef_cli.md Microsoft Azure Chef Extension"
     parent = "integrations/azure"

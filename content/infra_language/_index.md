@@ -1,9 +1,10 @@
 +++
 title = "About the Chef Infra Language"
 draft = false
+list_pages = true
 
 [menu]
-  [menu.infra]
+  [menu.infra_language]
     title = "Language Overview"
     identifier = "infra_language/ Language Overview"
     parent = "infra_language"

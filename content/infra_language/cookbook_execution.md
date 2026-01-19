@@ -3,7 +3,7 @@ title = "Chef Infra Language: Cookbook Execution"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.infra_language]
     title = "Cookbook Execution"
     identifier = "infra_language/cookbook_execution.md Cookbook Execution"
     parent = "infra_language"

@@ -5,8 +5,8 @@ draft = false
 [menu]
   [menu.policy]
     title = "Roles"
-    identifier = "policyfiles/roles.md Roles"
-    parent = "policyfiles"
+    identifier = "policy/roles.md Roles"
+    parent = "policy"
     weight = 70
 +++
 <!-- markdownlint-disable-file MD033 -->

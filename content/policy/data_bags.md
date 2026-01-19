@@ -5,8 +5,8 @@ draft = false
 [menu]
   [menu.policy]
     title = "Data Bags"
-    identifier = "policyfiles/data_bags.md Data Bags"
-    parent = "policyfiles"
+    identifier = "policy/data_bags.md Data Bags"
+    parent = "policy"
     weight = 40
 +++
 

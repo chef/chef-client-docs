@@ -3,7 +3,7 @@ title = "Chef Infra Language: Shelling Out"
 draft = false
 
 [menu]
-  [menu.infra]
+  [menu.infra_language]
     title = "Shelling Out"
     identifier = "infra_language/shelling_out.md Shelling Out"
     parent = "infra_language"

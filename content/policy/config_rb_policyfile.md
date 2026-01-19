@@ -5,8 +5,8 @@ draft = false
 [menu]
   [menu.policy]
     title = "Policyfile.rb"
-    identifier = "policyfiles/config_rb_policyfile.md Policyfile.rb Configuration"
-    parent = "policyfiles"
+    identifier = "policy/config_rb_policyfile.md Policyfile.rb Configuration"
+    parent = "policy"
     weight = 30
 +++
 

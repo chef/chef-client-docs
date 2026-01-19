@@ -152,7 +152,7 @@ site 'foo'
 
 ## Agentless Mode
 
-{{< readfile file="content/reusable/md/agentless_summary.md" >}} For more information on Agentless Mode, see the [Agentless Mode documentation]({{< relref "/run/agentless.md" >}}).
+{{< readfile file="content/reusable/md/agentless_summary.md" >}} For more information on Agentless Mode, see the [Agentless Mode documentation]({{< relref "/features/agentless.md" >}}).
 
 {{< readfile file="/content/reusable/md/agentless_custom_resource.md" >}}
 
