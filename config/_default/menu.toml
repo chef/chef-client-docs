@@ -59,6 +59,18 @@ identifier = "overview"
 title = "Install"
 identifier = "install"
 
+  [[install]]
+  title = "Installer"
+  identifier = "install/installer"
+  parent = "install"
+  weight = 20
+
+  [[install]]
+  title = "Migration Tool"
+  identifier = "install/migration_tool"
+  parent = "install"
+  weight = 30
+
 [[licensing]]
 title = "Licensing"
 identifier = "licensing"

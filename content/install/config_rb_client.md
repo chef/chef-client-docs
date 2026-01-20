@@ -7,7 +7,7 @@ draft = false
     title = "client.rb"
     identifier = "install/config_rb_client.md client.rb Configuration"
     parent = "install"
-    weight = 40
+    weight = 50
 +++
 
 <!-- markdownlint-disable-file MD046 -->
