@@ -59,6 +59,10 @@ identifier = "overview"
 title = "Install"
 identifier = "install"
 
+[[licensing]]
+title = "Licensing"
+identifier = "licensing"
+
 [[features]]
 title = "Features"
 identifier = "features"
