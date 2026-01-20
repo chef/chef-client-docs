@@ -7,7 +7,7 @@ draft = false
     title = "Install using Bootstrap"
     identifier = "install/install_bootstrap.md Install using Bootstrap"
     parent = "install"
-    weight = 10
+    weight = 40
 +++
 
 {{< readfile file="content/reusable/md/chef_client_bootstrap_node.md" >}}

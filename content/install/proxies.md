@@ -7,7 +7,7 @@ draft = false
     title = "Working with proxies"
     identifier = "install/proxies.md Working with Proxies"
     parent = "install"
-    weight = 30
+    weight = 55
 +++
 
 In an environment that requires proxies to reach the Internet, many Chef

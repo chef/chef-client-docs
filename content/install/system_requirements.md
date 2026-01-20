@@ -7,7 +7,7 @@ draft = false
     title = "System requirements"
     identifier = "install/chef_system_requirements.md System Requirements"
     parent = "install"
-    weight = 5
+    weight = 15
 +++
 
 Before you bootstrap Chef Infra Client on nodes:
