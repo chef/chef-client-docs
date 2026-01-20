@@ -16,7 +16,7 @@ for managing remote systems.
 
 - [Chef Infra Client is installed](/install/)
 - Your `HAB_AUTH_TOKEN` is exported
-- a valid Progress Chef license key
+- You have a valid Progress Chef license key
 
 ## Create a target credentials file
 
@@ -120,9 +120,9 @@ end
 
 <!-- markdownlint-enable MD051 -->
 
-## Run the recipe in Agentless Mode
+## Run Agentless Mode using Habitat
 
-From your `.chef` directory, execute the recipe withe Chef Infra Client:
+From your `.chef` directory, with `HAB_AUTH_TOKEN` exported and the license key available:
 
 ```sh
 cd ~/.chef
