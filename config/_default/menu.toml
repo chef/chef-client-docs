@@ -64,9 +64,15 @@ title = "Features"
 identifier = "features"
 
   [[features]]
-  title = "Agentless"
+  title = "Agentless Mode"
   identifier = "features/agentless"
   parent = "features"
+
+    [[features]]
+    title = "Resources"
+    identifier = "features/agentless/resources"
+    parent = "features/agentless"
+    weight = 40
 
   [[features]]
   title = "Chef Solo"

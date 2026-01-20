@@ -1,41 +1,44 @@
 +++
 title = "About Agentless Mode"
 draft = false
+linkTitle = "Agentless"
 
 [menu]
   [menu.features]
+    title = "About Agentless Mode"
     identifier = "features/agentless/About"
     parent = "features/agentless"
-    weight = 30
+    weight = 10
 +++
 
 {{< readfile file="content/reusable/md/agentless_summary.md" >}}
 
 The target node can be any remote system, edge device, or cloud resource that the host can reach. This includes edge devices, Wi-Fi routers, switches, relays, cloud resources, IP phones, router hubs, and network management peripherals.
 
+## Supported platforms
+
+Agentless Mode only executes on Linux nodes.
+
 ## Transport Interface (Train)
 
-Agentless uses [Transport Interface (Train)](https://github.com/inspec/train) to connect to nodes and execute Chef Infra Client runs.
+Agentless Mode uses [Transport Interface (Train)](https://github.com/inspec/train) to connect to nodes and execute Chef Infra Client runs.
 
-Agentless supports the SSH Train protocol. The other Train protocols are experimental.
+Agentless Mode supports the SSH Train protocol. The other Train protocols are experimental.
 
 ## Requirements
 
-Agentless has the following requirements:
+Agentless Mode has the following requirements:
 
-- A network-enabled system to execute Agentless.
+- A network-enabled system to execute Agentless Mode.
 - The `chef-client` CLI. This is included with Chef Workstation.
-- A credentials file which provides the system with information to connect to a target node.
-- A recipe that only includes Agentless-enabled resources.
+- A [target credentials file](#target-credentials-file) that provides the system with information to connect to a target node.
+- A recipe that only includes [Agentless Mode-enabled resources](#resources).
 
-## Credentials file
+## Target credentials file
 
-The credentials file defines the SSH connection settings for each node in TOML format.
+The target credentials file defines the SSH connection settings for each node in TOML format.
 
-Create a credentials file on the computer running Chef Workstation in the following location:
-
-- on Linux and macOS: `~/.chef/credentials`
-- on Windows: `c:\Users\<USERNAME>\.chef\credentials`
+Create a credentials file on the computer running Chef Workstation in `~/.chef/target_credentials`.
 
 ### Define node connections
 
@@ -45,7 +48,8 @@ For example, this adds credentials for three nodes:
 ```toml
 ['HOST-1']
 host = 'target.system.host.1.com'
-user = 'root'
+user = 'username'
+sudo = true
 key_files = '~/.keys/key-pair.pem'
 
 ['HOST-2']
@@ -77,11 +81,13 @@ host = '<IP_ADDRESS OR FQDN>'
 
 # ==== User authentication settings ====
 # user: The user used to connect to and execute Cookbooks on a node. Default is "root".
+# sudo: If the user isn't root and you need to escalate privileges, set to true.
 # key_files: If connecting with a secret key, the path to a secret key used to connect to a node.
 # password: If connecting with a password, the password string to connect to a node.
 # ====
 
 # user = 'root'
+# sudo = true
 # key_files = '<PATH_TO_SECRET_FILE>'
 # password = '<PASSWORD_STRING>'
 
@@ -101,7 +107,7 @@ host = '<IP_ADDRESS OR FQDN>'
 # forward_agent: Whether the connection to the authentication agent (if any) will be forwarded to the remote machine. Default is false.
 # forward_agent = false
 
-# transport_protocol: The protocol to use to connect to a node. Define this once for all nodes in the credentials file. Set to 'ssh'. (Required)
+# transport_protocol: The protocol to use to connect to a node. Define this once for all nodes in the credentials file. Default value is 'ssh'.
 transport_protocol = 'ssh'
 ```
 
@@ -109,7 +115,7 @@ transport_protocol = 'ssh'
 
 <!-- markdownlint-disable MD007 MD006 -->
 
-Agentless supports the following SSH connection parameters in a credentials file.
+Agentless Mode supports the following SSH connection parameters in a credentials file.
 
 Common parameters:
 
@@ -126,6 +132,9 @@ Common parameters:
 
   Default value: `root`
 
+`sudo`
+: If the user isn't root and you need to escalate privileges, set to `true`.
+
 `key_files`
 : If connecting with a secret key, the path to a secret key used to connect to a node.
 
@@ -133,7 +142,7 @@ Common parameters:
 : If connecting with a password, the password string to connect to a node.
 
 `transport_protocol`
-: (Required) The protocol to use to connect to a node. Define this once for all nodes in the credentials file. Set to `ssh`.
+: The protocol to use to connect to a node. Define this once for all nodes in the credentials file. Default value is `ssh`.
 
 Additional parameters:
 
@@ -166,29 +175,22 @@ Additional parameters:
 
 ## Resources
 
-All resources included in a Cookbook must be enabled in Agentless to run in Agentless.
+All resources included in a Cookbook must be enabled in Agentless Mode to run in Agentless Mode.
 
-The following Chef Infra Client resources are supported in Agentless starting in Chef Infra Client 15.1.36:
-
-- [apt_package]({{< relref "/resources/bundled/apt_package" >}})
-- [breakpoint]({{< relref "/resources/bundled/breakpoint" >}})
-- [execute]({{< relref "/resources/bundled/execute" >}})
-- [log]({{< relref "/resources/bundled/log" >}})
-- [ruby_block]({{< relref "/resources/bundled/ruby_block" >}})
-- [service]({{< relref "/resources/bundled/service" >}})
-- [systemd_unit]({{< relref "/resources/bundled/systemd_unit" >}})
+See the list of [built-in Chef Infra resources](resources) that are supported in Agentless Mode.
 
 ### Custom resources
 
 {{< readfile file="/reusable/md/agentless_custom_resource.md" >}}
 
-See the [Custom Resources documentation]({{< relref "/resources/custom" >}}) for more detailed documentation about creating custom resources.
+For documentation on updating custom resources, see the [RC3 custom resources documentation](resources/custom).
+For general guidelines on writing a custom resource, see the [custom resources documentation](https://docs.chef.io/custom_resources/).
 
 #### Example
 
 {{< readfile file="/reusable/md/agentless_custom_resource_example.md" >}}
 
-## Run Agentless
+## Run Agentless Mode
 
 Run the `chef-client` executable using `-t` or `--target` to target a specific node. For example:
 
@@ -199,7 +201,7 @@ chef-client -t <TARGET_NAME>
 Replace `<TARGET_NAME>` with the name of the host as defined in the credentials file.
 For example, `HOST-1` in the [credential file example](#define-node-connections).
 
-To execute a specific Cookbook in Agentless, run:
+To execute a specific Cookbook in Agentless Mode, run:
 
 ```sh
 chef-client -t <TARGET_NAME> <PATH/TO/COOKBOOK/COOKBOOK_NAME>
@@ -210,12 +212,12 @@ Replace the following:
 - `<TARGET_NAME>` with the name of the host as defined in the credentials file.
 - `<PATH/TO/COOKBOOK/COOKBOOK_NAME>` with the path to the Cookbook on your system. For example, `/chef-repo/cookbooks/example_cookbook.rb`
 
-### Agentless in Local Mode
+### Agentless Mode in Local Mode
 
-You can run Agentless in [Local Mode]({{< relref "/reference/ctl_chef_client#run-in-local-mode" >}}).
+You can run Agentless Mode in Local Mode.
 Local Mode runs chef-zero locally as a lightweight instance of Chef Infra Server to execute a Client run on target nodes.
 
-Use `-z` and `-t` to run Agentless in Local Mode:
+Use `-z` and `-t` to run Agentless Mode in Local Mode:
 
 ```sh
 chef-client -z -t <TARGET_NAME>
@@ -224,13 +226,13 @@ chef-client -z -t <TARGET_NAME>
 Replace `<TARGET_NAME>` with the name of the host as defined in the credentials file.
 For example, `HOST-1` in the [credential file example](#define-node-connections).
 
-## Run Agentless with Chef Automate or Chef Infra Server
+## Run Agentless Mode with Chef Automate or Chef Infra Server
 
-You can configure Chef Automate or Chef Infra Server to run Agentless on a regular schedule.
+You can configure Chef Automate or Chef Infra Server to run Agentless Mode on a regular schedule.
 
-Agentless doesn't have a way to schedule Chef Infra Client runs on a node, but you can create a cron file that executes Agentless on a regular schedule.
+Agentless Mode doesn't have a way to schedule Chef Infra Client runs on a node, but you can create a cron file that executes Agentless Mode on a regular schedule.
 
-For example, this create a cron file that executes Agentless every thirty minutes:
+For example, this creates a cron file that executes Agentless Mode every thirty minutes:
 
 ```ruby
 cat > /etc/cron.d/nodename.cron <<EOF
@@ -255,7 +257,7 @@ The following are the common errors and their potential troubleshooting steps.
 
 ### `chef-client` execute error
 
-Verify that the target node's hostname or IP address is correct, that the host accessible using SSH, and that the user and password specified in the credentials file are correct.
+Verify that the target node's hostname or IP address is correct, that the host is accessible using SSH, and that the user and password specified in the credentials file are correct.
 
 ### Custom resources don't execute
 
