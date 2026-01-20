@@ -3,10 +3,10 @@ title = "About Search"
 draft = false
 
 [menu]
-  [menu.components]
+  [menu.features]
     title = "Search"
-    identifier = "components/chef_search.md Search"
-    parent = "components"
+    identifier = "features/chef_search.md Search"
+    parent = "features"
     weight = 70
 +++
 <!-- markdownlint-disable-file MD033 -->

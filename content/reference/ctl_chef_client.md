@@ -38,7 +38,7 @@ This command has the following options:
 
 `-A`, `--fatal-windows-admin-check`
 
-: Cause a Chef Infra Client run to fail when the Chef Infra Client  doesn't have administrator privileges in Windows.
+: Cause a Chef Infra Client run to fail when the Chef Infra Client doesn't have administrator privileges in Windows.
 
 `-c CONFIG`, `--config CONFIG`
 
