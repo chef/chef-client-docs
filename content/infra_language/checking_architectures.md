@@ -10,6 +10,8 @@ draft = false
     parent = "infra_language"
 +++
 
+<!-- cspell:ignore armhf -->
+
 Chef Infra Client 15.5 and later includes helper methods for checking the processor architecture of systems. These methods can be used in attribute files, recipes, and resources.
 
 ## _32_bit?

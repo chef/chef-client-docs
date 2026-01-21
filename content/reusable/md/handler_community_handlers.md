@@ -1,6 +1,8 @@
 The following open source handlers are available from the Chef
 community:
 
+<!-- cSpell:ignore GELF -->
+
 [Airbrake](https://github.com/timops/ohai-plugins/blob/master/win32_svc.rb)
 
 : A handler that sends exceptions (only) to Airbrake, an application that collects data and aggregates it for review.
@@ -16,10 +18,6 @@ community:
 [Datadog](https://github.com/DataDog/chef-handler-datadog)
 
 : A handler that collects Chef Infra Client stats and sends them into a Datadog newsfeed.
-
-[Flowdock](https://github.com/mmarschall/chef-handler-flowdock)
-
-: A handler that collects exception and report handler data and sends it to users using the Flowdock API.
 
 [Graphite](https://github.com/imeyer/chef-handler-graphite/wiki)
 
