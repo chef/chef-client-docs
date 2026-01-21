@@ -10,7 +10,7 @@ title = "Accumulators"
     weight = 20
 +++
 
-This is an advanced topic. You should have already written a Custom Resource and be familiar with:
+This is an advanced topic. You should have already written a custom resource and be familiar with:
 
 - The built-in Chef Infra [`template`]({{< relref "/resources/bundled/template" >}}) resource
 - Cookbook execution [`with_run_context`]({{< relref "infra_language/cookbook_execution/#with_run_context" >}})
@@ -124,8 +124,8 @@ action :add do
 end
 ```
 
-## Further Reading
+## Further reading
 
-- [here](https://github.com/chef/chef/issues/5438#issuecomment-351153222)
+- [Accumulators pattern issue in chef/chef repository](https://github.com/chef/chef/issues/5438#issuecomment-351153222)
 - [DNSimple](https://blog.dnsimple.com/2017/10/chef-accumulators/)
 - [HAProxy](https://github.com/sous-chefs/haproxy/blob/a9c24d336c01828fef52cedae8cc445d8dbc21dd/libraries/resource.rb#L22)
