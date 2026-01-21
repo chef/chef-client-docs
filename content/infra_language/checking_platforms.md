@@ -24,7 +24,9 @@ where:
 - `parameter` is a comma-separated list, each specifying a platform, such as Red Hat, CentOS, or Fedora
 - `platform?` method is typically used with an `if`, `elsif`, or `case` statement that contains Ruby code that's specific for the platform, if detected
 
-### platform Values
+### Platform values
+
+<!-- cspell:ignore alibabalinux almalinux cloudlinux linuxmint powerkvm -->
 
 <table>
 <colgroup>
