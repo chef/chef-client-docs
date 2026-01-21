@@ -239,6 +239,8 @@ Chef Infra provides a growing number of Windows-specific resources.
 The most popular core resources in Chef Infra Client work the same way
 in Windows as they do on any UNIX or Linux-based platform.
 
+<!-- markdownlint-disable MD059 -->
+
 - [cookbook_file](/resources/cookbook_file/)
 - [directory](/resources/directory/)
 - [execute](/resources/execute/)

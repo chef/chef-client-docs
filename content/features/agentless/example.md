@@ -41,6 +41,8 @@ For more information, see the [target credentials file documentation](/agentless
 
 ## Create the test recipe
 
+<!-- markdownlint-disable MD051 -->
+
 On the host, create a test recipe file (`~/.chef/apply.rb`) with the test resources below.
 
 {{< foundation_tabs tabs-id="test-agentless-mode-recipe" >}}
@@ -115,6 +117,8 @@ end
 
 {{< /foundation_tabs_panel >}}
 {{< /foundation_tabs_panels >}}
+
+<!-- markdownlint-enable MD051 -->
 
 ## Run the recipe in Agentless Mode
 
