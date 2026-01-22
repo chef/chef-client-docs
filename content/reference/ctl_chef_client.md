@@ -54,7 +54,7 @@ This command has the following options:
 
 `--chef-zero-port PORT`
 
-: The port on which chef-zero listens. If a port isn't specified---individually, as range of ports, or from the `chef_zero.port` setting in the client.rb file---the Chef Infra Client will scan for ports between 8889-9999 and will pick the first port that's available.
+: The port on which chef-zero listens. If a port isn't specified---individually, as range of ports, or from the `chef_zero.port` setting in the client.rb file---the Chef Infra Client will scan for ports between 8889--9999 and will pick the first port that's available.
 
 `-d SECONDS`, `--daemonize SECONDS`
 
@@ -76,7 +76,7 @@ This command has the following options:
 
 `-f`, `--[no-]fork`
 
-: Contain Chef Infra Client runs in a secondary process with dedicated RAM. When a Chef Infra Client run is complete, the RAM is returned to the master process. This option helps ensure that a Chef Infra Client uses a steady amount of RAM over time because the master process doesn't run recipes. This option also helps prevent memory leaks such as those that can be introduced by the code contained within a poorly designed cookbook. Use `--no-fork` to disable running Chef Infra Client in fork node. Default value: `--fork`.
+: Contain Chef Infra Client runs in a secondary process with dedicated RAM. When a Chef Infra Client run is complete, the RAM is returned to the primary process. This option helps ensure that a Chef Infra Client uses a steady amount of RAM over time because the primary process doesn't run recipes. This option also helps prevent memory leaks such as those that can be introduced by the code contained within a poorly designed cookbook. Use `--no-fork` to disable running Chef Infra Client in fork node. Default value: `--fork`.
 
 `-F FORMAT`, `--format FORMAT`
 

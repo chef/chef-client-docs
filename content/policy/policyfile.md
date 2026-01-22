@@ -79,11 +79,11 @@ Extra metadata about the cookbook is stored and included in Chef Infra Server AP
 
 The opaque identifier is mostly behind the scenes and is only visible once published to Chef Infra Server. Cookbooks that are uploaded to Chef Infra Server may have extended version numbers such as `1.0.0-dev`.
 
-### Environment Cookbooks
+### Environment cookbooks
 
 Policyfile replaces the environment cookbook pattern that's often required by Berkshelf, along with a dependency solver and fetcher. That said, Policyfile doesn't replace all Berkshelf scenarios.
 
-## Knife Commands
+## Knife commands
 
 The following knife commands used to set the policy group and policy name on Chef Infra Server. For example:
 
@@ -127,7 +127,7 @@ The following settings may be configured in the client.rb file for use with Poli
 
 : Chef Infra Client automatically checks the configuration, node JSON, and the stored node on Chef Infra Server to determine if Policyfile files are being used, and then automatically updates this flag. Default value: `false`.
 
-## knife bootstrap
+## `knife bootstrap`
 
 A node may be bootstrapped to use Policyfile files. Use the following options as part of the bootstrap command:
 
@@ -141,7 +141,7 @@ A node may be bootstrapped to use Policyfile files. Use the following options as
 
 For a customized bootstrap process, add `policy_name` and `policy_group` to the first-boot JSON file that's passed to Chef Infra Client.
 
-## knife search
+## `knife search`
 
 The `policy_name` and `policy_group` settings for a node are stored as searchable attributes and as such are available when using a fuzzy matching search pattern. For example: `knife search dev` will return nodes that are part of the `dev` policy group.
 
@@ -192,11 +192,11 @@ As `chef_zero` explicitly tests outside the context of a Chef Infra Server, the 
 
 {{< /note >}}
 
-## chef Commands
+## `chef` CLI commands
 
 {{< readfile file="content/reusable/md/policyfile_chef_commands.md" >}}
 
-### chef clean-policy-cookbooks
+### `chef clean-policy-cookbooks`
 
 {{< readfile file="content/reusable/md/workstation/ctl_chef_clean_policy_cookbooks.md" >}}
 
@@ -208,7 +208,7 @@ As `chef_zero` explicitly tests outside the context of a Chef Infra Server, the 
 
 {{< readfile file="content/reusable/md/workstation/ctl_chef_clean_policy_cookbooks_options.md" >}}
 
-### chef clean-policy-revisions
+### `chef clean-policy-revisions`
 
 {{< readfile file="content/reusable/md/workstation/ctl_chef_clean_policy_revisions.md" >}}
 
@@ -220,7 +220,7 @@ As `chef_zero` explicitly tests outside the context of a Chef Infra Server, the 
 
 {{< readfile file="content/reusable/md/workstation/ctl_chef_clean_policy_revisions_options.md" >}}
 
-### chef delete-policy
+### `chef delete-policy`
 
 {{< readfile file="content/reusable/md/workstation/ctl_chef_delete_policy.md" >}}
 
@@ -232,7 +232,7 @@ As `chef_zero` explicitly tests outside the context of a Chef Infra Server, the 
 
 {{< readfile file="content/reusable/md/workstation/ctl_chef_delete_policy_options.md" >}}
 
-### chef delete-policy-group
+### `chef delete-policy-group`
 
 {{< readfile file="content/reusable/md/workstation/ctl_chef_delete_policy_group.md" >}}
 
@@ -244,7 +244,7 @@ As `chef_zero` explicitly tests outside the context of a Chef Infra Server, the 
 
 {{< readfile file="content/reusable/md/workstation/ctl_chef_delete_policy_group_options.md" >}}
 
-### chef diff
+### `chef diff`
 
 {{< readfile file="content/reusable/md/workstation/ctl_chef_diff.md" >}}
 
@@ -262,21 +262,21 @@ As `chef_zero` explicitly tests outside the context of a Chef Infra Server, the 
 
 {{< readfile file="content/reusable/md/workstation/ctl_chef_diff_current_lock_latest_branch.md" >}}
 
-##### Compare current lock with latest commit on master branch
+##### Compare current lock with latest commit on main branch
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_diff_current_lock_master_branch.md" >}}
+{{< readfile file="content/reusable/md/workstation/ctl_chef_diff_current_lock_main_branch.md" >}}
 
 ##### Compare current lock to specified revision
 
 {{< readfile file="content/reusable/md/workstation/ctl_chef_diff_current_lock_specified_revision.md" >}}
 
-##### Compare lock on master branch to lock on revision
+##### Compare lock on main branch to lock on revision
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_diff_master_lock_revision_lock.md" >}}
+{{< readfile file="content/reusable/md/workstation/ctl_chef_diff_main_lock_revision_lock.md" >}}
 
-##### Compare lock for version with latest commit on master branch
+##### Compare lock for version with latest commit on main branch
 
-{{< readfile file="content/reusable/md/workstation/ctl_chef_diff_version_lock_master_branch.md" >}}
+{{< readfile file="content/reusable/md/workstation/ctl_chef_diff_version_lock_main_branch.md" >}}
 
 ##### Compare current lock with latest lock for policy group
 
@@ -286,7 +286,7 @@ As `chef_zero` explicitly tests outside the context of a Chef Infra Server, the 
 
 {{< readfile file="content/reusable/md/workstation/ctl_chef_diff_two_policy_groups.md" >}}
 
-### chef export
+### `chef export`
 
 {{< readfile file="content/reusable/md/workstation/ctl_chef_export.md" >}}
 
@@ -298,7 +298,7 @@ As `chef_zero` explicitly tests outside the context of a Chef Infra Server, the 
 
 {{< readfile file="content/reusable/md/workstation/ctl_chef_export_options.md" >}}
 
-### chef generate policyfile
+### `chef generate policyfile`
 
 {{< readfile file="content/reusable/md/workstation/ctl_chef_generate_policyfile.md" >}}
 
@@ -310,7 +310,7 @@ As `chef_zero` explicitly tests outside the context of a Chef Infra Server, the 
 
 {{< readfile file="content/reusable/md/workstation/ctl_chef_generate_policyfile_options.md" >}}
 
-### chef generate repo
+### `chef generate repo`
 
 {{< readfile file="content/reusable/md/workstation/ctl_chef_generate_repo.md" >}}
 
@@ -328,7 +328,7 @@ This subcommand requires using one (or more) of the options (below) to support P
 
 {{< readfile file="content/reusable/md/workstation/ctl_chef_generate_repo_options.md" >}}
 
-### chef install
+### `chef install`
 
 {{< readfile file="content/reusable/md/workstation/ctl_chef_install.md" >}}
 
@@ -346,7 +346,7 @@ This subcommand requires using one (or more) of the options (below) to support P
 
 {{< readfile file="content/reusable/md/policyfile_lock_json_example.md" >}}
 
-### chef push
+### `chef push`
 
 {{< readfile file="content/reusable/md/workstation/ctl_chef_push.md" >}}
 
@@ -358,7 +358,7 @@ This subcommand requires using one (or more) of the options (below) to support P
 
 {{< readfile file="content/reusable/md/workstation/ctl_chef_push_options.md" >}}
 
-### chef push-archive
+### `chef push-archive`
 
 {{< readfile file="content/reusable/md/workstation/ctl_chef_push_archive.md" >}}
 
@@ -370,7 +370,7 @@ This subcommand requires using one (or more) of the options (below) to support P
 
 {{< readfile file="content/reusable/md/workstation/ctl_chef_push_archive_options.md" >}}
 
-### chef show-policy
+### `chef show-policy`
 
 {{< readfile file="content/reusable/md/workstation/ctl_chef_show_policy.md" >}}
 
@@ -382,7 +382,7 @@ This subcommand requires using one (or more) of the options (below) to support P
 
 {{< readfile file="content/reusable/md/workstation/ctl_chef_show_policy_options.md" >}}
 
-### chef undelete
+### `chef undelete`
 
 {{< readfile file="content/reusable/md/workstation/ctl_chef_undelete.md" >}}
 
@@ -394,7 +394,7 @@ This subcommand requires using one (or more) of the options (below) to support P
 
 {{< readfile file="content/reusable/md/workstation/ctl_chef_undelete_options.md" >}}
 
-### chef update
+### `chef update`
 
 {{< readfile file="content/reusable/md/workstation/ctl_chef_update.md" >}}
 

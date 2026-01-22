@@ -1,10 +1,10 @@
-On Windows, running without elevated privileges (when they are
+On Windows, running without elevated privileges (when they're
 necessary) is an issue that fails silently. It will appear that Chef
-Infra Client completed its run successfully, but the changes will not
+Infra Client completed its run successfully, but the changes won't
 have been made. When this occurs, do one of the following to run Chef
 Infra Client as the administrator:
 
-- Log in to the administrator account. (This is not the same as an
+- Log in to the administrator account. (This isn't the same as an
     account in the administrator's security group.)
 
 - Run Chef Infra Client process from the administrator account while

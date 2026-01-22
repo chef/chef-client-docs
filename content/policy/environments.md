@@ -37,28 +37,11 @@ patterns and workflow. For example, creating `production`, `staging`,
 
 There are two types of attributes that can be used with environments:
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Attribute Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>default</code></td>
-<td>{{< readfile file="content/reusable/md/node_attribute_type_default.md" >}}</td>
-</tr>
-<tr>
-<td><code>override</code></td>
-<td>{{< readfile file="content/reusable/md/node_attribute_type_override.md" >}}</td>
-</tr>
-</tbody>
-</table>
+`default`
+: {{< readfile file="content/reusable/md/node_attribute_type_default.md" >}}
+
+`override`
+: {{< readfile file="content/reusable/md/node_attribute_type_override.md" >}}
 
 ## Pinning Cookbooks in environments
 
@@ -82,72 +65,85 @@ Each environment is defined as a Ruby file (a file that ends with
 `.rb`). Each environment file should contain the following
 domain-specific attributes:
 
-<table>
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Setting</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><p><code>cookbook</code></p></td>
-<td><p>A version constraint for a single cookbook. For example:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>cookbook <span class="st">&#39;couchdb&#39;</span>, <span class="st">&#39;&lt; 11.0.0&#39;</span></span></code></pre></div>
-<p>or:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a>cookbook <span class="st">&#39;my_rails_app&#39;</span>, <span class="st">&#39;= 1.2.0&#39;</span></span></code></pre></div>
-<p>or:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1"></a>cookbook <span class="st">&#39;gems&#39;</span>, <span class="st">&#39;~&gt; 1.4&#39;</span></span></code></pre></div></td>
-</tr>
-<tr>
-<td><p><code>cookbook_versions</code></p></td>
-<td><p>A version constraint for a group of cookbooks. For example:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb4-1"><a href="#cb4-1"></a>cookbook_versions(</span>
-<span id="cb4-2"><a href="#cb4-2"></a>  <span class="st">&#39;couchdb&#39;</span> =&gt; <span class="st">&#39;= 11.0.0&#39;</span>,</span>
-<span id="cb4-3"><a href="#cb4-3"></a>  <span class="st">&#39;my_rails_app&#39;</span> =&gt; <span class="st">&#39;~&gt; 1.2.0&#39;</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a>)</span></code></pre></div></td>
-</tr>
-<tr>
-<td><p><code>default_attributes</code></p></td>
-<td><p>Optional. A set of attributes to be applied to all nodes, assuming the node doesn't already have a value for the attribute. This is useful for setting global defaults that can then be overridden for specific nodes. If more than one role attempts to set a default value for the same attribute, the last role applied is the role to set the attribute value. When nested attributes are present, they're preserved. For example, to specify that a node that has the attribute <code>apache2</code> should listen on ports 80 and 443 (unless ports are already specified):</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb5-1"><a href="#cb5-1"></a>default_attributes <span class="st">&#39;apache2&#39;</span> =&gt; { <span class="st">&#39;listen_ports&#39;</span> =&gt;<span class="ot"> %w(</span><span class="st">80 443</span><span class="ot">)</span> }</span></code></pre></div></td>
-</tr>
-<tr>
-<td><p><code>description</code></p></td>
-<td><p>A description of the functionality that's covered. For example:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb6-1"><a href="#cb6-1"></a>description <span class="st">&#39;The development environment&#39;</span></span></code></pre></div></td>
-</tr>
-<tr>
-<td><p><code>name</code></p></td>
-<td><p>A unique name within the organization. Each name must be made up of letters (uppercase and lowercase), numbers, underscores, and hyphens: [A-Z][a-z][0-9] and [_-]. Spaces aren't allowed. For example:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb7-1"><a href="#cb7-1"></a>name <span class="st">&#39;dev01-24&#39;</span></span></code></pre></div></td>
-</tr>
-<tr>
-<td><p><code>override_attributes</code></p></td>
-<td><p>Optional. A set of attributes to be applied to all nodes, even if the node already has a value for an attribute. This is useful for ensuring that certain attributes always have specific values. If more than one role attempts to set an override value for the same attribute, the last role applied wins. When nested attributes are present, they're preserved. For example:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb8-1"><a href="#cb8-1"></a>override_attributes <span class="st">&#39;apache2&#39;</span> =&gt; { <span class="st">&#39;max_children&#39;</span> =&gt; <span class="st">&#39;50&#39;</span> }</span></code></pre></div>
-<p>The parameters in a Ruby file are actually Ruby method calls, so parentheses can be used to provide clarity when specifying numerous or deeply-nested attributes. For example:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb9-1"><a href="#cb9-1"></a>override_attributes(</span>
-<span id="cb9-2"><a href="#cb9-2"></a>  <span class="st">apache2: </span>{</span>
-<span id="cb9-3"><a href="#cb9-3"></a>    <span class="st">prefork: </span>{ <span class="st">min_spareservers: </span><span class="ch">&#39;5&#39;</span> },</span>
-<span id="cb9-4"><a href="#cb9-4"></a>  }</span>
-<span id="cb9-5"><a href="#cb9-5"></a>)</span></code></pre></div>
-<p>or:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb10-1"><a href="#cb10-1"></a>override_attributes(</span>
-<span id="cb10-2"><a href="#cb10-2"></a>  <span class="st">apache2: </span>{</span>
-<span id="cb10-3"><a href="#cb10-3"></a>    <span class="st">prefork: </span>{ <span class="st">min_spareservers: </span><span class="ch">&#39;5&#39;</span> },</span>
-<span id="cb10-4"><a href="#cb10-4"></a>  },</span>
-<span id="cb10-5"><a href="#cb10-5"></a>  <span class="st">tomcat: </span>{</span>
-<span id="cb10-6"><a href="#cb10-6"></a>    <span class="st">worker_threads: &#39;100&#39;</span>,</span>
-<span id="cb10-7"><a href="#cb10-7"></a>  }</span>
-<span id="cb10-8"><a href="#cb10-8"></a>)</span></code></pre></div></td>
-</tr>
-</tbody>
-</table>
+`cookbook`
+: A version constraint for a single cookbook. For example:
+
+  ```ruby
+  cookbook 'couchdb', '< 11.0.0'
+  ```
+
+  or:
+
+  ```ruby
+  cookbook 'my_rails_app', '= 1.2.0'
+  ```
+
+  or:
+
+  ```ruby
+  cookbook 'gems', '~> 1.4'
+  ```
+
+`cookbook_versions`
+: A version constraint for a group of cookbooks. For example:
+
+  ```ruby
+  cookbook_versions(
+    'couchdb' => '= 11.0.0',
+    'my_rails_app' => '~> 1.2.0'
+  )
+  ```
+
+`default_attributes`
+: Optional. A set of attributes to be applied to all nodes, assuming the node doesn't already have a value for the attribute. This is useful for setting global defaults that can then be overridden for specific nodes. If more than one role attempts to set a default value for the same attribute, the last role applied is the role to set the attribute value. When nested attributes are present, they're preserved. For example, to specify that a node that has the attribute `apache2` should listen on ports 80 and 443 (unless ports are already specified):
+
+  ```ruby
+  default_attributes 'apache2' => { 'listen_ports' => %w(80 443) }
+  ```
+
+`description`
+: A description of the functionality that's covered. For example:
+
+  ```ruby
+  description 'The development environment'
+  ```
+
+`name`
+: A unique name within the organization. Each name must be made up of letters (uppercase and lowercase), numbers, underscores, and hyphens. Spaces aren't allowed. For example:
+
+  ```ruby
+  name 'dev01-24'
+  ```
+
+`override_attributes`
+: Optional. A set of attributes to be applied to all nodes, even if the node already has a value for an attribute. This is useful for ensuring that certain attributes always have specific values. If more than one role attempts to set an override value for the same attribute, the last role applied wins. When nested attributes are present, they're preserved. For example:
+
+  ```ruby
+  override_attributes 'apache2' => { 'max_children' => '50' }
+  ```
+
+  The parameters in a Ruby file are Ruby method calls, so parentheses can be used to provide clarity when specifying numerous or deeply-nested attributes. For example:
+
+  ```ruby
+  override_attributes(
+    apache2: {
+      prefork: { min_spareservers: '5' },
+    }
+  )
+  ```
+
+  or:
+
+  ```ruby
+  override_attributes(
+    apache2: {
+      prefork: { min_spareservers: '5' },
+    },
+    tomcat: {
+      worker_threads: '100',
+    }
+  )
+  ```
 
 A Ruby file for each non-default environment must exist in the
 `environments/` subdirectory of the chef-repo. (If the chef-repo does
@@ -238,28 +234,11 @@ file that ends with `.json`. For example:
 
 The JSON format has two additional settings:
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Setting</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>chef_type</code></td>
-<td>Always set this to <code>environment</code>. Use this setting for any custom process that consumes environment objects outside of Ruby.</td>
-</tr>
-<tr>
-<td><code>json_class</code></td>
-<td>Always set this to <code>Chef::Environment</code>. Chef Infra Client uses this setting to automatically inflate an environment object. If objects are being rebuilt outside of Ruby, ignore it.</td>
-</tr>
-</tbody>
-</table>
+`chef_type`
+: Always set this to `environment`. Use this setting for any custom process that consumes environment objects outside of Ruby.
+
+`json_class`
+: Always set this to `Chef::Environment`. Chef Infra Client uses this setting to automatically inflate an environment object. If objects are being rebuilt outside of Ruby, ignore it.
 
 ## Create environments
 

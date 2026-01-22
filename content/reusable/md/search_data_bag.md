@@ -20,7 +20,7 @@ may be necessary to load everything in a data bag (but not know what
 "everything" is). Using a search query is the ideal way to deal with
 that ambiguity, yet still ensure that all of the required data is
 returned. The following examples show how a recipe can use a series of
-search queries to search within a data bag named "admins". For example,
+search queries to search within a data bag named `admins`. For example,
 to find every administrator:
 
 ```ruby
@@ -58,7 +58,7 @@ charlie['shell']
 ```
 
 The following recipe can be used to create a user for each administrator
-by loading all of the items from the "admins" data bag, looping through
+by loading all of the items from the `admins` data bag, looping through
 each admin in the data bag, and then creating a user resource so that
 each of those admins exist:
 

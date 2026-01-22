@@ -1,12 +1,10 @@
-To edit an item named "charlie" that is contained in a data bag named
-"admins", enter:
+To edit an item named `charlie` that's contained in a data bag named `admins`, enter:
 
 ```bash
 knife data bag edit admins charlie
 ```
 
-to open the \$EDITOR. Once opened, you can update the data before saving
-it to the Chef Infra Server. For example, by changing:
+Once opened in the \$EDITOR, update the data before saving it to Chef Infra Server. For example, by changing:
 
 ```javascript
 {

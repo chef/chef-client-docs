@@ -11,13 +11,11 @@ draft = false
 
 {{< readfile file="content/reusable/md/ruby_summary.md" >}}
 
-Chef Infra Client 15 ships with Ruby 2.6 and Chef Infra Client 16 ships with Ruby 2.7.
-
-## Ruby Basics
+## Ruby basics
 
 This section covers the basics of Ruby.
 
-### Verify Syntax
+### Verify syntax
 
 Many people who are new to Ruby often find that it doesn't take
 long to get up to speed with the basics. For example, it's useful to
@@ -43,7 +41,7 @@ Anything after a `#` is a comment.
 # This is a comment.
 ```
 
-### Local Variables
+### Local variables
 
 Assign a local variable:
 
@@ -82,7 +80,7 @@ node['hostname'].downcase    # => "foo"
 node['hostname'].upcase      # => "FOO"
 ```
 
-#### Ruby in Strings
+#### Ruby in strings
 
 Embed Ruby in a string:
 
@@ -92,7 +90,7 @@ x = 'Bob'
 'Hello, #{x}'   # => "Hello, \#{x}" Notice that single quotes don't work with #{}
 ```
 
-#### Escape Character
+#### Escape character
 
 Use the backslash character (`\`) as an escape character when quotes
 must appear within strings. However, you don't need to escape single
@@ -157,15 +155,16 @@ Work with basic untruths (`!` means not!):
 1 != 1          # => false (1 isn't equal to itself)
 ```
 
-#### Convert Truths
+#### Convert to boolean
 
-Convert something to either true or false (`!!` means not not!!):
+Convert a value to either `true` or `false` using the double negation operator (`!!`).
+The first `!` converts the value to its opposite boolean, and the second `!` converts it back, resulting in the boolean representation of the original value:
 
 ```ruby
 !!true          # => true
 !!false         # => false
-!!nil           # => false (when pressed, nil is false)
-!!0             # => true (zero isn't false).
+!!nil           # => false (nil evaluates to false)
+!!0             # => true (zero evaluates to true)
 ```
 
 ### Arrays
@@ -413,11 +412,11 @@ if %w(rhel).include?(node['platform_family'])
 end
 ```
 
-## Patterns to Follow
+## Patterns to follow
 
 This section covers best practices for cookbook and recipe authoring.
 
-### git Etiquette
+### Git etiquette
 
 Although not strictly a Chef style thing, please always ensure your
 `user.name` and `user.email` are set properly in your `.gitconfig` file.
@@ -428,24 +427,22 @@ Although not strictly a Chef style thing, please always ensure your
 This will prevent commit log entries similar to
 `"guestuser <login@Bobs-Macbook-Pro.local>"`, which are unhelpful.
 
-### Use of Hyphens
+### Use of hyphens
 
 {{< readfile file="content/reusable/md/ruby_style_patterns_hyphens.md" >}}
 
-### Cookbook Naming
+### Cookbook naming
 
 Use a short organizational prefix for application cookbooks that are
 part of your organization. For example, if your organization is named
 SecondMarket, use `sm` as a prefix: `sm_postgresql` or `sm_httpd`.
 
-### Cookbook Versioning
+### Cookbook versioning
 
 - Use semantic versioning when numbering cookbooks.
-- Only upload stable cookbooks from master.
-- Only upload unstable cookbooks from the dev branch. Merge to master
-    and bump the version when stable.
-- Always update CHANGELOG.md with any changes, with the JIRA ticket
-    and a brief description.
+- Only upload stable cookbooks from the main or default branch.
+- Only upload unstable cookbooks from a development branch. Merge to main and bump the version when stable.
+- Always update CHANGELOG.md with any changes, with the JIRA ticket and a brief description.
 
 ### Naming
 
@@ -460,7 +457,7 @@ Name things uniformly for their system and component. For example:
 Name attributes after the recipe in which they're primarily used. for example
 `node['postgresql']['server']`.
 
-### Parameter Order
+### Parameter order
 
 Follow this order for information in each resource declaration:
 
@@ -487,9 +484,9 @@ template '/tmp/foobar.txt' do
 end
 ```
 
-### File Modes
+### File modes
 
-Always specify the file mode with a quoted 3-5 character string that
+Always specify the file mode with a quoted 3 to 5 character string that
 defines the octal mode:
 
 ```ruby
@@ -506,7 +503,7 @@ Wrong:
 mode 755
 ```
 
-### Specify Resource Action?
+### Specify resource action?
 
 A resource declaration doesn't require the action to be specified
 because Chef Infra Client will apply the default action for a resource
@@ -531,12 +528,12 @@ ohai 'apache_modules' do
 end
 ```
 
-### String Quoting
+### String quoting
 
 Use single-quoted strings in all situations where the string doesn't
 need interpolation.
 
-#### Whitespace Arrays
+#### Whitespace arrays
 
 {{< readfile file="content/reusable/md/ruby_style_patterns_string_quoting_vs_whitespace_array.md" >}}
 
@@ -679,14 +676,14 @@ template '/srv/wordpress_demo/wp-config.php' do
 end
 ```
 
-## Cookstyle Linting
+## Cookstyle linting
 
 Chef Workstation includes Cookstyle for linting the Ruby-specific and
 Chef-specific portions of your cookbook code. All cookbooks should pass
 Cookstyle rules before being uploaded.
 
 ```bash
-cookstyle your-cookbook
+cookstyle cookbook-name
 ```
 
-should return `no offenses detected`
+This command should return `no offenses detected`.

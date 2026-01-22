@@ -22,34 +22,17 @@ draft = false
 
 {{< readfile file="content/reusable/md/role_attribute.md" >}}
 
-### Attribute Types
+### Attribute types
 
 There are two types of attributes that can be used with roles:
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Attribute Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>default</code></td>
-<td>{{< readfile file="content/reusable/md/node_attribute_type_default.md" >}}</td>
-</tr>
-<tr>
-<td><code>override</code></td>
-<td>{{< readfile file="content/reusable/md/node_attribute_type_override.md" >}}</td>
-</tr>
-</tbody>
-</table>
+`default`
+: {{< readfile file="content/reusable/md/node_attribute_type_default.md" >}}
 
-## Role Formats
+`override`
+: {{< readfile file="content/reusable/md/node_attribute_type_override.md" >}}
+
+## Role formats
 
 Role data is stored in two formats: as a Ruby file that contains
 domain-specific language or as JSON data.
@@ -60,78 +43,87 @@ domain-specific language or as JSON data.
 
 Domain-specific Ruby attributes:
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Setting</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><p><code>default_attributes</code></p></td>
-<td><p>Optional. A set of attributes to be applied to all nodes, assuming the node doesn't already have a value for the attribute. This is useful for setting global defaults that can then be overridden for specific nodes. If more than one role attempts to set a default value for the same attribute, the last role applied is the role to set the attribute value. When nested attributes are present, they're preserved. For example, to specify that a node that has the attribute <code>apache2</code> should listen on ports 80 and 443 (unless ports are already specified):</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>default_attributes <span class="st">&#39;apache2&#39;</span> =&gt; {</span>
-<span id="cb1-2"><a href="#cb1-2"></a>  <span class="st">&#39;listen_ports&#39;</span> =&gt; [ <span class="st">&#39;80&#39;</span>, <span class="st">&#39;443&#39;</span> ]</span>
-<span id="cb1-3"><a href="#cb1-3"></a>}</span></code></pre></div></td>
-</tr>
-<tr>
-<td><p><code>description</code></p></td>
-<td><p>A description of the functionality that's covered. For example:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a>description <span class="st">&#39;The base role for systems that serve HTTP traffic&#39;</span></span></code></pre></div></td>
-</tr>
-<tr>
-<td><p><code>env_run_lists</code></p></td>
-<td><p>Optional. A list of environments, each specifying a recipe or a role to be applied to that environment. This setting must specify the <code>_default</code> environment. If the <code>_default</code> environment is set to <code>[]</code> or <code>nil</code>, then the run-list is empty. For example:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1"></a>env_run_lists <span class="st">&#39;prod&#39;</span> =&gt; [<span class="st">&#39;recipe[apache2]&#39;</span>],</span>
-<span id="cb3-2"><a href="#cb3-2"></a>              <span class="st">&#39;staging&#39;</span> =&gt; [<span class="st">&#39;recipe[apache2::staging]&#39;</span></span></code></pre></div>
-{{< warning >}}
-<p>Using <code>env_run_lists</code> with roles is discouraged as it can be difficult to maintain over time. Instead, consider using multiple roles to define the required behavior.</p>
-{{< /warning >}}</td>
-</tr>
-<tr>
-<td><p><code>name</code></p></td>
-<td><p>A unique name within the organization. Each name must be made up of letters (uppercase and lowercase), numbers, underscores, and hyphens: [A-Z][a-z][0-9] and [_-]. Spaces aren't allowed. For example:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb4-1"><a href="#cb4-1"></a>name <span class="st">&#39;dev01-24&#39;</span></span></code></pre></div></td>
-</tr>
-<tr>
-<td><p><code>override_attributes</code></p></td>
-<td><p>Optional. A set of attributes to be applied to all nodes, even if the node already has a value for an attribute. This is useful for ensuring that certain attributes always have specific values. If more than one role attempts to set an override value for the same attribute, the last role applied wins. When nested attributes are present, they're preserved. For example:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb5-1"><a href="#cb5-1"></a>override_attributes <span class="st">&#39;apache2&#39;</span> =&gt; {</span>
-<span id="cb5-2"><a href="#cb5-2"></a>  <span class="st">&#39;max_children&#39;</span> =&gt; <span class="st">&#39;50&#39;</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a>}</span></code></pre></div>
-<p>The parameters in a Ruby file are Ruby method calls, so parentheses can be used to provide clarity when specifying numerous or deeply-nested attributes. For example:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb6-1"><a href="#cb6-1"></a>override_attributes(</span>
-<span id="cb6-2"><a href="#cb6-2"></a>  <span class="st">:apache2</span> =&gt; {</span>
-<span id="cb6-3"><a href="#cb6-3"></a>    <span class="st">:prefork</span> =&gt; { <span class="st">:min_spareservers</span> =&gt; <span class="ch">&#39;5&#39;</span> }</span>
-<span id="cb6-4"><a href="#cb6-4"></a>  }</span>
-<span id="cb6-5"><a href="#cb6-5"></a>)</span></code></pre></div>
-<p>Or:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb7-1"><a href="#cb7-1"></a>override_attributes(</span>
-<span id="cb7-2"><a href="#cb7-2"></a>  <span class="st">:apache2</span> =&gt; {</span>
-<span id="cb7-3"><a href="#cb7-3"></a>    <span class="st">:prefork</span> =&gt; { <span class="st">:min_spareservers</span> =&gt; <span class="ch">&#39;5&#39;</span> }</span>
-<span id="cb7-4"><a href="#cb7-4"></a>  },</span>
-<span id="cb7-5"><a href="#cb7-5"></a>  <span class="st">:tomcat</span> =&gt; {</span>
-<span id="cb7-6"><a href="#cb7-6"></a>    <span class="st">:worker_threads</span> =&gt; <span class="st">&#39;100&#39;</span></span>
-<span id="cb7-7"><a href="#cb7-7"></a>  }</span>
-<span id="cb7-8"><a href="#cb7-8"></a>)</span></code></pre></div></td>
-</tr>
-<tr>
-<td><p><code>run_list</code></p></td>
-<td><p>A list of recipes and/or roles to be applied and the order in which they're to be applied. For example, the following run-list:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb8-1"><a href="#cb8-1"></a>run_list <span class="st">&#39;recipe[apache2]&#39;</span>,</span>
-<span id="cb8-2"><a href="#cb8-2"></a>         <span class="st">&#39;recipe[apache2::mod_ssl]&#39;</span>,</span>
-<span id="cb8-3"><a href="#cb8-3"></a>         <span class="st">&#39;role[monitor]&#39;</span></span></code></pre></div>
-<p>would apply the <code>apache2</code> recipe first, then the <code>apache2::mod_ssl</code> recipe, and then the <code>role[monitor]</code> recipe.</p></td>
-</tr>
-</tbody>
-</table>
+`default_attributes`
+: Optional. A set of attributes to be applied to all nodes, assuming the node doesn't already have a value for the attribute. This is useful for setting global defaults that can then be overridden for specific nodes. If more than one role attempts to set a default value for the same attribute, the last role applied is the role to set the attribute value. When nested attributes are present, they're preserved. For example, to specify that a node that has the attribute `apache2` should listen on ports 80 and 443 (unless ports are already specified):
 
-Each role must be saved as a ruby file in the `roles/` subdirectory of
+  ```ruby
+  default_attributes 'apache2' => {
+    'listen_ports' => [ '80', '443' ]
+  }
+  ```
+
+`description`
+: A description of the functionality that's covered. For example:
+
+  ```ruby
+  description 'The base role for systems that serve HTTP traffic'
+  ```
+
+`env_run_lists`
+: Optional. A list of environments, each specifying a recipe or a role to be applied to that environment. This setting must specify the `_default` environment. If the `_default` environment is set to `[]` or `nil`, then the run-list is empty. For example:
+
+  ```ruby
+  env_run_lists 'prod' => ['recipe[apache2]'],
+                'staging' => ['recipe[apache2::staging]'
+  ```
+
+  {{< warning >}}
+
+  Using `env_run_lists` with roles is discouraged as it can be difficult to maintain over time. Instead, consider using multiple roles to define the required behavior.
+
+  {{< /warning >}}
+
+`name`
+: A unique name within the organization. Each name must be made up of letters (uppercase and lowercase), numbers, underscores, and hyphens: Spaces aren't allowed. For example:
+
+  ```ruby
+  name 'dev01-24'
+  ```
+
+`override_attributes`
+: Optional. A set of attributes to be applied to all nodes, even if the node already has a value for an attribute. This is useful for ensuring that certain attributes always have specific values. If more than one role attempts to set an override value for the same attribute, the last role applied wins. When nested attributes are present, they're preserved. For example:
+
+  ```ruby
+  override_attributes 'apache2' => {
+    'max_children' => '50'
+  }
+  ```
+
+  The parameters in a Ruby file are Ruby method calls, so parentheses can be used to provide clarity when specifying numerous or deeply-nested attributes. For example:
+
+  ```ruby
+  override_attributes(
+    :apache2 => {
+      :prefork => { :min_spareservers => '5' }
+    }
+  )
+  ```
+
+  Or:
+
+  ```ruby
+  override_attributes(
+    :apache2 => {
+      :prefork => { :min_spareservers => '5' }
+    },
+    :tomcat => {
+      :worker_threads => '100'
+    }
+  )
+  ```
+
+`run_list`
+: A list of recipes and/or roles to be applied and the order in which they're to be applied. For example, the following run-list:
+
+  ```ruby
+  run_list 'recipe[apache2]',
+           'recipe[apache2::mod_ssl]',
+           'role[monitor]'
+  ```
+
+  would apply the `apache2` recipe first, then the `apache2::mod_ssl` recipe, and then the `role[monitor]` recipe.
+
+Each role must be saved as a Ruby file in the `roles/` subdirectory of
 the chef-repo. (If the repository doesn't have this subdirectory, then
 create it using knife.) Each Ruby file should have the `.rb` suffix. A
 complete role has the following syntax:

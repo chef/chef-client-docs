@@ -6,7 +6,7 @@ This subcommand has the following options:
 
 `-p`, `--policy-only`
 
-:   Create a repository that does not store cookbook files, only
+:   Create a repository that doesn't store cookbook files, only
     Policyfile files.
 
 `-P`, `--policy`

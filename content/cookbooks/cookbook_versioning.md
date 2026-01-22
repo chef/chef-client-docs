@@ -1,15 +1,17 @@
 +++
-title = "About Cookbook Versioning"
+title = "About cookbook versioning"
 draft = false
 
 [menu]
   [menu.cookbooks]
-    title = "Versioning Cookbooks"
+    title = "Versioning cookbooks"
     identifier = "cookbooks/cookbook_versioning.md Versioning Cookbooks"
     parent = "cookbooks"
     weight = 150
 +++
+
 <!-- markdownlint-disable-file MD033 -->
+
 {{< readfile file="content/reusable/md/cookbooks_version.md" >}}
 
 ## Syntax
@@ -101,42 +103,63 @@ or will match cookbooks less than or equal to a specific version number:
 
 {{< readfile file="content/reusable/md/cookbooks_metadata.md" >}}
 
-Versions and version constraints can be specified in a cookbook's
-metadata.rb file by using the following functions. Each function accepts
-a name and an optional version constraint; if a version constraint is
-not provided, `>= 0.0.0` is used as the default.
+Versions and version constraints can be specified in a cookbook's `metadata.rb` file by using the following functions.
+Each function accepts a name and an optional version constraint.
+If a version constraint isn't provided, `>= 0.0.0` is used as the default.
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><p><code>depends</code></p></td>
-<td><p>Show that a cookbook has a dependency on another cookbook. Use a version constraint to define dependencies for cookbook versions: <code>&lt;</code> (less than), <code>&lt;=</code> (less than or equal to), <code>=</code> (equal to), <code>&gt;=</code> (greater than or equal to; also known as "optimistically greater than", or "optimistic"), <code>~&gt;</code> (approximately greater than; also known as "pessimistically greater than", or "pessimistic"), or <code>&gt;</code> (greater than). This field requires that a cookbook with a matching name and version exists on Chef Infra Server. When the match exists, Chef Infra Server includes the dependency as part of the set of cookbooks that are sent to the node when Chef Infra Client runs. It's important that the <code>depends</code> field contain accurate data. If a dependency statement is inaccurate, Chef Infra Client may not be able to complete the configuration of the system. For example:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>depends <span class="st">&#39;opscode-base&#39;</span></span></code></pre></div>
-<p>or:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a>depends <span class="st">&#39;opscode-github&#39;</span>, <span class="st">&#39;&gt; 1.0.0&#39;</span></span></code></pre></div>
-<p>or:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1"></a>depends <span class="st">&#39;runit&#39;</span>, <span class="st">&#39;~&gt; 1.2.3&#39;</span></span></code></pre></div></td>
-</tr>
-<tr>
-<td><code>provides</code></td>
-<td>Add a recipe, definition, or resource that's provided by this cookbook, should the populated list be insufficient.</td>
-</tr>
-<tr>
-<td><code>supports</code></td>
-<td>Show that a cookbook has a supported platform. Use a version constraint to define dependencies for platform versions: <code>&lt;</code> (less than), <code>&lt;=</code> (less than or equal to), <code>=</code> (equal to), <code>&gt;=</code> (greater than or equal to), <code>~&gt;</code> (approximately greater than), or <code>&gt;</code> (greater than). To specify more than one platform, use more than one <code>supports</code> field, once for each platform.</td>
-</tr>
-</tbody>
-</table>
+<!-- markdownlint-disable MD007 -->
+
+`depends`
+: Specify that a cookbook has a dependency on another cookbook.
+  You can use a version constraint to define dependencies for cookbook versions:
+
+  - `<`: less than
+  - `<=`: less than or equal to
+  - `=`: equal to
+  - `>=`: greater than or equal to---also known as optimistically greater than or optimistic.
+  - `~>`: approximately greater than---also known as pessimistically greater than or pessimistic
+  - `>`: greater than
+
+  A cookbook with a matching name and version must exist on Chef Infra Server.
+  When the match exists, Chef Infra Server includes the dependency as part of the set of cookbooks that are sent to the node when Chef Infra Client runs.
+
+  The `depends` field must contain accurate data.
+  If a dependency statement is inaccurate, Chef Infra Client may not be able to complete the configuration of the system.
+
+  For example:
+
+  ```ruby
+  depends 'opscode-base'
+  ```
+
+  or:
+
+  ```ruby
+  depends 'opscode-github', '> 1.0.0'
+  ```
+
+  or:
+
+  ```ruby
+  depends 'runit', '~> 1.2.3'
+  ```
+
+`provides`
+: Add a recipe, definition, or resource that's provided by this cookbook if the populated list is insufficient.
+
+`supports`
+: Specify that a cookbook has a supported platform.
+
+  You can use a version constraint to define dependencies for platform versions:
+
+  - `<`: less than
+  - `<=`: less than or equal to
+  - `=`: equal to
+  - `>=`: greater than or equal to
+  - `~>`: approximately greater than
+  - `>`: greater than
+
+  To specify more than one platform, use more than one `supports` field, once for each platform.
 
 ## Environments
 
@@ -158,7 +181,7 @@ If a cookbook isn't explicitly given a version constraint the
 environment will assume the cookbook has no version constraint and will
 use any version of that cookbook with any node in the environment.
 
-## Freeze Versions
+## Freeze versions
 
 A cookbook version can be frozen, which will prevent updates from being
 made to that version of a cookbook. (A user can always upload a new
