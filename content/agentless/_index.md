@@ -239,8 +239,7 @@ chef-client -t <TARGET_NAME> <PATH/TO/COOKBOOK/COOKBOOK_NAME>
 Replace the following:
 
 - `<TARGET_NAME>` with the name of the host as defined in the credentials file.
-- `<PATH/TO/COOKBOOK/COOKBOOK_NAME>` with the path to the Cookbook on your system. For example, `/chef-repo/cookbooks/example_cookbook`
-This will run default recipe in the cookbook.
+- `<PATH/TO/COOKBOOK/COOKBOOK_NAME>` with the path to the Cookbook on your system. For example, `/chef-repo/cookbooks/example_cookbook`. This runs the default recipe in the cookbook.
 
 ### Run Agentless Mode in Local Mode
 
