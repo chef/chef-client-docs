@@ -239,7 +239,8 @@ chef-client -t <TARGET_NAME> <PATH/TO/COOKBOOK/COOKBOOK_NAME>
 Replace the following:
 
 - `<TARGET_NAME>` with the name of the host as defined in the credentials file.
-- `<PATH/TO/COOKBOOK/COOKBOOK_NAME>` with the path to the Cookbook on your system. For example, `/chef-repo/cookbooks/example_cookbook.rb`
+- `<PATH/TO/COOKBOOK/COOKBOOK_NAME>` with the path to the Cookbook on your system. For example, `/chef-repo/cookbooks/example_cookbook`
+This will run default recipe in the cookbook.
 
 ### Run Agentless Mode in Local Mode
 
@@ -255,7 +256,7 @@ chef-client -z -t <TARGET_NAME>
 You can also run a specific cookbook in Local Mode:
 
 ```sh
-chef-client -z -t <TARGET_NAME> <COOKBOOK_FILE_PATH>
+chef-client -z -t <TARGET_NAME> <RECIPE_FILE_PATH>
 ```
 
 Replace:
@@ -263,7 +264,7 @@ Replace:
 - `<TARGET_NAME>` with the name of the host as defined in the credentials file.
   For example, `HOST-1` in the [credential file example](#define-node-connections).
 
-- `<COOKBOOK_FILE_PATH>` with the cookbook file path. For example, `/chef-repo/cookbooks-dir/cookbook1.rb`.
+- `<RECIPE_FILE_PATH>` with the recipe file path inside a cookbook. For example, `/chef-repo/cookbooks/cookbook1/recipe1.rb`.
 
 You should see output similar to this:
 
