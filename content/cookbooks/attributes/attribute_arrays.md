@@ -10,7 +10,11 @@ draft = false
     parent = "cookbooks/attributes"
 +++
 
-Attributes are typically defined in cookbooks, recipes, roles, and environments. These attributes are rolled-up to the node level during a Chef Infra Client run. A recipe can store attribute values using a multi-level hash or array.
+<!-- vale proselint.But = NO -->
+
+Attributes are typically defined in cookbooks, recipes, roles, and environments.
+These attributes are rolled up to the node level during a Chef Infra Client run.
+A recipe can store attribute values using a multi-level hash or array.
 
 For example, a group of attributes for web servers might be:
 
@@ -27,7 +31,8 @@ override_attributes(
 )
 ```
 
-But what if all of the web servers aren't the same? What if some of the web servers required a single attribute to have a different value? You could store these settings in two locations, once just like the preceding example and once just like the following:
+But, what if all of the web servers aren't the same or require a single attribute to have a different value?
+You could store these settings in two locations: one like the preceding example and one like the following:
 
 ```ruby
 override_attributes(
@@ -42,9 +47,12 @@ override_attributes(
 )
 ```
 
-But that isn't efficient, especially because most of them are identical. The deep merge capabilities of Chef Infra Client allows attributes to be layered across cookbooks, recipes, roles, and environments. This allows an attribute to be reused across nodes, making use of default attributes set at the cookbook level, but also providing a way for certain attributes (with a higher attribute precedence) to be applied only when they're supposed to be.
+But that isn't efficient, especially because most of them are identical.
 
-For example, a role named `baseline.rb`:
+Chef Infra Client's deep merge capabilities allow you to layer attributes across cookbooks, recipes, roles, and environments.
+This allows an attribute to be reused across nodes, making use of default attributes set at the cookbook level, while also providing a way for certain attributes (with a higher attribute precedence) to be applied only when they're needed.
+
+For example, you can have a role named `baseline.rb`:
 
 ```ruby
 name "baseline"
@@ -63,7 +71,7 @@ override_attributes(
 )
 ```
 
-and then a role named `web.rb`:
+and a role named `web.rb`:
 
 ```ruby
 name 'web'
@@ -79,11 +87,11 @@ override_attributes(
 )
 ```
 
-Both of these files are similar because they share the same structure. When an attribute value is a hash, that data is merged. When an attribute value is an array, if the attribute precedence levels are the same, then that data is merged. If the attribute value precedence levels in an array are different, then that data is replaced. For all other value types (such as strings, integers, etc.), that data is replaced.
+The `web.rb` role references the `baseline.rb` role.
+The `web.rb` file only provides a value for one attribute: `:startservers`.
+When Chef Infra Client compares these attributes, the deep merge feature ensures that `:startservers` (and its value of `30`) is applied to any node for which the `web.rb` attribute structure should be applied.
 
-For example, the `web.rb` references the `baseline.rb` role. The `web.rb` file only provides a value for one attribute: `:startservers`. When Chef Infra Client compares these attributes, the deep merge feature will ensure that `:startservers` (and its value of `30`) will be applied to any node for which the `web.rb` attribute structure should be applied.
-
-This approach will allow a recipe like this:
+This approach allows a recipe like this:
 
 ```ruby
 include_recipe 'apache2'
@@ -115,9 +123,14 @@ to produce results like this:
 
 Even though the `web.rb` file doesn't contain attributes and values for `minspareservers`, `maxspareservers`, `serverlimit`, `maxclients`, and `maxrequestsperchild`, the deep merge capabilities pulled them in.
 
-## Attribute Array Logic
+## Attribute array logic
 
 The following sections show how the logic works for using deep merge to perform substitutions and additions of attributes.
+
+When an attribute value is a hash, that data is merged.
+When an attribute value is an array, if the attribute precedence levels are the same, then that data is merged.
+If the attribute value precedence levels in an array are different, then that data is replaced.
+For all other value types (such as strings or integers), that data is replaced.
 
 ### Substitution
 

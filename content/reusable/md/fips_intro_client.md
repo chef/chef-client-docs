@@ -1,3 +1,6 @@
+<!-- vale Microsoft.Ranges = NO -->
+<!-- vale Microsoft.RangeFormat = NO -->
+
 Federal Information Processing Standards (FIPS) is a United States
 government computer security standard that specifies security
 requirements for cryptography. The current version of the standard is
@@ -23,7 +26,5 @@ and isn't used for any cryptographic purpose.
 
 Notes about FIPS:
 
-- May be enabled for nodes running on Windows and Enterprise
-    Linux platforms
-- Should only be enabled for environments that require FIPS 140-2
-    compliance
+- May be enabled for nodes running on Windows and Enterprise Linux platforms
+- Should only be enabled for environments that require FIPS 140-2 compliance

@@ -10,6 +10,8 @@ draft = false
     weight = 20
 +++
 
+<!-- vale proselint.Cliches = NO -->
+
 `ohai` is the command-line interface for Ohai, a tool that's used to
 detect attributes on a node, and then provide these attributes to Chef
 Infra Client at the start of every Chef Infra Client run.
@@ -74,12 +76,14 @@ This fetches the value of Chef Infra's node data at `node['os']` and returns som
 ]
 ```
 
-To query for an attribute deeper in the tree, use a forward slash (`/`) as a
-delimiter. For example, to query for free memory, run:
+To query for an attribute deeper in the node attribute tree, use a forward slash (`/`) as a delimiter between each level.
+For example, to query for free memory:
 
 ```bash
 ohai memory/free
 ```
+
+This returns the value of `node['memory']['free']`.
 
 ### Run a plugin independently of a Chef Infra Client run
 
@@ -113,7 +117,7 @@ To run that plugin from the command line, use the following command:
 ohai --directory /path/to/directory sl
 ```
 
-The command will return something similar to:
+The command returns something similar to:
 
 ```json
 {

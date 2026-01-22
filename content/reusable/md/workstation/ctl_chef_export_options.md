@@ -12,7 +12,7 @@ This subcommand has the following options:
 `-f`, `--force`
 
 :   Remove the contents of the destination directory if that directory
-    is not empty. Default value: `false`.
+    isn't empty. Default value: `false`.
 
 `-h`, `--help`
 

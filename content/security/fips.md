@@ -10,6 +10,9 @@ draft = false
     weight = 30
 +++
 
+<!-- vale Microsoft.Ranges = NO -->
+<!-- vale Microsoft.RangeFormat = NO -->
+
 ## What's FIPS?
 
 Federal Information Processing Standards (FIPS) are federal standards
