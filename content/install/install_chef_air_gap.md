@@ -28,7 +28,7 @@ Since a variety of different practices are used to create an air-gapped network,
   - Chef Workstation
   - Chef Infra Client
   - Chef Supermarket
-  - An [install script](/install_chef_air_gap/#create-an-install-script) for Chef Infra Client
+  - An [install script](#create-an-install-script) for Chef Infra Client
 <!-- markdownlint-enable MD007 -->
 
 ### Required cookbooks
@@ -275,9 +275,9 @@ Supermarket.
 1. Retrieve Supermarket's OAuth 2.0 client credentials:
 
     Depending on your Chef Infra Server version and configuration (see
-    [chef-server.rb](/server/config_rb_server_optional_settings/#config-rb-server-insecure-addon-compat)),
+    [chef-server.rb](https://docs.chef.io/server/config_rb_server_optional_settings/#config-rb-server-insecure-addon-compat)),
     this can be retrieved using [chef-server-ctl oc-id-show-app
-    supermarket](/ctl_chef_server/#ctl-chef-server-oc-id-show-app)
+    supermarket](https://docs.chef.io/server/ctl_chef_server/#ctl-chef-server-oc-id-show-app)
     or is located in `/etc/opscode/oc-id-applications/supermarket.json`:
 
     ```json
@@ -328,7 +328,7 @@ Supermarket.
 Define the attributes for the Chef Supermarket installation and how it
 connects to Chef Infra Server. One approach would be to hard-code
 attributes in the wrapper cookbook's `default.rb` recipe. A better
-approach is to place these attributes in a [data bag](/data_bags/),
+approach is to place these attributes in a [data bag](/policy/data_bags/),
 and then reference them from the recipe. For example, the data bag could
 be named `apps` and then a data bag item within the data bag could be
 named `supermarket`. The following attributes are required:

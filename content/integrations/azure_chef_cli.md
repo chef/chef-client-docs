@@ -158,7 +158,7 @@ The extension has the following options that can be provided in the
 
 `bootstrap_channel`
 
-: Specify the [channel](/packages/) for installing the Chef Infra Client version. Options are `stable`, `current` or `unstable` release channels.
+: Specify the [channel](https://docs.chef.io/packages/) for installing the Chef Infra Client version. Options are `stable`, `current` or `unstable` release channels.
 
 `chef_package_path`
 
@@ -170,11 +170,11 @@ The extension has the following options that can be provided in the
 
 `CHEF_LICENSE`
 
-: Chef Infra Client 15+ requires accepting the CHEF EULA license. Set `CHEF_LICENSE` to one of these values `accept`, `accept-silent` or `accept-no-persist`. Refer to [CHEF EULA license](/chef_license_accept/#accept-the-chef-eula)
+: Chef Infra Client 15+ requires accepting the CHEF EULA license. Set `CHEF_LICENSE` to one of these values `accept`, `accept-silent` or `accept-no-persist`. Refer to [CHEF EULA license](https://docs.chef.io/licensing/accept//#accept-the-chef-eula)
 
 `hints`
 
-: Specifies the [Ohai Hints](/ohai/#hints) to be set in the Ohai configuration of the target node.
+: Specifies the [Ohai Hints](/features/ohai/#hints) to be set in the Ohai configuration of the target node.
 
 `chef_package_url`
 

@@ -17,31 +17,31 @@ draft = false
 {{< readfile file="content/reusable/md/cookbooks_version.md" >}}
 
 For more information about cookbook versioning, see [About Cookbook
-Versioning](/cookbook_versioning/)
+Versioning](/cookbooks/cookbook_versioning/)
 
 ## Data Bags (Secrets)
 
 {{< readfile file="content/reusable/md/data_bag.md" >}}
 
 For more information about data bags, see [About Data
-Bags](/data_bags/)
+Bags](/policy/data_bags/)
 
 ## Environments
 
 {{< readfile file="content/reusable/md/environment.md" >}}
 
 For more information about environments, see [About
-Environments](/environments/)
+Environments](environments)
 
 ## Roles
 
 {{< readfile file="content/reusable/md/role.md" >}}
 
-For more information about roles, see [About Roles](/roles/)
+For more information about roles, see [About Roles](roles)
 
 ## Policyfile
 
 {{< readfile file="content/reusable/md/policyfile_summary.md" >}}
 
 For more information about Policyfile, see [About
-Policyfile](/policyfile/)
+Policyfile](/policy/policyfile/)

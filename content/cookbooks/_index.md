@@ -22,16 +22,45 @@ Chef Infra Client runs a recipe only when instructed. When Chef Infra Client run
 
 A cookbook is comprised of recipes and other optional components as files or directories.
 
-| Component                              | File/Directory Name | Description                                                                                                                                                  |
-|----------------------------------------|---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Recipes](/recipes/)                   | recipes/            | {{< readfile file="content/reusable/md/cookbooks_recipe.md" >}}                                                                                              |
-| [Attributes](/attributes/)             | attributes/         | {{< readfile file="content/reusable/md/cookbooks_attribute.md" >}}                                                                                           |
-| [Files](/files/)                       | files/              | A file distribution is a specific type of resource that tells a cookbook how to distribute files, including by node, by platform, or by file version.        |
-| [Libraries](/libraries/)               | libraries/          | A library allows the use of arbitrary Ruby code in a cookbook, either as a way to extend the Chef Infra Client language or to implement a new class.         |
-| [Custom Resources](/custom_resources/) | resources/          | A custom resource is an abstract approach for defining a set of actions and (for each action) a set of properties and validation parameters.                 |
-| [Templates](/templates/)               | templates/          | A template is a file written in markup language that uses Ruby statements to solve complex configuration scenarios.                                          |
-| [Ohai Plugins](/ohai_custom/)          | ohai/               | Custom Ohai plugins can be written to load additional information about your nodes to be used in recipes. This requires Chef Infra Server 12.18.14 or later. |
-| [Metadata](/config_rb_metadata/)       | metadata.rb         | This file contains information about the cookbook such as the cookbook name, description, and version.                                                       |
+[Recipes](recipes)
+: Directory: `recipes/`
+
+  {{< readfile file="content/reusable/md/cookbooks_recipe.md" >}}
+
+[Attributes](attributes)
+: Directory: `attributes/`
+
+  {{< readfile file="content/reusable/md/cookbooks_attribute.md" >}}
+
+[Files](files)
+: Directory: `files/`
+
+  A file distribution is a specific type of resource that tells a cookbook how to distribute files, including by node, by platform, or by file version.
+
+[Libraries](libraries)
+: Directory: `libraries/`
+
+  A library allows the use of arbitrary Ruby code in a cookbook, either as a way to extend the Chef Infra Client language or to implement a new class.
+
+[Custom Resources](/resources/custom/)
+: Directory: `resources/`
+
+  A custom resource is an abstract approach for defining a set of actions and (for each action) a set of properties and validation parameters.
+
+[Templates](templates)
+: Directory: `templates/`
+
+  A template is a file written in markup language that uses Ruby statements to solve complex configuration scenarios.
+
+[Ohai Plugins](/extension_apis/custom_plugins/)
+: Directory: `ohai/`
+
+  Custom Ohai plugins can be written to load additional information about your nodes to be used in recipes. This requires Chef Infra Server 12.18.14 or later.
+
+[Metadata](config_rb_metadata)
+: File: `metadata.rb`
+
+  This file contains information about the cookbook such as the cookbook name, description, and version.
 
 ## Community Cookbooks
 
@@ -45,7 +74,7 @@ Chef maintains a large collection of cookbooks. In addition, there are thousands
 
 ## Generate a Cookbook
 
-Use the [chef generate cookbook subcommand](/workstation/ctl_chef/#chef-generate-cookbook) to generate a cookbook.
+Use the [chef generate cookbook subcommand](https://docs.chef.io/workstation/ctl_chef/#chef-generate-cookbook) to generate a cookbook.
 
 A cookbook generated with`chef generate cookbook custom_web` creates a cookbook named `custom_web` with the directory structure:
 

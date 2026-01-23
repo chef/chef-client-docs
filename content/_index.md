@@ -34,7 +34,7 @@ Chef Infra Client works with key components to manage your infrastructure:
 The Compliance Phase is an integrated security and compliance feature that runs Chef InSpec profiles automatically as part of every Chef Infra Client run.
 This phase allows you to continuously audit your infrastructure for compliance with security policies and regulatory requirements without managing separate tools or processes.
 
-For detailed information, see [About the Compliance Phase](/chef_compliance_phase/).
+For detailed information, see [About the Compliance Phase](/features/chef_compliance_phase/).
 
 ### Node
 
@@ -60,7 +60,7 @@ Chef Infra Client uses this information to make intelligent configuration decisi
 
 Agentless allows you to execute Infra Client runs on a target node over SSH without having Chef Infra Client installed on the node.
 
-For more details and setup instructions, see the [Agentless documentation](/target_mode/).
+For more details and setup instructions, see the [Agentless documentation](/features/agentless/).
 
 ## How Chef Infra Client works
 

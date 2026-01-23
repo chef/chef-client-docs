@@ -16,7 +16,7 @@ This page mentions multiple ways of building custom resources. Chef Software rec
 
 {{< /warning >}}
 
-## Custom Resources
+## Custom resources
 
 This is the recommended way of writing resources for all users. There are two gotchas which we're working through:
 

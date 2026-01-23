@@ -16,11 +16,11 @@ The following sections describe the upgrade process for Chef Infra Client. If yo
 
 Commercial users must have a license ID. You can get your license ID from the [Chef Downloads portal](https://chef.io/downloads).
 
-For community users, see the [Chef install script documentation](/chef_install_script/).
+For community users, see the [Chef install script documentation](https://docs.chef.io/chef_install_script/).
 
 ## Command line upgrades
 
-Use the [Chef install script](/chef_install_script/) to upgrade to the latest version of Chef Infra Client on a node from the command line.
+Use the [Chef install script](https://docs.chef.io/chef_install_script/) to upgrade to the latest version of Chef Infra Client on a node from the command line.
 
 - On Linux, macOS, and Unix-based hosts:
 
@@ -40,7 +40,7 @@ Use the [Chef install script](/chef_install_script/) to upgrade to the latest ve
 
 ### Specify the install version
 
-You can install a specific version of Chef Infra Client using the [Chef install script](/chef_install_script/).
+You can install a specific version of Chef Infra Client using the [Chef install script](https://docs.chef.io/chef_install_script/).
 
 - Use the `-v` option to install a specific version on Linux, macOS, and Unix-based hosts. For example:
 
@@ -60,7 +60,7 @@ You can install a specific version of Chef Infra Client using the [Chef install 
 
 ### Upgrade multiple hosts with knife
 
-You can use the [`knife ssh` command](/workstation/knife_ssh/) in Chef Workstation to execute the install script on multiple Linux, macOS, and Unix-based hosts at once.
+You can use the [`knife ssh` command](https://docs.chef.io/workstation/knife_ssh/) in Chef Workstation to execute the install script on multiple Linux, macOS, and Unix-based hosts at once.
 
 ```bash
 knife ssh <SEARCH_QUERY> 'curl -L https://chefdownload-commercial.chef.io/install.sh?license_id=<LICENSE_ID> | sudo bash'
@@ -69,7 +69,7 @@ knife ssh <SEARCH_QUERY> 'curl -L https://chefdownload-commercial.chef.io/instal
 Replace:
 
 - `<LICENSE_ID>` with your license ID
-- `<SEARCH_QUERY>` with a [node search query](/chef_search/)
+- `<SEARCH_QUERY>` with a [node search query](/features/chef_search/)
 
 ## Cookbook-based upgrade
 

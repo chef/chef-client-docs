@@ -23,7 +23,7 @@ Before you bootstrap Chef Infra Client on nodes:
     directory, which requires a minimum of 200MB of disk space. On
     Windows, the Chef Infra Client binaries can be found in
     `C:\opscode\`, and they require a minimum of 600MB of disk space.
-- The processor must be [supported](/platforms/). We recommend
+- The processor must be [supported](https://docs.chef.io/platforms/). We recommend
     a 1 gigahertz (GHz) or faster processor, but the processor speed
     should be based on the other system loads.
 - Chef Infra Client caches to `/var/chef/cache` during a Chef Infra
@@ -33,5 +33,5 @@ Before you bootstrap Chef Infra Client on nodes:
     data and should be generously sized. 5GB is a safe number as a
     starting point, but tune the size of `/var/chef/cache` as necessary.
     This location is tunable in a node's
-    [client.rb](/config_rb_client/) file using the
+    [client.rb](/install/config_rb_client/) file using the
     `file_cache_path` setting.

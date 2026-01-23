@@ -11,7 +11,7 @@ aliases = "/deprecations_erl_call_resource.html"
 The erl_call resource was deprecated in Chef Infra Client 13.7 and removed
 from Chef Infra Client 14.0 (April 2018).
 
-The [Cookstyle](/workstation/cookstyle/) cop
+The [Cookstyle](https://docs.chef.io/workstation/cookstyle/) cop
 [ChefDeprecations/ErlCallResource](https://github.com/chef/cookstyle/blob/main/docs/cops_chefdeprecations.md#chefdeprecationserlcallresource)
 has been introduced to detect this deprecation.
 

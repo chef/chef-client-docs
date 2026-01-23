@@ -17,7 +17,7 @@ properties as needed. This deprecation warning was added in Chef Infra
 Client 15.0. Support for property `lc_all` will be removed for Chef
 Infra Client 16.0.
 
-The [Cookstyle](/workstation/cookstyle/) cop
+The [Cookstyle](https://docs.chef.io/workstation/cookstyle/) cop
 [ChefDeprecations/LocaleDeprecatedLcAllProperty](https://github.com/chef/cookstyle/blob/main/docs/cops_chefdeprecations.md#chefdeprecationslocaledeprecatedlcallproperty)
 has been introduced to detect and autocorrect this deprecation.
 

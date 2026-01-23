@@ -12,7 +12,7 @@ In Chef Infra Client 14 several legacy mixins will be removed. Usage of these
 mixins has resulted in deprecation warnings for several years. They were
 traditionally used in some HWRPs.
 
-The [Cookstyle](/workstation/cookstyle/) cop
+The [Cookstyle](https://docs.chef.io/workstation/cookstyle/) cop
 [ChefDeprecations/UsesDeprecatedMixins](https://github.com/chef/cookstyle/blob/main/docs/cops_chefdeprecations.md#chefdeprecationsusesdeprecatedmixins)
 has been introduced to detect these mixins:
 

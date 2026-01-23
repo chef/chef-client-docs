@@ -14,7 +14,7 @@ The Python community recommends that users prefer `pip` rather than
 The `easy_install` resource was deprecated in Chef Infra Client 12.10, and
 will be removed in Chef Infra Client 13.
 
-The [Cookstyle](/workstation/cookstyle/) cop
+The [Cookstyle](https://docs.chef.io/workstation/cookstyle/) cop
 [ChefDeprecations/EasyInstallResource](https://github.com/chef/cookstyle/blob/main/docs/cops_chefdeprecations.md#chefdeprecationseasyinstallresource)
 has been introduced to detect this deprecation.
 

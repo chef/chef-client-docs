@@ -14,7 +14,7 @@ and out of the 3500 cookbooks on the Supermarket only one uses
 `epic_fail`. In Chef Infra Client 14 we will remove the `epic_fail` property
 entirely.
 
-The [Cookstyle](/workstation/cookstyle/) cop
+The [Cookstyle](https://docs.chef.io/workstation/cookstyle/) cop
 [ChefDeprecations/EpicFail](https://github.com/chef/cookstyle/blob/main/docs/cops_chefdeprecations.md#chefdeprecationsepicfail)
 has been introduced to detect and autocorrect this deprecation.
 
