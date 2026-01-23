@@ -8,6 +8,8 @@ draft = false
     identifier = "Troubleshooting"
 +++
 
+<!-- vale Microsoft.Avoid = NO -->
+
 The following sections describe how to troubleshoot Chef Infra Server, Chef Infra Client, and Chef Workstation.
 
 ## 401 Unauthorized
