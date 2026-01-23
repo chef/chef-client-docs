@@ -12,7 +12,7 @@ The Chef Infra Client migration tool (`chef-migrate`) allows you to install or u
 
 ## Key functions
 
-- **Fresh installation:** Install Chef Infra Client 
+- **Fresh installation:** Install Chef Infra Client
 - **Side-by-side installation:** Install Chef Infra Client and remove or keep the previous Infra Client version. If you keep the previous version in side-by-side mode, the path to the most recent version takes precedence
 - **Omnibus upgrade:** Upgrade from Omnibus-based Chef Infra Client 17.x or 18.x versions
 - **Habitat upgrade:** Upgrade Habitat-packaged Chef Infra Client releases

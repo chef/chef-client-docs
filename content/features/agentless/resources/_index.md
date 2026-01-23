@@ -9,6 +9,8 @@ parent = "features/agentless/resources"
 weight = 10
 +++
 
+<!-- markdownlint-disable MD059 -->
+
 The following Chef Infra resources are supported in Agentless Mode.
 
 | **Resources Name** | **Verified Platforms** | **Remarks** |
@@ -40,7 +42,7 @@ The following Chef Infra resources are supported in Agentless Mode.
 | [directory](/resources/bundled/directory/) | Ubuntu, Linux, Solaris, Alpine, SUSE | |
 | [execute](/resources/bundled/execute/) | Ubuntu, Linux, Solaris, Alpine, SUSE | |
 | [file](/resources/bundled/file/) | Ubuntu, Linux, Solaris, Alpine, SUSE | |
-| [freebsd_package](/resources/bundled/freebsd_package/) | FreeBSD 14 | Only supported on FreeBSD. |
+| [freebsd_package](/resources/bundled/freebsd_package/) | FreeBSD 14 | Supported on FreeBSD. |
 | [git](/resources/bundled/git/) | Ubuntu, Linux, Solaris, Alpine, SUSE | |
 | [group](/resources/bundled/group/) | Ubuntu, Linux, Solaris, Alpine, SUSE | |
 | [habitat_config](/resources/bundled/habitat_config/) | Ubuntu 24.04, Linux Red Hat 9, Solaris, Alpine, SUSE | |
@@ -88,9 +90,9 @@ The following Chef Infra resources are supported in Agentless Mode.
 | [selinux_state](/resources/bundled/selinux_state/) | Ubuntu, Linux | |
 | [selinux_user](/resources/bundled/selinux_user/) | Ubuntu, Linux | |
 | [service](/resources/bundled/service/) | Ubuntu, Linux, CentOS 9, Solaris, Alpine, SUSE | `crond` for Linux |
-| [snap_package](/resources/bundled/snap_package/) | Ubuntu 24.04 | Only supported on Linux. |
+| [snap_package](/resources/bundled/snap_package/) | Ubuntu 24.04 | Supported on Linux. |
 | [ssh_known_hosts_entry](/resources/bundled/ssh_known_hosts_entry/) | Ubuntu, Linux | |
-| [subversion](/resources/bundled/subversion/) | Ubuntu 24.04, Linux Red Hat 9, CentOS 9 | The subversion resource has known bugs and may not work as expected. For more information, see the Chef GitHub issues, particularly [#4050](https://github.com/chef/chef/issues/4050) and [#4257](https://github.com/chef/chef/issues/4257). |
+| [subversion](/resources/bundled/subversion/) | Ubuntu 24.04, Linux Red Hat 9, CentOS 9 | The subversion resource has known bugs and may not work as expected. For more information, see the Chef GitHub issues [#4050](https://github.com/chef/chef/issues/4050) and [#4257](https://github.com/chef/chef/issues/4257). |
 | [sudo](/resources/bundled/sudo/) | Ubuntu, Linux, CentOS 9, Solaris, Alpine, SUSE | |
 | [swap_file](/resources/bundled/swap_file/) | Ubuntu, Linux | |
 | [sysctl](/resources/bundled/sysctl/) | Ubuntu, Linux | |
@@ -99,8 +101,8 @@ The following Chef Infra resources are supported in Agentless Mode.
 | [timezone](/resources/bundled/timezone/) | Linux, Solaris, Alpine, SUSE | |
 | [user](/resources/bundled/user/) | Ubuntu, Linux | |
 | [user_ulimit](/resources/bundled/user_ulimit/) | Ubuntu, Linux | |
-| [yum_package](/resources/bundled/yum_package/) | CentOS 9 | Only supported on Linux. |
+| [yum_package](/resources/bundled/yum_package/) | CentOS 9 | Supported on Linux. |
 | [yum_repository](/resources/bundled/yum_repository/) | Linux | |
-| [yum_repository](/resources/bundled/yum_repository/) | CentOS 9, RHEL 8 | Only supported on Linux. |
+| [yum_repository](/resources/bundled/yum_repository/) | CentOS 9, RHEL 8 | Supported on Linux. |
 | [zypper_package](/resources/bundled/zypper_package/) | SUSE Linux 15 | |
 | [solaris_package](/resources/bundled/solaris_package/) | Solaris | |
