@@ -63,7 +63,6 @@ The following Chef Infra resources are supported in Agentless Mode.
 | [notify_group](https://docs.chef.io/resources/notify_group/) | Ubuntu, Linux | |
 | [ohai](https://docs.chef.io/resources/ohai/) | Ubuntu, Linux | |
 | [ohai_hint](https://docs.chef.io/resources/ohai_hint/) | Ubuntu, Linux | |
-| [owner](https://docs.chef.io/resources/owner/) | Ubuntu, Linux, Solaris, Alpine, SUSE | |
 | [package](https://docs.chef.io/resources/package/) | Ubuntu, Linux, CentOS 9, Solaris, Alpine, SUSE | |
 | [perl](https://docs.chef.io/resources/perl/) | Ubuntu | |
 | [python](https://docs.chef.io/resources/python/) | Ubuntu 24.04, Linux Red Hat 9, Solaris, Alpine, SUSE | |
