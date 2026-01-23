@@ -3,10 +3,10 @@ title = "About the Compliance Phase"
 draft = false
 
 [menu]
-  [menu.run]
+  [menu.features]
     title = "Compliance Phase"
-    identifier = "run/chef_compliance_phase.md Compliance Phase"
-    parent = "run"
+    identifier = "features/chef_compliance_phase.md Compliance Phase"
+    parent = "features"
     weight = 15
 
 +++
@@ -262,7 +262,7 @@ The following examples:
 
 ## Customize Profiles
 
-You can upload profiles to Chef Automate using the [Chef Automate API](/automate/api/#operation/Create) or the `inspec compliance` command.
+You can upload profiles to Chef Automate using the [Chef Automate API](https://docs.chef.io/automate/api/#operation/Create) or the `inspec compliance` command.
 
 ### Waivers
 

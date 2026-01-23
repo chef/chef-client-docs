@@ -138,7 +138,7 @@ Shortcomings of the legacy validator process are:
 
 The "validatorless bootstrap" generates a key for each node, which is then transferred to the new node and used to authenticate with Chef Infra Server instead of relying on a shared "validator" key.
 
-The Chef Infra bootstrap process is validatorless by default. If you receive a warning during a bootstrap that a validator key is in use, remove the configuration for this legacy bootstrap mode. Edit your [config.rb (knife.rb)](/workstation/config_rb/) file and remove any `validation_key` or `validation_client_name` entries.
+The Chef Infra bootstrap process is validatorless by default. If you receive a warning during a bootstrap that a validator key is in use, remove the configuration for this legacy bootstrap mode. Edit your [config.rb (knife.rb)](https://docs.chef.io/workstation/config_rb/) file and remove any `validation_key` or `validation_client_name` entries.
 
 ## Bootstrapping with chef-vault
 
@@ -450,7 +450,7 @@ EOF
 chef-client -j /etc/chef/first-boot.json
 ```
 
-It's important that settings in the [client.rb file](/config_rb_client/)---for example `chef_server_url` and `http_proxy`---are used to ensure that configuration details are built into the unattended bootstrap process.
+It's important that settings in the [client.rb file](/install/config_rb_client/)---for example `chef_server_url` and `http_proxy`---are used to ensure that configuration details are built into the unattended bootstrap process.
 
 ##### Setting the initial run-list
 

@@ -37,7 +37,7 @@ user = 'root'
 password = '<PASSWORD>'
 ```
 
-For more information, see the [target credentials file documentation](/agentless/).
+For more information, see the [target credentials file documentation](/features/agentless/).
 
 ## Create the test recipe
 

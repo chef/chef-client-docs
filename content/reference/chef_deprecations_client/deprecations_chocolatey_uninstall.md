@@ -11,11 +11,11 @@ aliases = "/deprecations_chocolatey_uninstall.html"
 
 The Chocolatey cookbook's `chocolatey_package` resource originally
 contained an `:uninstall` action. When
-[chocolatey_package](/resources/chocolatey_package/) was moved into
+[chocolatey_package](/resources/bundled/chocolatey_package/) was moved into
 core Chef, we made `:uninstall` an alias for `:remove`. In Chef Infra Client
 14, `:uninstall` will no longer be a valid action.
 
-The [Cookstyle](/workstation/cookstyle/) cop
+The [Cookstyle](https://docs.chef.io/workstation/cookstyle/) cop
 [ChefDeprecations/ChocolateyPackageUninstallAction](https://github.com/chef/cookstyle/blob/main/docs/cops_chefdeprecations.md#chefdeprecationschocolateypackageuninstallaction)
 has been introduced to detect and autocorrect this deprecation.
 

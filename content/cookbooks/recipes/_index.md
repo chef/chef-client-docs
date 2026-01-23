@@ -374,7 +374,7 @@ this:
 - Use the `raise` keyword to stop a Chef Infra Client run by
     triggering an unhandled exception
 - Use a `rescue` block in Ruby code
-- Use an [exception handler](/handlers/)
+- Use an [exception handler](/features/handlers/)
 
 The following sections show various approaches to ending a Chef Infra
 Client run.
