@@ -65,7 +65,6 @@ The following Chef Infra resources are supported in Agentless Mode.
 | [notify_group](/resources/bundled/notify_group/) | Ubuntu, Linux | |
 | [ohai](/resources/bundled/ohai/) | Ubuntu, Linux | |
 | [ohai_hint](/resources/bundled/ohai_hint/) | Ubuntu, Linux | |
-| [owner](/resources/bundled/owner/) | Ubuntu, Linux, Solaris, Alpine, SUSE | |
 | [package](/resources/bundled/package/) | Ubuntu, Linux, CentOS 9, Solaris, Alpine, SUSE | |
 | [perl](/resources/bundled/perl/) | Ubuntu | |
 | [python](/resources/bundled/python/) | Ubuntu 24.04, Linux Red Hat 9, Solaris, Alpine, SUSE | |
