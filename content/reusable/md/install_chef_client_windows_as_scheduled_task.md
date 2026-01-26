@@ -1,4 +1,4 @@
-<-- cspell:ignore Schtasks -->
+<!-- cspell:ignore Schtasks -->
 
 To run Chef Infra Client at periodic intervals (so that it can check in with Chef Infra Server automatically), configure Chef Infra Client to run as a scheduled task.
 You can do this using the MSI by selecting the **Chef Unattended Execution Options** > **Chef Infra Client Scheduled Task** option on the **Custom Setup** page.
