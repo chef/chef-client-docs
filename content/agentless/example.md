@@ -129,6 +129,27 @@ Replace `<TARGET_NODE>` with the target name defined in the `target_credentials`
 
 Chef Infra Client executes the `apply.rb` recipe in local mode (`chef-client -z`) against the remote target (`-t <TARGET_NODE>`) over SSH using the credentials defined in `~/.chef/target_credentials`.
 
+## Run a recipe using a run list in Agentless Mode
+
+Instead of specifying a recipe, you can run a recipe by specifying it in a run list using the `-r` option.
+This requires the cookbook to be available locally in your cookbook path.
+
+For example, to run the `example_cookbook::default` recipe:
+
+```sh
+chef-client -z -t <TARGET_NODE> -r 'recipe[example_cookbook::default]'
+```
+
+Replace `<TARGET_NODE>` with the target name defined in the `target_credentials` file.
+
+If the cookbook is uploaded to Chef Infra Server, you can upload the cookbook, add it to the node's run list, and then run Chef Infra Client in target mode:
+
+```sh
+knife cookbook upload example_cookbook
+knife node run_list add <NODE_NAME> 'recipe[example_cookbook::default]'
+chef-client -t <TARGET_NODE>
+```
+
 ## Verify the output
 
 A successful Infra Client run returns something like this:
