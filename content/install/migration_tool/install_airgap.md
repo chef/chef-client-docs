@@ -23,17 +23,24 @@ Chef Infra Client is supported on Linux x86-64 systems.
 
 To install Chef Infra Client, follow these steps:
 
-1. On an internet-connected machine, download the Chef Infra Client tar file.
-
-    Get the download URL for the Chef Infra Client tar package using the packages API:
+1. On an internet-connected machine, get the Chef Infra Client tar package download URL:
 
     ```sh
     curl "https://commercial-acceptance.downloads.chef.co/current/chef-ice/packages?v=<VERSION>&license_id=<LICENSE_ID>"
     ```
 
-    Replace `<VERSION>` with the Chef Infra Client version number (for example, 19.1.152) and `<LICENSE_ID>` with your Progress Chef License ID.
+    Replace:
 
-    The response returns download URLs for different platforms and package types. Use the URL from the `linux.<ARCHITECTURE>.tar.url` field in the JSON response (for example, `linux.x86_64.tar.url` if the architecture is x86_64).
+    - `<VERSION>` with the Chef Infra Client version number (for example, 19.1.152)
+    - `<LICENSE_ID>` with your Progress Chef License ID
+
+    The response returns download URLs for different platforms and package types. Use the URL from the `linux.<ARCHITECTURE>.tar.url` field in the JSON response (for example, `linux.x86_64.tar.url` if the architecture is x86-64).
+
+1. Download the Chef Infra Client package using curl or Wget:
+
+    {{< accordion-list id="download-chef-infra-client-curl-wget" data-allow-all-closed="true" >}}
+
+    {{< accordion-item accordion-title="Download Infra Client with curl" accordion-title-link="download-chef-infra-client-curl" >}}
 
     Download the tar file using curl:
 
@@ -41,19 +48,31 @@ To install Chef Infra Client, follow these steps:
     curl -o chef-ice-<VERSION>-linux.tar.gz "<CHEF_TAR_URL>"
     ```
 
+    Replace:
+
+    - `<CHEF_TAR_URL>` with the URL from the `linux.<ARCHITECTURE>.tar.url` field
+    - `<VERSION>` with the Chef Infra Client version number
+
+    {{< /accordion-item >}}
+
+    {{< accordion-item accordion-title="Download Infra Client with Wget" accordion-title-link="download-chef-infra-client-wget" >}}
+
     Download using Wget:
 
     ```sh
     wget -O "chef-ice-<VERSION>-linux.tar.gz" "<CHEF_TAR_URL>"
     ```
 
-    Replace `<CHEF_TAR_URL>` with the URL from the `linux.<ARCHITECTURE>.tar.url` field and `<VERSION>` with the Chef Infra Client version number.
+    Replace:
 
-1. On an internet-connected machine, download the Chef Infra Client migration tool (migrate-ice).
+    - `<CHEF_TAR_URL>` with the URL from the `linux.<ARCHITECTURE>.tar.url` field
+    - `<VERSION>` with the Chef Infra Client version number
 
-    Before downloading, have your Progress Chef License ID ready.
+    {{< /accordion-item >}}
 
-    First, get the latest version:
+    {{< /accordion-list >}}
+
+1. On an internet-connected machine, get the latest version of the Chef Infra Client migration tool (migrate-ice).
 
     ```sh
     curl "https://commercial-acceptance.downloads.chef.co/stable/migrate-ice/versions/latest?license_id=<LICENSE_ID>"
@@ -61,13 +80,28 @@ To install Chef Infra Client, follow these steps:
 
     Replace `<LICENSE_ID>` with your Progress Chef License ID.
 
-    The response returns the latest version number. Use this version to download the migration tool package.
+    The response returns the latest version number.
+
+1. Download the migration tool:
+
+    {{< accordion-list id="my-accordion" data-allow-all-closed="true" >}}
+
+    {{< accordion-item accordion-title="Download migration tool with curl" accordion-title-link="download-migration-tool-curl" >}}
 
     Using curl:
 
     ```sh
     curl -o migration-tools-<VERSION>-linux.tar.gz "https://commercial-acceptance.downloads.chef.co/current/migrate-ice/packages?v=<VERSION>&license_id=<LICENSE_ID>"
     ```
+
+    Replace:
+
+    - `<VERSION>` with the version number from the previous step
+    - `<LICENSE_ID>` with your Progress Chef License ID
+
+    {{< /accordion-item >}}
+
+    {{< accordion-item accordion-title="Download migration tool with Wget" accordion-title-link="download-migration-tool-wget" >}}
 
     Using Wget:
 
@@ -76,8 +110,13 @@ To install Chef Infra Client, follow these steps:
     ```
 
     Replace:
+
     - `<VERSION>` with the version number from the previous step
     - `<LICENSE_ID>` with your Progress Chef License ID
+
+    {{< /accordion-item >}}
+
+    {{< /accordion-list >}}
 
 1. Extract the migration tool and make it executable.
 

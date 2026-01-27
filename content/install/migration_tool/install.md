@@ -31,11 +31,7 @@ To install Chef Infra Client on Linux, follow these steps:
     chef-client --version
     ```
 
-1. Download the Chef Infra Client migration tool (migrate-ice).
-
-    Before downloading, have your Progress Chef License ID ready.
-
-    First, get the latest version:
+1. Get the latest version number of the Infra Client migration tool (migrate-ice).
 
     ```sh
     curl "https://commercial-acceptance.downloads.chef.co/stable/migrate-ice/versions/latest?license_id=<LICENSE_ID>"
@@ -43,23 +39,43 @@ To install Chef Infra Client on Linux, follow these steps:
 
     Replace `<LICENSE_ID>` with your Progress Chef License ID.
 
-    The response returns the latest version number. Use this version to download the migration tool package.
+    The response returns the latest version.
 
-    Using curl:
+1. Download the Chef Infra Client migration tool using curl or Wget.
+
+    {{< accordion-list id="download-migration-tool-curl-wget-linux" data-allow-all-closed="true" >}}
+
+    {{< accordion-item accordion-title-link="download-migration-tool-with-curl-linux" accordion-title="Download migration tool with curl" >}}
+
+    Download the migration tool using curl:
 
     ```sh
     curl -o migration-tools-<VERSION>-linux.tar.gz "https://commercial-acceptance.downloads.chef.co/current/migrate-ice/packages?v=<VERSION>&license_id=<LICENSE_ID>"
     ```
 
-    Using Wget:
+    Replace:
+
+    - `<VERSION>` with the version number from the previous step
+    - `<LICENSE_ID>` with your Progress Chef License ID
+
+    {{< /accordion-item >}}
+
+    {{< accordion-item accordion-title-link="download-migration-tool-with-wget-linux" accordion-title="Download migration tool with Wget" >}}
+
+    Download the migration tool using Wget:
 
     ```sh
     wget -O "migration-tools-<VERSION>-linux.tar.gz" "https://commercial-acceptance.downloads.chef.co/current/migrate-ice/packages?v=<VERSION>&license_id=<LICENSE_ID>"
     ```
 
     Replace:
+
     - `<VERSION>` with the version number from the previous step
     - `<LICENSE_ID>` with your Progress Chef License ID
+
+    {{< /accordion-item >}}
+
+    {{< /accordion-list >}}
 
 1. Extract the migration tool and make it executable.
 
@@ -80,9 +96,10 @@ To install Chef Infra Client on Linux, follow these steps:
 
 1. Install Chef Infra Client using [`migrate-ice apply`](reference):
 
-    You can install Chef Infra Client using either the download URL or by specifying a version number.
+    You can install Chef Infra Client using specifying a download URL or an Infra Client version number.
 
-    **Method 1: Using download URL**
+    {{< accordion-list id="migrate-ice-download-linux" data-allow-all-closed="true" >}}
+    {{< accordion-item accordion-title-link="migrate-ice-download-url-linux" accordion-title="Specify download URL" >}}
 
     ```sh
     sudo migrate-ice apply online --fresh-install --download-url "<CHEF_TAR_DOWNLOAD_URL>"
@@ -90,13 +107,20 @@ To install Chef Infra Client on Linux, follow these steps:
 
     Replace `<CHEF_TAR_DOWNLOAD_URL>` with the Chef Infra Client package download URL.
 
-    **Method 2: Using version number**
+    {{< /accordion-item >}}
+    {{< accordion-item accordion-title-link="migrate-ice-download-version-number-linux" accordion-title="Specify version number" >}}
 
     ```sh
     sudo migrate-ice apply online --fresh-install --chef-version <VERSION> --license-key "<LICENSE_KEY>"
     ```
 
-    Replace `<VERSION>` with the Chef Infra Client version number (for example, 19.1.150) and `<LICENSE_KEY>` with your Progress Chef License key.
+    Replace:
+
+    - `<VERSION>` with the Chef Infra Client version number (for example, `19.1.150`)
+    - `<LICENSE_KEY>` with your Progress Chef License key
+
+    {{< /accordion-item >}}
+    {{< /accordion-list >}}
 
 1. Verify the Chef Infra Client installation.
 
@@ -114,11 +138,7 @@ To install Chef Infra Client on Windows, follow these steps:
     chef-client --version
     ```
 
-1. Download the Chef Infra Client migration tool (migrate-ice).
-
-    Before downloading, have your Progress Chef License ID ready.
-
-    First, get the latest version:
+1. Get the latest version number of the Infra Client migration tool (migrate-ice):
 
     ```powershell
     curl "https://commercial-acceptance.downloads.chef.co/stable/migrate-ice/versions/latest?license_id=<LICENSE_ID>"
@@ -126,23 +146,43 @@ To install Chef Infra Client on Windows, follow these steps:
 
     Replace `<LICENSE_ID>` with your Progress Chef License ID.
 
-    The response returns the latest version number. Use this version to download the migration tool package.
+    The response returns the latest version.
 
-    Using curl:
+1. Download the migration tool using curl or PowerShell:
+
+    {{< accordion-list id="download-migration-tool-curl-powershell-windows" data-allow-all-closed="true" >}}
+
+    {{< accordion-item accordion-title-link="download-migration-tool-with-curl-windows" accordion-title="Download migration tool with curl" >}}
+
+    Download the migration tool using curl:
 
     ```powershell
     curl -o migration-tools-<VERSION>-windows.zip "https://commercial-acceptance.downloads.chef.co/current/migrate-ice/packages?v=<VERSION>&license_id=<LICENSE_ID>"
     ```
 
-    Using PowerShell:
+    Replace:
+
+    - `<VERSION>` with the version number from the previous step
+    - `<LICENSE_ID>` with your Progress Chef License ID
+
+    {{< /accordion-item >}}
+
+    {{< accordion-item accordion-title-link="download-migration-tool-with-powershell-windows" accordion-title="Download migration tool with PowerShell" >}}
+
+    Download the migration tool using PowerShell:
 
     ```powershell
     Invoke-WebRequest -Uri "https://commercial-acceptance.downloads.chef.co/current/migrate-ice/packages?v=<VERSION>&license_id=<LICENSE_ID>" -OutFile "migration-tools-<VERSION>-windows.zip"
     ```
 
     Replace:
+
     - `<VERSION>` with the version number from the previous step
     - `<LICENSE_ID>` with your Progress Chef License ID
+
+    {{< /accordion-item >}}
+
+    {{< /accordion-list >}}
 
 1. Extract the migration tool.
 
@@ -163,9 +203,10 @@ To install Chef Infra Client on Windows, follow these steps:
 
 1. Install Chef Infra Client using [`migrate-ice apply`](reference):
 
-    You can install Chef Infra Client using either the download URL or by specifying a version number.
+    You can install Chef Infra Client using specifying a download URL or an Infra Client version number.
 
-    **Method 1: Using download URL**
+    {{< accordion-list id="migrate-ice-download-windows" data-allow-all-closed="true" >}}
+    {{< accordion-item accordion-title-link="migrate-ice-download-url-windows" accordion-title="Specify download URL" >}}
 
     ```powershell
     .\migrate-ice apply online --fresh-install --download-url "<CHEF_TAR_DOWNLOAD_URL>"
@@ -173,13 +214,20 @@ To install Chef Infra Client on Windows, follow these steps:
 
     Replace `<CHEF_TAR_DOWNLOAD_URL>` with the Chef Infra Client package download URL.
 
-    **Method 2: Using version number**
+    {{< /accordion-item >}}
+    {{< accordion-item accordion-title-link="migrate-ice-download-version-number-windows" accordion-title="Specify version number" >}}
 
     ```powershell
     .\migrate-ice apply online --fresh-install --chef-version <VERSION> --license-key "<LICENSE_KEY>"
     ```
 
-    Replace `<VERSION>` with the Chef Infra Client version number (for example, 19.1.150) and `<LICENSE_KEY>` with your Progress Chef License key.
+    Replace:
+
+    - `<VERSION>` with the Chef Infra Client version number (for example, `19.1.150`)
+    - `<LICENSE_KEY>` with your Progress Chef License key
+
+    {{< /accordion-item >}}
+    {{< /accordion-list >}}
 
 1. Verify the Chef Infra Client installation.
 

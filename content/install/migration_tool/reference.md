@@ -31,7 +31,7 @@ It supports two subcommands:
 : Enable debug logs. Logs are available in `/var/log/chef19migrate.log`. Valid values are: `true` or `false`.
 
 `--chef-version <VERSION>`
-: Specify the Chef Infra Client version to download and install. Only applicable for online mode. Requires `--license-key` as a mandatory flag.
+: Specify the Chef Infra Client version to download and install. Only applicable for online mode. The `--license-key` option is required with `--chef-version`.
 
   The tool performs the following actions:
 
@@ -124,17 +124,27 @@ It supports two subcommands:
 
 These examples show how to perform a fresh install of Chef Infra Client .
 
-Standard online installation:
+Install Chef Infra Client by specifying a download URL:
 
 ```sh
 migrate-ice apply online --fresh-install --download-url "<DOWNLOAD_URL>" --license-key "<LICENSE_KEY>"
 ```
 
-Online installation using Chef version:
+Replace:
+
+- `<DOWNLOAD_URL>` with the Chef Infra Client package download URL
+- `<LICENSE_KEY>` with a valid Progress Chef License key
+
+Install Chef Infra Client in an online environment by specifying a version number:
 
 ```sh
-migrate-ice apply online --fresh-install --chef-version 19.1.0 --license-key "<LICENSE_KEY>"
+migrate-ice apply online --fresh-install --chef-version <VERSION> --license-key "<LICENSE_KEY>"
 ```
+
+Replace:
+
+- `<LICENSE_KEY>` with a valid Progress Chef License key
+- `<VERSION>` the full three-part Chef Infra Client version number (for example, `19.1.0`)
 
 <!---
 Standard air-gapped installation:
@@ -198,31 +208,6 @@ Upgrade Chef Habitat while installing Chef Infra Client:
 
 ```sh
 migrate-ice apply {airgap|online} --license-key "<LICENSE_KEY>" --habitat-upgrade
-```
-
-### Valid and invalid --chef-version usage
-
-Valid usage examples:
-
-```sh
-# Specify Chef Infra Client version 19.1.0
-migrate-ice apply online --chef-version 19.1.0 --license-key "<LICENSE_KEY>"
-
-# Specify Chef Infra Client version 19.0.5
-migrate-ice apply online --chef-version 19.0.5 --license-key "<LICENSE_KEY>"
-```
-
-Invalid usage examples:
-
-```sh
-# Missing license key (will fail validation)
-migrate-ice apply online --chef-version 19.1.0
-
-# Unsupported version (will fail validation)
-migrate-ice apply online --chef-version 18.0.0 --license-key "<LICENSE_KEY>"
-
-# Invalid format (will fail validation)
-migrate-ice apply online --chef-version 19.1 --license-key "<LICENSE_KEY>"
 ```
 
 ### SELinux profiles
