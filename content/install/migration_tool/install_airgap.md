@@ -23,60 +23,125 @@ Chef Infra Client is supported on Linux x86-64 systems.
 
 To install Chef Infra Client, follow these steps:
 
-1. On an internet-connected machine, download the Chef Infra Client tar file.
-
-    Chef Infra Client is available in a zipped tar file using a pre-signed URL from an S3 bucket until April 23, 2026.
-
-    Download using curl:
+1. On an internet-connected machine, get the Chef Infra Client tar package download URL:
 
     ```sh
-    curl -o chef-ice-19.2.rc3-windows.tar.gz "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/rc2_hab_pkg_chef_client/rc2_tar_folder/chef-ice-19.2.rc3-windows.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6BIP2EQW7&Signature=Q91HiSIzOxffl52La8EvqSXSqWk%3D&Expires=1756222682"
+    curl "https://commercial-acceptance.downloads.chef.co/current/chef-ice/packages?v=<VERSION>&license_id=<LICENSE_ID>"
     ```
+
+    Replace:
+
+    - `<VERSION>` with the Chef Infra Client version number (for example, 19.1.152)
+    - `<LICENSE_ID>` with your Progress Chef License ID
+
+    The response returns download URLs for different platforms and package types. Use the URL from the `linux.<ARCHITECTURE>.tar.url` field in the JSON response (for example, `linux.x86_64.tar.url` if the architecture is x86-64).
+
+1. Download the Chef Infra Client package using curl or Wget:
+
+    {{< accordion-list id="download-chef-infra-client-curl-wget" data-allow-all-closed="true" >}}
+
+    {{< accordion-item accordion-title="Download Infra Client with curl" accordion-title-link="download-chef-infra-client-curl" >}}
+
+    Download the tar file using curl:
+
+    ```sh
+    curl -o chef-ice-<VERSION>-linux.tar.gz "<CHEF_TAR_URL>"
+    ```
+
+    Replace:
+
+    - `<CHEF_TAR_URL>` with the URL from the `linux.<ARCHITECTURE>.tar.url` field
+    - `<VERSION>` with the Chef Infra Client version number
+
+    {{< /accordion-item >}}
+
+    {{< accordion-item accordion-title="Download Infra Client with Wget" accordion-title-link="download-chef-infra-client-wget" >}}
 
     Download using Wget:
 
     ```sh
-    wget -O "chef-ice-19.2.rc3-windows.tar.gz" "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/rc2_hab_pkg_chef_client/rc2_tar_folder/chef-ice-19.2.rc3-windows.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6BIP2EQW7&Signature=Q91HiSIzOxffl52La8EvqSXSqWk%3D&Expires=1756222682"
+    wget -O "chef-ice-<VERSION>-linux.tar.gz" "<CHEF_TAR_URL>"
     ```
 
-1. On an internet-connected machine, download the Chef Infra Client migration tool.
+    Replace:
 
-    The migration tool is available for download as a zipped tar file using a pre-signed URL from an S3 bucket until April 23, 2026.
+    - `<CHEF_TAR_URL>` with the URL from the `linux.<ARCHITECTURE>.tar.url` field
+    - `<VERSION>` with the Chef Infra Client version number
+
+    {{< /accordion-item >}}
+
+    {{< /accordion-list >}}
+
+1. On an internet-connected machine, get the latest version of the Chef Infra Client migration tool (migrate-ice).
+
+    ```sh
+    curl "https://commercial-acceptance.downloads.chef.co/stable/migrate-ice/versions/latest?license_id=<LICENSE_ID>"
+    ```
+
+    Replace `<LICENSE_ID>` with your Progress Chef License ID.
+
+    The response returns the latest version number.
+
+1. Download the migration tool:
+
+    {{< accordion-list id="my-accordion" data-allow-all-closed="true" >}}
+
+    {{< accordion-item accordion-title="Download migration tool with curl" accordion-title-link="download-migration-tool-curl" >}}
 
     Using curl:
 
     ```sh
-    curl -o migration-tools-1.1.rc3-linux.tar.gz "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/migrate-ice/1.1.RC3/linux/migration-tools-1.1.rc3-linux.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6C42N3U6R&Signature=a5W9L7B1mn07h%2BFYQFBp0fhqbzo%3D&Expires=1776916415"
+    curl -o migration-tools-<VERSION>-linux.tar.gz "https://commercial-acceptance.downloads.chef.co/current/migrate-ice/packages?v=<VERSION>&license_id=<LICENSE_ID>"
     ```
+
+    Replace:
+
+    - `<VERSION>` with the version number from the previous step
+    - `<LICENSE_ID>` with your Progress Chef License ID
+
+    {{< /accordion-item >}}
+
+    {{< accordion-item accordion-title="Download migration tool with Wget" accordion-title-link="download-migration-tool-wget" >}}
 
     Using Wget:
 
     ```sh
-    wget -O "migration-tools-1.1.rc3-linux.tar.gz" "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/migrate-ice/1.1.RC3/linux/migration-tools-1.1.rc3-linux.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6C42N3U6R&Signature=a5W9L7B1mn07h%2BFYQFBp0fhqbzo%3D&Expires=1776916415"
+    wget -O "migration-tools-<VERSION>-linux.tar.gz" "https://commercial-acceptance.downloads.chef.co/current/migrate-ice/packages?v=<VERSION>&license_id=<LICENSE_ID>"
     ```
+
+    Replace:
+
+    - `<VERSION>` with the version number from the previous step
+    - `<LICENSE_ID>` with your Progress Chef License ID
+
+    {{< /accordion-item >}}
+
+    {{< /accordion-list >}}
 
 1. Extract the migration tool and make it executable.
 
     ```sh
-    tar -xvf migration-tools-1.1.rc3-linux.tar.gz -C /path/to/temp/folder
+    tar -xvf migration-tools-<VERSION>-linux.tar.gz -C /path/to/temp/folder
     cd /path/to/temp/folder
-    chmod +x chef-migrate
-    mv chef-migrate /usr/local/bin/
+    chmod +x migrate-ice
+    mv migrate-ice /usr/local/bin/
     ```
 
 1. Optional: Verify that the migration tool is installed.
 
     ```sh
-    chef-migrate --help
+    migrate-ice --help
     ```
 
     The migration tool returns available commands and usage guidelines.
 
-1. Install Chef Infra CLient using [`chef-migrate apply`](reference):
+1. Install Chef Infra CLient using [`migrate-ice apply`](reference):
 
     ```sh
-    sudo chef-migrate apply airgap <PATH/TO/BUNDLE> --fresh-install --license-key "<LICENSE_KEY>"
+    sudo migrate-ice apply airgap <PATH/TO/BUNDLE> --fresh-install
     ```
+
+    Replace `<PATH/TO/BUNDLE>` with the path to the Chef Infra Client tar file.
 
 1. Verify that Chef Infra Client is installed.
 
