@@ -163,11 +163,9 @@ To upgrade Chef Infra Client, follow these steps:
 
 1. Download the Chef Infra Client tar file.
 
-
     {{< accordion-list id="my-accordion" data-allow-all-closed="true" >}}
 
     {{< accordion-item accordion-title="Download Chef Infra Client with curl" accordion-title-link="download-chef-infra-client-curl-windows"  >}}
-
 
     Download the tar file using curl:
 
