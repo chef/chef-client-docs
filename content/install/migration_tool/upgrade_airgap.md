@@ -27,63 +27,84 @@ To upgrade Chef Infra Client, follow these steps:
 
 1. On an internet-connected machine, download the Chef Infra Client tar file.
 
-    Chef Infra Client is available in a zipped tar file using a pre-signed URL from an S3 bucket until April 23, 2026.
-
-    Download using curl:
+    Get the download URL for the Chef Infra Client tar package using the packages API:
 
     ```sh
-    curl -o chef-ice-19.2.rc3-windows.tar.gz "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/rc2_hab_pkg_chef_client/rc2_tar_folder/chef-ice-19.2.rc3-windows.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6BIP2EQW7&Signature=Q91HiSIzOxffl52La8EvqSXSqWk%3D&Expires=1756222682"
+    curl "https://commercial-acceptance.downloads.chef.co/current/chef-ice/packages?v=<VERSION>&license_id=<LICENSE_ID>"
+    ```
+
+    Replace `<VERSION>` with the Chef Infra Client version number (for example, 19.1.152) and `<LICENSE_ID>` with your Progress Chef License ID.
+
+    The response returns download URLs for different platforms and package types. Use the URL from the `linux.<ARCHITECTURE>.tar.url` field in the JSON response (for example, `linux.x86_64.tar.url` if the architecture is x86_64).
+
+    Download the tar file using curl:
+
+    ```sh
+    curl -o chef-ice-<VERSION>-linux.tar.gz "<CHEF_TAR_URL>"
     ```
 
     Download using Wget:
 
     ```sh
-    wget -O "chef-ice-19.2.rc3-windows.tar.gz" "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/rc2_hab_pkg_chef_client/rc2_tar_folder/chef-ice-19.2.rc3-windows.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6BIP2EQW7&Signature=Q91HiSIzOxffl52La8EvqSXSqWk%3D&Expires=1756222682"
+    wget -O "chef-ice-<VERSION>-linux.tar.gz" "<CHEF_TAR_URL>"
     ```
 
-1. On an internet-connected machine, download the Chef Infra Client migration tool.
+    Replace `<CHEF_TAR_URL>` with the URL from the `linux.<ARCHITECTURE>.tar.url` field and `<VERSION>` with the Chef Infra Client version number.
 
-    The migration tool is available for download as a zipped tar file using a pre-signed URL from an S3 bucket until April 23, 2026.
+1. On an internet-connected machine, download the Chef Infra Client migration tool (migrate-ice).
+
+    Before downloading, have your Progress Chef License ID ready.
+
+    First, get the latest version:
+
+    ```sh
+    curl "https://commercial-acceptance.downloads.chef.co/stable/migrate-ice/versions/latest?license_id=<LICENSE_ID>"
+    ```
+
+    Replace `<LICENSE_ID>` with your Progress Chef License ID.
+
+    The response returns the latest version number. Use this version to download the migration tool package.
 
     Using curl:
 
     ```sh
-    curl -o migration-tools-1.1.rc3-linux.tar.gz "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/migrate-ice/1.1.RC3/linux/migration-tools-1.1.rc3-linux.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6C42N3U6R&Signature=a5W9L7B1mn07h%2BFYQFBp0fhqbzo%3D&Expires=1776916415"
+    curl -o migration-tools-<VERSION>-linux.tar.gz "https://commercial-acceptance.downloads.chef.co/current/migrate-ice/packages?v=<VERSION>&license_id=<LICENSE_ID>"
     ```
 
     Using Wget:
 
     ```sh
-    wget -O "migration-tools-1.1.rc3-linux.tar.gz" "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/migrate-ice/1.1.RC3/linux/migration-tools-1.1.rc3-linux.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6C42N3U6R&Signature=a5W9L7B1mn07h%2BFYQFBp0fhqbzo%3D&Expires=1776916415"
+    wget -O "migration-tools-<VERSION>-linux.tar.gz" "https://commercial-acceptance.downloads.chef.co/current/migrate-ice/packages?v=<VERSION>&license_id=<LICENSE_ID>"
     ```
+
+    Replace:
+    - `<VERSION>` with the version number from the previous step
+    - `<LICENSE_ID>` with your Progress Chef License ID
 
 1. Extract the migration tool and make it executable.
 
     ```sh
-    tar -xvf migration-tools-1.1.rc3-linux.tar.gz -C /path/to/temp/folder
+    tar -xvf migration-tools-<VERSION>-linux.tar.gz -C /path/to/temp/folder
     cd /path/to/temp/folder
-    chmod +x chef-migrate
-    mv chef-migrate /usr/local/bin/
+    chmod +x migrate-ice
+    mv migrate-ice /usr/local/bin/
     ```
 
 1. Optional: Verify that the migration tool is installed.
 
     ```sh
-    chef-migrate --help
+    migrate-ice --help
     ```
 
     The migration tool returns available commands and usage guidelines.
 
-1. Install Chef Infra Client by specifying the path to the tar file using [`chef-migrate apply`](reference).
+1. Install Chef Infra Client by specifying the path to the tar file using [`migrate-ice apply`](reference).
 
     ```sh
-    sudo chef-migrate apply airgap <PATH/TO/BUNDLE> --license-key "<LICENSE_KEY>"
+    sudo migrate-ice apply airgap <PATH/TO/BUNDLE>
     ```
 
-    Replace:
-
-    - `<PATH/TO/BUNDLE>` with the path to the Chef Infra Client tar file.
-    - `<LICENSE_KEY>` with your Progress Chef License key.
+    Replace `<PATH/TO/BUNDLE>` with the path to the Chef Infra Client tar file.
 
 1. Verify that Chef Infra Client is installed.
 
@@ -97,61 +118,85 @@ To upgrade Chef Infra Client, follow these steps:
 
 1. On an internet-connected machine, download the Chef Infra Client tar file.
 
-    Chef Infra Client is available in a tar file using a pre-signed address from an S3 bucket until April 23, 2026.
-
-    Download using curl:
+    Get the download URL for the Chef Infra Client tar package using the packages API:
 
     ```powershell
-    curl -o chef-ice-19.2.rc3-windows.tar.gz "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/chef-ice/19.2.RC3/windows/x86_64/chef-ice-19.2.rc3-windows.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6C42N3U6R&Signature=a8SYQUWS%2FCEgDBNATtNi2gwb7XY%3D&Expires=1776916396"
+    curl "https://commercial-acceptance.downloads.chef.co/current/chef-ice/packages?v=<VERSION>&license_id=<LICENSE_ID>"
+    ```
+
+    Replace `<VERSION>` with the Chef Infra Client version number (for example, 19.1.152) and `<LICENSE_ID>` with your Progress Chef License ID.
+
+    The response returns download URLs for different platforms and package types. Use the URL from the `windows.<ARCHITECTURE>.tar.url` field in the JSON response (for example, `windows.x86_64.tar.url` if the architecture is x86_64).
+
+    Download the tar file using curl:
+
+    ```powershell
+    curl -o chef-ice-<VERSION>-windows.tar.gz "<CHEF_TAR_URL>"
     ```
 
     Download using PowerShell:
 
     ```powershell
-    Invoke-WebRequest -Uri "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/chef-ice/19.2.RC3/windows/x86_64/chef-ice-19.2.rc3-windows.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6C42N3U6R&Signature=a8SYQUWS%2FCEgDBNATtNi2gwb7XY%3D&Expires=1776916396" -OutFile "chef-ice-19.2.rc3-windows.tar.gz"
+    Invoke-WebRequest -Uri "<CHEF_TAR_URL>" -OutFile "chef-ice-<VERSION>-windows.tar.gz"
     ```
 
-1. On an internet-connected machine, download the Chef Infra Client migration tool.
+    Replace `<CHEF_TAR_URL>` with the URL from the `windows.<ARCHITECTURE>.tar.url` field and `<VERSION>` with the Chef Infra Client version number.
 
-    The migration tool is available for download as a ZIP file using a pre-signed address from an S3 bucket until April 23, 2026.
+1. On an internet-connected machine, download the Chef Infra Client migration tool (migrate-ice).
+
+    Before downloading, have your Progress Chef License ID ready.
+
+    First, get the latest version:
+
+    ```powershell
+    curl "https://commercial-acceptance.downloads.chef.co/stable/migrate-ice/versions/latest?license_id=<LICENSE_ID>"
+    ```
+
+    Replace `<LICENSE_ID>` with your Progress Chef License ID.
+
+    The response returns the latest version number. Use this version to download the migration tool package.
 
     Using curl:
 
     ```powershell
-    curl -o migration-tools-1.1.rc3-windows.zip "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/migrate-ice/1.1.RC3/windows/migration-tools-1.1.rc3-windows.zip?AWSAccessKeyId=AKIAW4FPVFT6C42N3U6R&Signature=AbB2Lr%2BgpryRhtfkkFFXuYekNfM%3D&Expires=1776988102"
+    curl -o migration-tools-<VERSION>-windows.zip "https://commercial-acceptance.downloads.chef.co/current/migrate-ice/packages?v=<VERSION>&license_id=<LICENSE_ID>"
     ```
 
     Using PowerShell:
 
     ```powershell
-    Invoke-WebRequest -Uri "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/migrate-ice/1.1.RC3/windows/migration-tools-1.1.rc3-windows.zip?AWSAccessKeyId=AKIAW4FPVFT6C42N3U6R&Signature=AbB2Lr%2BgpryRhtfkkFFXuYekNfM%3D&Expires=1776988102" -OutFile "migration-tools-1.1.rc3-windows.zip"
+    Invoke-WebRequest -Uri "https://commercial-acceptance.downloads.chef.co/current/migrate-ice/packages?v=<VERSION>&license_id=<LICENSE_ID>" -OutFile "migration-tools-<VERSION>-windows.zip"
     ```
+
+    Replace:
+    - `<VERSION>` with the version number from the previous step
+    - `<LICENSE_ID>` with your Progress Chef License ID
 
 1. Extract the migration tool.
 
     ```powershell
     mkdir C:\migrate-tool
-    move "migration-tools-1.1.rc3-windows.zip" "C:\migrate-tool\"
-    move "chef-ice-19.2.rc3-windows.tar.gz" "C:\migrate-tool\"
+    move "migration-tools-<VERSION>-windows.zip" "C:\migrate-tool\"
+    move "chef-ice-<CHEF_VERSION>-windows.tar.gz" "C:\migrate-tool\"
     cd C:\migrate-tool
-    Expand-Archive -Path "migration-tools-1.1.rc3-windows.zip" -DestinationPath "."
+    Expand-Archive -Path "migration-tools-<VERSION>-windows.zip" -DestinationPath "."
     ```
 
 1. Optional: Verify that the migration tool works.
 
     ```powershell
-    .\chef-migrate --help
+    .\migrate-ice --help
     ```
 
     The migration tool returns available commands and usage guidelines.
 
-1. Upgrade Chef Infra Client by specifying the path to the tar file using [`chef-migrate apply`](reference).
+1. Upgrade Chef Infra Client by specifying the path to the tar file using [`migrate-ice apply`](reference).
 
     ```powershell
-    .\chef-migrate apply airgap "C:\migrate-tool\chef-ice-19.2.rc3-windows.tar.gz" --license-key "<LICENSE_KEY>"
+    .\migrate-ice apply airgap "C:\migrate-tool\chef-ice-<CHEF_VERSION>-windows.tar.gz"
     ```
 
-    Replace `<LICENSE_KEY>` with your Progress Chef License key.
+    Replace `<CHEF_VERSION>` with the Chef Infra Client version.
 
 1. Verify the Chef Infra Client upgrade.
 

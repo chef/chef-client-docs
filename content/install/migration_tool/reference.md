@@ -10,12 +10,12 @@ weight = 999
 
 ## Syntax
 
-The `chef-migrate apply` command upgrades or installs Chef Infra Client to version 19.
+The `migrate-ice apply` command upgrades or installs Chef Infra Client to version 19.
 
 This command has the following basic syntax:
 
 ```sh
-chef-migrate apply {airgap|online} [flags]
+migrate-ice apply {airgap|online} [flags]
 ```
 
 It supports two subcommands:
@@ -29,6 +29,20 @@ It supports two subcommands:
 
 `--debug`
 : Enable debug logs. Logs are available in `/var/log/chef19migrate.log`. Valid values are: `true` or `false`.
+
+`--chef-version <VERSION>`
+: Specify the Chef Infra Client version to download and install. Only applicable for online mode. Requires `--license-key` as a mandatory flag.
+
+  The tool performs the following actions:
+
+  - **Download**: Automatically downloads the specified Chef Infra Client package from the official repository
+  - **Validation**: Checks version format and ensures it's a supported Chef 19.x.x version
+  - **Package Path**: The downloaded package is stored at a predefined location for later use
+  - **Skip Option**: If `--chef-version` isn't provided, the flag is skipped (useful when using `--download-url` instead)
+
+  Valid format: `19.x.x` (for example, `19.1.0`, `19.0.5`)
+
+  This flag is mutually exclusive with `--download-url`. Use one or the other, not both.
 
 `--download-url <URL>`
 : Specify the Chef Infra Client download location.
@@ -113,14 +127,20 @@ These examples show how to perform a fresh install of Chef Infra Client .
 Standard online installation:
 
 ```sh
-chef-migrate apply online --fresh-install --download-url "<DOWNLOAD_URL>" --license-key "<LICENSE_KEY>"
+migrate-ice apply online --fresh-install --download-url "<DOWNLOAD_URL>" --license-key "<LICENSE_KEY>"
+```
+
+Online installation using Chef version:
+
+```sh
+migrate-ice apply online --fresh-install --chef-version 19.1.0 --license-key "<LICENSE_KEY>"
 ```
 
 <!---
 Standard air-gapped installation:
 
 ```sh
-chef-migrate apply airgap </PATH/TO/BUNDLE> --fresh-install --license-key "<LICENSE_KEY>"
+migrate-ice apply airgap </PATH/TO/BUNDLE> --fresh-install --license-key "<LICENSE_KEY>"
 ```
 --->
 
@@ -131,13 +151,13 @@ These examples show how to upgrade Chef Infra Client to version 19 RC3 from an e
 Standard online upgrade:
 
 ```sh
-chef-migrate apply online --download-url "<DOWNLOAD_URL>" --license-key "<LICENSE_KEY>"
+migrate-ice apply online --download-url "<DOWNLOAD_URL>" --license-key "<LICENSE_KEY>"
 ```
 
 Standard air-gapped upgrade:
 
 ```sh
-chef-migrate apply airgap </PATH/TO/BUNDLE> --license-key "<LICENSE_KEY>"
+migrate-ice apply airgap </PATH/TO/BUNDLE> --license-key "<LICENSE_KEY>"
 ```
 
 ### Manage Omnibus-based Chef Infra Client
@@ -145,31 +165,31 @@ chef-migrate apply airgap </PATH/TO/BUNDLE> --license-key "<LICENSE_KEY>"
 Preserve an Omnibus-based Chef Infra Client installation:
 
 ```sh
-chef-migrate apply {airgap|online} --license-key "<LICENSE_KEY>" --preserve-omnibus
+migrate-ice apply {airgap|online} --license-key "<LICENSE_KEY>" --preserve-omnibus
 ```
 
 Log a warning if the `client.rb` config file references the Omnibus-based Chef Infra Client installation (`/opt/chef`):
 
 ```sh
-chef-migrate apply {airgap|online} --license-key "<LICENSE_KEY>" --process-config warn
+migrate-ice apply {airgap|online} --license-key "<LICENSE_KEY>" --process-config warn
 ```
 
 Replace the existing Omnibus-based Chef binaries (for example, `ruby`, `chef-client`, and `openssl`) with symbolic links pointing to their Habitat-based equivalents.
 
 ```sh
-chef-migrate apply {airgap|online} --license-key "<LICENSE_KEY>" --preserve-omnibus --symlink
+migrate-ice apply {airgap|online} --license-key "<LICENSE_KEY>" --preserve-omnibus --symlink
 ```
 
 Remount Chef Infra Client from `/opt/chef` to `/hab`:
 
 ```sh
-chef-migrate apply {airgap|online} --license-key "<LICENSE_KEY>" --fstab apply
+migrate-ice apply {airgap|online} --license-key "<LICENSE_KEY>" --fstab apply
 ```
 
 Abort the migration process if `/opt/chef` is already mounted:
 
 ```sh
-chef-migrate apply {airgap|online} --license-key "<LICENSE_KEY>" --fstab fail
+migrate-ice apply {airgap|online} --license-key "<LICENSE_KEY>" --fstab fail
 ```
 
 ### Manage Chef Habitat
@@ -177,7 +197,32 @@ chef-migrate apply {airgap|online} --license-key "<LICENSE_KEY>" --fstab fail
 Upgrade Chef Habitat while installing Chef Infra Client:
 
 ```sh
-chef-migrate apply {airgap|online} --license-key "<LICENSE_KEY>" --habitat-upgrade
+migrate-ice apply {airgap|online} --license-key "<LICENSE_KEY>" --habitat-upgrade
+```
+
+### Valid and invalid --chef-version usage
+
+Valid usage examples:
+
+```sh
+# Specify Chef Infra Client version 19.1.0
+migrate-ice apply online --chef-version 19.1.0 --license-key "<LICENSE_KEY>"
+
+# Specify Chef Infra Client version 19.0.5
+migrate-ice apply online --chef-version 19.0.5 --license-key "<LICENSE_KEY>"
+```
+
+Invalid usage examples:
+
+```sh
+# Missing license key (will fail validation)
+migrate-ice apply online --chef-version 19.1.0
+
+# Unsupported version (will fail validation)
+migrate-ice apply online --chef-version 18.0.0 --license-key "<LICENSE_KEY>"
+
+# Invalid format (will fail validation)
+migrate-ice apply online --chef-version 19.1 --license-key "<LICENSE_KEY>"
 ```
 
 ### SELinux profiles
@@ -185,11 +230,11 @@ chef-migrate apply {airgap|online} --license-key "<LICENSE_KEY>" --habitat-upgra
 Install the default SELinux profile:
 
 ```sh
-chef-migrate apply {airgap|online} --license-key "<LICENSE_KEY>" --selinux-profile default --selinux-ignore-warnings
+migrate-ice apply {airgap|online} --license-key "<LICENSE_KEY>" --selinux-profile default --selinux-ignore-warnings
 ```
 
 Install a custom SELinux profile:
 
 ```sh
-chef-migrate apply {airgap|online} --license-key "<LICENSE_KEY>" --selinux-profile <PATH/TO/CUSTOM/PROFILE>
+migrate-ice apply {airgap|online} --license-key "<LICENSE_KEY>" --selinux-profile <PATH/TO/CUSTOM/PROFILE>
 ```
