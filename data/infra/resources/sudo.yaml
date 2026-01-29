@@ -47,6 +47,10 @@ actions_list:
   :create:
     markdown: Create a single sudoers configuration file in the `sudoers.d` directory.
       (default)
+  :install:
+    markdown:
+  :remove:
+    markdown:
   :delete:
     markdown: Remove a sudoers configuration file from the `sudoers.d` directory.
 properties_list:
@@ -55,13 +59,17 @@ properties_list:
   required: false
   default_value: "[]"
   description_list:
-  - markdown: Command aliases that can be used as allowed commands later in the configuration.
+  - markdown: 'Command aliases that can be used as allowed commands later in the configuration.
+      The object represents an array of hashes in the following format: `[{''name'':''ALIAS1'',''command_list'':
+      [ ''command1'', ''command2'' ] }, {''name'':''Alias2'',''command_list: [ ''command3'',
+      ''command4 arg1 arg2'' ]}]`'
 - property: commands
   ruby_type: Array
   required: false
   default_value: '["ALL"]'
   description_list:
-  - markdown: An array of full paths to commands this sudoer can execute.
+  - markdown: An array of full paths to commands and/or command aliases this sudoer
+      can execute.
 - property: config_prefix
   ruby_type: String
   required: false
@@ -156,6 +164,8 @@ properties_list:
   default_value: "/usr/sbin/visudo"
   description_list:
   - markdown: The path to visudo for configuration verification.
+target_mode:
+  support: full
 examples: |
   **Grant a user sudo privileges for any command**
 
@@ -180,5 +190,31 @@ examples: |
   sudo 'passwordless-access' do
     commands ['/bin/systemctl restart httpd', '/bin/systemctl restart mysql']
     nopasswd true
+  end
+  ```
+
+  **Create command aliases and assign them to a group**
+
+  ```ruby
+  sudo 'webteam' do
+    command_aliases [
+      {
+        'name': 'WEBTEAM_SYSTEMD_JBOSS',
+        'command_list': [
+          '/usr/bin/systemctl start eap7-standalone.service',
+          '/usr/bin/systemctl start jbcs-httpd24-httpd.service',         '/usr/bin/systemctl stop eap7-standalone.service',         '/usr/bin/systemctl stop jbcs-httpd24-httpd.service',         '/usr/bin/systemctl restart eap7-standalone.service',         '/usr/bin/systemctl restart jbcs-httpd24-httpd.service',         '/usr/bin/systemctl --full edit eap7-standalone.service',         '/usr/bin/systemctl --full edit jbcs-httpd24-httpd.service',         '/usr/bin/systemctl daemon-reload',
+        ]
+      },
+      {
+        'name': 'GENERIC_SYSTEMD',
+        'command_list': [
+          '/usr/sbin/systemctl list-unit-files',
+          '/usr/sbin/systemctl list-timers',         '/usr/sbin/systemctl is-active *',         '/usr/sbin/systemctl is-enabled *',
+          ]
+      }
+    ]
+    nopasswd true
+    users '%webteam'
+    commands [ 'WEBTEAM_SYSTEMD_JBOSS', 'GENERIC_SYSTEMD' ]
   end
   ```

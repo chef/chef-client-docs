@@ -42,8 +42,8 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`allow_downgrade`, `arch`, `environment`, `flush_cache`, `options`, `package_name`, `source`,
-  `timeout`, and `version` are the properties available to this resource."
+- "`allow_downgrade`, `arch`, `environment`, `flush_cache`, `options`, `package_name`,
+  `source`, `timeout`, and `version` are the properties available to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
@@ -63,6 +63,8 @@ actions_list:
     markdown: Locks the DNF package to a specific version.
   :unlock:
     markdown: Unlocks the DNF package so that it can be upgraded to a newer version.
+  :flush_cache:
+    markdown:
 properties_list:
 - property: allow_downgrade
   ruby_type: true, false
@@ -139,6 +141,7 @@ properties_list:
   - markdown: 'The version of a package to be installed or upgraded. This property
 
       is ignored when using the `:upgrade` action.'
+target_mode:
 examples: "
   Install an exact version\n\n  ```ruby\n  dnf_package 'netpbm = 10.35.58-8.el5'\n\
   \  ```\n\n  Install a minimum version\n\n  ```ruby\n  dnf_package 'netpbm >= 10.35.58-8.el5'\n\

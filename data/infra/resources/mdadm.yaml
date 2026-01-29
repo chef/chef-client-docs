@@ -31,13 +31,13 @@ syntax_full_properties_list:
 - "`bitmap`, `chunk`, `devices`, `layout`, `level`, `metadata`, and `raid_device`
   are the properties available to this resource."
 actions_list:
-  :assemble:
-    markdown: Assemble a previously created array into an active array.
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
   :create:
     markdown: Create an array with per-device superblocks. If an array already exists
       (but does not match), update that array to match. (default)
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
+  :assemble:
+    markdown: Assemble a previously created array into an active array.
   :stop:
     markdown: Stop an active array.
 properties_list:
@@ -85,6 +85,7 @@ properties_list:
   description_list:
   - markdown: An optional property to specify the name of the RAID device if it differs
       from the resource block's name.
+target_mode:
 examples: |
   **Create and assemble a RAID 0 array**
 

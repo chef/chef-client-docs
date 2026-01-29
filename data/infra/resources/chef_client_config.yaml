@@ -29,7 +29,7 @@ syntax_full_code_block: |-
     https_proxy                    String
     log_level                      Symbol
     log_location                   String, Symbol
-    minimal_ohai                   true, false
+    minimal_ohai                   true, false # default value: false
     named_run_list                 String
     no_proxy                       String, Array # default value: []
     node_name                      String
@@ -38,7 +38,7 @@ syntax_full_code_block: |-
     pid_file                       String
     policy_group                   String
     policy_name                    String
-    policy_persist_run_list        true, false
+    policy_persist_run_list        true, false # default value: false
     report_handlers                Array # default value: []
     rubygems_url                   String, Array
     ssl_verify_mode                Symbol, String
@@ -194,11 +194,12 @@ properties_list:
 - property: minimal_ohai
   ruby_type: true, false
   required: false
+  default_value: 'false'
   description_list:
   - markdown: Run a minimal set of Ohai plugins providing data necessary for the execution
       of Chef Infra Client's built-in resources. Setting this to true will skip many
       large and time consuming data sets such as `cloud` or `packages`. Setting this
-      this to true may break cookbooks that assume all Ohai data will be present.
+      to true may break cookbooks that assume all Ohai data will be present.
 - property: named_run_list
   ruby_type: String
   required: false
@@ -260,6 +261,7 @@ properties_list:
 - property: policy_persist_run_list
   ruby_type: true, false
   required: false
+  default_value: 'false'
   new_in: '17.3'
   description_list:
   - markdown: Override run lists defined in a Policyfile with the `run_list` defined
@@ -280,8 +282,8 @@ properties_list:
   new_in: '17.11'
   description_list:
   - markdown: The location to source rubygems. It can be set to a string or array
-      of strings for URIs to set as rubygems sources. This allows individuals to set up
-      an internal mirror of rubygems for airgapped environments.
+      of strings for URIs to set as rubygems sources. This allows individuals to setup
+      an internal mirror of rubygems for “airgapped” environments.
 - property: ssl_verify_mode
   ruby_type: Symbol, String
   required: false
@@ -312,6 +314,8 @@ properties_list:
       markdown: The configuration directory will not be created if it already exists,
         which allows you to further control the setup of that directory outside of
         this resource.
+target_mode:
+  support: full
 examples: |
   **Bare minimum Chef Infra Client client.rb**:
 

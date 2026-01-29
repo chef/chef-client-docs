@@ -30,12 +30,12 @@ syntax_full_properties_list:
 - "`comment`, `device`, `gateway`, `metric`, `netmask`, `route_type`, and `target`
   are the properties available to this resource."
 actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
   :add:
     markdown: (default) Add a route.
   :delete:
     markdown: Delete a route.
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
 properties_list:
 - property: comment
   ruby_type: String
@@ -75,4 +75,6 @@ properties_list:
   default_value: The resource block's name
   description_list:
   - markdown: The IP address of the target route.
+target_mode:
+  support: full
 examples:

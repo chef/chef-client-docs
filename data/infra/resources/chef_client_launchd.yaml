@@ -11,7 +11,7 @@ resource_new_in: '16.5'
 syntax_full_code_block: |-
   chef_client_launchd 'name' do
     accept_chef_license      true, false # default value: false
-    chef_binary_path         String # default value: "/opt/chef/bin/chef-client"
+    chef_binary_path         String
     config_directory         String # default value: "/etc/chef"
     daemon_options           Array # default value: []
     environment              Hash # default value: {}
@@ -52,7 +52,7 @@ properties_list:
 - property: chef_binary_path
   ruby_type: String
   required: false
-  default_value: "/opt/chef/bin/chef-client"
+  default_value: lazy default
   description_list:
   - markdown: The path to the chef-client binary.
 - property: config_directory
@@ -123,6 +123,7 @@ properties_list:
   default_value: "/var/root"
   description_list:
   - markdown: The working directory to run the Chef Infra Client from.
+target_mode:
 examples: |
   **Set the Chef Infra Client to run on a schedule**:
 

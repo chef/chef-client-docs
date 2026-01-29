@@ -16,10 +16,16 @@ resource_description_list:
     - Runs its actions immediately, before convergence, allowing a gem to be used in a recipe immediately after it is installed.
     - Runs `Gem.clear_paths` after the action, ensuring that gem is aware of changes so that it can be required immediately after it is installed.
 - warning:
-    shortcode: resource_chef_gem_gem_package_install.md
+    markdown: |-
+      The **chef_gem** and **gem_package** resources are both used to install Ruby gems. For any machine on which Chef Infra Client is
+      installed, there are two instances of Ruby. One is the standard, system-wide instance of Ruby and the other is a dedicated instance that is
+      available only to Chef Infra Client.
+      Use the **chef_gem** resource to install gems into the instance of Ruby that is dedicated to Chef Infra Client.
+      Use the **gem_package** resource to install all other gems (i.e. install gems system-wide).
 syntax_full_code_block: |-
   chef_gem 'name' do
     clear_sources               true, false
+    environment                 Hash
     gem_binary                  String
     include_default_source      true, false
     options                     String, Hash, Array
@@ -35,23 +41,28 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`clear_sources`, `gem_binary`, `include_default_source`, `options`, `package_name`,
-  `source`, `timeout`, and `version` are the properties available to this resource."
+- "`clear_sources`, `environment`, `gem_binary`, `include_default_source`, `options`,
+  `package_name`, `source`, `timeout`, and `version` are the properties available
+  to this resource."
 actions_list:
-  :install:
-    markdown: Install a gem. If a version is specified, install the specified
-      version of the gem. (default)
   :nothing:
     shortcode: resources_common_actions_nothing.md
-  :purge:
-    markdown: Purge a gem. This action typically removes the configuration files
-      as well as the gem.
-  :reconfig:
-    markdown: Reconfigure a gem. This action requires a response file.
-  :remove:
-    markdown: Remove a gem.
+  :install:
+    markdown: Install a package. If a version is specified, install the specified
+      version of the package. (default)
   :upgrade:
-    markdown: Install a gem and ensure that a gem is the latest version.
+    markdown: Install a package and ensure that a package is the latest version.
+  :remove:
+    markdown: Remove a package.
+  :purge:
+    markdown: Purge a package. This action typically removes the configuration files
+      as well as the package.
+  :reconfig:
+    markdown:
+  :lock:
+    markdown:
+  :unlock:
+    markdown:
 properties_list:
 - property: clear_sources
   ruby_type: true, false
@@ -60,6 +71,13 @@ properties_list:
   description_list:
   - markdown: Set to `true` to download a gem from the path specified by the `source`
       property (and not from RubyGems).
+- property: environment
+  ruby_type: Hash
+  required: false
+  new_in: '19.0'
+  description_list:
+  - markdown: A Hash of environment variables in the form of {'ENV_VARIABLE' => 'VALUE'}
+      to be set before running the command.
 - property: gem_binary
   ruby_type: String
   required: false
@@ -107,6 +125,7 @@ properties_list:
   required: false
   description_list:
   - markdown: The version of a package to be installed or upgraded.
+target_mode:
 examples: |
   **Compile time vs. converge time installation of gems**
 

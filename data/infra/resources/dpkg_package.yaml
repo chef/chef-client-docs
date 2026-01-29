@@ -45,12 +45,26 @@ actions_list:
   :install:
     markdown: Install a package. If a version is specified, install the specified
       version of the package. (default)
+  :upgrade:
+    markdown: Install a package and ensure that a package is the latest version.
   :remove:
     markdown: Remove a package.
   :purge:
     markdown: Purge a package. This action typically removes the configuration files
       as well as the package.
+  :reconfig:
+    markdown:
+  :lock:
+    markdown:
+  :unlock:
+    markdown:
 properties_list:
+- property: allow_downgrade
+  ruby_type: true, false
+  required: false
+  default_value: 'true'
+  description_list:
+  - markdown: Allow downgrading a package to satisfy requested version requirements.
 - property: environment
   ruby_type: Hash
   required: false
@@ -96,6 +110,10 @@ properties_list:
   required: false
   description_list:
   - markdown: The version of a package to be installed or upgraded.
+target_mode:
+  support: full
+  introduced: '19.0'
+  description: Does not support the `response_file` property in Target Mode.
 examples: "
   Install a package\n\n  ```ruby\n  dpkg_package 'wget_1.13.4-2ubuntu1.4_amd64.deb'\
   \ do\n    source '/foo/bar/wget_1.13.4-2ubuntu1.4_amd64.deb'\n    action :install\n\

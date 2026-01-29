@@ -58,6 +58,7 @@ properties_list:
   description_list:
   - markdown: An optional property to set the workgroup name if it differs from the
       resource block's name.
+target_mode:
 examples: |
   **Join a workgroup**:
 

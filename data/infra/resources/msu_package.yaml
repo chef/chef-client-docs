@@ -11,6 +11,7 @@ resource_new_in: '12.17'
 syntax_full_code_block: |-
   msu_package 'name' do
     checksum          String
+    environment       Hash
     options           String, Array
     package_name      String
     source            String
@@ -23,17 +24,40 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`checksum`, `options`, `package_name`, `source`, and `timeout` are the properties
-  available to this resource."
+- "`checksum`, `environment`, `options`, `package_name`, `source`, and `timeout` are
+  the properties available to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :install:
+    markdown: Install a package. If a version is specified, install the specified
+      version of the package. (default)
+  :upgrade:
+    markdown: Install a package and ensure that a package is the latest version.
+  :remove:
+    markdown: Remove a package.
+  :purge:
+    markdown: Purge a package. This action typically removes the configuration files
+      as well as the package.
+  :reconfig:
+    markdown:
+  :lock:
+    markdown:
+  :unlock:
+    markdown:
 properties_list:
 - property: checksum
   ruby_type: String
   required: false
   description_list:
   - markdown: SHA-256 digest used to verify the checksum of the downloaded MSU package.
+- property: environment
+  ruby_type: Hash
+  required: false
+  new_in: '19.0'
+  description_list:
+  - markdown: A Hash of environment variables in the form of {'ENV_VARIABLE' => 'VALUE'}
+      to be set before running the command.
 - property: options
   ruby_type: String, Array
   required: false
@@ -57,6 +81,7 @@ properties_list:
   default_value: '3600'
   description_list:
   - markdown: The amount of time (in seconds) to wait before timing out.
+target_mode:
 examples: "
   Using local path in source\n\n  ```ruby\n  msu_package 'Install\
   \ Windows 2012R2 Update KB2959977' do\n    source 'C:\\Users\\xyz\\AppData\\Local\\\

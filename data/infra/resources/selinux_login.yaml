@@ -15,7 +15,7 @@ syntax_full_code_block: |-
     user       String
     action     Symbol # defaults to :manage if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`selinux_login` is the resource."
 - "`name` is the name given to the resource block."
@@ -46,12 +46,14 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: Multi-Level Security (MLS) or Multi-Category Security (MCS) range for the SELinux user.
+  - markdown: MLS/MCS security range for the SELinux user.
 - property: user
   ruby_type: String
   required: false
   description_list:
   - markdown: SELinux user to be mapped.
+target_mode:
+  support: full
 examples: |
   **Manage test OS user mapping with a range of s0 and associated SELinux user test_u**:
 

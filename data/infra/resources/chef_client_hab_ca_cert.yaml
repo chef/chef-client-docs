@@ -3,21 +3,23 @@ resource_reference: true
 resources_common_guards: true
 resources_common_notification: true
 resources_common_properties: true
-resource: chef_client_trusted_certificate
+resource: chef_client_hab_ca_cert
 resource_description_list:
-- markdown: Use the **chef_client_trusted_certificate** resource to add certificates
-    to Chef Infra Client's trusted certificate directory. This allows the Chef Infra
-    Client to communicate with internal encrypted resources without errors.
-resource_new_in: '16.5'
+- markdown: Use the **chef_client_hab_ca_cert** resource to add certificates to habitat
+    Chef Infra Client's CA bundle. This allows the Chef Infra Client to communicate
+    with internal encrypted resources without errors. To make sure these CA certs
+    take effect the `ssl_ca_file` should be configured to point to the CA Cert file
+    path of `core/cacerts` habitat package.
+resource_new_in: '19.1'
 syntax_full_code_block: |-
-  chef_client_trusted_certificate 'name' do
+  chef_client_hab_ca_cert 'name' do
     cert_name        String # default value: 'name' unless specified
     certificate      String
     action           Symbol # defaults to :add if not specified
   end
 syntax_properties_list:
 syntax_full_properties_list:
-- "`chef_client_trusted_certificate` is the resource."
+- "`chef_client_hab_ca_cert` is the resource."
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
@@ -26,19 +28,16 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :add:
-    markdown: Add a trusted certificate to Chef Infra Client's trusted certificate
-      directory (default)
-  :remove:
-    markdown: Remove a trusted certificate from Chef Infra Client's trusted certificate
-      directory
+    markdown: Add a local certificate to habitat based Chef Infra Client's CA bundle.
+      (default)
 properties_list:
 - property: cert_name
   ruby_type: String
   required: false
   default_value: The resource block's name
   description_list:
-  - markdown: The name to use for the certificate file on disk. If not provided the
-      name of the resource block will be used instead.
+  - markdown: The name to use for the certificate. If not provided the name of the
+      resource block will be used instead.
 - property: certificate
   ruby_type: String
   required: true
@@ -49,7 +48,7 @@ examples: |
   **Trust a self signed certificate**:
 
   ```ruby
-  chef_client_trusted_certificate 'self-signed.badssl.com' do
+  chef_client_hab_ca_cert 'self-signed.badssl.com' do
     certificate <<~CERT
     -----BEGIN CERTIFICATE-----
     MIIDeTCCAmGgAwIBAgIJAPziuikCTox4MA0GCSqGSIb3DQEBCwUAMGIxCzAJBgNV

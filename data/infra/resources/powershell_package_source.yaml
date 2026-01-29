@@ -25,6 +25,7 @@ syntax_full_code_block: |-
     user                         String
     action                       Symbol # defaults to :register if not specified
   end
+syntax_properties_list:
 syntax_full_properties_list:
 - "`powershell_package_source` is the resource."
 - "`name` is the name given to the resource block."
@@ -109,6 +110,7 @@ properties_list:
   description_list:
   - markdown: A username that, as part of a credential object, is used to register
       a repository or other package source with.
+target_mode:
 examples: |
   **Add a new PowerShell repository that is not trusted and which requires credentials to connect to**:
 

@@ -26,67 +26,71 @@ syntax_properties_list:
 - '`''motd.erb''` specifies the name of a template that exists in in the `/templates`
   folder of a cookbook'
 - '`owner`, `group`, and `mode` define the permissions'
-syntax_full_code_block: "template 'name' do\n  atomic_update              true, false\n\
-  \  backup                     false, Integer\n  cookbook                   String\n\
-  \  force_unlink               true, false\n  group                      String,\
-  \ Integer\n  helper(:method)            Method { String } # see Helpers below\n\
-  \  helpers(module)            Module # see Helpers below\n  inherits           \
-  \        true, false\n  local                      true, false\n  manage_symlink_source\
-  \      true, false\n  mode                       String, Integer\n  owner      \
-  \                String, Integer\n  path                       String # defaults\
-  \ to 'name' if not specified\n  rights                     Hash\n  sensitive   \
-  \               true, false\n  source                     String, Array\n  variables\
-  \                  Hash\n  verify                     String, Block\n  action  \
-  \                   Symbol # defaults to :create if not specified\nend"
+syntax_full_code_block: "template 'name' do\n  atomic_update              true, false\n
+  \ backup                     Integer, false # default value: 5\n  checksum                   String\n
+  \ content                    String\n  cookbook                   String\n  force_unlink
+  \              true, false # default value: false\n  group                      \n
+  \ local                      true, false # default value: false\n  manage_symlink_source
+  \     true, false\n  mode                       \n  owner                      \n
+  \ path                       String # default value: 'name' unless specified\n  variables
+  \                 Hash # default value: {}\n  action                     Symbol
+  # defaults to :create if not specified\nend"
 syntax_full_properties_list:
-- '`template` is the resource'
-- '`name` is the name of the resource block, typically the path to the location in
-  which a file is created *and also* the name of the file to be managed. For example:
-  `/var/www/html/index.html`, where `/var/www/html/` is the fully qualified path to
-  the location and `index.html` is the name of the file'
-- '`source` is the template file that will be used to create the file on the node,
-  for example: `index.html.erb`; the template file is located in the `/templates`
-  directory of a cookbook'
-- '`action` identifies the steps Chef Infra Client will take to bring the node into
-  the desired state'
-- '`atomic_update`, `backup`, `cookbook`, `force_unlink`, `group`, `helper`, `helpers`,
-  `inherits`, `local`, `manage_symlink_source`, `mode`, `owner`, `path`, `rights`,
-  `source`, `variables`, and `verify` are properties of this resource,
-  with the Ruby type shown. See "Properties" section below for more information about
-  all of the properties that may be used with this resource.'
+- "`template` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`atomic_update`, `backup`, `checksum`, `content`, `cookbook`, `force_unlink`, `group`,
+  `local`, `manage_symlink_source`, `mode`, `owner`, `path`, and `variables` are the
+  properties available to this resource."
 actions_list:
-  :create:
-    markdown: (default) Create a file. If a file already exists (but does not match),
-      update that file to match.
-  :create_if_missing:
-    markdown: Create a file only if the file does not exist. When the file exists,
-      nothing happens.
-  :delete:
-    markdown: Delete a file.
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :create:
+    markdown: (default) Create a file. If a file already exists (but does not match),
+    update that file to match.
+  :delete:
+    markdown: Delete a file.
   :touch:
     markdown: Touch a file. This updates the access (atime) and file modification
-      (mtime) times for a file. (This action may be used with this resource, but is
-      typically only used with the **file** resource.)
+    (mtime) times for a file. (This action may be used with this resource, but is
+    typically only used with the **file** resource.)
+  :create_if_missing:
+    markdown: Create a file only if the file does not exist. When the file exists,
+    nothing happens.
 properties_list:
 - property: atomic_update
   ruby_type: true, false
   required: false
+  default_value: False if modifying /etc/hosts, /etc/hostname, or /etc/resolv.conf
+    within Docker containers. Otherwise default to the client.rb 'file_atomic_update'
+    config value.
   description_list:
-  - markdown: 'Perform atomic file updates on a per-resource basis. Set to `true`
-      for atomic file updates. Set to `false` for non-atomic file updates.
-      This setting overrides `file_atomic_update`, which is a global
-      setting found in the client.rb file.'
+  - markdown: Perform atomic file updates on a per-resource basis. Set to true for
+      atomic file updates. Set to false for non-atomic file updates. This setting
+      overrides `file_atomic_update`, which is a global setting found in the `client.rb`
+      file.
 - property: backup
   ruby_type: Integer, false
   required: false
   default_value: '5'
   description_list:
-  - markdown: 'The number of backups to be kept in `/var/chef/backup` (for UNIX-
-      and Linux-based platforms) or `C:/chef/backup` (for the Microsoft
-      Windows platform). Set to `false` to prevent backups from being
-      kept.'
+  - markdown: The number of backups to be kept in `/var/chef/backup` (for UNIX- and
+      Linux-based platforms) or `C:/chef/backup` (for the Microsoft Windows platform).
+      Set to `false` to prevent backups from being kept.
+- property: checksum
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: The SHA-256 checksum of the file. Use to ensure that a specific file
+      is used. If the checksum does not match, the file is not used.
+- property: content
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: A string that is written to the file. The contents of this property
+      replace any previous content when this property has something other than the
+      default value. The default behavior will not modify content.
 - property: cookbook
   ruby_type: String
   required: false
@@ -104,66 +108,33 @@ properties_list:
       it with the specified file. Set to `false` for Chef Infra Client to raise an
       error.
 - property: group
-  ruby_type: Integer, String
+  ruby_type: ''
   required: false
   description_list:
-  - markdown: 'A string or ID that identifies the group owner by group name or SID,
-      including fully qualified group names such as `domain\group` or
-      `group@domain`. If this value is not specified, existing groups
-      remain unchanged and new group assignments use the default `POSIX`
-      group (if available).'
-- property: helper
-  ruby_type: Method
-  required: false
-  default_value: '{}'
-  description_list:
-  - markdown: 'Define a helper method inline. For example:
-      `helper(:hello_world) { "hello world" }` or
-      `helper(:app) { node["app"] }` or
-      `helper(:app_conf) { |setting| node["app"][setting] }`.'
-- property: helpers
-  ruby_type: Module
-  required: false
-  default_value: '[]'
-  description_list:
-  - markdown: 'Define a helper module inline or in a library. For example, an
-      inline module: `helpers do`, which is then followed by a block of
-      Ruby code. And for a library module: `helpers(MyHelperModule)`.'
-- property: inherits
-  ruby_type: true, false
-  required: false
-  default_value: 'true'
-  description_list:
-  - markdown: 'Microsoft Windows only. Whether a file inherits rights from its
-      parent directory.'
+  - markdown:
 - property: local
   ruby_type: true, false
   required: false
   default_value: 'false'
   description_list:
-  - markdown: 'Load a template from a local path. By default, Chef Infra Client
-      loads templates from a cookbook''s `/templates` directory. When this
-      property is set to `true`, use the `source` property to specify the
-      path to a template on the local node.'
+  - markdown: Load a template from a local path. By default, the chef-client loads
+      templates from a cookbook's /templates directory. When this property is set
+      to true, use the source property to specify the path to a template on the local
+      node.
 - property: manage_symlink_source
   ruby_type: true, false
   required: false
-  default_value: 'true'
   description_list:
-  - markdown: '(with warning)
-
-      Change the behavior of the file resource if it is pointed at a
-      symlink. When this value is set to `true`, Chef Infra Client will
-      manage the symlink''s permissions or will replace the symlink with a
-      normal file if the resource has content. When this value is set to
-      `false`, Chef will follow the symlink and will manage the
-      permissions and content of the symlink''s target file.
-
-      The default behavior is `true` but emits a warning that the default
-      value will be changed to `false` in a future version; setting this
-      explicitly to `true` or `false` suppresses this warning.'
+  - markdown: Change the behavior of the file resource if it is pointed at a symlink.
+      When this value is set to true, Chef Infra Client will manage the symlink's
+      permissions or will replace the symlink with a normal file if the resource has
+      content. When this value is set to false, Chef Infra Client will follow the
+      symlink and will manage the permissions and content of symlink's target file.
+      The default behavior is true but emits a warning that the default value will
+      be changed to false in a future version; setting this explicitly to true or
+      false suppresses this warning.
 - property: mode
-  ruby_type: Integer, String
+  ruby_type: ''
   required: false
   description_list:
   - markdown: 'A quoted 3-5 character string that defines the octal mode. For
@@ -199,7 +170,7 @@ properties_list:
       effect if not specified, but when it and `rights` are both
       specified, the effects are cumulative.'
 - property: owner
-  ruby_type: Integer, String
+  ruby_type: ''
   required: false
   description_list:
   - markdown: 'A string or ID that identifies the group owner by user name or SID,
@@ -212,66 +183,21 @@ properties_list:
   required: false
   default_value: The resource block's name
   description_list:
-  - markdown: 'The full path to the file, including the file name and its
-      extension.
-
-      Microsoft Windows: A path that begins with a forward slash (`/`)
-      will point to the root of the current working directory of Chef
-      Infra Client process. This path can vary from system to system.
-      Therefore, using a path that begins with a forward slash (`/`) is
-      not recommended.'
-- property: rights
-  ruby_type: Integer, String
-  required: false
-  description_list:
-  - markdown: 'Microsoft Windows only. The permissions for users and groups in a
-      Microsoft Windows environment. For example:
-      `rights <permissions>, <principal>, <options>` where `<permissions>`
-      specifies the rights granted to the principal, `<principal>` is the
-      group or user name, and `<options>` is a Hash with one (or more)
-      advanced rights options.'
-- property: source
-  ruby_type: String, Array
-  required: false
-  description_list:
-  - markdown: 'The location of a template file. By default, Chef Infra Client looks
-      for a template file in the `/templates` directory of a cookbook.
-      When the `local` property is set to `true`, use to specify the path
-      to a template on the local node. This property may also be used to
-      distribute specific files to specific platforms. See "File
-      Specificity" below for more information. Default value: the `name`
-      of the resource block. See "Syntax" section above for more
-      information.'
+  - markdown: 'The full path to the file, including the file name and its extension.
+      For example: /files/file.txt. Default value: the name of the resource block.
+      Microsoft Windows: A path that begins with a forward slash `/` will point to
+      the root of the current working directory of the Chef Infra Client process.
+      This path can vary from system to system. Therefore, using a path that begins
+      with a forward slash `/` is not recommended.'
 - property: variables
   ruby_type: Hash
   required: false
+  default_value: "{}"
   description_list:
-  - markdown: A Hash of variables that are passed into a Ruby template file.
-  - shortcode: template_partials_variables_attribute.md
-- property: verify
-  ruby_type: String, Block
-  required: false
-  description_list:
-  - markdown: "A block or a string that returns `true` or `false`. A string, when\n\
-      `true` is executed as a system command.\n\nA block is arbitrary Ruby defined\
-      \ within the resource block by using\nthe `verify` property. When a block is\
-      \ `true`, Chef Infra Client\nwill continue to update the file as appropriate.\n\
-      \nFor example, this should return `true`:\n\n```ruby\ntemplate '/tmp/baz' do\n\
-      \  verify { 1 == 1 }\nend\n```\n\nThis should return `true`:\n\n```ruby\ntemplate\
-      \ '/etc/nginx.conf' do\n  verify 'nginx -t -c %{path}'\nend\n```"
-  - markdown: "This should return `true`:\n\n```ruby\ntemplate '/tmp/bar' do\n  verify\
-      \ { 1 == 1}\nend\n```\n\nAnd this should return `true`:\n\n```ruby\ntemplate\
-      \ '/tmp/foo' do\n  verify do |path|\n    true\n  end\nend\n```\n\nWhereas, this\
-      \ should return `false`:\n\n```ruby\ntemplate '/tmp/turtle' do\n  verify '/usr/bin/false'\n\
-      end\n```\n\nIf a string or a block return `false`, the Chef Infra Client run\n\
-      will stop and an error is returned."
-properties_multiple_packages: false
-resource_directory_recursive_directories: false
-remote_file_prevent_re_downloads: false
-remote_file_unc_path: false
-ps_credential_helper: false
-ruby_style_basics_chef_log: false
-debug_recipes_chef_shell: false
+  - markdown: The variables property of the template resource can be used to reference
+      a partial template file by using a Hash.
+target_mode:
+  support: full
 examples: "
   Configure a file from a template\n\n  ```ruby\n  template '/tmp/config.conf'\
   \ do\n    source 'config.conf.erb'\n  end\n  ```\n\n  Configure a file from a local\

@@ -64,6 +64,7 @@ properties_list:
   required: true
   description_list:
   - markdown: The value of the environmental variable to set.
+target_mode:
 examples: |
   **Set an environment variable**:
 

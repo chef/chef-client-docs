@@ -215,6 +215,7 @@ remote_file_prevent_re_downloads: false
 remote_file_unc_path: false
 ruby_style_basics_chef_log: false
 debug_recipes_chef_shell: false
+target_mode:
 examples: "
   Specify DSC code directly\n\n  DSC data can be specified directly\
   \ in a recipe:\n\n  ```ruby\n  dsc_script 'emacs' do\n    code <<-EOH\n    Environment\

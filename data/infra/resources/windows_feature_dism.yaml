@@ -59,6 +59,7 @@ properties_list:
   default_value: '600'
   description_list:
   - markdown: Specifies a timeout (in seconds) for the feature installation.
+target_mode:
 examples: |
   **Installing the TelnetClient service**:
 

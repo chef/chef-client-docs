@@ -12,8 +12,8 @@ resource_new_in: '16.0'
 syntax_full_code_block: |-
   chef_client_scheduled_task 'name' do
     accept_chef_license       true, false # default value: false
-    chef_binary_path          String # default value: "C:/opscode/chef/bin/chef-client"
-    config_directory          String # default value: "/etc/chef"
+    chef_binary_path          String
+    config_directory          String # default value: "C:/chef"
     daemon_options            Array # default value: []
     frequency                 String # default value: "minute"
     frequency_modifier        Integer, String # default value: "30 if frequency is 'minute', 1 otherwise"
@@ -57,7 +57,7 @@ properties_list:
 - property: chef_binary_path
   ruby_type: String
   required: false
-  default_value: C:/opscode/chef/bin/chef-client
+  default_value: lazy default
   description_list:
   - markdown: The path to the chef-client binary.
 - property: config_directory
@@ -155,6 +155,7 @@ properties_list:
   default_value: System
   description_list:
   - markdown: The name of the user that Chef Infra Client runs as.
+target_mode:
 examples: |
   **Setup Chef Infra Client to run using the default 30 minute cadence**:
 
