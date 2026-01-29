@@ -48,16 +48,16 @@ actions_list:
     shortcode: resources_common_actions_nothing.md
   :create:
     markdown: (default) Create a file. If a file already exists (but does not match),
-    update that file to match.
+      update that file to match.
   :delete:
     markdown: Delete a file.
   :touch:
     markdown: Touch a file. This updates the access (atime) and file modification
-    (mtime) times for a file. (This action may be used with this resource, but is
-    typically only used with the **file** resource.)
+      (mtime) times for a file. (This action may be used with this resource, but is
+      typically only used with the **file** resource.)
   :create_if_missing:
     markdown: Create a file only if the file does not exist. When the file exists,
-    nothing happens.
+      nothing happens.
 properties_list:
 - property: atomic_update
   ruby_type: true, false

@@ -56,8 +56,6 @@ actions_list:
       action with the `recursive` attribute will delete the registry key, all of its
       values and all of the names, types, and data associated with them. This cannot
       be undone by Chef Infra Client.
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
 properties_list:
 - property: architecture
   ruby_type: Symbol
