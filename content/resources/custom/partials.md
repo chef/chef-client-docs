@@ -1,9 +1,6 @@
 +++
 title = "Partials"
 
-
-
-
 [menu]
   [menu.resources]
     title = "Partials"

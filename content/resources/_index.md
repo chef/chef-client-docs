@@ -69,29 +69,6 @@ In both cases, Chef Infra Client will use the default action
 
 See these guides for additional information about resources:
 
-<table>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 75%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Topic</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="/resource_common/">Common Properties</a></td>
-<td>Provides a detailed list of the common properties that are available in all resources.</td>
-</tr>
-<tr>
-<td><a href="/resources/">Resource Reference</a></td>
-<td>A reference guide that lists both the common and individual options available to every resource that's bundled into Chef.</td>
-</tr>
-<tr>
-<td><a href="/custom_resources/">Custom Resources</a></td>
-<td>Shows you how to create your own Chef resources.</td>
-</tr>
-</tbody>
-</table>
+- **[Common resource properties](common_functionality)**: Provides a detailed list of the common properties that are available in all resources.
+- **[Bundled resources reference](bundled)**: A reference guide that lists both the common and individual options available to every resource that's bundled into Chef.
+- **[Custom resources](custom)**: Shows you how to create your own Chef resources.
