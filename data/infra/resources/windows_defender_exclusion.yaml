@@ -49,6 +49,7 @@ properties_list:
   default_value: "[]"
   description_list:
   - markdown: Paths to executables to exclude from scanning.
+target_mode:
 examples: |
   **Add excluded items to Windows Defender scans**:
 

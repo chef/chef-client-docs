@@ -55,8 +55,8 @@ properties_list:
   required: false
   description_list:
   - markdown: The URL of the tap.
+target_mode:
 examples: |
-
   **Tap a repository**:
 
   ```ruby

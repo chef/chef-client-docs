@@ -21,6 +21,7 @@ syntax_description: |
 syntax_full_code_block: |-
   powershell_package 'name' do
     allow_clobber             true, false # default value: false
+    environment               Hash
     options                   String, Array
     package_name              String, Array
     skip_publisher_check      true, false # default value: false
@@ -35,14 +36,27 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`allow_clobber`, `options`, `package_name`, `skip_publisher_check`, `source`, `timeout`,
-  and `version` are the properties available to this resource."
+- "`allow_clobber`, `environment`, `options`, `package_name`, `skip_publisher_check`,
+  `source`, `timeout`, and `version` are the properties available to this resource."
 actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
   :install:
     markdown: Install a package. If a version is specified, install the specified
       version of the package. (default)
+  :upgrade:
+    markdown: Install a package and ensure that a package is the latest version.
   :remove:
     markdown: Remove a package.
+  :purge:
+    markdown: Purge a package. This action typically removes the configuration files
+      as well as the package.
+  :reconfig:
+    markdown:
+  :lock:
+    markdown:
+  :unlock:
+    markdown:
 properties_list:
 - property: allow_clobber
   ruby_type: true, false
@@ -52,6 +66,13 @@ properties_list:
   description_list:
   - markdown: Overrides warning messages about installation conflicts about existing
       commands on a computer.
+- property: environment
+  ruby_type: Hash
+  required: false
+  new_in: '19.0'
+  description_list:
+  - markdown: A Hash of environment variables in the form of {'ENV_VARIABLE' => 'VALUE'}
+      to be set before running the command.
 - property: options
   ruby_type: String, Array
   required: false
@@ -85,6 +106,7 @@ properties_list:
   required: false
   description_list:
   - markdown: The version of a package to be installed or upgraded.
+target_mode:
 examples: |
   **Install a specific version of a package**:
 

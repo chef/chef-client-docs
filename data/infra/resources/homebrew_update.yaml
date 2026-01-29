@@ -35,6 +35,7 @@ properties_list:
   description_list:
   - markdown: Determines how frequently (in seconds) Homebrew updates are made. Use
       this property when the `:periodic` action is specified.
+target_mode:
 examples: |
   **Update the homebrew repository data at a specified interval**:
   ```ruby

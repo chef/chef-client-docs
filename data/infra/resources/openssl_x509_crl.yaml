@@ -104,6 +104,7 @@ properties_list:
   required: false
   description_list:
   - markdown: Serial of the X509 Certificate to revoke.
+target_mode:
 examples: |
   **Create a certificate revocation file**
 

@@ -14,7 +14,7 @@ syntax_full_code_block: |-
     context      String # default value: 'name' unless specified
     action       Symbol # defaults to :add if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`selinux_permissive` is the resource."
 - "`name` is the name given to the resource block."
@@ -25,9 +25,9 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :add:
-    markdown: Make a domain permissive, unless already set. (default)
+    markdown: Add a permissive, unless already set. (default)
   :delete:
-    markdown: Stop a domain from being permissive, if set.
+    markdown: Remove a permissive, if set.
 properties_list:
 - property: context
   ruby_type: String
@@ -35,6 +35,8 @@ properties_list:
   default_value: The resource block's name
   description_list:
   - markdown: The SELinux context to permit.
+target_mode:
+  support: full
 examples: |
   **Disable enforcement on Apache**:
 

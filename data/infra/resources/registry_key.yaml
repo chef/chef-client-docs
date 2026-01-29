@@ -7,14 +7,12 @@ resource_description_list:
     Microsoft Windows.
 - note:
     markdown: |-
-      64-bit versions of Microsoft Windows have a 32-bit compatibility layer in the registry that reflects and redirects certain keys
-      (and their values) into specific locations (or logical views) of the registry hive.
+      64-bit versions of Microsoft Windows have a 32-bit compatibility layer in the registry that reflects and redirects certain keys (and their values) into specific locations (or logical views) of the registry hive.
 
-      Chef Infra Client can access any reflected or redirected registry key. The machine architecture of the system on which Chef Infra Client
-      is running is used as the default (non-redirected) location. Access to the SysWow64 location is redirected must be specified. Typically,
-      this is only necessary to ensure compatibility with 32-bit applications that are running on a 64-bit operating system.
+      Chef Infra Client can access any reflected or redirected registry key. The machine architecture of the system on which Chef Infra Client is running is used as the default (non-redirected) location. Access to the SysWow64 location is redirected must be specified. Typically, this is only necessary to ensure compatibility with 32-bit applications that are running on a 64-bit operating system.
 
-      For more information, see [Microsoft's documentation on Registry Reflection](https://docs.microsoft.com/en-us/windows/win32/winprog64/registry-reflection).
+      For more information, see: [Registry Reflection](https://docs.microsoft.com/en-us/windows/win32/winprog64/registry-reflection).
+
 syntax_description: "A **registry_key** resource block creates and deletes registry\
   \ keys in\nMicrosoft Windows:\n\n```ruby\nregistry_key 'HKEY_LOCAL_MACHINE\\\\\
   ...\\\\System' do\n  values [{\n    name: 'NewRegistryKeyValue',\n    type: :multi_string,\n\
@@ -28,38 +26,23 @@ syntax_description: "A **registry_key** resource block creates and deletes regis
   \ :create\nend\n```"
 syntax_full_code_block: |-
   registry_key 'name' do
-    architecture             Symbol # default value: :machine
-    key                      String # default value: 'name' unless specified
-    only_record_changes      true, false # default value: true
-    recursive                true, false # default value: false
-    values                   Hash, Array # default value: []
-    action                   Symbol # defaults to :create if not specified
+    architecture      Symbol # default value: :machine
+    key               String # default value: 'name' unless specified
+    recursive         true, false # default value: false
+    values            Hash, Array # default value: []
+    action            Symbol # defaults to :create if not specified
   end
 syntax_properties_list:
 syntax_full_properties_list:
-- '`registry_key` is the resource'
-- '`name` is the name of the resource block'
-- '`values` is a hash that contains at least one registry key to be created or deleted.
-  Each registry key in the hash is grouped by brackets in which the `name:`, `type:`,
-  and `data:` values for that registry key are specified.'
-- "`type:` represents the values available for registry keys in Microsoft Windows:\n\
-  \ - `:binary` for REG_BINARY\n\
-  \ - `:string` for REG_SZ\n\
-  \ - `:multi_string` for REG_MULTI_SZ\n\
-  \ - `:expand_string` for REG_EXPAND_SZ\n\
-  \ - `:dword` for REG_DWORD\n\
-  \ - `:dword_big_endian` for REG_DWORD_BIG_ENDIAN\n\
-  \ - `:qword` for REG_QWORD\n\
-  \ <div class='admonition-warning'>\
-  \ <p class='admonition-warning-title'>Warning</p>\
-  \ <div class='admonition-warning-text'> <code>:multi_string</code>\
-  \ must be an array, even if there is only a single string.</div></div>"
-- '`action` identifies the steps Chef Infra Client will take to bring the node into
-  the desired state'
-- '`architecture`, `key`, `recursive` and `values` are properties of this resource,
-  with the Ruby type shown. See "Properties" section below for more information about
-  all of the properties that may be used with this resource.'
+- "`registry_key` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`architecture`, `key`, `recursive`, and `values` are the properties available to
+  this resource."
 actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
   :create:
     markdown: (default) Create a registry key. If a registry key already exists (but
       does not match), update that registry key to match.
@@ -132,14 +115,6 @@ properties_list:
       `HKEY_CURRENT_CONFIG`, `HKCC`, `HKEY_CLASSES_ROOT`, `HKCR`,
 
       `HKEY_USERS`, `HKU`, `HKEY_CURRENT_USER`, and `HKCU`.'
-- property: only_record_changes
-  ruby_type: true, false
-  required: false
-  default_value: 'true'
-  new_in: '18.7'
-  description_list:
-  - markdown: Suppress reporting of the current value of sibling values in a registry
-      key. Setting this to false may result in a large number of values reported.
 - property: recursive
   ruby_type: true, false
   required: false
@@ -171,14 +146,9 @@ properties_list:
       REG_SZ, `:multi_string` for REG_MULTI_SZ, `:expand_string` for
       REG_EXPAND_SZ, `:dword` for REG_DWORD, `:dword_big_endian` for
       REG_DWORD_BIG_ENDIAN, or `:qword` for REG_QWORD.'
-  - warning:
-      markdown: '`:multi_string` must be an array, even if there is only a single
-        string.'
-resources_common_properties: false
-resources_common_notification: false
-resources_common_guards: false
+target_mode:
 examples: |
-  **Create a registry key**:
+  **Create a registry key**
 
   ```ruby
   registry_key 'HKEY_LOCAL_MACHINE\\path-to-key\\Policies\\System' do
@@ -187,20 +157,6 @@ examples: |
       type: :dword,
       data: 0
     }]
-    action :create
-  end
-  ```
-
-  **Suppress reporting the sibling values of the values being updated in a registry key**
-
-  ```ruby
-  registry 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\CONTROL\Session Manager' do
-    values [{
-      name: 'ProtectionMode',
-      type: :dword,
-      data: 1
-    }]
-    only_record_changes true
     action :create
   end
   ```
@@ -219,9 +175,9 @@ examples: |
   end
   ```
 
-  **Create 32-bit key in redirected wow6432 tree**:
+  **Create 32-bit key in redirected wow6432 tree**
 
-  In 64-bit versions of Microsoft Windows, HKEY_LOCAL_MACHINE\SOFTWARE\Example is a re-directed key. In the following examples, because HKEY_LOCAL_MACHINE\SOFTWARE\Example is a 32-bit key, the output will be �Found 32-bit key� if they are run on a version of Microsoft Windows that is 64-bit:
+  In 64-bit versions of Microsoft Windows, HKEY_LOCAL_MACHINE\SOFTWARE\Example is a re-directed key. In the following examples, because HKEY_LOCAL_MACHINE\SOFTWARE\Example is a 32-bit key, the output will be “Found 32-bit key” if they are run on a version of Microsoft Windows that is 64-bit:
 
   ```ruby
   registry_key 'HKEY_LOCAL_MACHINE\SOFTWARE\Example' do
@@ -231,7 +187,7 @@ examples: |
   end
   ```
 
-  **Set proxy settings to be the same as those used by #{ChefUtils::Dist::Infra::PRODUCT}**:
+  **Set proxy settings to be the same as those used by #{ChefUtils::Dist::Infra::PRODUCT}**
 
   ```ruby
   proxy = URI.parse(Chef::Config[:http_proxy])
@@ -244,7 +200,7 @@ examples: |
   end
   ```
 
-  **Set the name of a registry key to "(Default)"**:
+  **Set the name of a registry key to "(Default)"**
 
   ```ruby
   registry_key 'Set (Default) value' do
@@ -256,7 +212,7 @@ examples: |
   end
   ```
 
-  **Delete a registry key value**:
+  **Delete a registry key value**
 
   ```ruby
   registry_key 'HKEY_LOCAL_MACHINE\SOFTWARE\path\to\key\AU' do
@@ -269,9 +225,9 @@ examples: |
   end
   ```
 
-  *Note*: If data is not specified, Chef Infra Client returns error: "Missing data key in RegistryKey values hash".
+  Note: If data: is not specified, you get an error: Missing data key in RegistryKey values hash
 
-  **Delete a registry key and its subkeys, recursively**:
+  **Delete a registry key and its subkeys, recursively**
 
   ```ruby
   registry_key 'HKCU\SOFTWARE\Policies\path\to\key\Themes' do
@@ -280,5 +236,4 @@ examples: |
   end
   ```
 
-  *Note*: Be careful when using the `:delete_key` action with the recursive attribute. This will delete the registry key, all of its values
-  and all of the names, types, and data associated with them. This cannot be undone by `#{ChefUtils::Dist::Infra::PRODUCT}`.
+  Note: Be careful when using the :delete_key action with the recursive attribute. This will delete the registry key, all of its values and all of the names, types, and data associated with them. This cannot be undone by #{ChefUtils::Dist::Infra::PRODUCT}.

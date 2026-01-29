@@ -22,10 +22,12 @@ syntax_full_properties_list:
   the desired state."
 actions_list:
   :nothing:
-    shortcode: resources_common_actions_nothing_default.md
+    shortcode: resources_common_actions_nothing.md
   :run:
     markdown:
 properties_list: []
+target_mode:
+  support: full
 examples: |
   Wire up a notification from a service resource to stop and start the service with a 60 second delay.
 

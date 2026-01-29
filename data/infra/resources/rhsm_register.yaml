@@ -10,33 +10,34 @@ resource_description_list:
 resource_new_in: '14.0'
 syntax_full_code_block: |-
   rhsm_register 'name' do
-    activation_key             String, Array
-    auto_attach                true, false # default value: false
-    base_url                   String
-    environment                String
-    force                      true, false # default value: false
-    https_for_ca_consumer      true, false # default value: false
-    install_katello_agent      true, false # default value: true
-    organization               String
-    password                   String
-    release                    Float, String
-    satellite_host             String
-    server_url                 String
-    service_level              String
-    system_name                String
-    username                   String
-    action                     Symbol # defaults to :register if not specified
+    activation_key              String, Array
+    auto_attach                 true, false # default value: false
+    base_url                    String
+    environment                 String
+    force                       true, false # default value: false
+    https_for_ca_consumer       true, false # default value: false
+    install_katello_agent       true, false # default value: true
+    not_registered_strings      String, Array # default value: ["Overall Status: Unknown", "Overall Status: Not registered"]
+    organization                String
+    password                    String
+    release                     Float, String
+    satellite_host              String
+    server_url                  String
+    service_level               String
+    system_name                 String
+    username                    String
+    action                      Symbol # defaults to :register if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`rhsm_register` is the resource."
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
 - "`activation_key`, `auto_attach`, `base_url`, `environment`, `force`, `https_for_ca_consumer`,
-  `install_katello_agent`, `organization`, `password`, `release`, `satellite_host`,
-  `server_url`, `service_level`, `system_name`, and `username` are the properties
-  available to this resource."
+  `install_katello_agent`, `not_registered_strings`, `organization`, `password`, `release`,
+  `satellite_host`, `server_url`, `service_level`, `system_name`, and `username` are
+  the properties available to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
@@ -97,6 +98,14 @@ properties_list:
   default_value: 'true'
   description_list:
   - markdown: If true, the 'katello-agent' RPM will be installed.
+- property: not_registered_strings
+  ruby_type: String, Array
+  required: false
+  default_value: '["Overall Status: Unknown", "Overall Status: Not registered"]'
+  new_in: '18.9'
+  description_list:
+  - markdown: The string value(s) that when present in the output of the `subscription-manager
+      status` command indicate that the system is not registered.
 - property: organization
   ruby_type: String
   required: false
@@ -117,7 +126,7 @@ properties_list:
   description_list:
   - markdown: Sets the operating system minor release to use for subscriptions for
       the system. Products and updates are limited to the specified minor release
-      version. This is used with the `auto_attach` or `activation_key` options. For
+      version. This is used with the `auto_attach` or `activation_key` options.  For
       example, `release '6.4'` will append `--release=6.4` to the register command.
 - property: satellite_host
   ruby_type: String
@@ -153,6 +162,8 @@ properties_list:
   - markdown: The username to use when registering. This property is not applicable
       if using an activation key. If specified, password and environment properties
       are also required.
+target_mode:
+  support: full
 examples: |
   **Register a node with RHSM**
 

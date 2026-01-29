@@ -13,7 +13,7 @@ syntax_full_code_block: |-
   chef_client_cron 'name' do
     accept_chef_license      true, false # default value: false
     append_log_file          true, false # default value: true
-    chef_binary_path         String # default value: "/opt/chef/bin/chef-client"
+    chef_binary_path         String
     comment                  String
     config_directory         String # default value: "/etc/chef"
     daemon_options           Array # default value: []
@@ -65,7 +65,7 @@ properties_list:
 - property: chef_binary_path
   ruby_type: String
   required: false
-  default_value: "/opt/chef/bin/chef-client"
+  default_value: lazy default
   description_list:
   - markdown: The path to the chef-client binary.
 - property: comment
@@ -170,6 +170,7 @@ properties_list:
   description_list:
   - markdown: The day of the week on which Chef Infra Client is to run (0-7, mon-sun,
       or *), where Sunday is both 0 and 7.
+target_mode:
 examples: |
   **Setup Chef Infra Client to run using the default 30 minute cadence**:
 
