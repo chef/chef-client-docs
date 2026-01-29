@@ -402,7 +402,7 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: "`chdir` to this directory, and then run the job.
+  - markdown: "`chdir` to this directory, and then run the job."
 target_mode:
 examples: "
   Create a Launch Daemon from a cookbook file\n\n  ```ruby\n  launchd\
