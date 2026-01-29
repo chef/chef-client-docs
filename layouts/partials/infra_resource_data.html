@@ -498,6 +498,51 @@
 
 {{ end }}
 
+<!-------------- Target Mode ------------------->
+
+{{ with index $yaml_file "target_mode" }}
+
+  <h{{ $heading_base_level }} id="agentless-mode{{ $resource_ID }}">Agentless Mode</h{{ $heading_base_level }}>
+
+  <p>The {{ index $yaml_file "resource" }} resource has <strong>{{ .support }}</strong> support for Agentless Mode.</p>
+
+  {{ if .support }}
+    <p>Supported platforms:</p>
+
+    {{ if and (.platforms) (ne .platforms nil) }}
+    <ul>
+      {{ range $key := .platforms }}
+      <li>{{ $key }}</li>
+      {{ end }}
+    </ul>
+    <!-- default platforms -->
+    {{ else }}
+    <ul>
+      <li>aix</li>
+      <li>bsd</li>
+      <li>linux</li>
+      <li>solaris</li>
+    </ul>
+    {{ end }}
+
+    {{ .description | markdownify }}
+
+    <p>
+      {{ if and (.updated) (ne .updated nil) }}
+      Support was initially added in Chef Infra Client {{ .introduced }} and updated later in {{ .updated }}.
+      {{ else }}
+      Support was initially added in Chef Infra Client {{ default .introduced "19.0" }}.
+      {{ end }}
+    </p>
+
+    {{ if and (.requirements) (ne .requirements nil) }}
+      <p>
+        {{ .requirements | markdownify }}
+      </p>
+    {{ end }}
+  {{ end }}
+{{ end }}
+
 <!------------------ Unit File Verification ---------------------->
 
 {{ with index $yaml_file "unit_file_verification" }}
