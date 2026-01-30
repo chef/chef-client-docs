@@ -19,8 +19,10 @@ The Chef Infra Client migration tool (`migrate-ice`) allows you to install or up
 
 ## Supported platforms
 
-- Linux x86-64
-- Windows x86-64
+Chef Infra Client is supported on:
+
+- Currently supported Linux distributions and versions running Linux kernel 2.6.32 and later
+- Currently supported Windows versions greater than or equal to Windows 10
 
 ## Install guides
 

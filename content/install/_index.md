@@ -14,10 +14,10 @@ Use either a native installer or the Chef Infra Client migration tool to install
 
 ## Supported platforms
 
-The migration tool and native installers can install and upgrade Chef Infra Client on:
+Chef Infra Client is supported on:
 
-- Linux x86-64
-- Windows x86-64
+- Currently supported Linux distributions and versions running Linux kernel 2.6.32 and later
+- Currently supported Windows versions greater than or equal to Windows 10
 
 ## Native installers
 
