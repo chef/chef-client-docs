@@ -141,6 +141,6 @@ To install Chef Infra Client , follow these steps:
     chef-client --version
     ```
 
-## Next steps
+## More information
 
-After installing Chef Infra Client, you can test it by running an [example cookbook](/cookbooks).
+- [Chef Download API documentation](https://docs.chef.io/download/)
