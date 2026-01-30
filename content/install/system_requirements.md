@@ -17,21 +17,9 @@ Before you bootstrap Chef Infra Client on nodes:
 
 ## Chef Infra Client requirements
 
-- The recommended amount of RAM available to Chef Infra Client during
-    a Chef Infra Client run is 512MB
-- The Chef Infra Client binaries are stored in the `/opt/chef`
-    directory, which requires a minimum of 200MB of disk space. On
-    Windows, the Chef Infra Client binaries can be found in
-    `C:\opscode\`, and they require a minimum of 600MB of disk space.
-- The processor must be [supported](https://docs.chef.io/platforms/). We recommend
-    a 1 gigahertz (GHz) or faster processor, but the processor speed
-    should be based on the other system loads.
-- Chef Infra Client caches to `/var/chef/cache` during a Chef Infra
-    Client run. This is the location in which downloaded cookbooks,
-    packages required by those cookbooks, and other large files are
-    stored. This directory requires enough space to save all of this
-    data and should be generously sized. 5GB is a safe number as a
-    starting point, but tune the size of `/var/chef/cache` as necessary.
-    This location is tunable in a node's
-    [client.rb](/install/config_rb_client/) file using the
-    `file_cache_path` setting.
+- **RAM**: Chef Infra Client requires a minimum of 512 MB of RAM during a client run.
+- **Disk space for binaries**:
+  - Linux: The Chef Infra Client binaries are stored in `/hab` and require a minimum of 600 MB of disk space.
+  - Windows: The Chef Infra Client binaries are stored in `C:\hab` and require a minimum of 2.1 GB of disk space.
+- **Processor**: The processor must be [supported](https://docs.chef.io/platforms/). We recommend 1 GHz or faster, but the processor speed should be based on other system loads.
+- **Cache directory**: Chef Infra Client caches downloaded cookbooks, packages, and other large files to `/var/chef/cache` during a client run. This directory should be generously sized. Start with 5 GB and tune the size of `/var/chef/cache` as necessary. You can configure this location in a node's [client.rb](/install/config_rb_client/) file using the `file_cache_path` setting.
