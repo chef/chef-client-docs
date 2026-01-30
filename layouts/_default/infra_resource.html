@@ -13,12 +13,19 @@
   </p>
 {{ end }}
 {{ if eq $product "infra" }}
-  <p data-swiftype-index='false'><a href="/resources/">All Infra resources page</a></p>
+  <p data-swiftype-index='false'><a href="../">Chef Infra Client resources reference page</a></p>
 {{ else }}
   <p data-swiftype-index='false'><a href="/{{ $product }}/resources/">All {{ $product | title }} resources page</a></p>
 {{ end }}
 
 <hr>
+
+<div class="admonition-warning">
+  <p class="admonition-warning-title">Warning</p>
+  <div class="admonition-warning-text">
+    Progress Chef is currently reviewing the Chef Infra Client 19 resource documentation for accuracy and updating it. Please test your cookbooks accordingly.
+  </div>
+</div>
 
 {{ $yaml_file := index $.Site.Data (.Params.data_path) }}
 {{ $partial_data := dict "yaml_file" $yaml_file "product" $product "resource_ID" "" "heading_base_level" 2 "include_resource_id" false }}
