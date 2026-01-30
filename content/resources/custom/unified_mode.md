@@ -5,9 +5,9 @@ draft = false
 [menu]
   [menu.resources]
     title = "Unified Mode"
-    identifier = "resources/unified_mode.md Use Unified Mode"
-    parent = "resources"
-    weight = 20
+    identifier = "resources/custom/unified_mode.md Use Unified Mode"
+    parent = "resources/custom"
+    weight = 60
 +++
 
 {{< readfile file="content/reusable/md/unified_mode_overview.md" >}}
