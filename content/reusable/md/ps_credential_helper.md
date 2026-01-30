@@ -1,15 +1,15 @@
 Use the `ps_credential` helper to embed a `PSCredential` object--- [a
 set of security credentials, such as a user name or
-password](https://technet.microsoft.com/en-us/magazine/ff714574.aspx)
+password](https://learn.microsoft.com/en-us/previous-versions/technet-magazine/ff714574(v=msdn.10))
 ---within a script, which allows that script to be run using security
 credentials.
 
 For example, assuming the `CertificateID` is configured in the local
 configuration manager, the `SeaPower1@3` object is created and embedded
-within the `seapower-user` script:
+within the `sea-power-user` script:
 
 ```ruby
-dsc_script 'seapower-user' do
+dsc_script 'sea-power-user' do
   code <<-EOH
     User AlbertAtom
     {

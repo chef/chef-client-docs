@@ -1,19 +1,19 @@
 +++
-title = "Converting Definitions to Custom Resources"
+title = "Converting definitions to custom resources"
 
 [menu]
   [menu.resources]
-    title = "Migrating from Definitions"
+    title = "Migrating from definitions"
     identifier = "resources/custom/definitions.md Migrating from Definitions"
     parent = "resources/custom"
     weight = 50
 +++
 
-The definitions feature in Chef Infra has been deprecated and will be removed in a future release. Please migrate existing definitions to Custom Resources.
+The definitions feature in Chef Infra has been deprecated and will be removed in a future release. Please migrate existing definitions to custom resources.
 
-This guide describes how to migrate from an existing Definition to a Custom Resource.
+This guide describes how to migrate from an existing Definition to a custom resource.
 
-If you are creating a Custom Resource from scratch please see the [Custom Resource Getting Started Guide]({{< relref "/resources/custom" >}}) instead.
+If you are creating a custom resource from scratch please see the [Custom resource getting started guide]({{< relref "/resources/custom" >}}) instead.
 
 ## Definitions
 
@@ -65,8 +65,8 @@ end
 The following simple example shows a definition with no arguments (a parameter-less macro in the truest sense):
 
 ```ruby
-define :prime_myfile do
-  file '/etc/myfile' do
+define :prime_file do
+  file '/etc/file' do
     content 'some content'
   end
 end
@@ -75,9 +75,9 @@ end
 An example showing the use of parameters, with a parameter named `port` that defaults to `4000` rendered into a **template** resource, would look like:
 
 ```ruby
-define :prime_myfile, port: 4000 do
-   template '/etc/myfile' do
-     source 'myfile.erb'
+define :prime_file, port: 4000 do
+   template '/etc/file' do
+     source 'file.erb'
      variables({
        port: params[:port],
      })
@@ -113,7 +113,7 @@ host_porter 'www1' do
 end
 ```
 
-## Migrating to Custom Resources
+## Migrating to custom resources
 
 We highly recommend migrating existing definitions to custom resources to unlock the full feature set of Chef Infra resources. The following example shows a definition and that same definition rewritten as a custom resource.
 
@@ -135,7 +135,7 @@ define :host_porter, port: 4000, hostname: nil do
 end
 ```
 
-### Migrated to a Custom Resource
+### Migrated to a custom resource
 
 The definition is improved by rewriting it as a custom resource. This uses properties to accept input and has a single `:create` action:
 
