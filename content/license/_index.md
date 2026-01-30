@@ -9,7 +9,28 @@ parent = "licensing"
 weight = 11
 +++
 
-Chef Infra Client requires a license to run. This document describes how to set a license and verify that it's accepted.
+This document outlines the licensing requirements and enforcement policies for Chef Infra Client 19.
+
+## Licensing requirements
+
+Chef Infra Client 19 has different licensing requirements depending on the distribution you download.
+
+### No license enforcement
+
+Chef Infra Client doesn't require a license to run if you download an official distribution.
+
+This includes:
+
+- Downloading Infra Client from the customer portal.
+- Installing the Infra Client Habitat package.
+- Installing Infra Client using the migration tool or native installer.
+
+### License required
+
+You need a license key to run Chef Infra Client when you:
+
+- Download it from unofficial sources (public Ruby gem).
+- Use runtime installations and workflows.
 
 ## Add a license
 
