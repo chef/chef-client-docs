@@ -2,6 +2,13 @@
 {{ define "main" }}
   {{ $product := index .Params.data_path 0 }}
 
+  <div class="admonition-warning">
+    <p class="admonition-warning-title">Warning</p>
+    <div class="admonition-warning-text">
+      Progress Chef is currently reviewing the Chef Infra Client 19 resource documentation for accuracy and updating it. Please test your cookbooks accordingly.
+    </div>
+  </div>
+
   {{ .Content }}
 
   {{ range $yaml_file := index $.Site.Data ( .Params.data_path )}}
@@ -10,11 +17,7 @@
     {{ if index $yaml_file "resource_reference" }}
 
       <h2 id="{{ $resource_ID}}-resource">{{ $resource }} resource</h2>
-      {{ if eq $product "infra" }}
-        <a href="/resources/{{ $resource }}/">{{ $resource }} resource page</a>
-      {{ else }}
-        <a href="/{{ $product }}/resources/{{ $resource }}/">{{ $resource }} resource page</a>
-      {{ end }}
+      <p><a href="{{ $resource }}/">{{ $resource }} resource page</a></p>
 
     {{ end }}
 
