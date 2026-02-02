@@ -32,3 +32,7 @@ To install or upgrade Chef Infra Client, see these guides:
 - [Online upgrade](upgrade_online)
 - [Air-gapped upgrade](upgrade_airgap)
 - [`migrate-ice` CLI reference](reference)
+
+## More information
+
+- [Chef Download API documentation](https://docs.chef.io/download/)
