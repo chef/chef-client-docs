@@ -92,4 +92,4 @@ You can use Chef Infra Client to automate infrastructure management tasks:
 ## Next steps
 
 - [Install Chef Workstation](https://docs.chef.io/workstation/install_workstation/)
-- [Bootstrap Nodes](/install/install_bootstrap/)
+- [Install Infra Client](/install/)
