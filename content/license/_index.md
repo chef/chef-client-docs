@@ -11,6 +11,9 @@ weight = 11
 
 This document outlines the licensing requirements and enforcement policies for Chef Infra Client 19.
 
+Depending on the distribution you download and install, you may have to add a license key to run Chef Infra Client.
+You must also [accept the Chef End User License Agreement (Chef EULA)](#accept-the-end-user-license-agreement) when you first run Chef Infra Client 19.
+
 ## Licensing requirements
 
 Chef Infra Client 19 has different licensing requirements depending on the distribution you download.
@@ -97,3 +100,49 @@ To set a license key with the CLI interactive dialog, follow these steps:
     ```
 
     After entering the license key, Chef Infra Client verifies your license and the run completes.
+
+## Accept the End User License Agreement
+
+When you first run Chef Infra Client 19, you must accept the End User License Agreement (EULA).
+
+Chef Infra Client accepts a license using a command line option, environment variable, or config file.
+
+### Options
+
+Chef Infra Client accepts the following license acceptance options:
+
+`accept`
+: Accept the license and attempts to persist a marker file locally. Persisting these marker files means future invocations don't require accepting the license again.
+
+`accept-silent`
+: Similar to `accept`, but no messaging is sent to STDOUT.
+
+`accept-no-persist`
+: Similar to `accept-silent`, but no marker file is persisted. Future invocation will require accepting the license again.
+
+### Command line option
+
+Accept the Chef License with a command line invocation.
+
+```sh
+chef-client --chef-license <LICENSE_OPTION>
+```
+
+### Environment variable
+
+Accept the Chef License by setting an environment variable. For example:
+
+```sh
+export CHEF_LICENSE="<LICENSE_OPTION>"
+chef-client OPTION VALUE
+```
+
+### Config file
+
+You can accept the Chef License with the Chef Infra Client or Knife config files.
+
+On a workstation, you can set this in the [`~/.chef/config.rb` or `~/.chef/knife.rb` files](/workstation/config_rb/), and on a node you can set this in the [`/etc/chef/client.rb`]({{< relref "/config_rb_client" >}}) file.
+
+```ruby
+chef_license "<LICENSE_OPTION>"
+```
