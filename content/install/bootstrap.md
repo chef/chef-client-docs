@@ -1,6 +1,6 @@
 +++
 title = "Bootstrap a node"
-draft = false
+draft = true
 
 [menu]
   [menu.install]
