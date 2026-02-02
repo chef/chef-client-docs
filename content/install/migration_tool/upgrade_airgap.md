@@ -28,7 +28,7 @@ To upgrade Chef Infra Client, follow these steps:
 1. On an internet-connected machine, get the download URL for the Chef Infra Client tar package:
 
     ```sh
-    curl "https://commercial-acceptance.downloads.chef.co/current/chef-ice/packages?v=<VERSION>&license_id=<LICENSE_ID>"
+    curl "https://chefdownload-commercial.chef.io/stable/chef-ice/packages?v=<VERSION>&license_id=<LICENSE_ID>"
     ```
 
     Replace `<VERSION>` with the Chef Infra Client version number (for example, 19.1.152) and `<LICENSE_ID>` with your Progress Chef License ID.
@@ -74,7 +74,7 @@ To upgrade Chef Infra Client, follow these steps:
 1. On an internet-connected machine, get the latest version of the Chef Infra Client migration tool (migrate-ice).
 
     ```sh
-    curl "https://commercial-acceptance.downloads.chef.co/stable/migrate-ice/versions/latest?license_id=<LICENSE_ID>"
+    curl "https://chefdownload-commercial.chef.io/stable/migrate-ice/versions/latest?license_id=<LICENSE_ID>"
     ```
 
     Replace `<LICENSE_ID>` with your Progress Chef License ID.
@@ -90,7 +90,7 @@ To upgrade Chef Infra Client, follow these steps:
     Download migration tool using curl:
 
     ```sh
-    curl -o migration-tools-<VERSION>-linux.tar.gz "https://commercial-acceptance.downloads.chef.co/current/migrate-ice/packages?v=<VERSION>&license_id=<LICENSE_ID>"
+    curl -o migration-tools-<VERSION>-linux.tar.gz "https://chefdownload-commercial.chef.io/stable/migrate-ice/packages?v=<VERSION>&license_id=<LICENSE_ID>"
     ```
 
     Replace:
@@ -105,7 +105,7 @@ To upgrade Chef Infra Client, follow these steps:
     Download migration tool using Wget:
 
     ```sh
-    wget -O "migration-tools-<VERSION>-linux.tar.gz" "https://commercial-acceptance.downloads.chef.co/current/migrate-ice/packages?v=<VERSION>&license_id=<LICENSE_ID>"
+    wget -O "migration-tools-<VERSION>-linux.tar.gz" "https://chefdownload-commercial.chef.io/stable/migrate-ice/packages?v=<VERSION>&license_id=<LICENSE_ID>"
     ```
 
     Replace:
@@ -154,7 +154,7 @@ To upgrade Chef Infra Client, follow these steps:
 1. On an internet-connected machine, get the download URL for the Chef Infra Client tar package:
 
     ```powershell
-    curl "https://commercial-acceptance.downloads.chef.co/current/chef-ice/packages?v=<VERSION>&license_id=<LICENSE_ID>"
+    curl "https://chefdownload-commercial.chef.io/stable/chef-ice/packages?v=<VERSION>&license_id=<LICENSE_ID>"
     ```
 
     Replace `<VERSION>` with the Chef Infra Client version number (for example, 19.1.152) and `<LICENSE_ID>` with your Progress Chef License ID.
@@ -195,7 +195,7 @@ To upgrade Chef Infra Client, follow these steps:
 1. On an internet-connected machine, get the latest version of the Chef Infra Client migration tool (migrate-ice).
 
     ```powershell
-    curl "https://commercial-acceptance.downloads.chef.co/stable/migrate-ice/versions/latest?license_id=<LICENSE_ID>"
+    curl "https://chefdownload-commercial.chef.io/stable/migrate-ice/versions/latest?license_id=<LICENSE_ID>"
     ```
 
     Replace `<LICENSE_ID>` with your Progress Chef License ID.
@@ -211,7 +211,7 @@ To upgrade Chef Infra Client, follow these steps:
     Using curl:
 
     ```powershell
-    curl -o migration-tools-<VERSION>-windows.zip "https://commercial-acceptance.downloads.chef.co/current/migrate-ice/packages?v=<VERSION>&license_id=<LICENSE_ID>"
+    curl -o migration-tools-<VERSION>-windows.zip "https://chefdownload-commercial.chef.io/stable/migrate-ice/packages?v=<VERSION>&license_id=<LICENSE_ID>"
     ```
 
     Replace:
@@ -226,7 +226,7 @@ To upgrade Chef Infra Client, follow these steps:
     Using PowerShell:
 
     ```powershell
-    Invoke-WebRequest -Uri "https://commercial-acceptance.downloads.chef.co/current/migrate-ice/packages?v=<VERSION>&license_id=<LICENSE_ID>" -OutFile "migration-tools-<VERSION>-windows.zip"
+    Invoke-WebRequest -Uri "https://chefdownload-commercial.chef.io/stable/migrate-ice/packages?v=<VERSION>&license_id=<LICENSE_ID>" -OutFile "migration-tools-<VERSION>-windows.zip"
     ```
 
     Replace:
@@ -273,3 +273,7 @@ To upgrade Chef Infra Client, follow these steps:
 ## Next step
 
 - [Add a Chef license](/license)
+
+## More information
+
+- [Chef Download API documentation](https://docs.chef.io/download/)

@@ -223,3 +223,7 @@ Install a custom SELinux profile:
 ```sh
 migrate-ice apply {airgap|online} --license-key "<LICENSE_KEY>" --selinux-profile <PATH/TO/CUSTOM/PROFILE>
 ```
+
+## More information
+
+- [Chef Download API documentation](https://docs.chef.io/download/)

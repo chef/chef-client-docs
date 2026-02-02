@@ -47,13 +47,13 @@ To install Chef Infra Client , follow these steps:
     - Using Wget:
 
       ```sh
-      wget -O "chef-ice-19.2.rc3-linux.deb" "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/chef-ice/19.2.RC3/linux/x86_64/chef-ice-19.2.rc3-linux.deb?AWSAccessKeyId=AKIAW4FPVFT6C42N3U6R&Signature=cmJmplCvrkVXK5MtqCmidrz3rds%3D&Expires=1776916085"
+      wget -O "chef-ice-<VERSION>-linux.deb" "https://chefdownload-commercial.chef.io/stable/chef-ice/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=linux&pm=deb&v=<VERSION>"
       ```
 
     - Using curl:
 
       ```sh
-      curl -o "chef-ice-19.2.rc3-linux.deb" "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/chef-ice/19.2.RC3/linux/x86_64/chef-ice-19.2.rc3-linux.deb?AWSAccessKeyId=AKIAW4FPVFT6C42N3U6R&Signature=cmJmplCvrkVXK5MtqCmidrz3rds%3D&Expires=1776916085"
+      curl -o "chef-ice-<VERSION>-linux.deb" "https://chefdownload-commercial.chef.io/stable/chef-ice/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=linux&pm=deb&v=<VERSION>"
       ```
 
     {{< /accordion-item >}}
@@ -64,13 +64,13 @@ To install Chef Infra Client , follow these steps:
     - Using Wget:
 
       ```sh
-      wget -O chef-ice-19.2.rc3-linux.rpm "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/chef-ice/19.2.RC3/linux/x86_64/chef-ice-19.2.rc3-linux.rpm?AWSAccessKeyId=AKIAW4FPVFT6C42N3U6R&Signature=FUbFKD2qMux2TBK7ltNPLuExQGk%3D&Expires=1776916329"
+      wget -O chef-ice-<VERSION>-linux.rpm "https://chefdownload-commercial.chef.io/stable/chef-ice/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=linux&pm=rpm&v=<VERSION>"
       ```
 
     - Using curl:
 
       ```sh
-      curl -o chef-ice-19.2.rc3-linux.rpm "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/chef-ice/19.2.RC3/linux/x86_64/chef-ice-19.2.rc3-linux.rpm?AWSAccessKeyId=AKIAW4FPVFT6C42N3U6R&Signature=FUbFKD2qMux2TBK7ltNPLuExQGk%3D&Expires=1776916329"
+      curl -o chef-ice-<VERSION>-linux.rpm "https://chefdownload-commercial.chef.io/stable/chef-ice/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=linux&pm=rpm&v=<VERSION>"
       ```
 
     {{< /accordion-item >}}
@@ -81,13 +81,13 @@ To install Chef Infra Client , follow these steps:
     - Using curl:
 
       ```sh
-      curl -o chef-ice-19.2.rc3-windows.msi "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/chef-ice/19.2.RC3/windows/x86_64/chef-ice-19.2.rc3-windows.msi?AWSAccessKeyId=AKIAW4FPVFT6C42N3U6R&Signature=rmb4GgaxE6oPEfVHiAugsg7xMBI%3D&Expires=1776916373"
+      curl -o chef-ice-<VERSION>-windows.msi "https://chefdownload-commercial.chef.io/stable/chef-ice/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=windows&pm=msi&v=<VERSION>"
       ```
 
     - Using PowerShell:
 
       ```ps1
-      Invoke-WebRequest -Uri "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/chef-ice/19.2.RC3/windows/x86_64/chef-ice-19.2.rc3-windows.msi?AWSAccessKeyId=AKIAW4FPVFT6C42N3U6R&Signature=rmb4GgaxE6oPEfVHiAugsg7xMBI%3D&Expires=1776916373" -OutFile "chef-ice-19.2.rc3-windows.msi"
+      Invoke-WebRequest -Uri "https://chefdownload-commercial.chef.io/stable/chef-ice/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=windows&pm=msi&v=<VERSION>" -OutFile "chef-ice-<VERSION>-windows.msi"
       ```
 
     {{< /accordion-item >}}
@@ -102,7 +102,7 @@ To install Chef Infra Client , follow these steps:
    For Debian-based distributions:
 
    ```sh
-   sudo -E dpkg -i chef-ice-19.2.rc3-linux.deb
+   sudo -E dpkg -i chef-ice-<VERSION>-linux.deb
    ```
 
    {{< /accordion-item >}}
@@ -111,13 +111,13 @@ To install Chef Infra Client , follow these steps:
    For RPM-based distributions:
 
    ```sh
-   sudo -E dnf install chef-ice-19.2.rc3-linux.rpm -y
+   sudo -E dnf install chef-ice-<VERSION>-linux.rpm -y
    ```
 
    or:
 
    ```sh
-   sudo -E rpm -ivh chef-ice-19.2.rc3-linux.rpm
+   sudo -E rpm -ivh chef-ice-<VERSION>-linux.rpm
    ```
 
    {{< /accordion-item >}}
@@ -132,7 +132,7 @@ To install Chef Infra Client , follow these steps:
    - Using Powershell:
 
      ```sh
-     msiexec /i "chef-ice-19.2.rc3-windows.msi"
+     msiexec /i "chef-ice-<VERSION>-windows.msi"
      ```
 
    {{< /accordion-item >}}
@@ -144,6 +144,6 @@ To install Chef Infra Client , follow these steps:
     chef-client --version
     ```
 
-## Next steps
+## More information
 
-After installing Chef Infra Client, you can test it by running an [example cookbook](/cookbooks).
+- [Chef Download API documentation](https://docs.chef.io/download/)
