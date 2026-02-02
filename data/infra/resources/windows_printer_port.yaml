@@ -65,6 +65,7 @@ properties_list:
   default_value: 'false'
   description_list:
   - markdown: Determines if SNMP is enabled on the port.
+target_mode:
 examples: |
   **Delete a printer port**
 

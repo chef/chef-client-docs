@@ -92,6 +92,7 @@ properties_list:
   default_value: 'false'
   description_list:
   - markdown: Scan scripts in malware scans.
+target_mode:
 examples: |
   **Configure Windows Defender AV settings**:
 

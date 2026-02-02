@@ -151,6 +151,7 @@ properties_list:
   required: false
   description_list:
   - markdown: The service the firewall rule applies to.
+target_mode:
 examples: |
   **Allowing port 80 access**:
 

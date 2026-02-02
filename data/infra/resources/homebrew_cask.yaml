@@ -22,8 +22,8 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`cask_name`, `homebrew_path`, `options`, and `owner` are the properties
-  available to this resource."
+- "`cask_name`, `homebrew_path`, `options`, and `owner` are the properties available
+  to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
@@ -43,7 +43,7 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: The path to the homebrew binary.
+  - markdown: The path to the Homebrew binary.
 - property: options
   ruby_type: String
   required: false
@@ -55,4 +55,5 @@ properties_list:
   default_value: Calculated default username
   description_list:
   - markdown: The owner of the Homebrew installation.
+target_mode:
 examples:

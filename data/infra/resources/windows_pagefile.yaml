@@ -61,6 +61,7 @@ properties_list:
   required: false
   description_list:
   - markdown: Configures whether the system manages the pagefile size.
+target_mode:
 examples: |
   **Set the system to manage pagefiles**:
 
@@ -83,7 +84,7 @@ examples: |
 
   ```ruby
   windows_pagefile 'Change the pagefile to System Managed' do
-    path 'E:'
+    path 'E:\'
     system_managed true
     action :set
   end
@@ -93,7 +94,7 @@ examples: |
 
   ```ruby
   windows_pagefile 'create the pagefile with these sizes' do
-    path 'f:'
+    path 'f:\'
     initial_size 100
     maximum_size 200
   end

@@ -10,43 +10,27 @@ resource: cookbook_file
 resource_description_list:
 - shortcode: resource_cookbook_file_summary.md
 - markdown: |-
-    During a Chef Infra Client run, the checksum for each local file is calculated and then compared against the checksum for the same file as it currently exists in the cookbook on the Chef Infra Server. A file isn't transferred when the checksums match. Only files that require an update are transferred from the Chef Infra Server to a node.
-syntax_description: "A **cookbook_file** resource block manages files by using files\
-  \ that\nexist within a cookbook's `/files` directory. For example, to write the\n\
-  home page for an Apache website:\n\n```ruby\ncookbook_file '/var/www/customers/public_html/index.php'\
-  \ do\n  source 'index.php'\n  owner 'web_admin'\n  group 'web_admin'\n  mode '0755'\n\
-  \  action :create\nend\n```"
-syntax_full_code_block: |-
-  cookbook_file 'name' do
-    atomic_update              true, false
-    backup                     Integer, false # default value: 5
-    cookbook                   String
-    force_unlink               true, false # default value: false
-    group                      String, Integer
-    inherits                   true, false
-    manage_symlink_source      true, false
-    mode                       String, Integer
-    owner                      String, Integer
-    path                       String # default value: 'name' unless specified
-    rights                     Hash
-    source                     String, Array
-    verify                     String, Block
-    action                     Symbol # defaults to :create if not specified
-  end
+    Use the **cookbook_file** resource to transfer files from a sub-directory of COOKBOOK_NAME/files/ to a specified path located on a host that is running the Chef Infra Client. The file is selected according to file specificity, which allows different source files to be used based on the hostname, host platform (operating system, distro, or as appropriate), or platform version. Files that are located in the COOKBOOK_NAME/files/default sub-directory may be used on any platform.
+
+    During a Chef Infra Client run, the checksum for each local file is calculated and then compared against the checksum for the same file as it currently exists in the cookbook on the Chef Infra Server. A file is not transferred when the checksums match. Only files that require an update are transferred from the Chef Infra Server to a node.
+syntax_full_code_block: "cookbook_file 'name' do\n  atomic_update              true,
+  false\n  backup                     Integer, false # default value: 5\n  checksum
+  \                  String\n  content                    String\n  cookbook                   String
+  # default value: \"The current cookbook name\"\n  force_unlink               true,
+  false # default value: false\n  group                      \n  manage_symlink_source
+  \     true, false\n  mode                       \n  owner                      \n
+  \ path                       String # default value: 'name' unless specified\n  source
+  \                    String, Array\n  action                     Symbol # defaults
+  to :create if not specified\nend"
 syntax_properties_list:
-- '`''/var/www/customers/public_html/index.php''` is path to the file to be created'
-- '`''index.php''` is a file in the `/files` directory in a cookbook that is used
-  to create that file (the contents of the file in the cookbook will become the contents
-  of the file on the node)'
-- '`owner`, `group`, and `mode` define the permissions'
 syntax_full_properties_list:
 - "`cookbook_file` is the resource."
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`atomic_update`, `backup`, `checksum`, `content`, `cookbook`, `deny_rights`, `force_unlink`,
-  `manage_symlink_source`, `path`, `rights`, and `source` are the properties available
-  to this resource."
+- "`atomic_update`, `backup`, `checksum`, `content`, `cookbook`, `force_unlink`, `group`,
+  `manage_symlink_source`, `mode`, `owner`, `path`, and `source` are the properties
+  available to this resource."
 actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
@@ -80,6 +64,19 @@ properties_list:
   - markdown: The number of backups to be kept in `/var/chef/backup` (for UNIX- and
       Linux-based platforms) or `C:/chef/backup` (for the Microsoft Windows platform).
       Set to `false` to prevent backups from being kept.
+- property: checksum
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: The SHA-256 checksum of the file. Use to ensure that a specific file
+      is used. If the checksum does not match, the file is not used.
+- property: content
+  ruby_type: String
+  required: false
+  description_list:
+  - markdown: A string that is written to the file. The contents of this property
+      replace any previous content when this property has something other than the
+      default value. The default behavior will not modify content.
 - property: cookbook
   ruby_type: String
   required: false
@@ -125,20 +122,14 @@ properties_list:
       Change the behavior of the file resource if it is pointed at a symlink.
 
       When this value is set to `true`, Chef Infra Client will manage the symlink's
-
       permissions or will replace the symlink with a normal file if the resource has
-
-      content. When this value is set to `false`, Chef Infra Client will follow the
-
+      content. When this value is set to false, Chef Infra Client will follow the
       symlink and will manage the permissions and content of symlink's target file.
-
-      The default behavior is `true`, but emits a warning that the default value will
-
-      be changed to `false` in a future version; setting this explicitly to `true` or
-
-      `false` suppresses this warning."
+      The default behavior is true but emits a warning that the default value will
+      be changed to false in a future version; setting this explicitly to true or
+      false suppresses this warning."
 - property: mode
-  ruby_type: Integer, String
+  ruby_type: ''
   required: false
   description_list:
   - markdown: 'If `mode` is not specified and if the file already exists, the
@@ -239,10 +230,8 @@ properties_list:
   required: false
   default_value: The resource block's name.
   description_list:
-  - markdown: The name of the file in `COOKBOOK_NAME/files/default` or the path to a
-
-      file located in `COOKBOOK_NAME/files`. The path must include the file name and
-
+  - markdown: The name of the file in COOKBOOK_NAME/files/default or the path to a
+      file located in COOKBOOK_NAME/files. The path must include the file name and
       its extension. This can be used to distribute specific files depending upon
 
       files depending upon the platform used - see [File
@@ -272,6 +261,8 @@ remote_file_prevent_re_downloads: false
 ps_credential_helper: false
 ruby_style_basics_chef_log: false
 debug_recipes_chef_shell: false
+target_mode:
+  support: full
 examples: "
   Transfer a file\n\n  ```ruby\n  cookbook_file 'file.txt' do\n  \
   \  mode '0755'\n  end\n  ```\n\n  Handle cookbook_file and package resources in\

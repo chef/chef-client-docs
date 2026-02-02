@@ -43,6 +43,7 @@ properties_list:
   default_value: The resource block's name
   description_list:
   - markdown: The service group to apply the configuration to, for example, `nginx.default`.
+target_mode:
 examples: |
   **Configure user specific settings to nginx**
 

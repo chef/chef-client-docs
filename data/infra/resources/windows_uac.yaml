@@ -74,6 +74,7 @@ properties_list:
   default_value: 'false'
   description_list:
   - markdown: Only elevate executables that are signed and validated. Sets HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\EnableLUA\ValidateAdminCodeSignatures.
+target_mode:
 examples: |
   **Disable UAC prompts for the admin**:
 

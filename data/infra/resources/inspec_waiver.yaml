@@ -25,10 +25,10 @@ syntax_full_properties_list:
 - "`control`, `expiration`, `justification`, `run_test`, and `source` are the properties
   available to this resource."
 actions_list:
-  :add:
-    markdown: Add a waiver to the compliance phase (default)
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :add:
+    markdown: Add a waiver to the compliance phase (default)
 properties_list:
 - property: control
   ruby_type: String
@@ -59,6 +59,8 @@ properties_list:
   required: false
   description_list:
   - markdown:
+target_mode:
+  support: full
 examples: |
   **Activate the default waiver in the openssh cookbook's compliance segment**:
 

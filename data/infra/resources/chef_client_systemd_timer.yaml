@@ -11,7 +11,7 @@ resource_new_in: '16.0'
 syntax_full_code_block: |-
   chef_client_systemd_timer 'name' do
     accept_chef_license      true, false # default value: false
-    chef_binary_path         String # default value: "/opt/chef/bin/chef-client"
+    chef_binary_path         String
     config_directory         String # default value: "/etc/chef"
     cpu_quota                Integer, String
     daemon_options           Array # default value: []
@@ -52,7 +52,7 @@ properties_list:
 - property: chef_binary_path
   ruby_type: String
   required: false
-  default_value: "/opt/chef/bin/chef-client"
+  default_value: lazy default
   description_list:
   - markdown: The path to the chef-client binary.
 - property: config_directory
@@ -140,6 +140,7 @@ properties_list:
   default_value: root
   description_list:
   - markdown: The name of the user that Chef Infra Client runs as.
+target_mode:
 examples: |
   **Setup Chef Infra Client to run using the default 30 minute cadence**:
 
