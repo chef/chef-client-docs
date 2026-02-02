@@ -10,6 +10,12 @@ draft = false
     weight = 30
 +++
 
+{{< warning >}}
+
+FIPS mode isn't supported on Chef Infra Client 19.
+
+{{< /warning >}}
+
 <!-- vale Microsoft.Ranges = NO -->
 <!-- vale Microsoft.RangeFormat = NO -->
 
