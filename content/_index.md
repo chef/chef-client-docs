@@ -1,5 +1,5 @@
 +++
-title = "Chef Infra Client 19 RC3"
+title = "Chef Infra Client"
 linkTitle = "Chef Infra Client"
 
 [cascade]
@@ -7,49 +7,89 @@ linkTitle = "Chef Infra Client"
     breadcrumbs = true
     st_robots = ''
 
-[menu.landing_page]
-title = "Chef Infra Client"
+[menu.overview]
+    title = "Chef Infra Client"
+    identifier = "overview/Client Overview"
+    parent = "overview"
+    weight = 10
 +++
 
-To provide enterprise stability, Progress Chef has created a [Long Term Support (LTS) model](https://www.chef.io/blog/long-term-support-progress-chef-providing-stability) for products.
-Chef Infra Client 19 is the first LTS version for infrastructure management and compliance mode.
-This release---Release Candidate 3 (RC3)---is a preview for a limited audience to provide candid feedback on Chef Infra Client,
-the new Infra Client migration tool, and updated Test Kitchen developer tools to ensure a seamless transition at the time of general availability (GA).
+Chef Infra Client is an agent that runs locally on every node that's under management by Chef Infra Server.
+Chef Infra Client transforms your infrastructure into code by automatically configuring systems to match your desired state.
 
-The new Chef Infra Client migration tool simplifies the transition from previous methods of installing and maintaining earlier versions of Infra Client to Chef Infra Client 19 release candidates and the final LTS version.
+When Chef Infra Client runs, it performs all the steps required to bring a node into the expected state, including:
 
-The new Test Kitchen Enterprise bundle is a fully Chef-maintained version of Test Kitchen that will be part of Chef Workstation at the time of release.
+- Registering and authenticating the node with Chef Infra Server
+- Synchronizing cookbooks from Chef Infra Server to the node
+- Compiling the resource collection by loading each of the required cookbooks, including recipes, attributes, and all other dependencies
+- Taking the appropriate and required actions to configure the node based on recipes and attributes
+- Reporting summary information on the run to Chef Automate
 
-**Important:** Use Chef Infra Client 19 RC3 in non-production environments to verify existing deployment patterns and content against customer-specific infrastructure platforms.
+## Chef Infra Client components
 
-## Supported environments
+Chef Infra Client works with key components to manage your infrastructure:
 
-Chef Infra Client RC3 supports testing in non-production environments on Linux and Windows x86-64 systems.
-Agentless Mode and Chef Workstation 26 RC3 are supported on Linux systems.
+### Compliance Phase
 
-This release allows you to:
+The Compliance Phase is an integrated security and compliance feature that runs Chef InSpec profiles automatically as part of every Chef Infra Client run.
+This phase allows you to continuously audit your infrastructure for compliance with security policies and regulatory requirements without managing separate tools or processes.
 
-- Determine if the migration tool can upgrade your infrastructure to Chef Infra Client 19
-- Gain familiarity with Habitat-based builds
-- Prepare for new licensing requirements
+For detailed information, see [About the Compliance Phase](/features/chef_compliance_phase/).
 
-## Key features
+### Node
 
-Chef Infra Client 19 has the following key features:
+A node represents any system that Chef Infra Client manages - whether it's a virtual machine, container instance, or physical server.
+Every node runs Chef Infra Client and maintains its configuration state according to the policies you define.
 
-- **Long-term support (LTS):** Chef Infra Client 19 uses Habitat-based packaging instead of traditional omnibus builds.
-- **Test Kitchen Enterprise:** A foundational development tool for testing cookbooks and profiles across versions of Chef Infra Client.
-  Chef InSpec receives full support from Chef in a modularized Chef Workstation toolkit.
-- **Standard licensing:** Infra Client 19 and Test Kitchen Enterprise use standard licensing for commercial, community, and trial customers.
-- **Enhanced performance:** Chef InSpec resource packs will be modularized to improve performance.
-- **Migration tool:** The Chef Infra Client migration tool installs and upgrades from previous versions to Chef Infra 19, supporting side-by-side installations.
+### Cookbooks and recipes
 
-## Important changes
+Cookbooks contain the instructions (recipes) that tell Chef Infra Client how to configure your systems.
+Recipes use resources to describe the desired state of system components like packages, files, and services.
 
-Customers moving to Chef Infra Client 19 should be aware of these significant changes:
+### Run list
 
-- **Platform support:** RC3 supports Linux and Windows x86-64 infrastructure. Future releases will expand support to include traditional Chef platforms.
-- **Packaging changes:** Chef no longer provides Omnibus builds for Infra Client and associated tools.
-- **New packaging options:** Chef now offers OS-native and Habitat-based packaging.
-- **Modular components:** Chef Workstation components become modularized to provide better support for individual tools.
-- **InSpec changes:** Chef InSpec resource packs become modularized for InSpec as part of the InSpec 7 LTS release (separate from the Infra Client LTS release).
+The run list defines which cookbooks and recipes Chef Infra Client should execute on a node and in what order.
+You can customize run lists for different node types or environments.
+
+### Ohai
+
+Ohai is a system profiling tool that collects detailed information about your nodes, including hardware details, network configuration, and operating system data.
+Chef Infra Client uses this information to make intelligent configuration decisions.
+
+### Agentless
+
+Agentless allows you to execute Infra Client runs on a target node over SSH without having Chef Infra Client installed on the node.
+
+For more details and setup instructions, see the [Agentless documentation](/features/agentless/).
+
+## How Chef Infra Client works
+
+Chef Infra Client operates on a pull-based model where nodes periodically contact Chef Infra Server to retrieve their configuration policies.
+This approach ensures that your infrastructure remains in the desired state even if individual nodes experience temporary disconnections or issues.
+
+## Common use cases
+
+You can use Chef Infra Client to automate infrastructure management tasks:
+
+- **Server provisioning**: Automatically configure new servers with required software and settings
+- **Application deployment**: Deploy and configure applications across different environments
+- **Security compliance**: Enforce security policies and compliance requirements
+- **Configuration drift prevention**: Continuously check and correct configuration changes
+- **Environment management**: Maintain consistent configurations across development, staging, and production environments
+
+## The Chef Infra Client run
+
+{{< readfile file="content/reusable/md/chef_client_run.md" >}}
+
+## Related content
+
+- [Chef Infra Client (executable)](/reference/ctl_chef_client/)
+- [Chef Infra Server](https://docs.chef.io/server/)
+- [Cookbooks](/cookbooks/)
+- [Nodes](/overview/nodes/)
+- [Run Lists](/policy/run_lists/)
+
+## Next steps
+
+- [Install Chef Workstation](https://docs.chef.io/workstation/install_workstation/)
+- [Install Infra Client](/install/)

@@ -2,20 +2,22 @@
 title = "Install Chef Infra Client"
 linkTitle = "Install"
 
-[menu.install]
-title = "Overview"
-parent = "install"
-weight = 10
+[menu]
+  [menu.install]
+    title = "Overview"
+    identifier = "install/overview"
+    parent = "install"
+    weight = 10
 +++
 
 Use either a native installer or the Chef Infra Client migration tool to install or upgrade Chef Infra Client.
 
 ## Supported platforms
 
-The migration tool and native installers can install and upgrade Chef Infra Client on:
+Chef Infra Client is supported on:
 
-- Linux x86-64
-- Windows x86-64
+- Currently supported Linux distributions and versions running Linux kernel 2.6.32 and later
+- Currently supported Windows versions greater than or equal to Windows 10
 
 ## Native installers
 
@@ -28,7 +30,11 @@ The [Chef Infra Client migration tool](migration_tool) (`chef-migrate`) allows y
 
 **Key functions:**
 
-- **Fresh installation:** Install Chef Infra Client 19 RC3
-- **Side-by-side installation:** Install Chef Infra Client 19 RC3 and remove or keep the previous Infra Client version. If you keep the previous version in side-by-side mode, the path to the most recent version takes precedence
+- **Fresh installation:** Install Chef Infra Client
+- **Side-by-side installation:** Install Chef Infra Client and remove or keep the previous Infra Client version. If you keep the previous version in side-by-side mode, the path to the most recent version takes precedence
 - **Omnibus upgrade:** Upgrade from Omnibus-based Chef Infra Client 17.x or 18.x versions
-- **Habitat upgrade:** Upgrade from Habitat-packaged Chef Infra Client 19 RC releases
+- **Habitat upgrade:** Upgrade from Habitat-packaged Chef Infra Client releases
+
+## More information
+
+- [Chef Download API documentation](https://docs.chef.io/download/)

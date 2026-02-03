@@ -1,5 +1,1 @@
-breadcrumbs = true
 
-[[breadcrumb_base]]
-breadcrumb = "Docs"
-url = "https://docs.chef.io"

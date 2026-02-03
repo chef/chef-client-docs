@@ -12,7 +12,7 @@ This page documents how to install Chef Infra Client RC3 in an online environmen
 
 ## Supported platforms
 
-Chef Infra Client 19 RC3 is supported on:
+Chef Infra Client is supported on:
 
 - Linux x86-64
 - Windows x86-64
@@ -31,46 +31,96 @@ To install Chef Infra Client on Linux, follow these steps:
     chef-client --version
     ```
 
-1. Download the Chef Infra Client migration tool.
-
-    The migration tool is available for download as a zipped tar file using a pre-signed URL from an S3 bucket until April 23, 2026.
-
-    Using curl:
+1. Get the latest version number of the Infra Client migration tool (migrate-ice).
 
     ```sh
-    curl -o migration-tools-1.1.rc3-linux.tar.gz "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/migrate-ice/1.1.RC3/linux/migration-tools-1.1.rc3-linux.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6PA6EXTHQ&Signature=O8rQUc0jy%2BeP7U1WspJasr7qMTY%3D&Expires=1780533385"
+    curl "https://chefdownload-commercial.chef.io/stable/migrate-ice/versions/latest?license_id=<LICENSE_ID>"
     ```
 
-    Using Wget:
+    Replace `<LICENSE_ID>` with your Progress Chef License ID.
+
+    The response returns the latest version.
+
+1. Download the Chef Infra Client migration tool using curl or Wget.
+
+    {{< accordion-list id="download-migration-tool-curl-wget-linux" data-allow-all-closed="true" >}}
+
+    {{< accordion-item accordion-title-link="download-migration-tool-with-curl-linux" accordion-title="Download migration tool with curl" >}}
+
+    Download the migration tool using curl:
 
     ```sh
-    wget -O "migration-tools-1.1.rc3-linux.tar.gz" "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/migrate-ice/1.1.RC3/linux/migration-tools-1.1.rc3-linux.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6PA6EXTHQ&Signature=O8rQUc0jy%2BeP7U1WspJasr7qMTY%3D&Expires=1780533385"
+    curl -o migration-tools-<VERSION>-linux.tar.gz "https://chefdownload-commercial.chef.io/stable/migrate-ice/packages?v=<VERSION>&license_id=<LICENSE_ID>"
     ```
+
+    Replace:
+
+    - `<VERSION>` with the version number from the previous step
+    - `<LICENSE_ID>` with your Progress Chef License ID
+
+    {{< /accordion-item >}}
+
+    {{< accordion-item accordion-title-link="download-migration-tool-with-wget-linux" accordion-title="Download migration tool with Wget" >}}
+
+    Download the migration tool using Wget:
+
+    ```sh
+    wget -O "migration-tools-<VERSION>-linux.tar.gz" "https://chefdownload-commercial.chef.io/stable/migrate-ice/packages?v=<VERSION>&license_id=<LICENSE_ID>"
+    ```
+
+    Replace:
+
+    - `<VERSION>` with the version number from the previous step
+    - `<LICENSE_ID>` with your Progress Chef License ID
+
+    {{< /accordion-item >}}
+
+    {{< /accordion-list >}}
 
 1. Extract the migration tool and make it executable.
 
     ```sh
-    tar -xvf migration-tools-1.1.rc3-linux.tar.gz -C /path/to/temp/folder
+    tar -xvf migration-tools-<VERSION>-linux.tar.gz -C /path/to/temp/folder
     cd /path/to/temp/folder
-    chmod +x chef-migrate
-    mv chef-migrate /usr/local/bin/
+    chmod +x migrate-ice
+    mv migrate-ice /usr/local/bin/
     ```
 
 1. Optional: Verify that the migration tool is installed.
 
     ```sh
-    chef-migrate --help
+    migrate-ice --help
     ```
 
     The migration tool returns available commands and usage guidelines.
 
-1. Install Chef Infra Client using [`chef-migrate apply`](reference):
+1. Install Chef Infra Client using [`migrate-ice apply`](reference):
+
+    You can install Chef Infra Client using specifying a download URL or an Infra Client version number.
+
+    {{< accordion-list id="migrate-ice-download-linux" data-allow-all-closed="true" >}}
+    {{< accordion-item accordion-title-link="migrate-ice-download-url-linux" accordion-title="Specify download URL" >}}
 
     ```sh
-    sudo chef-migrate apply online --fresh-install --download-url "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/chef-ice/19.2.RC3/linux/x86_64/chef-ice-19.2.rc3-linux.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6PA6EXTHQ&Signature=htVtnPFhoan9wyXixccqDFp0jmU%3D&Expires=1780533226" --license-key "<LICENSE_KEY>"
+    sudo migrate-ice apply online --fresh-install --download-url "<CHEF_TAR_DOWNLOAD_URL>"
     ```
 
-    Replace `<LICENSE_KEY>` with your Progress Chef License key.
+    Replace `<CHEF_TAR_DOWNLOAD_URL>` with the Chef Infra Client package download URL.
+
+    {{< /accordion-item >}}
+    {{< accordion-item accordion-title-link="migrate-ice-download-version-number-linux" accordion-title="Specify version number" >}}
+
+    ```sh
+    sudo migrate-ice apply online --fresh-install --chef-version <VERSION> --license-key "<LICENSE_KEY>"
+    ```
+
+    Replace:
+
+    - `<VERSION>` with the Chef Infra Client version number (for example, `19.1.150`)
+    - `<LICENSE_KEY>` with your Progress Chef License key
+
+    {{< /accordion-item >}}
+    {{< /accordion-list >}}
 
 1. Verify the Chef Infra Client installation.
 
@@ -88,46 +138,96 @@ To install Chef Infra Client on Windows, follow these steps:
     chef-client --version
     ```
 
-1. Download the Chef Infra Client migration tool.
-
-    The migration tool is available for download as a ZIP file using a pre-signed address from an S3 bucket until April 23, 2026.
-
-    Using curl:
+1. Get the latest version number of the Infra Client migration tool (migrate-ice):
 
     ```powershell
-    curl -o migration-tools-1.1.rc3-windows.zip "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/migrate-ice/1.1.RC3/windows/migration-tools-1.1.rc3-windows.zip?AWSAccessKeyId=AKIAW4FPVFT6PA6EXTHQ&Signature=xyfZ7g7D5jLF5jY%2B8DfBkEedSUA%3D&Expires=1780533399"
+    curl "https://chefdownload-commercial.chef.io/stable/migrate-ice/versions/latest?license_id=<LICENSE_ID>"
     ```
 
-    Using PowerShell:
+    Replace `<LICENSE_ID>` with your Progress Chef License ID.
+
+    The response returns the latest version.
+
+1. Download the migration tool using curl or PowerShell:
+
+    {{< accordion-list id="download-migration-tool-curl-powershell-windows" data-allow-all-closed="true" >}}
+
+    {{< accordion-item accordion-title-link="download-migration-tool-with-curl-windows" accordion-title="Download migration tool with curl" >}}
+
+    Download the migration tool using curl:
 
     ```powershell
-    Invoke-WebRequest -Uri "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/migrate-ice/1.1.RC3/windows/migration-tools-1.1.rc3-windows.zip?AWSAccessKeyId=AKIAW4FPVFT6PA6EXTHQ&Signature=xyfZ7g7D5jLF5jY%2B8DfBkEedSUA%3D&Expires=1780533399" -OutFile "migration-tools-1.1.rc3-windows.zip"
+    curl -o migration-tools-<VERSION>-windows.zip "https://chefdownload-commercial.chef.io/stable/migrate-ice/packages?v=<VERSION>&license_id=<LICENSE_ID>"
     ```
+
+    Replace:
+
+    - `<VERSION>` with the version number from the previous step
+    - `<LICENSE_ID>` with your Progress Chef License ID
+
+    {{< /accordion-item >}}
+
+    {{< accordion-item accordion-title-link="download-migration-tool-with-powershell-windows" accordion-title="Download migration tool with PowerShell" >}}
+
+    Download the migration tool using PowerShell:
+
+    ```powershell
+    Invoke-WebRequest -Uri "https://chefdownload-commercial.chef.io/stable/migrate-ice/packages?v=<VERSION>&license_id=<LICENSE_ID>" -OutFile "migration-tools-<VERSION>-windows.zip"
+    ```
+
+    Replace:
+
+    - `<VERSION>` with the version number from the previous step
+    - `<LICENSE_ID>` with your Progress Chef License ID
+
+    {{< /accordion-item >}}
+
+    {{< /accordion-list >}}
 
 1. Extract the migration tool.
 
     ```powershell
     mkdir C:\migrate-tool
-    move "migration-tools-1.1.rc3-windows.zip" "C:\migrate-tool\"
+    move "migration-tools-<VERSION>-windows.zip" "C:\migrate-tool\"
     cd C:\migrate-tool
-    Expand-Archive -Path "migration-tools-1.1.rc3-windows.zip" -DestinationPath "."
+    Expand-Archive -Path "migration-tools-<VERSION>-windows.zip" -DestinationPath "."
     ```
 
 1. Optional: Verify that the migration tool works.
 
     ```powershell
-    .\chef-migrate --help
+    .\migrate-ice --help
     ```
 
     The migration tool returns available commands and usage guidelines.
 
-1. Install Chef Infra Client using [`chef-migrate apply`](reference):
+1. Install Chef Infra Client using [`migrate-ice apply`](reference):
+
+    You can install Chef Infra Client using specifying a download URL or an Infra Client version number.
+
+    {{< accordion-list id="migrate-ice-download-windows" data-allow-all-closed="true" >}}
+    {{< accordion-item accordion-title-link="migrate-ice-download-url-windows" accordion-title="Specify download URL" >}}
 
     ```powershell
-    .\chef-migrate apply online --fresh-install --download-url "https://chef-hab-migration-tool-bucket.s3.amazonaws.com/Release-Candidate-3/chef-ice/19.2.RC3/windows/x86_64/chef-ice-19.2.rc3-windows.tar.gz?AWSAccessKeyId=AKIAW4FPVFT6PA6EXTHQ&Signature=2jIjDACxF0EYf8yICEp698kt0xY%3D&Expires=1780533373" --license-key "<LICENSE_KEY>"
+    .\migrate-ice apply online --fresh-install --download-url "<CHEF_TAR_DOWNLOAD_URL>"
     ```
 
-    Replace `<LICENSE_KEY>` with your Progress Chef License key.
+    Replace `<CHEF_TAR_DOWNLOAD_URL>` with the Chef Infra Client package download URL.
+
+    {{< /accordion-item >}}
+    {{< accordion-item accordion-title-link="migrate-ice-download-version-number-windows" accordion-title="Specify version number" >}}
+
+    ```powershell
+    .\migrate-ice apply online --fresh-install --chef-version <VERSION> --license-key "<LICENSE_KEY>"
+    ```
+
+    Replace:
+
+    - `<VERSION>` with the Chef Infra Client version number (for example, `19.1.150`)
+    - `<LICENSE_KEY>` with your Progress Chef License key
+
+    {{< /accordion-item >}}
+    {{< /accordion-list >}}
 
 1. Verify the Chef Infra Client installation.
 
@@ -138,3 +238,7 @@ To install Chef Infra Client on Windows, follow these steps:
 ## Next step
 
 - [Add a Chef license](/license)
+
+## More information
+
+- [Chef Download API documentation](https://docs.chef.io/download/)

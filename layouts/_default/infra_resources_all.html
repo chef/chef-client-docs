@@ -1,0 +1,28 @@
+
+{{ define "main" }}
+  {{ $product := index .Params.data_path 0 }}
+
+  <div class="admonition-warning">
+    <p class="admonition-warning-title">Warning</p>
+    <div class="admonition-warning-text">
+      Progress Chef is currently reviewing the Chef Infra Client 19 resource documentation for accuracy and updating it. Please test your cookbooks accordingly.
+    </div>
+  </div>
+
+  {{ .Content }}
+
+  {{ range $yaml_file := index $.Site.Data ( .Params.data_path )}}
+    {{ $resource := index $yaml_file "resource" }}
+    {{ $resource_ID := replace $resource "_" "-" }}
+    {{ if index $yaml_file "resource_reference" }}
+
+      <h2 id="{{ $resource_ID}}-resource">{{ $resource }} resource</h2>
+      <p><a href="{{ $resource }}/">{{ $resource }} resource page</a></p>
+
+    {{ end }}
+
+    {{ $partial_data := dict "yaml_file" $yaml_file "product" $product "resource_ID" $resource_ID "heading_base_level" 3 "include_resource_id" true }}
+    {{ partial "infra_resource_data" $partial_data }}
+
+  {{ end }}<!-- end range yaml files -->
+{{ end }}

@@ -60,35 +60,195 @@ title = "Install"
 identifier = "install"
 
   [[install]]
-  title = "Migration tool"
-  identifier = "install/migration_tool"
-  parent = "install"
-
-  [[install]]
-  title = "Native installer"
+  title = "Installer"
   identifier = "install/installer"
   parent = "install"
+  weight = 20
+
+  [[install]]
+  title = "Migration Tool"
+  identifier = "install/migration_tool"
+  parent = "install"
+  weight = 30
 
 [[licensing]]
 title = "Licensing"
 identifier = "licensing"
 
-[[agentless]]
-title = "Agentless"
-identifier = "agentless"
+[[features]]
+title = "Features"
+identifier = "features"
 
-[[workstation]]
-title = "Chef Workstation"
-identifier = "workstation"
+  [[features]]
+  title = "Agentless Mode"
+  identifier = "features/agentless"
+  parent = "features"
 
-  [[workstation]]
-  title = "Knife"
-  identifier = "workstation/knife"
-  parent = "workstation"
-  weight = 100
+    [[features]]
+    title = "Resources"
+    identifier = "features/agentless/resources"
+    parent = "features/agentless"
+    weight = 40
 
-  [[workstation]]
-  title = "Test Kitchen Enterprise"
-  identifier = "workstation/tke"
-  parent = "workstation"
-  weight = 200
+  [[features]]
+  title = "Chef Solo"
+  identifier = "features/chef_solo"
+  parent = "features"
+
+  [[features]]
+  title = "Ohai"
+  identifier = "features/ohai"
+  parent = "features"
+
+[[integrations]]
+title = "Integrations"
+identifier = "integrations"
+
+  [[integrations]]
+  title = "Azure"
+  identifier = "integrations/azure"
+  parent = "integrations"
+
+  [[integrations]]
+  title = "Windows"
+  identifier = "integrations/windows"
+  parent = "integrations"
+
+[[policy]]
+title = "Policy"
+identifier = "policy"
+
+[[security]]
+title = "Security"
+identifier = "security"
+
+[[cookbooks]]
+title = "Cookbooks"
+identifier = "cookbooks"
+
+  [[cookbooks]]
+  title = "Attributes"
+  identifier = "cookbooks/attributes"
+  parent = "cookbooks"
+  weight = 30
+
+  [[cookbooks]]
+  title = "Recipes"
+  identifier = "cookbooks/recipes"
+  parent = "cookbooks"
+  weight = 70
+
+[[infra_language]]
+title = "Infra language"
+identifier = "infra_language"
+
+[[resources]]
+title = "Resources"
+identifier = "resources"
+
+  [[resources]]
+  title = "Bundled resources"
+  parent = "resources"
+  identifier = "resources/bundled"
+
+  [[resources]]
+  title = "Custom resources"
+  parent = "resources"
+  identifier = "resources/custom"
+
+[[extension_apis]]
+title = "Extension APIs"
+identifier = "extension_apis"
+
+  [[extension_apis]]
+  title = "Compliance DSL"
+  identifier = "extension_apis/inspec/dsl_inspec/ Compliance DSL"
+  parent = "extension_apis"
+  url = "https://docs.chef.io/inspec/latest/profiles/controls/"
+  weight = 20
+
+  [[extension_apis]]
+  title = "Handlers"
+  identifier = "extension_apis/handlers"
+  parent = "extension_apis"
+  weight = 20
+
+    [[extension_apis]]
+    title = "Custom handlers"
+    identifier = "extension_apis/handlers/handlers.md#custom-handlers Custom Handlers"
+    parent = "extension_apis/handlers"
+    url = "/features/handlers/#custom-handlers"
+    weight = 10
+
+    [[extension_apis]]
+    title = "Community handlers"
+    identifier = "extension_apis/handlers/plugin_community.md#handlers Community Handlers"
+    parent = "extension_apis/handlers"
+    url = "/extension_apis/community_plugins/#handlers"
+    weight = 30
+
+  [[extension_apis]]
+  title = "Ohai plugins"
+  identifier = "extension_apis/ohai_plugins"
+  parent = "extension_apis"
+  weight = 40
+
+[[reference]]
+title = "Reference"
+identifier = "reference"
+
+    [[reference]]
+    title = "chef-solo (executable)"
+    identifier = "reference/ctl_chef_solo.md chef-solo (executable)"
+    parent = "reference"
+    url = "/features/chef_solo/ctl_chef_solo/"
+    weight = 20
+
+    [[reference]]
+    title = "Handler DSL"
+    identifier = "reference/dsl_handler.md Handler Commands"
+    parent = "reference"
+    url = "/extension_apis/dsl_handler/"
+    weight = 40
+
+    [[reference]]
+    title = "ohai (executable)"
+    identifier = "reference/ctl_ohai.md ohai (executable)"
+    parent = "reference"
+    url = "/features/ohai/ctl_ohai/"
+    weight = 50
+
+    [[reference]]
+    title = "supermarket-ctl"
+    identifier = "supermarket/reference/ctl_supermarket.md supermarket-ctl"
+    parent = "reference"
+    url = "https://docs.chef.io/supermarket/ctl_supermarket/"
+    weight = 60
+
+    [[reference]]
+    title = "client.rb"
+    identifier = "reference/config_rb_client.md client.rb"
+    parent = "reference"
+    url = "/install/config_rb_client/"
+    weight = 70
+
+    [[reference]]
+    title = "metadata.rb"
+    identifier = "reference/config_rb_metadata.md metadata.rb"
+    parent = "reference"
+    url = "/cookbooks/config_rb_metadata/"
+    weight = 80
+
+    [[reference]]
+    title = "Policyfile.rb"
+    identifier = "reference/config_rb_policyfile.md Policyfile.rb"
+    parent = "reference"
+    url = "/policy/config_rb_policyfile/"
+    weight = 90
+
+    [[reference]]
+    title = "solo.rb"
+    identifier = "reference/config_rb_solo.md solo.rb"
+    parent = "reference"
+    url = "/install/config_rb_solo/"
+    weight = 100
