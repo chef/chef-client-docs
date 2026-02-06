@@ -16,23 +16,23 @@ If the Chef Workstation is already on your system, the installation process fail
 
   ```sh
   Selecting previously unselected package chef-infra-client.
-  dpkg: regarding chef-ice-19.2.rc3-linux.deb containing chef-infra-client:
+  dpkg: regarding chef-ice-<VERSION>-linux.deb containing chef-infra-client:
   chef-infra-client conflicts with chef-workstation
     chef-workstation (version 0.4.2-1) is present and installed.
 
-  dpkg: error processing archive chef-ice-19.2.rc3-linux.deb (--install):
+  dpkg: error processing archive chef-ice-<VERSION>-linux.deb (--install):
   conflicting packages - not installing chef-infra-client
   Errors were encountered while processing:
-  chef-ice-19.2.rc3-linux.deb
+  chef-ice-<VERSION>-linux.deb
   ```
 
 - On RPM-based systems, the installer returns the following error:
 
   ```sh
   Error:
-  Problem: package chef-ice-19.2.rc3-linux from @System conflicts with chef-workstation provided by chef-workstation-25.1.1074-1.amazon2023.x86_64 from @commandline
+  Problem: package chef-ice-<VERSION>-linux from @System conflicts with chef-workstation provided by chef-workstation-25.1.1074-1.amazon2023.x86_64 from @commandline
     - conflicting requests
-    - problem with installed package chef-ice-19.2.rc3-linux
+    - problem with installed package chef-ice-<VERSION>-linux
   (try to add '--allowerasing' to command line to replace conflicting packages or '--skip-broken' to skip uninstallable packages)
   ```
 
@@ -100,7 +100,7 @@ To resolve this error:
     Install on Debian-based distributions:
 
     ```sh
-    sudo -E dpkg -i chef-ice-19.2.rc3-linux.deb
+    sudo -E dpkg -i chef-ice-<VERSION>-linux.deb
     ```
 
     {{< /accordion-item >}}
@@ -109,7 +109,7 @@ To resolve this error:
     Install on RPM-based distributions using the `dnf reinstall` command:
 
     ```sh
-    sudo -E dnf reinstall chef-ice-19.2.rc3-linux.rpm
+    sudo -E dnf reinstall chef-ice-<VERSION>-linux.rpm
     ```
 
     {{< /accordion-item >}}
@@ -124,7 +124,7 @@ To resolve this error:
     - Install the MSI package with Powershell:
 
       ```sh
-      msiexec /i "chef-ice-19.2.rc3-windows.msi"
+      msiexec /i "chef-ice-<VERSION>-windows.msi"
       ```
 
     {{< /accordion-item >}}
