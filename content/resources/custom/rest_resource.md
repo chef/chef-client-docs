@@ -10,32 +10,34 @@ title = "REST resource guide"
     weight = 50
 +++
 
-The REST resource (`rest_resource`) is a base resource class in Chef Infra Client that simplifies the creation of custom resources for managing REST API endpoints. Instead of writing HTTP request handling code from scratch, you can extend this resource to create custom resources that automatically handle API interactions, JSON mapping, and state management.
+The REST resource DSL is a base resource class in Chef Infra Client that allows you to create custom resources that interact with RESTful APIs. Instead of writing HTTP request handling code from scratch, you can extend this resource to create custom resources that automatically handle API interactions, JSON mapping, and state management.
 
 With the REST resource you can:
 
 - Define resource properties that map directly to API fields
+- Configure API endpoints
 - Use built-in actions to create, update, and delete resources with REST APIs
 - Create nested JSON structures using JMESPath expressions
 
-## Create a custom REST resource
+## Requirements
 
-To create a custom REST resource:
+The REST custom resource DSL has the following requirements:
 
-1. Create a resource class with the `core::rest_resource` partial
-1. Configure REST API endpoints
-1. Define your resource properties
-1. Map properties to JSON fields
+- The custom resource must use the `core::rest_resource` partial.
+- Use `property` to define the properties you want to map to the REST API.
+- The target REST API endpoints (collection and document URLs) must be accessible.
+- The Chef Infra Client node must have network access to the REST API endpoints.
+- Any required API authentication (tokens, credentials) must be handled, typically with resource properties or configuration.
 
 ## Basic example
 
 This example does the following:
 
-- creates the `ApiUser` resource class with the `"core::rest_resource"` partial
+- creates the `api_user` resource with the `"core::rest_resource"` partial
 - defines an API document and collection
 - defines resource properties
-- map properties to JSON API fields
-- in a recipe, use the custom resource to manage users
+- maps properties to JSON API fields
+- in a recipe, the custom resource adds and removes an API user
 
 ```ruby
 class Chef::Resource::ApiUser < Chef::Resource
@@ -62,7 +64,7 @@ class Chef::Resource::ApiUser < Chef::Resource
 end
 ```
 
-Once defined, you can use the custom resource in recipes:
+Once defined, you can use the custom resource to add and remove a user in a recipe:
 
 ```ruby
 # Create or update a user
@@ -78,23 +80,19 @@ api_user "jdoe" do
 end
 ```
 
-## REST resource components
+## Methods and actions
 
-When you call `use "core::rest_resource"`, your resource gains:
-
-- DSL Methods: `rest_api_collection`, `rest_api_document`, `rest_property_map`, `rest_identity_map`, `rest_post_only_properties`
-- Actions: `:configure` (default) and `:delete`
-- Action Methods: `rest_get`, `rest_post`, `rest_patch`, `rest_delete`, etc.
-- Hooks: `rest_postprocess`, `rest_errorhandler`, `rest_headers` (overrideable)
-- Helper Methods: Internal methods for JSON mapping, URL building, and state management
+The `rest_resource` has the following methods and actions.
 
 ### Methods
 
-The REST resource provides several DSL methods for configuring API interactions. These methods are called within your custom resource class definition.
+The REST resource provides several DSL methods for configuring API interactions.
+These methods are called within your custom resource class definition.
 
 #### rest_api_collection
 
-Defines the base URL for the resource collection. This URL is used for listing resources and creating new ones.
+This method defines the base URL for the resource collection.
+This URL is used for listing resources and creating new ones.
 
 This method has the following syntax:
 
@@ -113,7 +111,8 @@ rest_api_collection "/api/v1/users"
 
 #### rest_api_document
 
-Defines the URL pattern for individual resource documents. Supports RFC 6570 URI templates for dynamic URLs.
+This method defines the URL pattern for individual resource documents.
+Supports RFC 6570 URI templates for dynamic URLs.
 
 This method has the following syntax:
 
@@ -124,7 +123,7 @@ rest_api_document "/path/to/{resource_id}", first_element_only: false
 Parameters:
 
 - `path` (String): URL pattern with optional `{template}` placeholders
-- `first_element_only` (Boolean): If true, extracts first element from array responses
+- `first_element_only` (Boolean): If `true`, it extracts the first element from an array response.
 
 For example:
 
@@ -140,63 +139,26 @@ For example:
   rest_api_document "/api/v1/users?name={username}&org={organization}"
   ```
 
-- Handling array responses:
+- Get the first item in an array. For example:
 
   ```ruby
   rest_api_document "/api/v1/search?q={name}", first_element_only: true
   ```
 
-#### rest_property_map
+  In the above code, if the API response returns an array when fetching a resource document, the resource extracts only the first element.
 
-Maps resource properties to JSON API fields. Supports both simple mappings and complex nested structures.
+  For example, if this is response:
 
-This method has the following syntax:
-
-```ruby
-rest_property_map <MAPPING>
-```
-
-Replace `<MAPPING>` with one of the following:
-
-- An array of 1:1 mappings, for example:
-
-  ```ruby
-  rest_property_map [:username, :email, :role]
-  # Equivalent to: { username: 'username', email: 'email', role: 'role' }
+  ```json
+  [{"name": "alice", "email": "alice@example.com"}, {"name": "bob", "email": "bob@example.com"}]
   ```
 
-- A hash mapping resource properties to JSON fields or JMESPaths. For example:
-
-  ```ruby
-  rest_property_map({
-    property_name: "json.path.to.field",
-    another_property: "nested.field",
-    custom_property: :custom_mapping_function
-  })
-  ```
-
-Mapping types
-
-  1. String values: JMESPath expressions for extracting/setting nested values
-
-     ```ruby
-     rest_property_map({
-       full_name: "profile.fullName",
-       email: "contact.email.primary"
-     })
-     ```
-
-  2. Symbol values: Custom mapping functions (see Custom Mapping Functions below)
-
-     ```ruby
-     rest_property_map({
-       tags: :tags_mapping  # Uses tags_from_json and tags_to_json methods
-     })
-     ```
+  The resource extracts the following: `{"name": "alice", "email": "alice@example.com"}`.
 
 #### rest_identity_map
 
-Explicitly defines which properties uniquely identify a resource. Usually inferred automatically from the document URL, but can be specified for complex cases.
+This method explicitly defines which properties uniquely identify a resource.
+This is usually inferred automatically from the document URL, but can be specified for complex cases.
 
 This method has the following syntax:
 
@@ -249,118 +211,97 @@ Common use cases:
 - Resource size/capacity that's immutable after creation
 - Template or source identifiers used only during initialization
 
+#### rest_property_map
+
+The `rest_property_map` method maps resource properties to JSON API fields.
+This supports simple mappings and complex nested structures.
+
+This method has the following syntax:
+
+```ruby
+rest_property_map <MAPPING>
+```
+
+Replace `<MAPPING>` with:
+
+- An array of 1:1 mappings
+- A hash mapping resource properties to JSON fields or [JMESPaths](https://jmespath.org/)
+- A custom mapping function
+
+For example:
+
+- Array of mappings. If your property names match the JSON field names, you can use an array:
+
+  ```ruby
+  rest_property_map [:username, :email, :role]
+  # Equivalent to: { username: 'username', email: 'email', role: 'role' }
+  ```
+
+- String values: If your property names differ from the JSON fields, or you need to map to nested fields, use a hash to extract or set nested values:
+
+  ```ruby
+  rest_property_map({
+   full_name: "profile.fullName",
+   email: "contact.email.primary"
+  })
+  ```
+
+- Symbol values: You can also map a property to a method for custom serialization and deserialization:
+
+  ```ruby
+  rest_property_map({
+   tags: :tags_mapping  # Uses tags_from_json and tags_to_json methods
+  })
+  ```
+
+See the following examples for more information:
+
+- [Use JMESPath expressions to map data](#use-jmespath-expressions-to-map-data-in-a-json-structure)
+- [Create a custom mapping function](#create-a-custom-mapping-function-with-rest_property_map)
+
 ### Actions
 
 The REST resource provides two built-in actions:
 
 #### :configure (default)
 
-: Creates a new resource or updates an existing one. This action is idempotent and will:
+The `:configure` action creates a new resource or updates an existing one.
+This action is idempotent and does the following:
 
-  - Check if the resource exists by querying the API
-  - If it doesn't exist: Send a POST request to create it
-  - If it exists and properties changed: Send a PATCH request to update it
-  - If it exists and nothing changed: Take no action
+- Checks if the resource exists by querying the API
+- If it doesn't exist: Send a POST request to create it
+- If it exists and properties are changed: Send a PATCH request to update it
+- If it exists and nothing changed: Take no action
 
-  For example:
-
-  ```ruby
-  api_user "john" do
-    email "john@example.com"
-    role "admin"
-    action :configure  # This is the default action
-  end
-  ```
-
-#### :delete
-
-: Deletes a resource with the REST API. This action is idempotent and will:
-
-  - Check if the resource exists
-  - If it exists: Send a DELETE request
-  - If it doesn't exist: Take no action
-
-  For example:
-
-  ```ruby
-  api_user "john" do
-    action :delete
-  end
-  `
-
-### Property mapping
-
-#### JMESPath Expressions
-
-JMESPath is used to navigate and extract data from JSON structures. The REST resource supports JMESPath for both reading from and writing to APIs.
-
-Basic paths:
-```ruby
-rest_property_map({
-  username: "username",           # Top-level field
-  email: "contact.email",         # Nested field
-  city: "address.location.city"   # Deeply nested field
-})
-```
-
-Array projections:
-```ruby
-rest_property_map({
-  member_emails: "members[*].email"  # Extract email from each member
-})
-```
-
-Complex selections:
-```ruby
-rest_property_map({
-  active_users: "users[?active==`true`].name"  # Filter and extract
-})
-```
-
-#### Custom Mapping Functions
-
-For complex transformations that JMESPath can't handle, use custom mapping functions by specifying a symbol in the property map.
-
-Requirements:
-- Symbol `:my_property` requires two methods:
-- `my_property_from_json(resource_data)` - Extract value from API response
-- `my_property_to_json(property_value)` - Convert value for API request
-
-Example:
+For example:
 
 ```ruby
-class Chef::Resource::ApiProject < Chef::Resource
-  use "core::rest_resource"
-
-  resource_name :api_project
-
-  property :tags, Hash, default: {}
-
-  rest_property_map({
-    name: "name",
-    tags: :tags_mapping  # Uses custom functions
-  })
-
-  action_class do
-    # Convert API's tag array to hash
-    def tags_from_json(resource_data)
-      tag_array = resource_data["tags"] || []
-      tag_array.to_h { |tag| [tag["key"], tag["value"]] }
-    end
-
-    # Convert hash to API's tag array format
-    def tags_to_json(tags_hash)
-      {
-        "tags" => tags_hash.map { |k, v| { "key" => k, "value" => v } }
-      }
-    end
-  end
+api_user "john" do
+  email "john@example.com"
+  role "admin"
+  action :configure  # This is the default action
 end
 ```
 
-## Advanced Features
+#### :delete
 
-### Custom Headers and Authentication
+The `:delete` action deletes a resource from the REST API. This action is idempotent and does the following:
+
+- Checks if the resource exists
+- If it exists: Send a DELETE request
+- If it doesn't exist: Take no action
+
+For example:
+
+```ruby
+api_user "john" do
+  action :delete
+end
+```
+
+## More features
+
+### Custom headers and authentication
 
 Override the `rest_headers` method in your action class to add custom headers like authentication tokens.
 
@@ -382,7 +323,7 @@ class Chef::Resource::ApiResource < Chef::Resource
 end
 ```
 
-### Response Post-Processing
+### Response post-processing
 
 Override the `rest_postprocess` method to transform API responses, handle pagination, or extract embedded data.
 
@@ -402,7 +343,7 @@ action_class do
 end
 ```
 
-### Custom Error Handling
+### Custom error handling
 
 Override the `rest_errorhandler` method to provide user-friendly error messages or handle specific error codes.
 
@@ -424,7 +365,7 @@ action_class do
 end
 ```
 
-### Conditional Property Requirements
+### Conditional property requirements
 
 Use the `conditionally_require_on_setting` helper to enforce dependencies between properties.
 
@@ -441,7 +382,9 @@ end
 
 ## Examples
 
-### Create an REST API to manage users
+### Create a REST API to manage users
+
+The following `api_user` custom resource manages users.
 
 ```ruby
 class Chef::Resource::ApiUser < Chef::Resource
@@ -474,8 +417,11 @@ class Chef::Resource::ApiUser < Chef::Resource
   # Password can only be set during creation
   rest_post_only_properties :password
 end
+```
 
-# Usage in a recipe:
+Use the `api_user` custom resource in a recipe to create a user:
+
+```ruby
 api_user "alice" do
   email "alice@example.com"
   first_name "Alice"
@@ -486,7 +432,180 @@ api_user "alice" do
 end
 ```
 
+### Use JMESPath expressions to map data in a JSON structure
+
+JMESPath is used to navigate and extract data from JSON structures.
+The REST resource supports JMESPath for both reading from and writing to APIs.
+
+#### JMESPath dot notation
+
+You can use dot notation to specify nested data.
+
+This code example can extract data from the following JSON example:
+
+```ruby
+rest_property_map({
+  username: "username",           # Top-level field
+  email: "contact.email",         # Nested field
+  city: "address.location.city"   # Deeply nested field
+})
+```
+
+```json
+{
+  "username": "jdoe",
+  "contact": {
+    "email": "jdoe@example.com",
+    "phone": "+1-555-0100"
+  },
+  "address": {
+    "location": {
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "94102"
+    }
+  }
+}
+```
+
+#### JMESPath wildcard notation
+
+You can use a JMESPath wildcard expression to extract data from a JSON structure.
+
+For example, the following extracts the email addresses from each member in the following JSON:
+
+```ruby
+rest_property_map({
+  member_emails: "members[*].email"  # Extract email from each member
+})
+```
+
+```json
+{
+  "members": [
+    {
+      "name": "Admin1",
+      "email": "admin1@example.com",
+      "role": "admin"
+    },
+    {
+      "name": "User1",
+      "email": "user1@example.com",
+      "role": "user"
+    }
+  ]
+}
+```
+
+#### JMESPath filter projection
+
+You can use filter a filter projection to extract JSON data.
+
+For example, the following example returns each user that's active (`["Alice Johnson", "Carol White"]`) from the following JSON:
+
+```ruby
+rest_property_map({
+  active_users: "users[?active==`true`].name"  # Filter and extract
+})
+```
+
+```json
+{
+  "users": [
+    {
+      "id": "user-001",
+      "name": "Alice Johnson",
+      "email": "alice@example.com",
+      "active": true,
+      "department": "Engineering"
+    },
+    {
+      "id": "user-002",
+      "name": "Bob Smith",
+      "email": "bob@example.com",
+      "active": false,
+      "department": "Sales"
+    },
+    {
+      "id": "user-003",
+      "name": "Carol White",
+      "email": "carol@example.com",
+      "active": true,
+      "department": "Marketing"
+    }
+  ]
+}
+```
+
+### Create a custom mapping function with rest_property_map
+
+For complex transformations that JMESPath can't handle, use custom mapping functions by specifying a symbol in the property map.
+
+To create a custom mapping function, create a symbol (for example, `:symbol_name`) and define two methods:
+
+- a method to extract values from an API response, for example `property_from_json(resource_data)`
+- a method to convert values for an API request, for example `property_to_json(property_value)`
+
+In the following example, `rest_property_map` uses `:tags_mapping` to map resource properties to JSON fields in an API:
+
+```ruby
+class Chef::Resource::ApiProject < Chef::Resource
+  use "core::rest_resource"
+
+  resource_name :api_project
+
+  property :tags, Hash, default: {}
+
+  rest_property_map({
+    name: "name",
+    tags: :tags_mapping  # Uses custom functions
+  })
+
+  action_class do
+    # Convert API's tag array to hash
+    def tags_from_json(resource_data)
+      tag_array = resource_data["tags"] || []
+      tag_array.to_h { |tag| [tag["key"], tag["value"]] }
+    end
+
+    # Convert hash to API's tag array format
+    def tags_to_json(tags_hash)
+      {
+        "tags" => tags_hash.map { |k, v| { "key" => k, "value" => v } }
+      }
+    end
+  end
+end
+```
+
+In a recipe, you can manage tags for the `mobile-app` project:
+
+```ruby
+# Create or update a project with specific tags
+api_project "mobile-app" do
+  tags({
+    "environment" => "production",
+    "team" => "mobile",
+    "cost-center" => "engineering"
+  })
+  action :configure
+end
+
+# Update the project's tags
+api_project "mobile-app" do
+  tags({
+    "environment" => "production",
+    "team" => "mobile",
+    "cost-center" => "engineering",
+    "region" => "us-west"  # Add a new tag
+  })
+  action :configure
+end
+```
+
 ### Cloud resource with complex mapping
+
+This resource and recipe create and manage a virtual machine through a cloud provider's REST API.
 
 ```ruby
 class Chef::Resource::CloudServer < Chef::Resource
@@ -551,7 +670,11 @@ class Chef::Resource::CloudServer < Chef::Resource
     end
   end
 end
+```
 
+In a recipe, create the virtual machine:
+
+```ruby
 # Usage:
 cloud_server "web-01" do
   name "web-server-01"
@@ -682,7 +805,7 @@ end
 
 ### Common issues
 
-Issue: "No such file" error for identity property
+#### Issue: "No such file" error for identity property
 
 This usually means the identity mapping is incorrect or the document URL template doesn't match the property.
 
@@ -692,7 +815,7 @@ rest_api_document "/api/v1/users/{username}"  # Template: username
 property :username, String, identity: true     # Property: username
 ```
 
-Issue: Properties not updating
+#### Issue: Properties not updating
 
 Check if properties are accidentally marked as post-only:
 
@@ -701,7 +824,7 @@ rest_post_only_properties [:password]  # Only password is post-only
 # Don't include properties that should be updatable
 ```
 
-Issue: "Can't resolve property to JSON"
+#### Issue: "Can't resolve property to JSON"
 
 Verify your property map includes all properties you're trying to set:
 
@@ -715,46 +838,9 @@ rest_property_map({
 })
 ```
 
-## Best practices
-
-1. Use Identity Properties: Always mark identity properties with `identity: true`
-2. Handle Errors Gracefully: Override `rest_errorhandler` for better error messages
-3. Validate Input: Use Chef's property validation (`:equal_to`, `:regex`, etc.)
-4. Document Your Resource: Include `description` and `examples` in your custom resource
-5. Test Thoroughly: Write ChefSpec unit tests and Test Kitchen integration tests
-6. Secure Credentials: Use data bags, encrypted attributes, or external secrets management
-7. Handle Pagination: Override `rest_get_all` if the API uses pagination
-8. Version Your API: Include API version in the endpoint URL or headers
-
-## Reference
-
-### Inherited methods
-
-When you extend `RestResource`, you inherit these action_class methods:
-
-- `rest_get_all` - Fetch all resources from the collection
-- `rest_get` - Fetch a specific resource
-- `rest_post(data)` - Create a new resource
-- `rest_patch(data)` - Update an existing resource
-- `rest_put(data)` - Replace an existing resource
-- `rest_delete` - Delete a resource
-
-### Overrideable methods
-
-- `rest_postprocess(response)` - Transform API responses
-- `rest_errorhandler(error_obj)` - Handle API errors
-- `rest_headers` - Add custom headers to requests
-
-### Helper methods
-
-- `resource_exists?` - Check if resource exists in API
-- `property_to_json(property, mapping)` - Convert property to JSON
-- `json_to_property(mapping, property, data)` - Extract value from JSON
-- `conditionally_require_on_setting(property, dependencies)` - Enforce property dependencies
-
 ## Additional resources
 
-- [Chef Custom Resources Documentation](https://docs.chef.io/custom_resources/)
+- [Custom resources documentation](/resources/custom/)
 - [JMESPath Tutorial](https://jmespath.org/tutorial.html)
 - [RFC 6570 URI Template Specification](https://tools.ietf.org/html/rfc6570)
-- [REST API Design Best Practices](https://restfulapi.net/)
+- [REST API Tutorial](https://restfulapi.net/)
