@@ -184,7 +184,7 @@ rest_identity_map({
 
 Declares properties that should only be sent during resource creation (POST) and excluded from updates (PATCH).
 
-This method has the following synatax:
+This method has the following syntax:
 
 ```ruby
 rest_post_only_properties <PROPERTY_OR_ARRAY>
