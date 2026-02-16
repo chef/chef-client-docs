@@ -113,3 +113,6 @@ Netlify deploys content in the `main` branch of this repository to [<https://che
 
 1. Push the branch up to GitHub. Netlify automatically builds a deployment of that branch at `release-<MAJ>.<MIN>--chef-infra-client.netlify.app/client/<MAJ>.<MIN>`.
    Any changes merged into that branch are automatically deployed.
+
+# Copyright
+See [COPYRIGHT.md](./COPYRIGHT.md).
