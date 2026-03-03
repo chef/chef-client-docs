@@ -101,6 +101,7 @@ properties_list:
   allowed_values: '"Domain", "Private", "Public"'
   description_list:
   - markdown: Set the Windows Profile being configured
+target_mode:
 examples: |
   **Enable and Configure the Private Profile of the Windows Profile**:
 

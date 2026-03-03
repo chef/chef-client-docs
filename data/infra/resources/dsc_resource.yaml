@@ -275,10 +275,12 @@ properties_list:
 - property: timeout
   ruby_type: Integer
   required: false
+  new_in: '12.6'
   description_list:
   - markdown: 'The amount of time (in seconds) a command is to wait before timing
 
       out.'
+target_mode:
 examples: "
   Open a Zip file\n\n  ```ruby\n  dsc_resource 'example' do\n    \
   \ resource :archive\n     property :ensure, 'Present'\n     property :path, 'C:\\\

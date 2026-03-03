@@ -73,6 +73,7 @@ properties_list:
   required: false
   description_list:
   - markdown: The path to the private key file.
+target_mode:
 examples: |
   **Generate new EC public key from a private key on disk**
 

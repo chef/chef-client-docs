@@ -97,6 +97,7 @@ properties_list:
   - markdown: Specify success auditing. By setting this property to true the resource
       will enable success for the category or sub category. Success is the default
       and is applied if neither success nor failure are specified.
+target_mode:
 examples: |
   **Set Logon and Logoff policy to "Success and Failure"**:
 

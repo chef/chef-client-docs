@@ -12,33 +12,24 @@ syntax_description: "A **ruby_block** resource block executes a block of arbitra
   /etc/chef/client.rb\")\n  end\n  action :run\nend\n```"
 syntax_full_code_block: |-
   ruby_block 'name' do
-    block           Block
     block_name      String # default value: 'name' unless specified
     action          Symbol # defaults to :run if not specified
   end
 syntax_properties_list:
 syntax_full_properties_list:
-- '`ruby_block` is the resource.'
-- '`name` is the name given to the resource block.'
-- '`block` is the block of Ruby code to be executed.'
-- '`action` identifies which steps Chef Infra Client will take to bring the node into
-  the desired state.'
-- '`block` and `block_name` are properties of this resource, with the Ruby type shown.
-  See "Properties" section below for more information about all of the properties
-  that may be used with this resource.'
+- "`ruby_block` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`block_name` is the property available to this resource."
 actions_list:
-  :create:
-    markdown: The same as `:run`.
   :nothing:
     shortcode: resources_common_actions_nothing.md
   :run:
     markdown: "Run a Ruby block. (default)"
+  :create:
+    markdown: The same as `:run`.
 properties_list:
-- property: block
-  ruby_type: block
-  required: false
-  description_list:
-  - markdown: A block of Ruby code.
 - property: block_name
   ruby_type: String
   required: false
@@ -47,6 +38,10 @@ properties_list:
   - markdown: 'The name of the Ruby block. Default value: the `name` of the
 
       resource block. See "Syntax" section above for more information.'
+target_mode:
+  support: full
+  description: Ruby code will be run locally and not on the target node. Use the **ruby**
+    resource for this.
 examples: |
   **Reload Chef Infra Client configuration data**
 

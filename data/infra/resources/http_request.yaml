@@ -11,7 +11,6 @@ resource_description_list:
 syntax_full_code_block: |-
   http_request 'name' do
     headers      Hash # default value: {}
-    message      Object # defaults to 'name' if not specified
     url          String
     action       Symbol # defaults to :get if not specified
   end
@@ -27,13 +26,11 @@ syntax_description: |
   ```
 
 syntax_full_properties_list:
-- '`http_request` is the resource.'
-- '`name` is the name given to the resource block.'
-- '`action` identifies which steps Chef Infra Client will take to bring the node into
-  the desired state.'
-- '`headers`, `message`, and `url` are properties of this resource, with the Ruby
-  type shown. See "Properties" section below for more information about all of the
-  properties that may be used with this resource.'
+- "`http_request` is the resource."
+- "`name` is the name given to the resource block."
+- "`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state."
+- "`headers` and `url` are the properties available to this resource."
 actions_list:
   :delete:
     markdown: Send a `DELETE` request.
@@ -56,22 +53,16 @@ properties_list:
 - property: headers
   ruby_type: Hash
   required: false
+  default_value: "{}"
   description_list:
   - markdown: A Hash of custom headers.
-- property: message
-  ruby_type: Object
-  required: false
-  description_list:
-  - markdown: 'The message that is sent by the HTTP request. Default value: the
-
-      `name` of the resource block. See "Syntax" section above for more
-
-      information.'
 - property: url
   ruby_type: String
   required: false
   description_list:
   - markdown: The URL to which an HTTP request is sent.
+target_mode:
+  support: full
 examples: "\n  Send a GET request\n\n  ```ruby\n  http_request 'some_message' do\n\
   \    url 'http://example.com/check_in'\n  end\n  ```\n\n  The message is sent as\n\
   \  `http://example.com/check_in?message=some_message`.\n\n  Send a POST request\n\

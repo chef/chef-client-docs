@@ -4,11 +4,9 @@ resource_package_options: true
 resource: package
 resource_description_list:
 - markdown: |-
-    Use the **package** resource to manage packages. When the package is installed from a local file (such as with RubyGems,
-    dpkg, or RPM Package Manager), the file must be added to the node using the **remote_file** or **cookbook_file** resources.
+    Use the **package** resource to manage packages. When the package is installed from a local file (such as with RubyGems, dpkg, or RPM Package Manager), the file must be added to the node using the remote_file or cookbook_file resources.
 
-    This resource is the base resource for several other resources used for package management on specific platforms. While it
-    is possible to use each of these specific resources, we recommend using the **package** resource as often as possible.
+    This resource is the base resource for several other resources used for package management on specific platforms. While it is possible to use each of these specific resources, we recommend using the **package** resource as often as possible.
 
     For more information about specific resources for specific platforms,
     see the following topics:
@@ -81,23 +79,27 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`environment`, `options`, `package_name`, `source`, `timeout`, and `version` are the properties
-  available to this resource."
+- "`environment`, `options`, `package_name`, `source`, `timeout`, and `version` are
+  the properties available to this resource."
 actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
   :install:
     markdown: Install a package. If a version is specified, install the specified
       version of the package. (default)
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
+  :upgrade:
+    markdown: Install a package and ensure that a package is the latest version.
+  :remove:
+    markdown: Remove a package.
   :purge:
     markdown: Purge a package. This action typically removes the configuration files
       as well as the package.
   :reconfig:
     markdown: Reconfigure a package. This action requires a response file.
-  :remove:
-    markdown: Remove a package.
-  :upgrade:
-    markdown: Install a package and ensure that a package is the latest version.
+  :lock:
+    markdown:
+  :unlock:
+    markdown:
 properties_list:
 - property: allow_downgrade
   ruby_type: true, false
@@ -125,119 +127,26 @@ properties_list:
 - property: environment
   ruby_type: Hash
   required: false
-  default_value: "{}"
   new_in: '18.8'
   description_list:
   - markdown: A Hash of environment variables in the form of {'ENV_VARIABLE' => 'VALUE'}
       to be set before running the command.
-- property: flush_cache
-  ruby_type: Array
-  required: false
-  description_list:
-  - markdown: 'Flush the in-memory cache before or after a Yum operation that
-
-      installs, upgrades, or removes a package. Default value:
-
-      `[ :before, :after ]`. The value may also be a Hash:
-
-      `( { :before => true/false, :after => true/false } )`.'
-  - shortcode: resources_common_package_yum_cache.md
-  - markdown: |
-      As an array:
-
-      ```ruby
-      yum_package 'some-package' do
-        #...
-
-          flush_cache [ :before ]
-        #...
-      end
-      ```
-
-      and as a Hash:
-
-      ```ruby
-          yum_package 'some-package' do
-        #...
-        flush_cache( { :after => true } )
-
-            #...
-      end
-  - note:
-      markdown: 'The `flush_cache` property does not flush the local Yum cache! Use
-
-        Yum tools---`yum clean headers`, `yum clean packages`,
-
-        `yum clean all`---to clean the local Yum cache.'
-- property: gem_binary
-  ruby_type: String
-  required: false
-  description_list:
-  - markdown: 'A property for the `gem_package` provider that is used to specify a
-
-      gems binary.'
-- property: homebrew_user
-  ruby_type: String, Integer
-  required: false
-  description_list:
-  - markdown: '**homebrew_package** resource only. The name of the Homebrew owner
-
-      to be used by Chef Infra Client when executing a command.'
-- property: ignore_failure
-  ruby_type: true, false
-  required: false
-  default_value: 'false'
-  description_list:
-  - markdown: Continue running a recipe if a resource fails for any reason.
-- property: notifies
-  ruby_type: Symbol, Chef::Resource\[String\]
-  required: false
-  description_list:
-  - shortcode: resources_common_notification_notifies.md
-  - shortcode: resources_common_notification_timers.md
-  - shortcode: resources_common_notification_notifies_syntax.md
 - property: options
-  ruby_type: String
+  ruby_type: String, Array
   required: false
   description_list:
-  - markdown: One (or more) additional options that are passed to the command.
+  - markdown: One (or more) additional command options that are passed to the command.
 - property: package_name
   ruby_type: String, Array
   required: false
   description_list:
-  - markdown: 'The name of the package. Default value: the `name` of the resource
-
-      block. See "Syntax" section above for more information.'
-- property: response_file
-  ruby_type: String
-  required: false
-  description_list:
-  - markdown: '**apt_package** and **dpkg_package** resources only. The direct
-
-      path to the file used to pre-seed a package.'
-- property: response_file_variables
-  ruby_type: Hash
-  required: false
-  description_list:
-  - markdown: '**apt_package** and **dpkg_package** resources only. A Hash of
-
-      response file variables in the form of `{"VARIABLE" => "VALUE"}`.'
+  - markdown: An optional property to set the package name if it differs from the
+      resource block's name.
 - property: source
   ruby_type: String
   required: false
   description_list:
-  - markdown: Optional. The path to a package in the local file system.
-  - note:
-      markdown: 'The AIX platform requires `source` to be a local file system path
-
-        because `installp` does not retrieve packages using HTTP or FTP.'
-- property: subscribes
-  ruby_type: Symbol, Chef::Resource\[String\]
-  required: false
-  description_list:
-  - shortcode: resources_common_notification_subscribes.md
-  - shortcode: resources_common_notification_timers.md
-  - shortcode: resources_common_notification_subscribes_syntax.md
+  - markdown: The optional path to a package on the local file system.
 - property: timeout
   ruby_type: String, Integer
   required: false
@@ -249,18 +158,8 @@ properties_list:
   description_list:
   - markdown: The version of a package to be installed or upgraded.
 multi_package_resource: true
-resource_directory_recursive_directories: false
-resources_common_atomic_update: false
-properties_resources_common_windows_security: false
-remote_file_prevent_re_downloads: false
-remote_file_unc_path: false
-ps_credential_helper: false
-ruby_style_basics_chef_log: false
-debug_recipes_chef_shell: false
-resources_common_properties: false
-resources_common_notification: false
-resources_common_guards: false
-common_resource_functionality_multiple_packages: null
+target_mode:
+  support: full
 examples: |
   **Install a gems file for use in recipes**
 

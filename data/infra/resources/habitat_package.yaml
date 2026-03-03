@@ -14,6 +14,7 @@ syntax_full_code_block: |-
     binlink           true, false, force # default value: false
     bldr_url          String # default value: "https://bldr.habitat.sh"
     channel           String # default value: "stable"
+    environment       Hash
     exclude           String
     keep_latest       String
     no_deps           true, false # default value: false
@@ -30,9 +31,9 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`auth_token`, `binlink`, `bldr_url`, `channel`, `exclude`, `keep_latest`, `no_deps`,
-  `options`, `package_name`, `source`, `timeout`, and `version` are the properties
-  available to this resource."
+- "`auth_token`, `binlink`, `bldr_url`, `channel`, `environment`, `exclude`, `keep_latest`,
+  `no_deps`, `options`, `package_name`, `source`, `timeout`, and `version` are the
+  properties available to this resource."
 actions_list:
   :install:
     markdown: Install a package. If a version is specified, install the specified
@@ -76,6 +77,13 @@ properties_list:
   default_value: stable
   description_list:
   - markdown: The release channel to install your package from.
+- property: environment
+  ruby_type: Hash
+  required: false
+  new_in: '19.0'
+  description_list:
+  - markdown: A Hash of environment variables in the form of {'ENV_VARIABLE' => 'VALUE'}
+      to be set before running the command.
 - property: exclude
   ruby_type: String
   required: false
@@ -120,6 +128,8 @@ properties_list:
   required: false
   description_list:
   - markdown: The version of a package to be installed or upgraded.
+target_mode:
+  support: full
 examples: |
   **Install core/redis**
 
