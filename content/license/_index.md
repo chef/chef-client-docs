@@ -18,22 +18,19 @@ You must also [accept the Chef End User License Agreement (Chef EULA)](#accept-t
 
 Chef Infra Client 19 has different licensing requirements depending on the distribution you download.
 
-### No license enforcement
-
-Chef Infra Client doesn't require a license to run if you download an official distribution.
-
-This includes:
-
-- Downloading Infra Client from the customer portal.
-- Installing the Infra Client Habitat package.
-- Installing Infra Client using the migration tool or native installer.
-
 ### License required
 
-You need a license key to run Chef Infra Client when you:
+License key requirements will be enforced:
 
-- Download it from unofficial sources (public Ruby gem).
-- Use runtime installations and workflows.
+- At the point of download for the binaries from Progress Chef Download Portal or via Hab distribution.
+- At first run for using runtime installations and workflows, if the binaries are from Chef API.
+- For Chef software from any other sources not mentioned above, such as public Ruby gems or channels outside of our official Habitat distribution and download portal.
+
+### No license key requirement
+
+Chef Infra Client does not require a license key to:
+- Use runtime installations and workflows when using your own source to download binaries.
+- Execute any non-download commands using software obtained from an official source.
 
 ## Add a license
 
