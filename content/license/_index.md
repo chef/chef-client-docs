@@ -9,26 +9,27 @@ parent = "licensing"
 weight = 11
 +++
 
-This document outlines the licensing requirements and enforcement policies for Chef Infra Client 19.
+This document outlines the licensing requirements and enforcement policies for Chef Infra Client.
 
 Depending on the distribution you download and install, you may have to add a license key to run Chef Infra Client.
-You must also [accept the Chef End User License Agreement (Chef EULA)](#accept-the-end-user-license-agreement) when you first run Chef Infra Client 19.
+You must also [accept the Chef End User License Agreement (Chef EULA)](#accept-the-end-user-license-agreement) when you first run Chef Infra Client.
 
 ## Licensing requirements
 
-Chef Infra Client 19 has different licensing requirements depending on the distribution you download.
+Chef Infra Client has different licensing requirements depending on the distribution you download.
 
 ### License required
 
-License key requirements will be enforced:
+License key requirements are enforced:
 
-- At the point of download for the binaries from Progress Chef Download Portal or via Hab distribution.
-- At first run for using runtime installations and workflows, if the binaries are from Chef API.
-- For Chef software from any other sources not mentioned above, such as public Ruby gems or channels outside of our official Habitat distribution and download portal.
+- At the point of download for the binaries from Progress Chef Download Portal or through Habitat package distribution.
+- At first run when using runtime installations and workflows, if the binaries are from the Chef API.
+- For Chef software from any other sources not listed above, such as public Ruby gems or channels outside of the official Habitat distribution and download portal.
 
 ### No license key requirement
 
-Chef Infra Client does not require a license key to:
+Chef Infra Client doesn't require a license key to:
+
 - Use runtime installations and workflows when using your own source to download binaries.
 - Execute any non-download commands using software obtained from an official source.
 
@@ -36,15 +37,15 @@ Chef Infra Client does not require a license key to:
 
 Chef Infra Client has three ways to set a license:
 
-- with an environment variable
-- with a command line option
-- with the command line interactive dialog
+- An environment variable
+- A command line option
+- The command line interactive dialog
 
 After setting a license key, Chef Infra Client validates it with Progress Chef's licensing service.
 
 ### Environment variable
 
-- You can set the license key adding the `CHEF_LICENSE_KEY` environment variable:
+- You can set the license key by setting the `CHEF_LICENSE_KEY` environment variable:
 
   ```sh
   export CHEF_LICENSE_KEY=<LICENSE_KEY>
@@ -72,13 +73,14 @@ To set a license key with the CLI interactive dialog, follow these steps:
 
     It should return version 19.0.54 or greater for Infra Client RC 1.
 
-1. Run `chef-client` in local mode and why-run mode:
+1. Run `chef-client` in local mode and `why-run` mode:
 
     ```sh
     chef-client --local-mode --why-run
     ```
 
-    Local mode runs Chef Infra Client on your local machine as if it were running against Chef Infra Server. why-run mode shows you what Chef Infra Client would configure if a Chef Infra Client run occurs.
+    Local mode runs Chef Infra Client on your local machine as if it were running against Chef Infra Server.
+    `why-run` mode shows you what Chef Infra Client would configure during a Chef Infra Client run.
 
 1. At the first prompt, select **I already have a license ID**.
 
@@ -100,7 +102,7 @@ To set a license key with the CLI interactive dialog, follow these steps:
 
 ## Accept the End User License Agreement
 
-When you first run Chef Infra Client 19, you must accept the End User License Agreement (EULA).
+When you first run Chef Infra Client, you must accept the End User License Agreement (EULA).
 
 Chef Infra Client accepts a license using a command line option, environment variable, or config file.
 
@@ -115,11 +117,11 @@ Chef Infra Client accepts the following license acceptance options:
 : Similar to `accept`, but no messaging is sent to STDOUT.
 
 `accept-no-persist`
-: Similar to `accept-silent`, but no marker file is persisted. Future invocation will require accepting the license again.
+: Similar to `accept-silent`, but no marker file is persisted. Future invocations will require accepting the license again.
 
 ### Command line option
 
-Accept the Chef License with a command line invocation.
+To accept the Chef License, run `chef-client` with the `--chef-license` option:
 
 ```sh
 chef-client --chef-license <LICENSE_OPTION>
@@ -127,7 +129,7 @@ chef-client --chef-license <LICENSE_OPTION>
 
 ### Environment variable
 
-Accept the Chef License by setting an environment variable. For example:
+To accept the Chef License, set the `CHEF_LICENSE` environment variable:
 
 ```sh
 export CHEF_LICENSE="<LICENSE_OPTION>"
@@ -136,9 +138,10 @@ chef-client OPTION VALUE
 
 ### Config file
 
-You can accept the Chef License with the Chef Infra Client or Knife config files.
+You can accept the Chef License in the Chef Infra Client or Knife config files.
 
-On a workstation, you can set this in the [`~/.chef/config.rb` or `~/.chef/knife.rb` files](https://docs.chef.io/workstation/config_rb/), and on a node you can set this in the [`/etc/chef/client.rb`]({{< relref "/install/config_rb_client" >}}) file.
+On a workstation, set this in the [`~/.chef/config.rb` or `~/.chef/knife.rb` files](https://docs.chef.io/workstation/config_rb/).
+On a node, set this in the [`/etc/chef/client.rb`]({{< relref "/install/config_rb_client" >}}) file.
 
 ```ruby
 chef_license "<LICENSE_OPTION>"
