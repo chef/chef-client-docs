@@ -20,6 +20,7 @@ Chef Infra Client is supported on:
 - Currently supported Windows versions greater than or equal to Windows 10
 
 ## Prerequisites
+
 {{< warning >}} Do not install this version of Chef Infra Client 19 on a server that already has Chef Automate installed. {{< /warning >}}
 
 This installation process has the following prerequisites:
