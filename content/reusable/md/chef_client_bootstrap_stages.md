@@ -21,7 +21,7 @@ When you run `knife bootstrap` on a node for the first time, Chef Workstation, I
 
 1. **Install Chef Infra Client**
 
-    Chef Infra Client is installed on the target node using a system native package (.rpm, .msi, etc).
+    The install script installs Chef Infra Client on the target node using a system-native package (for example, `.rpm`, `.msi`).
 
 1. **Start a Chef Infra Client run**
 
