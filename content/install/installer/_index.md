@@ -21,10 +21,9 @@ Chef Infra Client is supported on:
 
 ## Prerequisites
 
-{{< warning >}} Do not install this version of Chef Infra Client 19 on a server that already has Chef Automate installed. {{< /warning >}}
-
 This installation process has the following prerequisites:
 
+- Chef Automate isn't installed on the target system.
 - Chef Workstation isn't installed on the target system.
 - On Debian-based systems, the dpkg package manager is installed on the target system.
 - On RPM-based systems, the RPM and either the DNF or Yum package managers are installed on the target system.
