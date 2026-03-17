@@ -19,6 +19,7 @@ Chef Infra Client is supported on:
 
 ## Prerequisites
 
+- Chef Automate isn't installed on the target system
 - a valid Chef License key
 
 ## Upgrade Chef Infra Client on Linux

@@ -17,6 +17,7 @@ Chef Infra Client is supported on Linux x86-64 systems.
 
 ## Prerequisites
 
+- Chef Automate isn't installed on the target system
 - a valid Chef License key
 
 ## Install Chef Infra Client
