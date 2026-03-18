@@ -154,13 +154,8 @@ properties_list:
   required: false
   default_value: The resource block's name
   description_list:
-  - markdown: 'The path to the directory. Using a fully qualified path is
-
-      recommended, but is not always required. Default value: the `name`
-
-      of the resource block. See "Syntax" section above for more
-
-      information.'
+  - markdown: The path to the directory. Using a fully qualified path is recommended,
+      but is not always required.
 - property: recursive
   ruby_type: true, false
   required: false

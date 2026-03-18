@@ -89,6 +89,7 @@ properties_list:
   - markdown: Specifies the name of a workgroup to which the computer is added to
       when it is removed from the domain. The default value is WORKGROUP. This property
       is only applicable to the :leave action.
+target_mode:
 examples: |
   **Join a domain**
 

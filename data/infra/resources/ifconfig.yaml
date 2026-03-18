@@ -48,18 +48,18 @@ syntax_full_properties_list:
   `onboot`, `onparent`, `slave`, `target`, and `vlan` are the properties available
   to this resource."
 actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
   :add:
     markdown: Run ifconfig to configure a network interface and (on some platforms)
       write a configuration file for that network interface. (default)
   :delete:
     markdown: Run ifconfig to disable a network interface and (on some platforms)
       delete that network interface’s configuration file.
-  :disable:
-    markdown: Run ifconfig to disable a network interface.
   :enable:
     markdown: Run ifconfig to enable a network interface.
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
+  :disable:
+    markdown: Run ifconfig to disable a network interface.
 properties_list:
 - property: bcast
   ruby_type: String
@@ -181,6 +181,8 @@ properties_list:
   new_in: '14.4'
   description_list:
   - markdown: The VLAN to assign the interface to.
+target_mode:
+  support: full
 examples: |
   **Configure a network interface with a static IP**
 

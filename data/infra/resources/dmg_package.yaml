@@ -39,6 +39,8 @@ syntax_full_properties_list:
   `dmg_passphrase`, `file`, `headers`, `owner`, `package_id`, `source`, `type`, and
   `volumes_dir` are the properties available to this resource."
 actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
   :install:
     markdown: Installs the application. (default)
 properties_list:
@@ -127,6 +129,7 @@ properties_list:
   description_list:
   - markdown: The directory under `/Volumes` where the `dmg` is mounted if it differs
       from the name of the `.dmg` file.
+target_mode:
 examples: |
   **Install Google Chrome via the DMG package**:
 

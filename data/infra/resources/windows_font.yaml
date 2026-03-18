@@ -40,6 +40,7 @@ properties_list:
   required: false
   description_list:
   - markdown: A local filesystem path or URI that is used to source the font file.
+target_mode:
 examples: |
   **Install a font from a https source**:
 

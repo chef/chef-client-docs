@@ -208,6 +208,7 @@ properties_list:
   description_list:
   - markdown: Array of Subject Alternative Name entries, in format `DNS:example.com`
       or `IP:1.2.3.4`.
+target_mode:
 examples: |
   Create a simple self-signed certificate file
 

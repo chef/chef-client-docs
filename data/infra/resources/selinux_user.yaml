@@ -39,12 +39,12 @@ properties_list:
   ruby_type: String
   required: false
   description_list:
-  - markdown: Multi-Level Security (MLS) or Multi-Category Security (MCS) security level for the SELinux user.
+  - markdown: MLS/MCS security level for the SELinux user.
 - property: range
   ruby_type: String
   required: false
   description_list:
-  - markdown: Multi-Level Security (MLS) or Multi-Category Security (MCS) security range for the SELinux user.
+  - markdown: MLS/MCS security range for the SELinux user.
 - property: roles
   ruby_type: Array
   required: false
@@ -57,11 +57,13 @@ properties_list:
   description_list:
   - markdown: An optional property to set the SELinux user value if it differs from
       the resource block's name.
+target_mode:
+  support: full
 examples: |
-  **Set an SELinux user with a level and range of `s0` and roles `sysadm_r` and `staff_r`**:
+  **Manage test_u SELinux user with a level and range of s0 and roles sysadm_r and staff_r**:
 
   ```ruby
-  selinux_user 'username' do
+  selinux_user 'test_u' do
     level 's0'
     range 's0'
     roles %w(sysadm_r staff_r)

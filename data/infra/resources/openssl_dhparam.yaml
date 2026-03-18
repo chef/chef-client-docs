@@ -29,10 +29,10 @@ syntax_full_properties_list:
 - "`generator`, `group`, `key_length`, `mode`, `owner`, and `path` are the properties
   available to this resource."
 actions_list:
-  :create:
-    markdown: Create the `dhparam.pem` file. (default)
   :nothing:
     shortcode: resources_common_actions_nothing.md
+  :create:
+    markdown: Create the `dhparam.pem` file. (default)
 properties_list:
 - property: generator
   ruby_type: Integer
@@ -71,6 +71,7 @@ properties_list:
   description_list:
   - markdown: An optional property for specifying the path to write the file to if
       it differs from the resource block's name.
+target_mode:
 examples: |
   **Create a dhparam file**
 

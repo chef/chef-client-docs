@@ -15,7 +15,7 @@ syntax_full_code_block: |-
     secontext      String
     action         Symbol # defaults to :manage if not specified
   end
-syntax_properties_list: 
+syntax_properties_list:
 syntax_full_properties_list:
 - "`selinux_fcontext` is the resource."
 - "`name` is the name given to the resource block."
@@ -36,12 +36,12 @@ actions_list:
   :modify:
     markdown: Update the file context if previously set.
   :delete:
-    markdown: 'Removes the file context if set.'
+    markdown: 'Removes the file context if set. '
 properties_list:
 - property: file_spec
   ruby_type: String
   required: false
-  default_value: The resource block's name.
+  default_value: The resource block's name
   description_list:
   - markdown: Path to or regex matching the files or directories to label.
 - property: file_type
@@ -56,8 +56,10 @@ properties_list:
   required: true
   description_list:
   - markdown: SELinux context to assign.
+target_mode:
+  support: full
 examples: |
-  **Allow http servers (e.g. nginx/apache) to modify Moodle files**:
+  **Allow http servers (e.g. nginx/apache) to modify moodle files**:
 
   ```ruby
   selinux_fcontext '/var/www/moodle(/.*)?' do

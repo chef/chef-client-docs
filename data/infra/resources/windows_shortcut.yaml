@@ -65,6 +65,7 @@ properties_list:
   required: false
   description_list:
   - markdown: The destination that the shortcut links to.
+target_mode:
 examples: |
   **Create a shortcut with a description**:
 

@@ -20,6 +20,7 @@ syntax_description: 'A **paludis_package** resource block manages a package on a
 resource_new_in: '12.1'
 syntax_full_code_block: |-
   paludis_package 'name' do
+    environment       Hash
     options           String, Array
     package_name      String
     source            String
@@ -33,19 +34,35 @@ syntax_full_properties_list:
 - "`name` is the name given to the resource block."
 - "`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state."
-- "`options`, `package_name`, `source`, `timeout`, and `version` are the properties
-  available to this resource."
+- "`environment`, `options`, `package_name`, `source`, `timeout`, and `version` are
+  the properties available to this resource."
 actions_list:
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
   :install:
     markdown: Install a package. If a version is specified, install the specified
       version of the package. (default)
-  :nothing:
-    shortcode: resources_common_actions_nothing.md
-  :remove:
-    markdown: Remove a package.
   :upgrade:
     markdown: Install a package and ensure that a package is the latest version.
+  :remove:
+    markdown: Remove a package.
+  :purge:
+    markdown: Purge a package. This action typically removes the configuration files
+      as well as the package.
+  :reconfig:
+    markdown:
+  :lock:
+    markdown:
+  :unlock:
+    markdown:
 properties_list:
+- property: environment
+  ruby_type: Hash
+  required: false
+  new_in: '19.0'
+  description_list:
+  - markdown: A Hash of environment variables in the form of {'ENV_VARIABLE' => 'VALUE'}
+      to be set before running the command.
 - property: options
   ruby_type: String, Array
   required: false
@@ -73,6 +90,8 @@ properties_list:
   required: false
   description_list:
   - markdown: The version of a package to be installed or upgraded.
+target_mode:
+  support: full
 examples: "
   Install a package\n\n  ```ruby\n  paludis_package 'name of package'\
   \ do\n    action :install\n  end\n  ```\n"

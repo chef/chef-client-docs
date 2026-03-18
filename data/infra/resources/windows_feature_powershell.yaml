@@ -5,12 +5,10 @@ resources_common_notification: true
 resources_common_properties: true
 resource: windows_feature_powershell
 resource_description_list:
-- markdown: 'Use the **windows_feature_powershell** resource to add, remove, or
-    entirely delete Windows features and roles using PowerShell. This
-    resource offers significant speed benefits over the
-    [windows_feature_dism](/resources/bundled/windows_feature_dism/) resource,
-    but requires installation of the Remote Server Administration Tools on
-    non-server releases of Windows.'
+- markdown: Use the **windows_feature_powershell** resource to add, remove, or entirely
+    delete Windows features and roles using PowerShell. This resource offers significant
+    speed benefits over the windows_feature_dism resource, but requires installation
+    of the Remote Server Administration Tools on non-server releases of Windows.
 resource_new_in: '14.0'
 syntax_full_code_block: |-
   windows_feature_powershell 'name' do
@@ -71,6 +69,7 @@ properties_list:
   default_value: '600'
   description_list:
   - markdown: Specifies a timeout (in seconds) for the feature installation.
+target_mode:
 examples: |
   **Add the SMTP Server feature**:
 
