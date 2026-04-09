@@ -33,7 +33,7 @@ To bootstrap a node with Chef Infra Client, run the following:
     In a command window, enter the following:
 
     ```bash
-    knife bootstrap <ADDRESS> -U <USERNAME> --sudo --license-key <LICENSE>
+    knife bootstrap <ADDRESS> -U <USERNAME> --sudo --chef-license-key <LICENSE>
     ```
 
     Replace:
