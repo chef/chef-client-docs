@@ -341,20 +341,20 @@ rest_property_map <MAPPING>
 
 Replace `<MAPPING>` with:
 
-*   An array of 1:1 mappings
-*   A hash mapping resource properties to JSON fields or [JMESPaths](https://jmespath.org/)
-*   A hash mapping resource properties to symbols for custom serialization functions
+* An array of 1:1 mappings
+* A hash mapping resource properties to JSON fields or [JMESPaths](https://jmespath.org/)
+* A hash mapping resource properties to symbols for custom serialization functions
 
 For example:
 
-*   Array of mappings. If your property names match the JSON field names, you can use an array:
+* Array of mappings. If your property names match the JSON field names, you can use an array:
 
-    ```
+  ```ruby
     rest_property_map [:username, :email, :role]
     # Equivalent to: { username: 'username', email: 'email', role: 'role' }
     ```
 
-*   String values. If your property names differ from the JSON fields, or you need to map to nested fields, use a hash:
+* String values. If your property names differ from the JSON fields, or you need to map to nested fields, use a hash:
 
     ```ruby
     rest_property_map({
@@ -363,7 +363,7 @@ For example:
     })
     ```
 
-*   Symbol values. Map a property to a symbol to use custom serialization and deserialization methods:
+* Symbol values. Map a property to a symbol to use custom serialization and deserialization methods:
 
     ```ruby
     rest_property_map({
@@ -373,8 +373,8 @@ For example:
 
 See the following examples for more information:
 
-*   [Use JMESPath expressions to map data](#use-jmespath-expressions-to-map-data-in-a-json-structure)
-*   [Create a custom mapping function](#create-a-custom-mapping-function-with-rest_property_map)
+* [Use JMESPath expressions to map data](#use-jmespath-expressions-to-map-data-in-a-json-structure)
+* [Create a custom mapping function](#create-a-custom-mapping-function-with-rest_property_map)
 
 ### Actions
 
@@ -384,10 +384,10 @@ The REST resource provides two built-in actions.
 
 The `:configure` action creates a new resource or updates an existing one. This action is idempotent and does the following:
 
-*   Checks if the resource exists by querying the API
-*   If it doesn't exist: sends a POST request to create it
-*   If it exists and properties are changed: sends a PATCH request to update it
-*   If it exists and nothing changed: takes no action
+* Checks if the resource exists by querying the API
+* If it doesn't exist: sends a POST request to create it
+* If it exists and properties are changed: sends a PATCH request to update it
+* If it exists and nothing changed: takes no action
 
 For example:
 
@@ -403,9 +403,9 @@ end
 
 The `:delete` action deletes a resource from the REST API. This action is idempotent and does the following:
 
-*   Checks if the resource exists
-*   If it exists: sends a DELETE request
-*   If it doesn't exist: takes no action
+* Checks if the resource exists
+* If it exists: sends a DELETE request
+* If it doesn't exist: takes no action
 
 For example:
 
@@ -713,8 +713,8 @@ For complex transformations that JMESPath can't handle, use custom mapping funct
 
 To create a custom mapping function, specify a symbol (for example, `:symbol_name`) in `rest_property_map` and define two methods in the `action_class`:
 
-*   a method to extract values from an API response: `property_from_json(resource_data)`
-*   a method to convert values for an API request: `property_to_json(property_value)`
+* a method to extract values from an API response: `property_from_json(resource_data)`
+* a method to convert values for an API request: `property_to_json(property_value)`
 
 In the following example, `rest_property_map` uses `:tags_mapping` to handle conversion between the resource's hash representation and the API's array format:
 
@@ -1030,7 +1030,7 @@ rest_api_collection "/api/v1/users"              # leading slash required
 
 ## Additional resources
 
-*   [Custom resources documentation](/resources/custom/)
-*   [JMESPath Tutorial](https://jmespath.org/tutorial.html)
-*   [RFC 6570 URI Template Specification](https://tools.ietf.org/html/rfc6570)
-*   [REST API Tutorial](https://restfulapi.net/)
+* [Custom resources documentation](/resources/custom/)
+* [JMESPath Tutorial](https://jmespath.org/tutorial.html)
+* [RFC 6570 URI Template Specification](https://tools.ietf.org/html/rfc6570)
+* [REST API Tutorial](https://restfulapi.net/)
