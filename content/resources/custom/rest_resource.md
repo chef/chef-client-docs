@@ -14,40 +14,119 @@ The REST resource DSL is a base resource class in Chef Infra Client that allows 
 
 With the REST resource you can:
 
-- Define resource properties that map directly to API fields
-- Configure API endpoints
-- Use built-in actions to create, update, and delete resources with REST APIs
-- Create nested JSON structures using JMESPath expressions
+*   Define resource properties that map directly to API fields
+*   Declare the target API endpoint directly in the resource class
+*   Use built-in actions to create, update, and delete resources with REST APIs
+*   Create nested JSON structures using JMESPath expressions
+*   Handle authentication, pagination, and error conditions cleanly
 
 ## Requirements
 
 The REST custom resource DSL has the following requirements:
 
-- The custom resource must use the `core::rest_resource` partial.
-- Use `property` to define the properties you want to map to the REST API.
-- The target REST API endpoints (collection and document URLs) must be accessible.
-- The Chef Infra Client node must have network access to the REST API endpoints.
-- Any required API authentication (tokens, credentials) must be handled, typically with resource properties or configuration.
+*   The custom resource must use the `core::rest_resource` partial.
+*   Use `property` to define the properties you want to map to the REST API.
+*   The target REST API endpoints (collection and document URLs) must be accessible.
+*   The Chef Infra Client node must have network access to the REST API endpoints.
+*   Any required API authentication (tokens, credentials) must be handled, typically with resource properties or configuration.
+
+## Configuring the API endpoint
+
+There are two ways to tell the REST resource where to send its requests.
+
+### Option 1: rest\_api\_endpoint (recommended)
+
+Set the base URL directly on the resource class using `rest_api_endpoint`. The resource is then fully self-describing — everything a developer needs to understand what API it talks to lives in one place.
+
+```ruby
+class Chef::Resource::ApiUser < Chef::Resource
+  use "core::rest_resource"
+
+  resource_name :api_user
+  provides :api_user
+
+  rest_api_endpoint   "https://api.example.com"
+  rest_api_collection "/api/v1/users"
+  rest_identity_property :username
+
+  property :username, String, name_property: true
+  property :email,    String
+
+  rest_property_map({ username: "username", email: "email" })
+end
+```
+
+The resource constructs full URLs automatically:
+
+```sh
+GET  https://api.example.com/api/v1/users
+GET  https://api.example.com/api/v1/users/jdoe
+POST https://api.example.com/api/v1/users
+```
+
+### Option 2: Train transport endpoint
+
+Alternatively, omit `rest_api_endpoint` and configure the base URL in the Chef target mode transport (Train). The resource then uses relative paths only, and Train prepends its configured endpoint.
+
+```ruby
+# In a Policyfile or knife configuration:
+# transport:
+#   name: rest
+#   endpoint: https://api.example.com
+
+class Chef::Resource::ApiUser < Chef::Resource
+  use "core::rest_resource"
+
+  resource_name :api_user
+  provides :api_user
+
+  # No rest_api_endpoint — base URL comes from the Train transport
+  rest_api_collection "/api/v1/users"
+  rest_api_document   "/api/v1/users/{username}"
+
+  property :username, String, name_property: true
+  property :email,    String
+
+  rest_property_map({ username: "username", email: "email" })
+end
+```
+
+### Why rest\_api\_endpoint is the better choice
+
+When using the Train transport approach, the endpoint is invisible from the resource definition. A developer reading the resource has no way to know which API it targets without searching through Chef configuration files. If a cookbook needs to talk to two different REST APIs, you would need two separate transport configurations.
+
+`rest_api_endpoint` removes all of this ambiguity. The resource declares exactly where it connects, just like it declares its properties and mappings. Use `rest_api_endpoint` unless you have a specific reason not to.
+
+| | `rest_api_endpoint` | Train transport |
+|---|---|---|
+| API URL visible in resource code | Yes | No — must look elsewhere |
+| Works without target mode config | Yes | Requires transport setup |
+| Each resource can target a different API | Yes | All resources share one transport |
+| Resource is self-contained | Yes | Split across two files |
+| Easy to test independently | Yes | Requires transport mock |
 
 ## Basic example
 
 This example does the following:
 
-- creates the `api_user` resource with the `"core::rest_resource"` partial
-- defines an API document and collection
-- defines resource properties
-- maps properties to JSON API fields
-- in a recipe, the custom resource adds and removes an API user
+*   creates the `api_user` resource with the `"core::rest_resource"` partial
+*   declares the API endpoint using `rest_api_endpoint`
+*   defines an API document and collection
+*   defines resource properties
+*   maps properties to JSON API fields
+*   in a recipe, the custom resource adds and removes an API user
 
 ```ruby
 class Chef::Resource::ApiUser < Chef::Resource
-  use "core::rest_resource"  # Include REST resource functionality
+  use "core::rest_resource"
 
   resource_name :api_user
   provides :api_user
 
   # Configure the API document and collection
-  rest_api_collection "/api/v1/users"
+  rest_api_endpoint      "https://api.example.com"
+  rest_api_collection    "/api/v1/users"
+  rest_identity_property :username
   rest_api_document "/api/v1/users/{username}"
 
   # Define resource properties
@@ -91,8 +170,48 @@ These methods are called within your custom resource class definition.
 
 #### rest_api_collection
 
-This method defines the base URL for the resource collection.
-This URL is used for listing resources and creating new ones.
+This method sets the base URL of the REST API. When set, it is prepended to the collection and document paths to form the complete request URL. The resource becomes fully self-contained and does not rely on the Train transport endpoint for its base URL.
+
+This method has the following syntax:
+
+```ruby
+rest_api_endpoint "https://hostname"
+```
+
+*   The value must be a fully-qualified URL including scheme (`https://`)
+*   Do not include a trailing slash
+*   Subclasses inherit this value unless they override it
+
+For example:
+
+```ruby
+rest_api_endpoint "https://api.example.com"
+```
+
+#### rest\_identity\_property
+
+This method declares which property uniquely identifies the resource in the API. When set, `rest_api_document` is automatically generated as `"#{rest_api_collection}/{property}"`, so you do not need to set both.
+
+This method has the following syntax:
+
+```ruby
+rest_identity_property :property_name
+```
+
+*   Accepts a single symbol matching a defined resource property
+*   Subclasses inherit this value unless they override it
+
+For example:
+
+```ruby
+rest_api_collection    "/api/v1/users"
+rest_identity_property :username
+# Equivalent to: rest_api_document "/api/v1/users/{username}"
+```
+
+#### rest\_api\_collection
+
+This method defines the base URL path for the resource collection. This URL is used for listing resources and creating new ones.
 
 This method has the following syntax:
 
@@ -100,8 +219,9 @@ This method has the following syntax:
 rest_api_collection "/path/to/collection"
 ```
 
-- Path must be absolute (start with `/`)
-- Used for GET (list all) and POST (create) operations
+*   Path must be absolute (start with `/`)
+*   Used for GET (list all) and POST (create) operations
+*   Subclasses inherit this value unless they override it
 
 For example:
 
@@ -109,10 +229,9 @@ For example:
 rest_api_collection "/api/v1/users"
 ```
 
-#### rest_api_document
+#### rest\_api\_document
 
-This method defines the URL pattern for individual resource documents.
-Supports RFC 6570 URI templates for dynamic URLs.
+This method defines the URL pattern for individual resource documents. Supports RFC 6570 URI templates for dynamic URLs.
 
 This method has the following syntax:
 
@@ -122,43 +241,44 @@ rest_api_document "/path/to/{resource_id}", first_element_only: false
 
 Parameters:
 
-- `path` (String): URL pattern with optional `{template}` placeholders
-- `first_element_only` (Boolean): If `true`, it extracts the first element from an array response.
+*   `path` (String): URL pattern with optional `{template}` placeholders matching property names
+*   `first_element_only` (Boolean): If `true`, extracts the first element from an array response. Default is `false`.
+
+If you set `rest_identity_property` instead, `rest_api_document` is auto-generated and you do not need to set it manually.
 
 For example:
 
-- Path-based selection:
+*   Path-based selection:
 
-  ```ruby
-  rest_api_document "/api/v1/users/{username}"
-  ```
+    ```ruby
+    rest_api_document "/api/v1/users/{username}"
+    ```
 
-- Query-based selection:
+*   Query-based selection:
 
-  ```ruby
-  rest_api_document "/api/v1/users?name={username}&org={organization}"
-  ```
+    ```ruby
+    rest_api_document "/api/v1/users?name={username}&org={organization}"
+    ```
 
-- Get the first item in an array. For example:
+*   Get the first item in an array:
 
-  ```ruby
-  rest_api_document "/api/v1/search?q={name}", first_element_only: true
-  ```
+    ```ruby
+    rest_api_document "/api/v1/search?q={name}", first_element_only: true
+    ```
 
-  In the above code, if the API response returns an array when fetching a resource document, the resource extracts only the first element.
+    In the above code, if the API response returns an array when fetching a resource document, the resource extracts only the first element.
 
-  For example, if this is response:
+    For example, if this is the response:
 
-  ```json
-  [{"name": "alice", "email": "alice@example.com"}, {"name": "bob", "email": "bob@example.com"}]
-  ```
+    ```ruby
+    [{"name": "alice", "email": "alice@example.com"}, {"name": "bob", "email": "bob@example.com"}]
+    ```
 
-  The resource extracts the following: `{"name": "alice", "email": "alice@example.com"}`.
+    The resource extracts the following: `{"name": "alice", "email": "alice@example.com"}`.
 
-#### rest_identity_map
+#### rest\_identity\_map
 
-This method explicitly defines which properties uniquely identify a resource.
-This is usually inferred automatically from the document URL, but can be specified for complex cases.
+This method explicitly defines which properties uniquely identify a resource. This is usually inferred automatically from the document URL template variables, but can be specified for composite keys or when the JSON field name differs from the URI template variable.
 
 This method has the following syntax:
 
@@ -166,8 +286,7 @@ This method has the following syntax:
 rest_identity_map(<MAPPING>)
 ```
 
-Replace `<MAPPING>` with a hash mapping JSON paths to property symbols.
-For example:
+Replace `<MAPPING>` with a hash mapping JSON field paths to property symbols. For example:
 
 ```ruby
 # Single identity property
@@ -175,12 +294,12 @@ rest_identity_map({ "username" => :username })
 
 # Composite identity
 rest_identity_map({
- "user.name" => :username,
- "organization.id" => :org_id
+  "user.name"       => :username,
+  "organization.id" => :org_id
 })
 ```
 
-#### rest_post_only_properties
+#### rest\_post\_only\_properties
 
 Declares properties that should only be sent during resource creation (POST) and excluded from updates (PATCH).
 
@@ -190,31 +309,29 @@ This method has the following syntax:
 rest_post_only_properties <PROPERTY_OR_ARRAY>
 ```
 
-Replace `<PROPERTY_OR_ARRAY>` with a single symbol or array of symbols representing property names.
-For example:
+Replace `<PROPERTY_OR_ARRAY>` with a single symbol or array of symbols representing property names. For example:
 
-- Single property:
+*   Single property:
 
-  ```ruby
-  rest_post_only_properties :password
-  ```
+    ```ruby
+    rest_post_only_properties :password
+    ```
 
-- Multiple properties:
+*   Multiple properties:
 
-  ```ruby
-  rest_post_only_properties [:password, :initial_role, :creation_token]
-  ```
+    ```ruby
+    rest_post_only_properties [:password, :initial_role, :creation_token]
+    ```
 
 Common use cases:
 
-- Passwords or secrets that can't be updated
-- Resource size/capacity that's immutable after creation
-- Template or source identifiers used only during initialization
+*   Passwords or secrets that cannot be updated via the API
+*   Resource size or capacity that is immutable after creation
+*   Template or source identifiers used only during initialization
 
-#### rest_property_map
+#### rest\_property\_map
 
-The `rest_property_map` method maps resource properties to JSON API fields.
-This supports simple mappings and complex nested structures.
+The `rest_property_map` method maps resource properties to JSON API fields. This supports simple mappings and complex nested structures using JMESPath.
 
 This method has the following syntax:
 
@@ -224,54 +341,53 @@ rest_property_map <MAPPING>
 
 Replace `<MAPPING>` with:
 
-- An array of 1:1 mappings
-- A hash mapping resource properties to JSON fields or [JMESPaths](https://jmespath.org/)
-- A custom mapping function
+*   An array of 1:1 mappings
+*   A hash mapping resource properties to JSON fields or [JMESPaths](https://jmespath.org/)
+*   A hash mapping resource properties to symbols for custom serialization functions
 
 For example:
 
-- Array of mappings. If your property names match the JSON field names, you can use an array:
+*   Array of mappings. If your property names match the JSON field names, you can use an array:
 
-  ```ruby
-  rest_property_map [:username, :email, :role]
-  # Equivalent to: { username: 'username', email: 'email', role: 'role' }
-  ```
+    ```
+    rest_property_map [:username, :email, :role]
+    # Equivalent to: { username: 'username', email: 'email', role: 'role' }
+    ```
 
-- String values: If your property names differ from the JSON fields, or you need to map to nested fields, use a hash to extract or set nested values:
+*   String values. If your property names differ from the JSON fields, or you need to map to nested fields, use a hash:
 
-  ```ruby
-  rest_property_map({
-   full_name: "profile.fullName",
-   email: "contact.email.primary"
-  })
-  ```
+    ```ruby
+    rest_property_map({
+      full_name: "profile.fullName",
+      email:     "contact.email.primary"
+    })
+    ```
 
-- Symbol values: You can also map a property to a method for custom serialization and deserialization:
+*   Symbol values. Map a property to a symbol to use custom serialization and deserialization methods:
 
-  ```ruby
-  rest_property_map({
-   tags: :tags_mapping  # Uses tags_from_json and tags_to_json methods
-  })
-  ```
+    ```ruby
+    rest_property_map({
+      tags: :tags_mapping  # Uses tags_from_json and tags_to_json methods
+    })
+    ```
 
 See the following examples for more information:
 
-- [Use JMESPath expressions to map data](#use-jmespath-expressions-to-map-data-in-a-json-structure)
-- [Create a custom mapping function](#create-a-custom-mapping-function-with-rest_property_map)
+*   [Use JMESPath expressions to map data](#use-jmespath-expressions-to-map-data-in-a-json-structure)
+*   [Create a custom mapping function](#create-a-custom-mapping-function-with-rest_property_map)
 
 ### Actions
 
-The REST resource provides two built-in actions:
+The REST resource provides two built-in actions.
 
 #### :configure (default)
 
-The `:configure` action creates a new resource or updates an existing one.
-This action is idempotent and does the following:
+The `:configure` action creates a new resource or updates an existing one. This action is idempotent and does the following:
 
-- Checks if the resource exists by querying the API
-- If it doesn't exist: Send a POST request to create it
-- If it exists and properties are changed: Send a PATCH request to update it
-- If it exists and nothing changed: Take no action
+*   Checks if the resource exists by querying the API
+*   If it doesn't exist: sends a POST request to create it
+*   If it exists and properties are changed: sends a PATCH request to update it
+*   If it exists and nothing changed: takes no action
 
 For example:
 
@@ -287,9 +403,9 @@ end
 
 The `:delete` action deletes a resource from the REST API. This action is idempotent and does the following:
 
-- Checks if the resource exists
-- If it exists: Send a DELETE request
-- If it doesn't exist: Take no action
+*   Checks if the resource exists
+*   If it exists: sends a DELETE request
+*   If it doesn't exist: takes no action
 
 For example:
 
@@ -303,20 +419,26 @@ end
 
 ### Custom headers and authentication
 
-Override the `rest_headers` method in your action class to add custom headers like authentication tokens.
+Override the `rest_headers` method in your action class to add custom headers such as authentication tokens.
 
 ```ruby
 class Chef::Resource::ApiResource < Chef::Resource
   use "core::rest_resource"
 
+  rest_api_endpoint   "https://api.example.com"
   rest_api_collection "/api/v1/resources"
+  rest_api_document   "/api/v1/resources/{id}"
+
+  property :id, String, name_property: true
+
+  rest_property_map({ id: "id" })
 
   action_class do
     def rest_headers
       {
         "Authorization" => "Bearer #{node['api_token']}",
         "X-API-Version" => "2024-01-01",
-        "Content-Type" => "application/json"
+        "Content-Type"  => "application/json"
       }
     end
   end
@@ -382,9 +504,9 @@ end
 
 ## Examples
 
-### Create a REST API to manage users
+### Create a REST resource using rest\_api\_endpoint and rest\_identity\_property
 
-The following `api_user` custom resource manages users.
+The following `api_user` custom resource is fully self-contained. The API endpoint, collection path, and identity property are all declared in the class — no external transport configuration is needed.
 
 ```ruby
 class Chef::Resource::ApiUser < Chef::Resource
@@ -393,25 +515,26 @@ class Chef::Resource::ApiUser < Chef::Resource
   resource_name :api_user
   provides :api_user
 
-  rest_api_collection "/api/v1/users"
-  rest_api_document "/api/v1/users/{username}"
+  rest_api_endpoint      "https://api.example.com"
+  rest_api_collection    "/api/v1/users"
+  rest_identity_property :username
 
-  property :username, String, name_property: true, identity: true
-  property :email, String, required: true
+  property :username,   String, name_property: true, identity: true
+  property :email,      String, required: true
   property :first_name, String
-  property :last_name, String
-  property :role, String, equal_to: ["admin", "user", "readonly"], default: "user"
-  property :active, [true, false], default: true
-  property :password, String, sensitive: true
+  property :last_name,  String
+  property :role,       String, equal_to: ["admin", "user", "readonly"], default: "user"
+  property :active,     [true, false], default: true
+  property :password,   String, sensitive: true
 
   rest_property_map({
-    username: "username",
-    email: "email",
+    username:   "username",
+    email:      "email",
     first_name: "profile.firstName",
-    last_name: "profile.lastName",
-    role: "permissions.role",
-    active: "status.active",
-    password: "password"
+    last_name:  "profile.lastName",
+    role:       "permissions.role",
+    active:     "status.active",
+    password:   "password"
   })
 
   # Password can only be set during creation
@@ -419,35 +542,82 @@ class Chef::Resource::ApiUser < Chef::Resource
 end
 ```
 
-Use the `api_user` custom resource in a recipe to create a user:
+Use the `api_user` custom resource in a recipe:
 
 ```ruby
 api_user "alice" do
-  email "alice@example.com"
+  email      "alice@example.com"
   first_name "Alice"
-  last_name "Smith"
-  role "admin"
-  password "initial-password-123"
-  action :configure
+  last_name  "Smith"
+  role       "admin"
+  password   "initial-password-123"
+  action     :configure
 end
 ```
 
+### Create a REST resource using the Train transport endpoint
+
+The following `api_user` resource omits `rest_api_endpoint`. The base URL is provided instead by the Chef target mode Train transport. Note that `rest_api_document` must now be set manually because `rest_identity_property` cannot generate it without a base endpoint.
+
+```ruby
+class Chef::Resource::ApiUser < Chef::Resource
+  use "core::rest_resource"
+
+  resource_name :api_user
+  provides :api_user
+
+  # No rest_api_endpoint — base URL comes from the Train transport
+  rest_api_collection "/api/v1/users"
+  rest_api_document   "/api/v1/users/{username}"
+
+  property :username,   String, name_property: true, identity: true
+  property :email,      String, required: true
+  property :first_name, String
+  property :last_name,  String
+  property :role,       String, equal_to: ["admin", "user", "readonly"], default: "user"
+  property :active,     [true, false], default: true
+  property :password,   String, sensitive: true
+
+  rest_property_map({
+    username:   "username",
+    email:      "email",
+    first_name: "profile.firstName",
+    last_name:  "profile.lastName",
+    role:       "permissions.role",
+    active:     "status.active",
+    password:   "password"
+  })
+
+  rest_post_only_properties :password
+end
+```
+
+Configure the base URL in the Chef target mode transport:
+
+```ruby
+# .chef/config.rb or Policyfile transport block
+transport:
+  name:     rest
+  endpoint: https://api.example.com
+```
+
+The recipe usage is identical in both cases.
+
 ### Use JMESPath expressions to map data in a JSON structure
 
-JMESPath is used to navigate and extract data from JSON structures.
-The REST resource supports JMESPath for both reading from and writing to APIs.
+JMESPath is used to navigate and extract data from JSON structures. The REST resource supports JMESPath for both reading from and writing to APIs.
 
 #### JMESPath dot notation
 
 You can use dot notation to specify nested data.
 
-This code example can extract data from the following JSON example:
+This code example extracts data from the following JSON example:
 
 ```ruby
 rest_property_map({
   username: "username",           # Top-level field
-  email: "contact.email",         # Nested field
-  city: "address.location.city"   # Deeply nested field
+  email:    "contact.email",      # Nested field
+  city:     "address.location.city"  # Deeply nested field
 })
 ```
 
@@ -472,11 +642,11 @@ rest_property_map({
 
 You can use a JMESPath wildcard expression to extract data from a JSON structure.
 
-For example, the following extracts the email addresses from each member in the following JSON:
+For example, the following extracts the email address from each member in the following JSON:
 
 ```ruby
 rest_property_map({
-  member_emails: "members[*].email"  # Extract email from each member
+  member_emails: "members[*].email"
 })
 ```
 
@@ -499,9 +669,9 @@ rest_property_map({
 
 #### JMESPath filter projection
 
-You can use filter a filter projection to extract JSON data.
+You can use a filter projection to extract JSON data matching a condition.
 
-For example, the following example returns each user that's active (`["Alice Johnson", "Carol White"]`) from the following JSON:
+For example, the following returns the names of active users (`["Alice Johnson", "Carol White"]`) from the following JSON:
 
 ```ruby
 rest_property_map({
@@ -537,23 +707,29 @@ rest_property_map({
 }
 ```
 
-### Create a custom mapping function with rest_property_map
+### Create a custom mapping function with rest\_property\_map
 
 For complex transformations that JMESPath can't handle, use custom mapping functions by specifying a symbol in the property map.
 
-To create a custom mapping function, create a symbol (for example, `:symbol_name`) and define two methods:
+To create a custom mapping function, specify a symbol (for example, `:symbol_name`) in `rest_property_map` and define two methods in the `action_class`:
 
-- a method to extract values from an API response, for example `property_from_json(resource_data)`
-- a method to convert values for an API request, for example `property_to_json(property_value)`
+*   a method to extract values from an API response: `property_from_json(resource_data)`
+*   a method to convert values for an API request: `property_to_json(property_value)`
 
-In the following example, `rest_property_map` uses `:tags_mapping` to map resource properties to JSON fields in an API:
+In the following example, `rest_property_map` uses `:tags_mapping` to handle conversion between the resource's hash representation and the API's array format:
 
 ```ruby
 class Chef::Resource::ApiProject < Chef::Resource
   use "core::rest_resource"
 
   resource_name :api_project
+  provides :api_project
 
+  rest_api_endpoint      "https://api.example.com"
+  rest_api_collection    "/projects"
+  rest_identity_property :name
+
+  property :name, String, name_property: true
   property :tags, Hash, default: {}
 
   rest_property_map({
@@ -614,25 +790,26 @@ class Chef::Resource::CloudServer < Chef::Resource
   resource_name :cloud_server
   provides :cloud_server
 
-  rest_api_collection "/api/v2/servers"
-  rest_api_document "/api/v2/servers/{server_id}"
+  rest_api_endpoint      "https://api.cloud.example.com"
+  rest_api_collection    "/api/v2/servers"
+  rest_identity_property :server_id
 
   property :server_id, String, name_property: true, identity: true
-  property :name, String, required: true
-  property :size, String, required: true
-  property :region, String, required: true
-  property :image, String, required: true
-  property :tags, Hash, default: {}
-  property :ssh_keys, Array, default: []
+  property :name,      String, required: true
+  property :size,      String, required: true
+  property :region,    String, required: true
+  property :image,     String, required: true
+  property :tags,      Hash, default: {}
+  property :ssh_keys,  Array, default: []
 
   rest_property_map({
     server_id: "id",
-    name: "name",
-    size: "size.slug",
-    region: "region.slug",
-    image: "image.slug",
-    tags: :tags_mapping,
-    ssh_keys: "ssh_keys[*].id"
+    name:      "name",
+    size:      "size.slug",
+    region:    "region.slug",
+    image:     "image.slug",
+    tags:      :tags_mapping,
+    ssh_keys:  "ssh_keys[*].id"
   })
 
   # Size and image can only be set at creation
@@ -641,8 +818,7 @@ class Chef::Resource::CloudServer < Chef::Resource
   action_class do
     # Convert tag hash to API's array format
     def tags_from_json(resource_data)
-      tags = resource_data.dig("tags") || []
-      tags.to_h { |t| [t["key"], t["value"]] }
+      (resource_data["tags"] || []).to_h { |t| [t["key"], t["value"]] }
     end
 
     def tags_to_json(tags_hash)
@@ -654,7 +830,7 @@ class Chef::Resource::CloudServer < Chef::Resource
     def rest_headers
       {
         "Authorization" => "Bearer #{node['cloud_api_token']}",
-        "Content-Type" => "application/json"
+        "Content-Type"  => "application/json"
       }
     end
 
@@ -672,24 +848,23 @@ class Chef::Resource::CloudServer < Chef::Resource
 end
 ```
 
-In a recipe, create the virtual machine:
+In a recipe:
 
 ```ruby
-# Usage:
 cloud_server "web-01" do
-  name "web-server-01"
-  size "s-2vcpu-4gb"
-  region "nyc3"
-  image "ubuntu-22-04-x64"
+  name     "web-server-01"
+  size     "s-2vcpu-4gb"
+  region   "nyc3"
+  image    "ubuntu-22-04-x64"
   tags({ "environment" => "production", "role" => "web" })
   ssh_keys [12345, 67890]
-  action :configure
+  action   :configure
 end
 ```
 
 ### Query-based resource selection
 
-This example demonstrates how to use query parameters to identify a unique resource when the API doesn't support path-based resource selection.
+This example demonstrates how to use query parameters to identify a unique resource when the API does not support path-based resource selection, and `rest_identity_map` when the JSON field names differ from the URI template variable names.
 
 ```ruby
 class Chef::Resource::DnsRecord < Chef::Resource
@@ -698,19 +873,20 @@ class Chef::Resource::DnsRecord < Chef::Resource
   resource_name :dns_record
   provides :dns_record
 
+  rest_api_endpoint   "https://dns.example.com"
   rest_api_collection "/api/v1/zones/example.com/records"
-  rest_api_document "/api/v1/zones/example.com/records?name={record_name}&type={record_type}"
+  rest_api_document   "/api/v1/zones/example.com/records?name={record_name}&type={record_type}"
 
   property :record_name, String, name_property: true
   property :record_type, String, equal_to: ["A", "AAAA", "CNAME", "MX", "TXT"], default: "A"
-  property :value, String, required: true
-  property :ttl, Integer, default: 3600
+  property :value,       String, required: true
+  property :ttl,         Integer, default: 3600
 
   rest_property_map({
     record_name: "name",
     record_type: "type",
-    value: "content",
-    ttl: "ttl"
+    value:       "content",
+    ttl:         "ttl"
   })
 
   # Explicitly define composite identity
@@ -719,13 +895,16 @@ class Chef::Resource::DnsRecord < Chef::Resource
     "type" => :record_type
   })
 end
+```
 
-# Usage:
+In a recipe:
+
+```ruby
 dns_record "www.example.com" do
   record_type "A"
-  value "192.0.2.1"
-  ttl 300
-  action :configure
+  value       "192.0.2.1"
+  ttl         300
+  action      :configure
 end
 ```
 
@@ -740,15 +919,16 @@ class Chef::Resource::TeamMember < Chef::Resource
   resource_name :team_member
   provides :team_member
 
-  rest_api_collection "/api/v1/teams/engineering/members"
-  rest_api_document "/api/v1/teams/engineering/members/{user_id}"
+  rest_api_endpoint      "https://api.example.com"
+  rest_api_collection    "/api/v1/teams/engineering/members"
+  rest_identity_property :user_id
 
   property :user_id, String, name_property: true, identity: true
   property :role, String, equal_to: ["member", "maintainer", "owner"]
 
   rest_property_map({
     user_id: "id",
-    role: "role"
+    role:    "role"
   })
 
   action_class do
@@ -807,12 +987,12 @@ end
 
 #### Issue: "No such file" error for identity property
 
-This usually means the identity mapping is incorrect or the document URL template doesn't match the property.
+This usually means the identity mapping is incorrect or the document URL template does not match the property name.
 
 ```ruby
 # Ensure template variables match property names
-rest_api_document "/api/v1/users/{username}"  # Template: username
-property :username, String, identity: true     # Property: username
+rest_api_document "/api/v1/users/{username}"  # Template variable: username
+property :username, String, identity: true    # Property name: username
 ```
 
 #### Issue: Properties not updating
@@ -821,26 +1001,36 @@ Check if properties are accidentally marked as post-only:
 
 ```ruby
 rest_post_only_properties [:password]  # Only password is post-only
-# Don't include properties that should be updatable
+# Do not include properties that should be updatable
 ```
 
 #### Issue: "Can't resolve property to JSON"
 
-Verify your property map includes all properties you're trying to set:
+Verify your property map includes all properties you are trying to set:
 
 ```ruby
 property :email, String
-property :role, String
+property :role,  String
 
 rest_property_map({
   email: "email",
-  role: "role"  # Don't forget to map all properties
+  role:  "role"
 })
+```
+
+#### Issue: Request going to the wrong URL
+
+If you are using `rest_api_endpoint`, confirm that the value does not include a trailing slash and that `rest_api_collection` starts with `/`. The two are concatenated directly:
+
+```ruby
+rest_api_endpoint   "https://api.example.com"   # no trailing slash
+rest_api_collection "/api/v1/users"              # leading slash required
+# Result: https://api.example.com/api/v1/users
 ```
 
 ## Additional resources
 
-- [Custom resources documentation](/resources/custom/)
-- [JMESPath Tutorial](https://jmespath.org/tutorial.html)
-- [RFC 6570 URI Template Specification](https://tools.ietf.org/html/rfc6570)
-- [REST API Tutorial](https://restfulapi.net/)
+*   [Custom resources documentation](/resources/custom/)
+*   [JMESPath Tutorial](https://jmespath.org/tutorial.html)
+*   [RFC 6570 URI Template Specification](https://tools.ietf.org/html/rfc6570)
+*   [REST API Tutorial](https://restfulapi.net/)
