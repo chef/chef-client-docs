@@ -14,21 +14,21 @@ The REST resource DSL is a base resource class in Chef Infra Client that allows 
 
 With the REST resource you can:
 
-*   Define resource properties that map directly to API fields
-*   Declare the target API endpoint directly in the resource class
-*   Use built-in actions to create, update, and delete resources with REST APIs
-*   Create nested JSON structures using JMESPath expressions
-*   Handle authentication, pagination, and error conditions cleanly
+* Define resource properties that map directly to API fields
+* Declare the target API endpoint directly in the resource class
+* Use built-in actions to create, update, and delete resources with REST APIs
+* Create nested JSON structures using JMESPath expressions
+* Handle authentication, pagination, and error conditions cleanly
 
 ## Requirements
 
 The REST custom resource DSL has the following requirements:
 
-*   The custom resource must use the `core::rest_resource` partial.
-*   Use `property` to define the properties you want to map to the REST API.
-*   The target REST API endpoints (collection and document URLs) must be accessible.
-*   The Chef Infra Client node must have network access to the REST API endpoints.
-*   Any required API authentication (tokens, credentials) must be handled, typically with resource properties or configuration.
+* The custom resource must use the `core::rest_resource` partial.
+* Use `property` to define the properties you want to map to the REST API.
+* The target REST API endpoints (collection and document URLs) must be accessible.
+* The Chef Infra Client node must have network access to the REST API endpoints.
+* Any required API authentication (tokens, credentials) must be handled, typically with resource properties or configuration.
 
 ## Configuring the API endpoint
 
@@ -109,12 +109,12 @@ When using the Train transport approach, the endpoint is invisible from the reso
 
 This example does the following:
 
-*   creates the `api_user` resource with the `"core::rest_resource"` partial
-*   declares the API endpoint using `rest_api_endpoint`
-*   defines an API document and collection
-*   defines resource properties
-*   maps properties to JSON API fields
-*   in a recipe, the custom resource adds and removes an API user
+* creates the `api_user` resource with the `"core::rest_resource"` partial
+* declares the API endpoint using `rest_api_endpoint`
+* defines an API document and collection
+* defines resource properties
+* maps properties to JSON API fields
+* in a recipe, the custom resource adds and removes an API user
 
 ```ruby
 class Chef::Resource::ApiUser < Chef::Resource
@@ -178,9 +178,9 @@ This method has the following syntax:
 rest_api_endpoint "https://hostname"
 ```
 
-*   The value must be a fully-qualified URL including scheme (`https://`)
-*   Do not include a trailing slash
-*   Subclasses inherit this value unless they override it
+* The value must be a fully-qualified URL including scheme (`https://`)
+* Do not include a trailing slash
+* Subclasses inherit this value unless they override it
 
 For example:
 
@@ -198,8 +198,8 @@ This method has the following syntax:
 rest_identity_property :property_name
 ```
 
-*   Accepts a single symbol matching a defined resource property
-*   Subclasses inherit this value unless they override it
+* Accepts a single symbol matching a defined resource property
+* Subclasses inherit this value unless they override it
 
 For example:
 
@@ -219,9 +219,9 @@ This method has the following syntax:
 rest_api_collection "/path/to/collection"
 ```
 
-*   Path must be absolute (start with `/`)
-*   Used for GET (list all) and POST (create) operations
-*   Subclasses inherit this value unless they override it
+* Path must be absolute (start with `/`)
+* Used for GET (list all) and POST (create) operations
+* Subclasses inherit this value unless they override it
 
 For example:
 
@@ -241,26 +241,26 @@ rest_api_document "/path/to/{resource_id}", first_element_only: false
 
 Parameters:
 
-*   `path` (String): URL pattern with optional `{template}` placeholders matching property names
-*   `first_element_only` (Boolean): If `true`, extracts the first element from an array response. Default is `false`.
+* `path` (String): URL pattern with optional `{template}` placeholders matching property names
+* `first_element_only` (Boolean): If `true`, extracts the first element from an array response. Default is `false`.
 
 If you set `rest_identity_property` instead, `rest_api_document` is auto-generated and you do not need to set it manually.
 
 For example:
 
-*   Path-based selection:
+* Path-based selection:
 
     ```ruby
     rest_api_document "/api/v1/users/{username}"
     ```
 
-*   Query-based selection:
+* Query-based selection:
 
     ```ruby
     rest_api_document "/api/v1/users?name={username}&org={organization}"
     ```
 
-*   Get the first item in an array:
+* Get the first item in an array:
 
     ```ruby
     rest_api_document "/api/v1/search?q={name}", first_element_only: true
@@ -311,13 +311,13 @@ rest_post_only_properties <PROPERTY_OR_ARRAY>
 
 Replace `<PROPERTY_OR_ARRAY>` with a single symbol or array of symbols representing property names. For example:
 
-*   Single property:
+* Single property:
 
     ```ruby
     rest_post_only_properties :password
     ```
 
-*   Multiple properties:
+* Multiple properties:
 
     ```ruby
     rest_post_only_properties [:password, :initial_role, :creation_token]
@@ -325,9 +325,9 @@ Replace `<PROPERTY_OR_ARRAY>` with a single symbol or array of symbols represent
 
 Common use cases:
 
-*   Passwords or secrets that cannot be updated via the API
-*   Resource size or capacity that is immutable after creation
-*   Template or source identifiers used only during initialization
+* Passwords or secrets that cannot be updated via the API
+* Resource size or capacity that is immutable after creation
+* Template or source identifiers used only during initialization
 
 #### rest\_property\_map
 
