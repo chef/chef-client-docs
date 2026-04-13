@@ -6,9 +6,12 @@ option to tell Chef Infra Client which JSON file to use. For example:
 chef-client -j /etc/chef/file.json --environment _default
 ```
 
-where `file.json` is similar to:
+Where:
 
-```javascript
+- `_default` is the name of the environment assigned to the node.
+- `file.json` is similar to the following:
+
+```json
 {
   "resolver": {
     "nameservers": [ "10.0.0.1" ],
@@ -18,14 +21,9 @@ where `file.json` is similar to:
 }
 ```
 
-and where `_default` is the name of the environment that's assigned to
-the node.
-
 {{< warning >}}
 
-This approach may be used to update
-[normal](/cookbooks/attributes/attribute_types/) attributes, but should never
-be used to update any other attribute type, as all attributes updated
-using this option are treated as `normal` attributes.
+You can use this approach to update [normal](/cookbooks/attributes/attribute_types/) attributes, but don't use it to update any other attribute type.
+Chef Infra Client treats all attributes set with this option as `normal` attributes.
 
 {{< /warning >}}

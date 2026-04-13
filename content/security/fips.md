@@ -56,7 +56,7 @@ enabling FIPS if it's contractually necessary.
 **Supported:**
 
 - [Chef Infra Client](#how-to-enable-fips-mode-for-chef-infra-client)
-- [Chef Workstation](https://docs.chef.io/workstation/knife_bootstrap/#fips-mode)
+- [Chef Workstation](https://docs.chef.io/workstation/latest/tools/knife/knife_bootstrap/#fips-mode)
 - [Chef Infra Server](#how-to-enable-fips-mode-for-chef-infra-server)
 
 **Unsupported:**
