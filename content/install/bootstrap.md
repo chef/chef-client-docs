@@ -16,6 +16,27 @@ draft = false
 
 To bootstrap a node with Chef Infra Client 19 or above, you must use Chef Workstation 26 or above.
 
+## What the bootstrap operation does
+
+{{< readfile file="content/reusable/md/chef_client_bootstrap_stages.md" >}}
+
+{{< readfile file="content/reusable/md/install_chef_client.md" >}}
+
+### Validatorless bootstrapping
+
+Validatorless bootstrapping generates a key for each node, which is then transferred to the new node and used to authenticate with Chef Infra Server instead of relying on a shared validator key.
+
+By default, the Chef Infra bootstrap process is validatorless and is the recommended way to authenticate new nodes with Chef Infra Server.
+
+The legacy Chef Infra validator-based node bootstrapping process depended on using a shared validator key throughout an organization to authenticate new nodes with Chef Infra Server.
+
+Shortcomings of the legacy validator process include:
+
+- All users share the same key for bootstrapping new systems.
+- Key sharing makes key rotation difficult if the key is compromised or if an employee leaves the organization.
+
+If you receive a warning during a bootstrap that a validator key is in use, remove the configuration for this legacy bootstrap mode. Edit your [config.rb (knife.rb)](https://docs.chef.io/workstation/latest/tools/knife/config_rb/) file and remove any `validation_key` or `validation_client_name` entries.
+
 ## Bootstrap a node
 
 The `knife bootstrap` command runs a bootstrap operation that installs Chef Infra Client on a target node.
@@ -78,27 +99,6 @@ To bootstrap a node with Chef Infra Client, run the following:
     ```
 
 For more information, see the [Knife bootstrap documentation](https://docs.chef.io/workstation/latest/tools/knife/knife_bootstrap/).
-
-## What the bootstrap operation does
-
-{{< readfile file="content/reusable/md/chef_client_bootstrap_stages.md" >}}
-
-{{< readfile file="content/reusable/md/install_chef_client.md" >}}
-
-### Validatorless bootstrapping
-
-Validatorless bootstrapping generates a key for each node, which is then transferred to the new node and used to authenticate with Chef Infra Server instead of relying on a shared validator key.
-
-By default, the Chef Infra bootstrap process is validatorless and is the recommended way to authenticate new nodes with Chef Infra Server.
-
-The legacy Chef Infra validator-based node bootstrapping process depended on using a shared validator key throughout an organization to authenticate new nodes with Chef Infra Server.
-
-Shortcomings of the legacy validator process include:
-
-- All users share the same key for bootstrapping new systems.
-- Key sharing makes key rotation difficult if the key is compromised or if an employee leaves the organization.
-
-If you receive a warning during a bootstrap that a validator key is in use, remove the configuration for this legacy bootstrap mode. Edit your [config.rb (knife.rb)](https://docs.chef.io/workstation/config_rb/) file and remove any `validation_key` or `validation_client_name` entries.
 
 ## Bootstrap a node with a Chef Vault item
 
