@@ -140,7 +140,7 @@ chef-client OPTION VALUE
 
 You can accept the Chef License in the Chef Infra Client or Knife config files.
 
-On a workstation, set this in the [`~/.chef/config.rb` or `~/.chef/knife.rb` files](https://docs.chef.io/workstation/config_rb/).
+On a workstation, set this in the [`~/.chef/config.rb` or `~/.chef/knife.rb` files](https://docs.chef.io/workstation/latest/tools/knife/config_rb/).
 On a node, set this in the [`/etc/chef/client.rb`]({{< relref "/install/config_rb_client" >}}) file.
 
 ```ruby
