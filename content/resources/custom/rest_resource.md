@@ -69,19 +69,17 @@ POST https://api.example.com/api/v1/users
 
 Configure the base URL in the Chef target mode transport (Train). The resource then uses relative paths only, and Train prepends its configured endpoint.
 
-```ruby
-# In a Policyfile or knife configuration:
-# transport:
-#   name: rest
-#   endpoint: https://api.example.com
+Set the transport endpoint using either a Policyfile or a knife configuration file.
+With the endpoint's base URL configured, define the resource's relative paths:
 
+```ruby
 class Chef::Resource::ApiUser < Chef::Resource
   use "core::rest_resource"
 
   resource_name :api_user
   provides :api_user
 
-  # No rest_api_endpoint — base URL comes from the Train transport
+  # No rest_api_endpoint: base URL comes from the Train transport
   rest_api_collection "/api/v1/users"
   rest_api_document   "/api/v1/users/{username}"
 
