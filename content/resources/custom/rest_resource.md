@@ -10,15 +10,16 @@ title = "Create a RESTful custom resource"
     weight = 50
 +++
 
-The REST resource DSL is a base resource class in Chef Infra Client that allows you to create custom resources that interact with RESTful APIs. Instead of writing HTTP request handling code from scratch, you can extend this resource to create custom resources that automatically handle API interactions, JSON mapping, and state management.
+The REST resource DSL is a base resource class in Chef Infra Client that allows you to create custom resources that interact with RESTful APIs.
+Instead of writing HTTP request handling code from scratch, you can extend this resource to create custom resources that automatically handle API interactions, JSON mapping, and state management.
 
-With the REST resource you can:
+With the REST resource, you can:
 
-- Define resource properties that map directly to API fields
-- Declare the target API endpoint directly in the resource class
-- Use built-in actions to create, update, and delete resources with REST APIs
-- Create nested JSON structures using JMESPath expressions
-- Handle authentication, pagination, and error conditions cleanly
+- Define resource properties that map directly to API fields.
+- Declare the target API endpoint directly in the resource class.
+- Use built-in actions to create, update, and delete resources with REST APIs.
+- Create nested JSON structures using JMESPath expressions.
+- Handle authentication, pagination, and error conditions cleanly.
 
 ## Requirements
 
@@ -95,7 +96,7 @@ end
 
 When using the Train transport approach, the endpoint is invisible from the resource definition. A developer reading the resource has no way to know which API it targets without searching through Chef configuration files. If a cookbook needs to talk to two different REST APIs, you would need two separate transport configurations.
 
-`rest_api_endpoint` removes all of this ambiguity. The resource declares exactly where it connects, just like it declares its properties and mappings. Use `rest_api_endpoint` unless you have a specific reason not to.
+`rest_api_endpoint` removes this ambiguity. The resource declares exactly where it connects, just like it declares its properties and mappings. Use `rest_api_endpoint` unless you have a specific reason not to.
 
 |                                          | `rest_api_endpoint` | Train transport                   |
 | ---------------------------------------- | ------------------- | --------------------------------- |
@@ -109,12 +110,12 @@ When using the Train transport approach, the endpoint is invisible from the reso
 
 This example does the following:
 
-- creates the `api_user` resource with the `"core::rest_resource"` partial
-- declares the API endpoint using `rest_api_endpoint`
-- defines an API document and collection
-- defines resource properties
-- maps properties to JSON API fields
-- in a recipe, the custom resource adds and removes an API user
+- Creates the `api_user` resource with the `"core::rest_resource"` partial
+- Declares the API endpoint using `rest_api_endpoint`
+- Defines an API document and collection
+- Defines resource properties
+- Maps properties to JSON API fields
+- Uses the custom resource in a recipe to add and remove a user
 
 ```ruby
 class Chef::Resource::ApiUser < Chef::Resource
@@ -168,9 +169,9 @@ The `rest_resource` has the following methods and actions.
 The REST resource provides several DSL methods for configuring API interactions.
 These methods are called within your custom resource class definition.
 
-#### `rest_api_collection`
+#### `rest_api_endpoint`
 
-This method sets the base URL of the REST API. When set, it's prepended to the collection and document paths to form the complete request URL. The resource becomes fully self-contained and doesn't rely on the Train transport endpoint for its base URL.
+This method sets the base URL of the REST API. When set, it's prepended to the collection and document paths to form the complete request URL, making the resource fully self-contained and independent of the Train transport endpoint.
 
 This method has the following syntax:
 
@@ -190,7 +191,7 @@ rest_api_endpoint "https://api.example.com"
 
 #### `rest_identity_property`
 
-This method declares which property uniquely identifies the resource in the API. When set, `rest_api_document` is automatically generated as `"#{rest_api_collection}/{property}"`, so you don't need to set both.
+This method declares which property uniquely identifies the resource in the API. When set, `rest_api_document` is automatically generated as `"#{rest_api_collection}/{property}"`, so you don't need to set `rest_api_document` separately.
 
 This method has the following syntax:
 
@@ -211,7 +212,7 @@ rest_identity_property :username
 
 #### `rest_api_collection`
 
-This method defines the base URL path for the resource collection. This URL is used for listing resources and creating new ones.
+This method defines the base URL path for the resource collection. Chef Infra Client uses this URL to list resources and create new ones.
 
 This method has the following syntax:
 
@@ -231,7 +232,7 @@ rest_api_collection "/api/v1/users"
 
 #### `rest_api_document`
 
-This method defines the URL pattern for individual resource documents. Supports RFC 6570 URI templates for dynamic URLs.
+This method defines the URL pattern for individual resource documents and supports RFC 6570 URI templates for dynamic URLs.
 
 This method has the following syntax:
 
@@ -266,7 +267,7 @@ For example:
     rest_api_document "/api/v1/search?q={name}", first_element_only: true
     ```
 
-    In the above code, if the API response returns an array when fetching a resource document, the resource extracts only the first element.
+    With `first_element_only: true`, if the API response returns an array, the resource extracts only the first element.
 
     For example, if this is the response:
 
@@ -299,7 +300,7 @@ rest_identity_map({
 })
 ```
 
-#### rest_post_only_properties
+#### `rest_post_only_properties`
 
 Declares properties that should only be sent during resource creation (POST) and excluded from updates (PATCH).
 
@@ -329,7 +330,7 @@ Common use cases:
 - Resource size or capacity that's immutable after creation
 - Template or source identifiers used only during initialization
 
-#### rest_property_map
+#### `rest_property_map`
 
 The `rest_property_map` method maps resource properties to JSON API fields. This supports simple mappings and complex nested structures using JMESPath.
 
@@ -606,13 +607,13 @@ The recipe usage is identical in both cases.
 
 ### Use JMESPath expressions to map data in a JSON structure
 
-JMESPath is used to navigate and extract data from JSON structures. The REST resource supports JMESPath for both reading from and writing to APIs.
+JMESPath navigates and extracts data from JSON structures. The REST resource supports JMESPath for both reading from and writing to APIs.
 
 #### JMESPath dot notation
 
 You can use dot notation to specify nested data.
 
-This code example extracts data from the following JSON example:
+This code extracts data from the following JSON:
 
 ```ruby
 rest_property_map({
@@ -643,7 +644,7 @@ rest_property_map({
 
 You can use a JMESPath wildcard expression to extract data from a JSON structure.
 
-For example, the following extracts the email address from each member in the following JSON:
+For example, the following extracts the email address from each member in this JSON:
 
 ```ruby
 rest_property_map({
@@ -672,7 +673,7 @@ rest_property_map({
 
 You can use a filter projection to extract JSON data matching a condition.
 
-For example, the following returns the names of active users (`["Alice Johnson", "Carol White"]`) from the following JSON:
+For example, the following returns the names of active users (`["Alice Johnson", "Carol White"]`) from this JSON:
 
 ```ruby
 rest_property_map({
@@ -714,8 +715,8 @@ For complex transformations that JMESPath can't handle, use custom mapping funct
 
 To create a custom mapping function, specify a symbol (for example, `:symbol_name`) in `rest_property_map` and define two methods in the `action_class`:
 
-- a method to extract values from an API response: `property_from_json(resource_data)`
-- a method to convert values for an API request: `property_to_json(property_value)`
+- A method that extracts values from an API response: `property_from_json(resource_data)`
+- A method that converts values for an API request: `property_to_json(property_value)`
 
 In the following example, `rest_property_map` uses `:tags_mapping` to handle conversion between the resource's hash representation and the API's array format:
 
@@ -865,7 +866,7 @@ end
 
 ### Query-based resource selection
 
-This example demonstrates how to use query parameters to identify a unique resource when the API doesn't support path-based resource selection, and `rest_identity_map` when the JSON field names differ from the URI template variable names.
+This example demonstrates how to use query parameters to identify a unique resource when the API doesn't support path-based resource selection. It also shows how to use `rest_identity_map` when the JSON field names differ from the URI template variable names.
 
 ```ruby
 class Chef::Resource::DnsRecord < Chef::Resource
