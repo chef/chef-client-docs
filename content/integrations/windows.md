@@ -64,13 +64,13 @@ Windows:
 <tbody>
 <tr>
 <td>Windows</td>
-<td><code>x86</code>, <code>x64</code></td>
-<td><code>8.1</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019 (Long-term servicing channel (LTSC), both Desktop Experience and Server Core)</code></td>
+<td><code>x64</code></td>
+<td><code>10</code>, <code>11</code>, <code>Server 2016</code>, <code>Server 2019</code>, <code>Server 2022</code></td>
 </tr>
 </tbody>
 </table>
 
-After Chef Infra Client is installed, it's located at `C:\opscode`. The
+After Chef Infra Client is installed, it's located at `C:\hab`. The
 main configuration file for Chef Infra Client is located at
 `C:\chef\client.rb`.
 
