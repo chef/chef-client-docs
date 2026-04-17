@@ -63,3 +63,7 @@ ignoreRegExpList:
   - "/'d\\b/"
   - "/^\\s*```[\\s\\S]*?^\\s*```/gm"
   - "{{(.+)(?=}})"
+
+words:
+  - postprocess
+  - JMES
