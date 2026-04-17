@@ -11,9 +11,9 @@ title = "Create a RESTful custom resource"
 +++
 
 <!--
-  UNRELEASED FEATURES — TO DO BEFORE PUBLISHING
+  UNRELEASED FEATURES --- TO DO BEFORE PUBLISHING
   ==============================================
-  Two new DSL methods — `rest_api_endpoint` and `rest_identity_property` — are implemented
+  Two new DSL methods --- `rest_api_endpoint` and `rest_identity_property` --- are implemented
   in the codebase but not yet available in the stable Chef Infra Client release (v19.2.12).
   The sections below that document these methods have been commented out until they ship.
 
