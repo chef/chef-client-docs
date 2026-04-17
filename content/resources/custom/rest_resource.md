@@ -86,7 +86,7 @@ title = "Create a RESTful custom resource"
       The existing text under this heading also includes the code comment change from step 13.
 -->
 
-The REST resource DSL is a base resource class in Chef Infra Clientthat allows you to create custom resources that interact with RESTful APIs.
+The REST resource DSL is a base resource class in Chef Infra Client that allows you to create custom resources that interact with RESTful APIs.
 Instead of writing HTTP request handling code from scratch, you can extend this resource to create custom resources that automatically handle API interactions, JSON mapping, and state management.
 
 With the REST resource, you can:
