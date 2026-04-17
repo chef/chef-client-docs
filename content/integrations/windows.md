@@ -48,27 +48,9 @@ have access to Chef Infra Server using HTTPS. The Chef Infra Client can be
 used to manage machines that run on the following versions of Microsoft
 Windows:
 
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Operating System</th>
-<th>Architecture</th>
-<th>Version</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Windows</td>
-<td><code>x64</code></td>
-<td><code>10</code>, <code>11</code>, <code>Server 2016</code>, <code>Server 2019</code>, <code>Server 2022</code></td>
-</tr>
-</tbody>
-</table>
+| Operating System | Architecture | Version                                                 |
+| ---------------- | ------------ | ------------------------------------------------------- |
+| Windows          | `x64`        | `10`, `11`, `Server 2016`, `Server 2019`, `Server 2022` |
 
 After Chef Infra Client is installed, it's located at `C:\hab`. The
 main configuration file for Chef Infra Client is located at
