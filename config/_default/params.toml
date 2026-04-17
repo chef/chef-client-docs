@@ -126,16 +126,16 @@ errorLevel = 'warning'
 #######
 
 [versions.this_version]
-swiftype_search_products = [ "client-19.1" ]
-release_date = "2026-02-03"
+swiftype_search_products = [ "client-19" ]
+release_date = "2026-04-18"
 
 [versions.version_selector]
 enabled = true
-this_version_text = "Chef Infra Client v 19.1"
+this_version_text = "Chef Infra Client v 19"
 
 [[versions.version_selector.versions]]
-link_text = "Chef Infra Client v 19.1"
-base_url = "https://docs.chef.io/client/19.1"
+link_text = "Chef Infra Client v 19"
+base_url = "https://docs.chef.io/client/19"
 
 [[versions.version_selector.versions]]
 link_text = "Chef Infra Client v 18"
