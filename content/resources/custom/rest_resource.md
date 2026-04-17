@@ -147,7 +147,15 @@ POST https://api.example.com/api/v1/users
 
 Configure the base URL in the Chef target mode transport (Train). The resource then uses relative paths only, and Train prepends its configured endpoint.
 
-Set the transport endpoint using either a Policyfile or a knife configuration file.
+Set the transport endpoint using either a Policyfile or a knife configuration file:
+
+```ruby
+# .chef/config.rb or Policyfile transport block
+transport:
+  name:     rest
+  endpoint: https://api.example.com
+```
+
 With the endpoint's base URL configured, define the resource's relative paths:
 
 ```ruby
@@ -165,6 +173,22 @@ class Chef::Resource::ApiUser < Chef::Resource
   property :email,    String
 
   rest_property_map({ username: "username", email: "email" })
+end
+```
+
+Once defined, you can use the custom resource to add and remove a user in a recipe. For example:
+
+```ruby
+# Create or update a user
+api_user "jdoe" do
+  email "jdoe@example.com"
+  active true
+  action :configure
+end
+
+# Delete a user
+api_user "jdoe" do
+  action :delete
 end
 ```
 
@@ -223,21 +247,6 @@ class Chef::Resource::ApiUser < Chef::Resource
 end
 ```
 
-Once defined, you can use the custom resource to add and remove a user in a recipe:
-
-```ruby
-# Create or update a user
-api_user "jdoe" do
-  email "jdoe@example.com"
-  active true
-  action :configure
-end
-
-# Delete a user
-api_user "jdoe" do
-  action :delete
-end
-```
 -->
 
 ## Methods and actions
