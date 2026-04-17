@@ -1,10 +1,6 @@
 +++
 title = "Custom resources glossary"
 
-
-
-
-
 [menu]
   [menu.resources]
     title = "Glossary"
