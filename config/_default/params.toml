@@ -139,4 +139,4 @@ base_url = "https://docs.chef.io/client/19"
 
 [[versions.version_selector.versions]]
 link_text = "Chef Infra Client v 18"
-base_url = "https://docs.chef.io/chef_overview/"
+base_url = "https://docs.chef.io/chef_overview"
