@@ -1,6 +1,11 @@
 <!-- markdownlint-disable-next-line MD002 -->
 # Chef Infra Client docs
 
+> [!IMPORTANT]  
+> Chef Infra Client now lives in [chef/chef-web-docs](https://github.com/chef/chef-web-docs/tree/main/content/client) (again).
+
+<!--
+
 Documentation for Chef Infra Client.
 
 ## Versions
@@ -113,6 +118,8 @@ Netlify deploys content in the `main` branch of this repository to [<https://che
 
 1. Push the branch up to GitHub. Netlify automatically builds a deployment of that branch at `release-<MAJ>.<MIN>--chef-infra-client.netlify.app/client/<MAJ>.<MIN>`.
    Any changes merged into that branch are automatically deployed.
+
+-->
 
 ## Copyright
 
