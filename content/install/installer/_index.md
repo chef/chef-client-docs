@@ -57,7 +57,7 @@ To install Chef Infra Client , follow these steps:
       curl -o "chef-ice-<VERSION>-linux.deb" "https://chefdownload-commercial.chef.io/stable/chef-ice/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=linux&pm=deb&v=<VERSION>"
       ```
 
-    Replace `x86_64` with `aarch64` for ARM platforms.
+    Replace `m=x86_64` in the url with `m=aarch64` for ARM distribution.
 
     {{< /accordion-item >}}
     {{< accordion-item accordion-title="Download RPM-based installer" >}}
@@ -76,7 +76,7 @@ To install Chef Infra Client , follow these steps:
       curl -o chef-ice-<VERSION>-linux.rpm "https://chefdownload-commercial.chef.io/stable/chef-ice/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=linux&pm=rpm&v=<VERSION>"
       ```
 
-    Replace `x86_64` with `aarch64` for ARM platforms.
+    Replace `m=x86_64` in the url with `m=aarch64` for ARM distribution.
 
     {{< /accordion-item >}}
     {{< accordion-item accordion-title="Download Windows installer" >}}
