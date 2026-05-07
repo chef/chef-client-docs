@@ -16,7 +16,7 @@ You can download and install the pre-built `.msi`, `.deb`, or `.rpm` packages us
 
 Chef Infra Client is supported on:
 
-- Currently supported Linux distributions and versions running Linux kernel 2.6.32 and later
+- Currently supported Linux distributions and versions running Linux kernel 2.6.32 and later on both x86-64 and ARM platforms.
 - Currently supported Windows versions greater than or equal to Windows 10
 
 ## Prerequisites
@@ -57,6 +57,8 @@ To install Chef Infra Client , follow these steps:
       curl -o "chef-ice-<VERSION>-linux.deb" "https://chefdownload-commercial.chef.io/stable/chef-ice/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=linux&pm=deb&v=<VERSION>"
       ```
 
+    Replace `x86_64` with `aarch64` for ARM platforms.
+
     {{< /accordion-item >}}
     {{< accordion-item accordion-title="Download RPM-based installer" >}}
 
@@ -73,6 +75,8 @@ To install Chef Infra Client , follow these steps:
       ```sh
       curl -o chef-ice-<VERSION>-linux.rpm "https://chefdownload-commercial.chef.io/stable/chef-ice/download?eol=false&license_id=<LICENSE_ID>&m=x86_64&p=linux&pm=rpm&v=<VERSION>"
       ```
+
+    Replace `x86_64` with `aarch64` for ARM platforms.
 
     {{< /accordion-item >}}
     {{< accordion-item accordion-title="Download Windows installer" >}}

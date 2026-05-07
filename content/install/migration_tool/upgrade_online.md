@@ -15,6 +15,7 @@ This page documents how to upgrade Chef Infra Client to version 19 in an online 
 Chef Infra Client is supported on:
 
 - Linux x86-64
+- Linux ARM
 - Windows x86-64
 
 ## Prerequisites
